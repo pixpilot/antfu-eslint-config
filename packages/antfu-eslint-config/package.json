@@ -1,0 +1,12 @@
+{
+  "name": "@antfu/eslint-config",
+  "type": "module",
+  "version": "5.0.0",
+  "exports": {
+    ".": "./index.js"
+  },
+  "main": "./index.js",
+  "dependencies": {
+    "@pixpilot/eslint-config": "workspace:*"
+  }
+}

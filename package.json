@@ -1,7 +1,7 @@
 {
   "name": "@pixpilot/eslint-config",
   "type": "module",
-  "version": "5.0.0",
+  "version": "1.0.0",
   "packageManager": "pnpm@10.13.1",
   "description": "Anthony's ESLint config",
   "author": "Anthony Fu <anthonyfu117@hotmail.com> (https://github.com/antfu/)",
@@ -51,13 +51,13 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "eslint-plugin-solid": "^0.14.3",
     "eslint-plugin-svelte": ">=2.35.1",
-    "eslint-plugin-vue": "catalog:prod",
+    "eslint-plugin-vue": "^10.3.0",
     "eslint-plugin-vuejs-accessibility": "^2.4.1",
-    "eslint-processor-vue-blocks": "catalog:prod",
+    "eslint-processor-vue-blocks": "^2.0.0",
     "prettier-plugin-astro": "^0.14.0",
     "prettier-plugin-slidev": "^1.0.5",
     "svelte-eslint-parser": ">=0.37.0",
-    "vue-eslint-parser": "catalog:prod"
+    "vue-eslint-parser": "^10.2.0"
   },
   "peerDependenciesMeta": {
     "@eslint-react/eslint-plugin": {
@@ -151,11 +151,18 @@
     "yaml-eslint-parser": "catalog:prod"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "workspace:*",
     "@antfu/ni": "catalog:dev",
     "@eslint-react/eslint-plugin": "catalog:peer",
     "@eslint/config-inspector": "catalog:dev",
     "@next/eslint-plugin-next": "catalog:peer",
     "@prettier/plugin-xml": "catalog:peer",
+    "@semantic-release/changelog": "catalog:dev",
+    "@semantic-release/commit-analyzer": "catalog:dev",
+    "@semantic-release/git": "catalog:dev",
+    "@semantic-release/github": "catalog:dev",
+    "@semantic-release/npm": "catalog:dev",
+    "@semantic-release/release-notes-generator": "catalog:dev",
     "@types/node": "catalog:dev",
     "@unocss/eslint-plugin": "catalog:peer",
     "astro-eslint-parser": "catalog:peer",
@@ -167,7 +174,9 @@
     "eslint-plugin-react-refresh": "catalog:peer",
     "eslint-plugin-solid": "catalog:peer",
     "eslint-plugin-svelte": "catalog:peer",
+    "eslint-plugin-vue": "catalog:peer",
     "eslint-plugin-vuejs-accessibility": "catalog:peer",
+    "eslint-processor-vue-blocks": "catalog:peer",
     "eslint-typegen": "catalog:dev",
     "execa": "catalog:dev",
     "jiti": "catalog:dev",
@@ -175,6 +184,7 @@
     "pnpm-workspace-yaml": "catalog:dev",
     "prettier-plugin-astro": "catalog:peer",
     "prettier-plugin-slidev": "catalog:peer",
+    "semantic-release": "catalog:dev",
     "simple-git-hooks": "catalog:dev",
     "svelte": "catalog:peer",
     "svelte-eslint-parser": "catalog:peer",
@@ -183,7 +193,8 @@
     "tsx": "catalog:dev",
     "typescript": "catalog:dev",
     "vitest": "catalog:dev",
-    "vue": "catalog:peer"
+    "vue": "catalog:peer",
+    "vue-eslint-parser": "catalog:peer"
   },
   "resolutions": {
     "eslint": "catalog:peer"
