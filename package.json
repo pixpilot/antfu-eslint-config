@@ -1,7 +1,7 @@
 {
   "name": "@pixpilot/eslint-config",
   "type": "module",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "packageManager": "pnpm@10.13.1",
   "description": "Anthony's ESLint config",
   "author": "Anthony Fu <anthonyfu117@hotmail.com> (https://github.com/antfu/)",

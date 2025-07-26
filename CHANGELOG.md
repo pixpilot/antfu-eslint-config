@@ -1,3 +1,13 @@
+# [2.0.0](https://github.com/pixpilot/eslint-config/compare/v1.0.0...v2.0.0) (2025-07-26)
+
+
+* feat!: trigger major release ([267321c](https://github.com/pixpilot/eslint-config/commit/267321cde0fc1f191f60c1959b66c1a10473655e))
+
+
+### BREAKING CHANGES
+
+* force major release
+
 # 1.0.0 (2025-07-26)
 
 
