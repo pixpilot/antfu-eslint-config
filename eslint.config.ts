@@ -28,4 +28,9 @@ export default antfu(
       'perfectionist/sort-objects': 'error',
     },
   },
+  {
+    rules: {
+      '@next/next/no-html-link-for-pages': 'off',
+    },
+  },
 )

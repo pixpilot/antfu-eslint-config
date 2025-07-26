@@ -1,19 +1,15 @@
 {
-  "name": "@antfu/eslint-config",
+  "name": "@pixpilot/eslint-config",
   "type": "module",
   "version": "5.0.0",
   "packageManager": "pnpm@10.13.1",
   "description": "Anthony's ESLint config",
   "author": "Anthony Fu <anthonyfu117@hotmail.com> (https://github.com/antfu/)",
   "license": "MIT",
-  "funding": "https://github.com/sponsors/antfu",
-  "homepage": "https://github.com/antfu/eslint-config",
+  "homepage": "https://github.com/pixpilot/eslint-config",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/antfu/eslint-config.git"
-  },
-  "bugs": {
-    "url": "https://github.com/antfu/eslint-config/issues"
+    "url": "git+https://github.com/pixpilot/eslint-config.git"
   },
   "keywords": [
     "eslint-config"
@@ -35,10 +31,10 @@
     "build:inspector": "pnpm build && npx @eslint/config-inspector build",
     "watch": "tsdown --watch",
     "lint": "eslint",
-    "gen": "tsx scripts/typegen.ts && tsx scripts/versiongen.ts",
+    "gen": "tsx scripts/typegen.ts",
     "prepack": "nr build",
-    "release": "bumpp && pnpm publish",
-    "test": "vitest",
+    "release": "semantic-release",
+    "test": "vitest --run",
     "typecheck": "tsc --noEmit",
     "prepare": "simple-git-hooks"
   },
@@ -55,10 +51,13 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "eslint-plugin-solid": "^0.14.3",
     "eslint-plugin-svelte": ">=2.35.1",
+    "eslint-plugin-vue": "catalog:prod",
     "eslint-plugin-vuejs-accessibility": "^2.4.1",
+    "eslint-processor-vue-blocks": "catalog:prod",
     "prettier-plugin-astro": "^0.14.0",
     "prettier-plugin-slidev": "^1.0.5",
-    "svelte-eslint-parser": ">=0.37.0"
+    "svelte-eslint-parser": ">=0.37.0",
+    "vue-eslint-parser": "catalog:prod"
   },
   "peerDependenciesMeta": {
     "@eslint-react/eslint-plugin": {
@@ -94,7 +93,13 @@
     "eslint-plugin-svelte": {
       "optional": true
     },
+    "eslint-plugin-vue": {
+      "optional": true
+    },
     "eslint-plugin-vuejs-accessibility": {
+      "optional": true
+    },
+    "eslint-processor-vue-blocks": {
       "optional": true
     },
     "prettier-plugin-astro": {
@@ -104,6 +109,9 @@
       "optional": true
     },
     "svelte-eslint-parser": {
+      "optional": true
+    },
+    "vue-eslint-parser": {
       "optional": true
     }
   },
@@ -134,19 +142,15 @@
     "eslint-plugin-toml": "catalog:prod",
     "eslint-plugin-unicorn": "catalog:prod",
     "eslint-plugin-unused-imports": "catalog:prod",
-    "eslint-plugin-vue": "catalog:prod",
     "eslint-plugin-yml": "catalog:prod",
-    "eslint-processor-vue-blocks": "catalog:prod",
     "globals": "catalog:prod",
     "jsonc-eslint-parser": "catalog:prod",
     "local-pkg": "catalog:prod",
     "parse-gitignore": "catalog:prod",
     "toml-eslint-parser": "catalog:prod",
-    "vue-eslint-parser": "catalog:prod",
     "yaml-eslint-parser": "catalog:prod"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "workspace:*",
     "@antfu/ni": "catalog:dev",
     "@eslint-react/eslint-plugin": "catalog:peer",
     "@eslint/config-inspector": "catalog:dev",

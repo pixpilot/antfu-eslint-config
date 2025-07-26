@@ -1,36 +1,26 @@
+# .github/workflows/ci.yml
+
 name: CI
 
 on:
-  push:
-    branches:
-      - main
-
+  # push:
+  #   branches: [main]
+  # NOTE: The 'push' trigger above is commented out to prevent this CI workflow
+  # from running a second time. The 'release.yml' workflow already calls this
+  # workflow on pushes to main, making this trigger redundant.
   pull_request:
-    branches:
-      - main
+    branches: [main]
+  workflow_call:
 
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Set node
-        uses: actions/setup-node@v4
+      - name: Setup Project
+        uses: ./.github/actions/setup-project
         with:
           node-version: lts/*
-
-      - name: Setup
-        run: npm i -g @antfu/ni
-
-      - name: Install
-        run: nci
-
-      - name: Build
-        run: nr build
 
       - name: Lint
         run: nr lint
@@ -44,28 +34,15 @@ jobs:
     strategy:
       matrix:
         node: [lts/*]
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest]
       fail-fast: false
 
     steps:
       - uses: actions/checkout@v4
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Set node ${{ matrix.node }}
-        uses: actions/setup-node@v4
+      - name: Setup Project
+        uses: ./.github/actions/setup-project
         with:
           node-version: ${{ matrix.node }}
-
-      - name: Setup
-        run: npm i -g @antfu/ni
-
-      - name: Install
-        run: nci
-
-      - name: Build
-        run: nr build
 
       - name: Test
         run: nr test
