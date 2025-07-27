@@ -155,7 +155,6 @@
     "yaml-eslint-parser": "catalog:prod"
   },
   "devDependencies": {
-    "@anolilab/semantic-release-pnpm": "catalog:dev",
     "@antfu/eslint-config": "workspace:*",
     "@antfu/ni": "catalog:dev",
     "@eslint-react/eslint-plugin": "catalog:peer",
@@ -164,9 +163,9 @@
     "@prettier/plugin-xml": "catalog:peer",
     "@semantic-release/changelog": "catalog:dev",
     "@semantic-release/commit-analyzer": "catalog:dev",
+    "@semantic-release/exec": "catalog:dev",
     "@semantic-release/git": "catalog:dev",
     "@semantic-release/github": "catalog:dev",
-    "@semantic-release/npm": "catalog:dev",
     "@semantic-release/release-notes-generator": "catalog:dev",
     "@types/eslint-plugin-jsx-a11y": "catalog:dev",
     "@types/node": "catalog:dev",
