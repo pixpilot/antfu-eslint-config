@@ -19,12 +19,11 @@ export default {
       },
     ],
     [
-      '@semantic-release/npm',
+      '@anolilab/semantic-release-pnpm',
       {
         npmPublish: true,
         pkgRoot: '.',
         tarballDir: 'dist',
-        publishCmd: 'pnpm publish --access public',
       },
     ],
     [

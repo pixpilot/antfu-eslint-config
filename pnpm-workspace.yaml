@@ -9,6 +9,7 @@ overrides:
   tsx: ^4.20.3
 catalogs:
   dev:
+    '@anolilab/semantic-release-pnpm': ^2.0.2
     '@antfu/ni': ^25.0.0
     '@eslint/config-inspector': ^1.1.0
     '@semantic-release/changelog': ^6.0.3
