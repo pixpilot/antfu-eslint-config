@@ -202,9 +202,6 @@
     "vue": "catalog:peer",
     "vue-eslint-parser": "catalog:peer"
   },
-  "resolutions": {
-    "eslint": "catalog:peer"
-  },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
   },
