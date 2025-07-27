@@ -1,3 +1,13 @@
+## [2.0.1](https://github.com/pixpilot/eslint-config/compare/v2.0.0...v2.0.1) (2025-07-27)
+
+
+### Bug Fixes
+
+* **release:** fix package.json on release ([061a942](https://github.com/pixpilot/eslint-config/commit/061a942216bcfcd27d07203e846a9a3483e6fa83))
+* **release:** replace '@anolilab/semantic-release-pnpm' with '@semantic-release/exec' ([d11b406](https://github.com/pixpilot/eslint-config/commit/d11b40635dcd74335a20000b4ddce559b14866ba))
+* **release:** update semantic-release configuration and dependencies ([b3927c4](https://github.com/pixpilot/eslint-config/commit/b3927c4008d1904510f8daa2724a32c5d85c274c))
+* update semantic-release ([d4cf4d1](https://github.com/pixpilot/eslint-config/commit/d4cf4d161d8f78c3cc57f9edbda2ff21bfa9982e))
+
 # [2.0.0](https://github.com/pixpilot/eslint-config/compare/v1.0.0...v2.0.0) (2025-07-26)
 
 
