@@ -155,6 +155,7 @@
     "yaml-eslint-parser": "catalog:prod"
   },
   "devDependencies": {
+    "@anolilab/semantic-release-pnpm": "catalog:dev",
     "@antfu/eslint-config": "workspace:*",
     "@antfu/ni": "catalog:dev",
     "@eslint-react/eslint-plugin": "catalog:peer",
