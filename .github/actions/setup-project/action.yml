@@ -33,9 +33,9 @@ runs:
       shell: bash
 
     - name: Install dependencies
-      run: pnpm install
+      run: ni
       shell: bash
 
     - name: Build package
-      run: pnpm run build
+      run: nr build
       shell: bash
