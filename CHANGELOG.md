@@ -1,3 +1,10 @@
+# [2.1.0-rc.5](https://github.com/pixpilot/eslint-config/compare/v2.1.0-rc.4...v2.1.0-rc.5) (2025-07-27)
+
+
+### Bug Fixes
+
+* **release:** replace '@anolilab/semantic-release-pnpm' with '@semantic-release/exec' ([d11b406](https://github.com/pixpilot/eslint-config/commit/d11b40635dcd74335a20000b4ddce559b14866ba))
+
 # [2.1.0-rc.4](https://github.com/pixpilot/eslint-config/compare/v2.1.0-rc.3...v2.1.0-rc.4) (2025-07-27)
 
 
