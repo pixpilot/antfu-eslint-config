@@ -19,11 +19,12 @@ export default {
       },
     ],
     [
-      '@anolilab/semantic-release-pnpm',
+      '@semantic-release/exec',
       {
-        npmPublish: true,
-        pkgRoot: '.',
-        tarballDir: 'dist',
+        // https://github.com/semantic-release/npm/issues/280
+        // eslint-disable-next-line no-template-curly-in-string
+        prepareCmd: 'pnpm version ${nextRelease.version} --git-tag-version=false',
+        publishCmd: 'pnpm publish --no-git-checks',
       },
     ],
     [
