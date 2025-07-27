@@ -18,7 +18,15 @@ export default {
         changelogFile: 'CHANGELOG.md',
       },
     ],
-    '@semantic-release/npm',
+    [
+      '@semantic-release/npm',
+      {
+        npmPublish: true,
+        pkgRoot: '.',
+        tarballDir: 'dist',
+        publishCmd: 'pnpm publish --access public',
+      },
+    ],
     [
       '@semantic-release/git',
       {
