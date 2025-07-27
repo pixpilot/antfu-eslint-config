@@ -163,6 +163,7 @@
     "@semantic-release/github": "catalog:dev",
     "@semantic-release/npm": "catalog:dev",
     "@semantic-release/release-notes-generator": "catalog:dev",
+    "@types/eslint-plugin-jsx-a11y": "catalog:dev",
     "@types/node": "catalog:dev",
     "@unocss/eslint-plugin": "catalog:peer",
     "astro-eslint-parser": "catalog:peer",
@@ -170,6 +171,7 @@
     "eslint": "catalog:peer",
     "eslint-plugin-astro": "catalog:peer",
     "eslint-plugin-format": "catalog:peer",
+    "eslint-plugin-jsx-a11y": "catalog:peer",
     "eslint-plugin-react-hooks": "catalog:peer",
     "eslint-plugin-react-refresh": "catalog:peer",
     "eslint-plugin-solid": "catalog:peer",
@@ -195,9 +197,6 @@
     "vitest": "catalog:dev",
     "vue": "catalog:peer",
     "vue-eslint-parser": "catalog:peer"
-  },
-  "resolutions": {
-    "eslint": "catalog:peer"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
