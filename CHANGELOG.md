@@ -1,3 +1,10 @@
+# [2.1.0-rc.2](https://github.com/pixpilot/eslint-config/compare/v2.1.0-rc.1...v2.1.0-rc.2) (2025-07-27)
+
+
+### Bug Fixes
+
+* **release:** fix package.json on release ([061a942](https://github.com/pixpilot/eslint-config/commit/061a942216bcfcd27d07203e846a9a3483e6fa83))
+
 # [2.1.0-rc.1](https://github.com/pixpilot/eslint-config/compare/v2.0.0...v2.1.0-rc.1) (2025-07-27)
 
 
