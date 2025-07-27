@@ -1,3 +1,10 @@
+# [2.1.0-rc.1](https://github.com/pixpilot/eslint-config/compare/v2.0.0...v2.1.0-rc.1) (2025-07-27)
+
+
+### Features
+
+* add accessibility rules for JSX with eslint-plugin-jsx-a11y ([2c8eee3](https://github.com/pixpilot/eslint-config/commit/2c8eee357e1352959d77e2a35fd4faa39e52ea8a))
+
 # [2.0.0](https://github.com/pixpilot/eslint-config/compare/v1.0.0...v2.0.0) (2025-07-26)
 
 
