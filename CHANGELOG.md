@@ -1,3 +1,10 @@
+# [2.1.0-rc.3](https://github.com/pixpilot/eslint-config/compare/v2.1.0-rc.2...v2.1.0-rc.3) (2025-07-27)
+
+
+### Bug Fixes
+
+* update semantic-release ([d4cf4d1](https://github.com/pixpilot/eslint-config/commit/d4cf4d161d8f78c3cc57f9edbda2ff21bfa9982e))
+
 # [2.1.0-rc.2](https://github.com/pixpilot/eslint-config/compare/v2.1.0-rc.1...v2.1.0-rc.2) (2025-07-27)
 
 
