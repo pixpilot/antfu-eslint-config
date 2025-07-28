@@ -1,3 +1,10 @@
+# [2.1.0-rc.6](https://github.com/pixpilot/eslint-config/compare/v2.1.0-rc.5...v2.1.0-rc.6) (2025-07-28)
+
+
+### Features
+
+* **OptionsJSX:** add documentation for enabling JSX accessibility rules ([c3b6fbc](https://github.com/pixpilot/eslint-config/commit/c3b6fbc2635b2af2cf133375ed5d5a2d5f167cfd))
+
 # [2.1.0-rc.5](https://github.com/pixpilot/eslint-config/compare/v2.1.0-rc.4...v2.1.0-rc.5) (2025-07-27)
 
 
