@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/pixpilot/eslint-config/compare/v2.1.0...v2.2.0) (2025-07-29)
+
+
+### Features
+
+* trigger semantic release with empty commit ([a4cbebb](https://github.com/pixpilot/eslint-config/commit/a4cbebbfa1983ef6abb35c8bc43ce359dc0497e1))
+
 # [2.1.0](https://github.com/pixpilot/eslint-config/compare/v2.0.1...v2.1.0) (2025-07-29)
 
 
