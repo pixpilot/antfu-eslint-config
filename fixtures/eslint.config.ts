@@ -9,14 +9,10 @@ export default antfu(
     solid: true,
     svelte: true,
     astro: true,
-    nextjs: true,
     typescript: true,
     formatters: true,
     pnpm: true,
     type: 'lib',
-    jsx: {
-      a11y: true,
-    },
   },
   {
     ignores: [
@@ -29,11 +25,6 @@ export default antfu(
     files: ['src/**/*.ts'],
     rules: {
       'perfectionist/sort-objects': 'error',
-    },
-  },
-  {
-    rules: {
-      '@next/next/no-html-link-for-pages': 'off',
     },
   },
 )
