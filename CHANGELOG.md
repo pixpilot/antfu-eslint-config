@@ -1,3 +1,10 @@
+## [3.0.3](https://github.com/pixpilot/antfu-eslint-config/compare/v3.0.2...v3.0.3) (2025-08-10)
+
+
+### Bug Fixes
+
+* **package:** update homepage and repository URLs ([41b4ed4](https://github.com/pixpilot/antfu-eslint-config/commit/41b4ed407fbfa025be3b551a9bab9b36b42a4dbf))
+
 ## [3.0.2](https://github.com/pixpilot/eslint-config/compare/v3.0.1...v3.0.2) (2025-08-10)
 
 
