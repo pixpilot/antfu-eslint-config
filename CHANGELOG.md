@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/pixpilot/eslint-config/compare/v3.0.0...v3.0.1) (2025-08-10)
+
+
+### Bug Fixes
+
+* **readme:** correct punctuation in fork notice ([bd79a3b](https://github.com/pixpilot/eslint-config/commit/bd79a3b61cd3a058bc1a3c9c9cb943e1ac8bf236))
+
 # [3.0.0](https://github.com/pixpilot/eslint-config/compare/v2.2.0...v3.0.0) (2025-08-10)
 
 
