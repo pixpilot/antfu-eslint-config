@@ -4,7 +4,7 @@
 > This repository is a fork of [@antfu/eslint-config](https://github.com/antfu/eslint-config).
 >
 > **Reason for Fork:**
-> The main purpose of this fork is to move Vue-related dependencies to `peerDependencies`, making this library more generic and suitable for any project—whether it is a library, React, Vue, or others. Only essential libraries are included as dependencies; framework-specific integrations should be added as peer dependencies by the consumer as needed.
+> The main purpose of this fork is to move Vue-related dependencies to `peerDependencies`; making this library more generic and suitable for any project—whether it is a library, React, Vue, or others. Only essential libraries are included as dependencies; framework-specific integrations should be added as peer dependencies by the consumer as needed.
 
 [![npm](https://img.shields.io/npm/v/@pixpilot/antfu-eslint-config?color=444&label=)](https://npmjs.com/package/@pixpilot/antfu-eslint-config)
 
