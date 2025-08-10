@@ -614,15 +614,54 @@ To enable React support, you need to explicitly turn it on:
 import antfu from '@antfu/eslint-config'
 
 export default antfu({
-  react: true,
+  react: true, // uses @eslint-react/eslint-plugin by default
 })
 ```
 
-Running `npx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually:
+#### React Plugin Options
+
+You can choose between two React ESLint plugins:
+
+- **`@eslint-react/eslint-plugin`** (default, recommended) - Modern React plugin with comprehensive rules
+- **`eslint-plugin-react`** (legacy) - Traditional React plugin for compatibility
+
+```js
+// eslint.config.js
+import antfu from '@antfu/eslint-config'
+
+// Default: Modern React plugin
+export default antfu({
+  react: {
+    package: '@eslint-react/eslint-plugin', // default, modern React plugin
+  },
+})
+```
+
+```js
+// eslint.config.js
+import antfu from '@antfu/eslint-config'
+
+// Alternative: Legacy React plugin for compatibility
+export default antfu({
+  react: {
+    package: 'eslint-plugin-react', // legacy React plugin
+  },
+})
+```
+
+**Default (@eslint-react/eslint-plugin):**
 
 ```bash
 npm i -D @eslint-react/eslint-plugin eslint-plugin-react-hooks eslint-plugin-react-refresh
 ```
+
+**Legacy (eslint-plugin-react):**
+
+```bash
+npm i -D eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh
+```
+
+Running `npx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually.
 
 #### Next.js
 

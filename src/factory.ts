@@ -227,6 +227,7 @@ export function antfu(
   if (enableReact) {
     configs.push(react({
       ...typescriptOptions,
+      ...resolveSubOptions(options, 'react'),
       overrides: getOverrides(options, 'react'),
       tsconfigPath,
     }))

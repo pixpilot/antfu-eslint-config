@@ -82,6 +82,17 @@ export interface OptionsJSX {
   a11y?: boolean | OptionsJSXA11y
 }
 
+export interface OptionsReact extends OptionsOverrides {
+  /**
+   * Which React ESLint plugin to use.
+   *
+   * - `@eslint-react/eslint-plugin` - Modern React plugin with better rules (default)
+   * - `eslint-plugin-react` - Legacy React plugin for compatibility
+   * @default '@eslint-react/eslint-plugin'
+   */
+  package?: '@eslint-react/eslint-plugin' | 'eslint-plugin-react'
+}
+
 export type OptionsTypescript
   = (OptionsTypeScriptWithTypes & OptionsOverrides)
     | (OptionsTypeScriptParserOptions & OptionsOverrides)
@@ -396,13 +407,13 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
    * Enable react rules.
    *
    * Requires installing:
-   * - `@eslint-react/eslint-plugin`
+   * - `@eslint-react/eslint-plugin` (default) or `eslint-plugin-react` (legacy)
    * - `eslint-plugin-react-hooks`
    * - `eslint-plugin-react-refresh`
    *
    * @default false
    */
-  react?: boolean | OptionsOverrides
+  react?: boolean | OptionsReact
 
   /**
    * Enable nextjs rules.
