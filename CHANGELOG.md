@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/pixpilot/eslint-config/compare/v3.0.1...v3.0.2) (2025-08-10)
+
+
+### Bug Fixes
+
+* **publish:** configure package as public for npm publishing ([16f30be](https://github.com/pixpilot/eslint-config/commit/16f30be258ac1f9fb0a280461c5a459f7dfddc2a))
+
 ## [3.0.1](https://github.com/pixpilot/eslint-config/compare/v3.0.0...v3.0.1) (2025-08-10)
 
 
