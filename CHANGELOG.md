@@ -1,3 +1,18 @@
+# [3.0.0](https://github.com/pixpilot/eslint-config/compare/v2.2.0...v3.0.0) (2025-08-10)
+
+
+* feat!: force major release ([eb158e0](https://github.com/pixpilot/eslint-config/commit/eb158e016ec685d7f2edd608b3e231c2a6c52cc1))
+
+
+### Bug Fixes
+
+* **package:** update version to 2.2.0 ([7a03322](https://github.com/pixpilot/eslint-config/commit/7a03322ba470c1ad2a18fe66554884d05fd575aa))
+
+
+### BREAKING CHANGES
+
+* Force new major version release
+
 # [2.2.0](https://github.com/pixpilot/eslint-config/compare/v2.1.0...v2.2.0) (2025-07-29)
 
 
