@@ -1,21 +1,21 @@
 # Package Name Fork Solution
 
-This document explains how to maintain test compatibility when forking `@antfu/eslint-config` and changing the package name to `@pixpilot/eslint-config`.
+This document explains how to maintain test compatibility when forking `@antfu/eslint-config` and changing the package name to `@pixpilot/antfu-eslint-config`.
 
 ## Problem
 
-When you fork the original `@antfu/eslint-config` repository and change the package name in `package.json` to `@pixpilot/eslint-config`, the test fixtures fail because they still import `@antfu/eslint-config`.
+When you fork the original `@antfu/eslint-config` repository and change the package name in `package.json` to `@pixpilot/antfu-eslint-config`, the test fixtures fail because they still import `@antfu/eslint-config`.
 
 ## Solution: Workspace Package Alias
 
-Instead of changing all test references (which would make merging upstream changes difficult), we create a **workspace package** that acts as an alias, redirecting `@antfu/eslint-config` imports to our local `@pixpilot/eslint-config` build.
+Instead of changing all test references (which would make merging upstream changes difficult), we create a **workspace package** that acts as an alias, redirecting `@antfu/eslint-config` imports to our local `@pixpilot/antfu-eslint-config` build.
 
 ### How It Works
 
-1. **Main package**: Your `@pixpilot/eslint-config` builds to `dist/`
+1. **Main package**: Your `@pixpilot/antfu-eslint-config` builds to `dist/`
 2. **Workspace alias**: `packages/antfu-eslint-config/` contains a package named `@antfu/eslint-config` that re-exports your main package
 3. **PNPM workspace**: Both packages are part of the same workspace with `@antfu/eslint-config: workspace:*` dependency
-4. **Tests work**: Test fixtures import `@antfu/eslint-config` but get your `@pixpilot/eslint-config` code
+4. **Tests work**: Test fixtures import `@antfu/eslint-config` but get your `@pixpilot/antfu-eslint-config` code
 
 ### File Structure
 
@@ -24,10 +24,10 @@ eslint-config/
 ├── packages/
 │   └── antfu-eslint-config/
 │       ├── package.json          # {"name": "@antfu/eslint-config"}
-│       └── index.js              # Re-exports @pixpilot/eslint-config
+│       └── index.js              # Re-exports @pixpilot/antfu-eslint-config
 ├── pnpm-workspace.yaml           # includes "packages/*"
 ├── package.json                  # "@antfu/eslint-config": "workspace:*"
-└── dist/                         # Your built @pixpilot/eslint-config
+└── dist/                         # Your built @pixpilot/antfu-eslint-config
 ```
 
 ### Setup
@@ -80,7 +80,7 @@ packages:
 {
   "name": "@antfu/eslint-config",
   "dependencies": {
-    "@pixpilot/eslint-config": "workspace:*"
+    "@pixpilot/antfu-eslint-config": "workspace:*"
   }
 }
 ```
@@ -88,8 +88,8 @@ packages:
 **Alias index.js:**
 
 ```javascript
-export * from '@pixpilot/eslint-config'
-export { default } from '@pixpilot/eslint-config'
+export * from '@pixpilot/antfu-eslint-config'
+export { default } from '@pixpilot/antfu-eslint-config'
 ```
 
 ### Integration with CI/CD

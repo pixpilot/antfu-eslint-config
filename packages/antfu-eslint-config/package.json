@@ -7,6 +7,6 @@
   },
   "main": "./index.js",
   "dependencies": {
-    "@pixpilot/eslint-config": "workspace:*"
+    "@pixpilot/antfu-eslint-config": "workspace:*"
   }
 }

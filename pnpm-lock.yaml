@@ -489,7 +489,7 @@ importers:
 
   packages/antfu-eslint-config:
     dependencies:
-      '@pixpilot/eslint-config':
+      '@pixpilot/antfu-eslint-config':
         specifier: workspace:*
         version: link:../..
 

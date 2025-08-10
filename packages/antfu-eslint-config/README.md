@@ -7,15 +7,15 @@ This package exists solely to provide a workspace alias for `@antfu/eslint-confi
 ## Why does this exist?
 
 - The upstream project uses `@antfu/eslint-config` everywhere (including in test fixtures and configs).
-- In this fork, the main package is renamed to `@pixpilot/eslint-config`.
+- In this fork, the main package is renamed to `@pixpilot/antfu-eslint-config`.
 - To avoid changing all test/config imports (which would make merging upstream changes difficult), we create this workspace package.
-- This package simply re-exports everything from `@pixpilot/eslint-config`.
+- This package simply re-exports everything from `@pixpilot/antfu-eslint-config`.
 - This allows all code/tests that import `@antfu/eslint-config` to work as expected, while keeping the fork as close to upstream as possible.
 
 ## How does it work?
 
 - This package is included in the workspace and listed as a devDependency using `workspace:*`.
-- The `index.js` file re-exports everything from `@pixpilot/eslint-config`.
+- The `index.js` file re-exports everything from `@pixpilot/antfu-eslint-config`.
 - When code or tests import `@antfu/eslint-config`, they transparently get the forked config.
 
 ## When should you touch this?
