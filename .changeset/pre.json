@@ -2,11 +2,13 @@
   "mode": "pre",
   "tag": "rc",
   "initialVersions": {
-    "@antfu/eslint-config": "5.0.0"
+    "@antfu/eslint-config": "5.0.0",
+    "@pixpilot/antfu-eslint-config": "4.0.1"
   },
   "changesets": [
     "auto-generated-at-1755634368077",
     "auto-generated-at-1755634368078",
-    "open-trams-talk"
+    "open-trams-talk",
+    "tough-kiwis-wash"
   ]
 }
