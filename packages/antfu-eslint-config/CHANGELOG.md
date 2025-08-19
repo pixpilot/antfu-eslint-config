@@ -1,5 +1,15 @@
 # @antfu/eslint-config
 
+## 5.0.1
+
+### Patch Changes
+
+- 02291cf: add 'src' directory to pnpm workspace packages
+- 02291cf: update pnpm workspace dependencies and remove semantic-release configuration
+- 925c5d7: test
+- Updated dependencies [e57b900]
+  - @pixpilot/antfu-eslint-config@4.0.2
+
 ## 5.0.1-rc.0
 
 ### Patch Changes
