@@ -1,3 +1,10 @@
+## [4.0.1](https://github.com/pixpilot/antfu-eslint-config/compare/v4.0.0...v4.0.1) (2025-08-19)
+
+
+### Bug Fixes
+
+* **release:** update Node.js setup and publish step ([ee37b85](https://github.com/pixpilot/antfu-eslint-config/commit/ee37b85c8a3dcd7ca9aa364c897272fbade5f0e3))
+
 # [4.0.0](https://github.com/pixpilot/antfu-eslint-config/compare/v3.0.3...v4.0.0) (2025-08-19)
 
 
