@@ -27,7 +27,7 @@ jobs:
   #     NPM_TOKEN:              Your npm publish token
   # ======================================================================
   release-protected:
-    uses: pixpilot/dev-config/.github/workflows/semantic-release-protected-branch.yml@main
+    uses: pixpilot/github-actions/semantic-release-protected-branch@main
     needs: ci
     secrets:
       RELEASER_ID: ${{ secrets.RELEASER_ID }}
