@@ -1,5 +1,11 @@
 ## [4.0.1](https://github.com/pixpilot/antfu-eslint-config/compare/v4.0.0...v4.0.1) (2025-08-19)
 
+## 4.0.2
+
+### Patch Changes
+
+- e57b900: test
+
 ## 4.0.2-rc.0
 
 ### Patch Changes
