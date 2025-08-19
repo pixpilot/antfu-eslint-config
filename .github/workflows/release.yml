@@ -46,7 +46,7 @@ jobs:
       - name: Setup project
         uses: ./.github/actions/setup-project
 
-      - uses: pixpilot/github/actions/semantic-release-protected-branch@main
+      - uses: pixpilot/github-actions/semantic-release-protected-branch@main
         with:
           GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
           USER_ID: ${{ steps.generate_token.outputs.user-id }}
