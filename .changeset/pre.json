@@ -5,6 +5,8 @@
     "@antfu/eslint-config": "5.0.0"
   },
   "changesets": [
+    "auto-generated-at-1755634368077",
+    "auto-generated-at-1755634368078",
     "open-trams-talk"
   ]
 }
