@@ -1,3 +1,16 @@
+# [4.0.0](https://github.com/pixpilot/antfu-eslint-config/compare/v3.0.3...v4.0.0) (2025-08-19)
+
+
+### Bug Fixes
+
+* **release:** correct action reference for semantic release ([a1adf4b](https://github.com/pixpilot/antfu-eslint-config/commit/a1adf4be1ea0fb6c295440fb8a7f776383adf3bc))
+* **release:** update action reference for semantic release ([ca90c69](https://github.com/pixpilot/antfu-eslint-config/commit/ca90c69028303d2c8aa6e3ecf0573111ac2ce9e1))
+
+
+### Features
+
+* **release:** refactor release job to use generated bot token ([47070ac](https://github.com/pixpilot/antfu-eslint-config/commit/47070ac00c3567582f470ee352f14e6d42f9c468))
+
 ## [3.0.3](https://github.com/pixpilot/antfu-eslint-config/compare/v3.0.2...v3.0.3) (2025-08-10)
 
 
