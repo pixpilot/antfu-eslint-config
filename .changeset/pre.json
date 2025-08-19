@@ -1,0 +1,10 @@
+{
+  "mode": "pre",
+  "tag": "rc",
+  "initialVersions": {
+    "@antfu/eslint-config": "5.0.0"
+  },
+  "changesets": [
+    "open-trams-talk"
+  ]
+}
