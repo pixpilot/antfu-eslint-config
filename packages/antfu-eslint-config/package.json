@@ -2,6 +2,7 @@
   "name": "@antfu/eslint-config",
   "type": "module",
   "version": "5.0.0",
+  "private": true,
   "exports": {
     ".": "./index.js"
   },

@@ -1,7 +1,7 @@
 packages:
+  - .
   - fixtures/*
   - packages/*
-  - src
 overrides:
   '@eslint-community/eslint-utils': ^4.7.0
   '@typescript-eslint/types': ^8.38.0
