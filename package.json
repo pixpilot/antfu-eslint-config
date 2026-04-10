@@ -37,6 +37,7 @@
     "gen": "tsx scripts/typegen.ts",
     "prepack": "nr build",
     "release": "semantic-release",
+    "pretest": "nr build",
     "test": "vitest --run",
     "typecheck": "tsc --noEmit",
     "prepare": "simple-git-hooks",
