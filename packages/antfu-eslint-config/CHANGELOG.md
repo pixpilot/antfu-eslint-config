@@ -1,5 +1,12 @@
 # @antfu/eslint-config
 
+## 5.0.3
+
+### Patch Changes
+
+- Updated dependencies [582aaae]
+  - @pixpilot/antfu-eslint-config@4.0.4
+
 ## 5.0.2
 
 ### Patch Changes
