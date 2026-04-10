@@ -96,7 +96,7 @@ export async function svelte(
               'svelte/derived-has-same-inputs-outputs': 'error',
               'svelte/html-closing-bracket-spacing': 'error',
               'svelte/html-quotes': ['error', { prefer: quotes === 'backtick' ? 'double' : quotes }],
-              'svelte/indent': ['error', { alignAttributesVertically: true, indent }],
+              'svelte/indent': ['error', { alignAttributesVertically: true, indent: indent as number | 'tab' }],
               'svelte/mustache-spacing': 'error',
               'svelte/no-spaces-around-equal-signs-in-attribute': 'error',
               'svelte/no-trailing-spaces': 'error',

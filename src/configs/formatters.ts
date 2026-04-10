@@ -10,7 +10,7 @@ import { StylisticConfigDefaults } from './stylistic'
 function mergePrettierOptions(
   options: VendoredPrettierOptions,
   overrides: VendoredPrettierRuleOptions = {},
-): VendoredPrettierRuleOptions {
+): VendoredPrettierRuleOptions & { parser: string } {
   return {
     ...options,
     ...overrides,
@@ -18,7 +18,7 @@ function mergePrettierOptions(
       ...(overrides.plugins || []),
       ...(options.plugins || []),
     ],
-  }
+  } as VendoredPrettierRuleOptions & { parser: string }
 }
 
 export async function formatters(
