@@ -11,7 +11,7 @@ overrides:
 catalogs:
   dev:
     '@antfu/ni': ^25.0.0
-    '@changesets/cli': ^2.30.0
+    '@changesets/cli': ^2.31.0
     '@eslint/config-inspector': ^1.5.0
     '@types/eslint-plugin-jsx-a11y': ^6.10.1
     '@types/node': ^24.12.2
