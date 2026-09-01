@@ -205,7 +205,7 @@ export interface RuleOptions {
   'angular/pipe-prefix'?: Linter.RuleEntry<AngularPipePrefix>;
   'angular/prefer-host-metadata-property'?: Linter.RuleEntry<[]>;
   'angular/prefer-inject'?: Linter.RuleEntry<[]>;
-  'angular/prefer-on-push-component-change-detection'?: Linter.RuleEntry<[]>;
+  'angular/prefer-on-push-component-change-detection'?: Linter.RuleEntry<AngularPreferOnPushComponentChangeDetection>;
   'angular/prefer-output-emitter-ref'?: Linter.RuleEntry<[]>;
   'angular/prefer-output-readonly'?: Linter.RuleEntry<[]>;
   'angular/prefer-service-decorator'?: Linter.RuleEntry<[]>;
@@ -352,6 +352,7 @@ export interface RuleOptions {
   'eol-last'?: Linter.RuleEntry<EolLast>;
   'eqeqeq'?: Linter.RuleEntry<Eqeqeq>;
   'erasable-syntax-only/enums'?: Linter.RuleEntry<[]>;
+  'erasable-syntax-only/export-aliases'?: Linter.RuleEntry<[]>;
   'erasable-syntax-only/import-aliases'?: Linter.RuleEntry<[]>;
   'erasable-syntax-only/namespaces'?: Linter.RuleEntry<[]>;
   'erasable-syntax-only/parameter-properties'?: Linter.RuleEntry<[]>;
@@ -428,6 +429,7 @@ export interface RuleOptions {
   'jsdoc/no-restricted-syntax'?: Linter.RuleEntry<JsdocNoRestrictedSyntax>;
   'jsdoc/no-types'?: Linter.RuleEntry<JsdocNoTypes>;
   'jsdoc/no-undefined-types'?: Linter.RuleEntry<JsdocNoUndefinedTypes>;
+  'jsdoc/no-unnecessary-type-assertion'?: Linter.RuleEntry<JsdocNoUnnecessaryTypeAssertion>;
   'jsdoc/normalize-see-links'?: Linter.RuleEntry<JsdocNormalizeSeeLinks>;
   'jsdoc/prefer-import-tag'?: Linter.RuleEntry<JsdocPreferImportTag>;
   'jsdoc/reject-any-type'?: Linter.RuleEntry<[]>;
@@ -753,7 +755,7 @@ export interface RuleOptions {
   'no-undefined'?: Linter.RuleEntry<[]>;
   'no-underscore-dangle'?: Linter.RuleEntry<NoUnderscoreDangle>;
   'no-unexpected-multiline'?: Linter.RuleEntry<[]>;
-  'no-unmodified-loop-condition'?: Linter.RuleEntry<[]>;
+  'no-unmodified-loop-condition'?: Linter.RuleEntry<NoUnmodifiedLoopCondition>;
   'no-unneeded-ternary'?: Linter.RuleEntry<NoUnneededTernary>;
   'no-unreachable'?: Linter.RuleEntry<[]>;
   'no-unreachable-loop'?: Linter.RuleEntry<NoUnreachableLoop>;
@@ -818,7 +820,9 @@ export interface RuleOptions {
   'node/prefer-global/timers'?: Linter.RuleEntry<NodePreferGlobalTimers>;
   'node/prefer-global/url'?: Linter.RuleEntry<NodePreferGlobalUrl>;
   'node/prefer-global/url-search-params'?: Linter.RuleEntry<NodePreferGlobalUrlSearchParams>;
+  'node/prefer-import/assert-strict'?: Linter.RuleEntry<[]>;
   'node/prefer-node-protocol'?: Linter.RuleEntry<NodePreferNodeProtocol>;
+  'node/prefer-process-get-builtin-module'?: Linter.RuleEntry<NodePreferProcessGetBuiltinModule>;
   'node/prefer-promises/dns'?: Linter.RuleEntry<[]>;
   'node/prefer-promises/fs'?: Linter.RuleEntry<[]>;
   'node/process-exit-as-throw'?: Linter.RuleEntry<[]>;
@@ -1121,19 +1125,30 @@ export interface RuleOptions {
   'solid/jsx-no-script-url'?: Linter.RuleEntry<[]>;
   'solid/jsx-no-undef'?: Linter.RuleEntry<SolidJsxNoUndef>;
   'solid/jsx-uses-vars'?: Linter.RuleEntry<[]>;
+  'solid/no-accessor-as-prop'?: Linter.RuleEntry<[]>;
   'solid/no-array-handlers'?: Linter.RuleEntry<[]>;
+  'solid/no-browser-globals-in-server-function'?: Linter.RuleEntry<[]>;
   'solid/no-destructure'?: Linter.RuleEntry<[]>;
   'solid/no-innerhtml'?: Linter.RuleEntry<SolidNoInnerhtml>;
+  'solid/no-invalid-server-capture'?: Linter.RuleEntry<[]>;
+  'solid/no-module-scope-reactive-primitive'?: Linter.RuleEntry<[]>;
   'solid/no-proxy-apis'?: Linter.RuleEntry<[]>;
   'solid/no-react-deps'?: Linter.RuleEntry<[]>;
   'solid/no-react-specific-props'?: Linter.RuleEntry<[]>;
+  'solid/no-restated-default-options'?: Linter.RuleEntry<[]>;
+  'solid/no-single-arg-create-effect'?: Linter.RuleEntry<[]>;
   'solid/no-unknown-namespaces'?: Linter.RuleEntry<SolidNoUnknownNamespaces>;
   'solid/prefer-classlist'?: Linter.RuleEntry<SolidPreferClasslist>;
   'solid/prefer-for'?: Linter.RuleEntry<[]>;
+  'solid/prefer-onSettled-for-side-effects'?: Linter.RuleEntry<[]>;
   'solid/prefer-show'?: Linter.RuleEntry<[]>;
+  'solid/prefer-structured-class'?: Linter.RuleEntry<[]>;
   'solid/reactivity'?: Linter.RuleEntry<SolidReactivity>;
+  'solid/removed-api'?: Linter.RuleEntry<[]>;
+  'solid/require-async-server-function'?: Linter.RuleEntry<[]>;
   'solid/self-closing-comp'?: Linter.RuleEntry<SolidSelfClosingComp>;
   'solid/style-prop'?: Linter.RuleEntry<SolidStyleProp>;
+  'solid/valid-use-server'?: Linter.RuleEntry<SolidValidUseServer>;
   'sort-imports'?: Linter.RuleEntry<SortImports>;
   'sort-keys'?: Linter.RuleEntry<SortKeys>;
   'sort-vars'?: Linter.RuleEntry<SortVars>;
@@ -1303,6 +1318,7 @@ export interface RuleOptions {
   'svelte/no-unused-svelte-ignore'?: Linter.RuleEntry<[]>;
   'svelte/no-useless-children-snippet'?: Linter.RuleEntry<[]>;
   'svelte/no-useless-mustaches'?: Linter.RuleEntry<SvelteNoUselessMustaches>;
+  'svelte/prefer-attribute-interpolation'?: Linter.RuleEntry<[]>;
   'svelte/prefer-class-directive'?: Linter.RuleEntry<SveltePreferClassDirective>;
   'svelte/prefer-const'?: Linter.RuleEntry<SveltePreferConst>;
   'svelte/prefer-derived-over-derived-by'?: Linter.RuleEntry<[]>;
@@ -2377,4 +2393,10031 @@ export declare const StylisticConfigDefaults: StylisticConfig;
 // #region Default Export
 declare function _default(_?: OptionsConfig & Omit<TypedFlatConfigItem, 'files' | 'ignores'>, ..._: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any, any> | Linter.Config[]>[]): FlatConfigComposer<TypedFlatConfigItem, ConfigNames>;
 export default _default
+// #endregion
+
+// #region Referenced (internal)
+type AccessorPairs = [] | [{
+  getWithoutSet?: boolean;
+  setWithoutGet?: boolean;
+  enforceForClassMembers?: boolean;
+  enforceForTSTypes?: boolean;
+}];
+type AngularComponentClassSuffix = [] | [{
+  suffixes?: string[];
+}];
+type AngularComponentMaxInlineDeclarations = [] | [{
+  template?: number;
+  styles?: number;
+  animations?: number;
+}];
+type AngularComponentSelector = [] | [({
+  type: (string | ("element" | "attribute")[]);
+  prefix?: (string | unknown[]);
+  style: ("camelCase" | "kebab-case");
+} | [{
+  type: ("element" | "attribute");
+  prefix?: (string | unknown[]);
+  style: ("camelCase" | "kebab-case");
+}] | [{
+  type: ("element" | "attribute");
+  prefix?: (string | unknown[]);
+  style: ("camelCase" | "kebab-case");
+}, {
+  type: ("element" | "attribute");
+  prefix?: (string | unknown[]);
+  style: ("camelCase" | "kebab-case");
+}])];
+type AngularConsistentComponentStyles = [] | [("array" | "string")];
+type AngularDirectiveClassSuffix = [] | [{
+  suffixes?: string[];
+}];
+type AngularDirectiveSelector = [] | [({
+  type: (string | ("element" | "attribute")[]);
+  prefix?: (string | unknown[]);
+  style: ("camelCase" | "kebab-case");
+} | [{
+  type: ("element" | "attribute");
+  prefix?: (string | unknown[]);
+  style: ("camelCase" | "kebab-case");
+}] | [{
+  type: ("element" | "attribute");
+  prefix?: (string | unknown[]);
+  style: ("camelCase" | "kebab-case");
+}, {
+  type: ("element" | "attribute");
+  prefix?: (string | unknown[]);
+  style: ("camelCase" | "kebab-case");
+}])];
+type AngularNoInputPrefix = [] | [{
+  prefixes?: string[];
+}];
+type AngularNoInputRename = [] | [{
+  allowedNames?: string[];
+}];
+type AngularPipePrefix = [] | [{
+  prefixes?: string[];
+}];
+type AngularPreferOnPushComponentChangeDetection = [] | [{
+  allowExplicitOnPush?: boolean;
+}];
+type AngularPreferSignals = [] | [{
+  preferReadonlySignalProperties?: boolean;
+  preferInputSignals?: boolean;
+  preferQuerySignals?: boolean;
+  useTypeChecking?: boolean;
+  additionalSignalCreationFunctions?: string[];
+}];
+type AngularRequireLocalizeMetadata = [] | [{
+  requireDescription?: boolean;
+  requireMeaning?: boolean;
+  requireCustomId?: (boolean | string);
+}];
+type AngularSortKeysInTypeDecorator = [] | [{
+  Component?: string[];
+  Directive?: string[];
+  NgModule?: string[];
+  Pipe?: string[];
+}];
+type AngularTemplateAttributesOrder = [] | [{
+  alphabetical?: boolean;
+  order?: [("STRUCTURAL_DIRECTIVE" | "TEMPLATE_REFERENCE" | "ATTRIBUTE_BINDING" | "INPUT_BINDING" | "TWO_WAY_BINDING" | "OUTPUT_BINDING"), ("STRUCTURAL_DIRECTIVE" | "TEMPLATE_REFERENCE" | "ATTRIBUTE_BINDING" | "INPUT_BINDING" | "TWO_WAY_BINDING" | "OUTPUT_BINDING"), ("STRUCTURAL_DIRECTIVE" | "TEMPLATE_REFERENCE" | "ATTRIBUTE_BINDING" | "INPUT_BINDING" | "TWO_WAY_BINDING" | "OUTPUT_BINDING"), ("STRUCTURAL_DIRECTIVE" | "TEMPLATE_REFERENCE" | "ATTRIBUTE_BINDING" | "INPUT_BINDING" | "TWO_WAY_BINDING" | "OUTPUT_BINDING"), ("STRUCTURAL_DIRECTIVE" | "TEMPLATE_REFERENCE" | "ATTRIBUTE_BINDING" | "INPUT_BINDING" | "TWO_WAY_BINDING" | "OUTPUT_BINDING"), ("STRUCTURAL_DIRECTIVE" | "TEMPLATE_REFERENCE" | "ATTRIBUTE_BINDING" | "INPUT_BINDING" | "TWO_WAY_BINDING" | "OUTPUT_BINDING"), ...(("STRUCTURAL_DIRECTIVE" | "TEMPLATE_REFERENCE" | "ATTRIBUTE_BINDING" | "INPUT_BINDING" | "TWO_WAY_BINDING" | "OUTPUT_BINDING"))[]];
+}];
+type AngularTemplateButtonHasType = [] | [{
+  ignoreWithDirectives?: string[];
+}];
+type AngularTemplateClickEventsHaveKeyEvents = [] | [{
+  ignoreWithDirectives?: string[];
+}];
+type AngularTemplateConditionalComplexity = [] | [{
+  maxComplexity?: number;
+}];
+type AngularTemplateCyclomaticComplexity = [] | [{
+  maxComplexity?: number;
+  variant?: ("classic" | "modified");
+}];
+type AngularTemplateElementsContent = [] | [{
+  allowList?: string[];
+}];
+type AngularTemplateEqeqeq = [] | [{
+  allowNullOrUndefined?: boolean;
+}];
+type AngularTemplateI18N = [] | [{
+  allowMarkupInContent?: boolean;
+  boundTextAllowedPattern?: string;
+  checkAttributes?: boolean;
+  checkDuplicateId?: boolean;
+  checkId?: boolean;
+  checkText?: boolean;
+  ignoreAttributes?: string[];
+  ignoreTags?: string[];
+  requireDescription?: boolean;
+  requireMeaning?: boolean;
+}];
+type AngularTemplateInteractiveSupportsFocus = [] | [{
+  allowList?: string[];
+}];
+type AngularTemplateLabelHasAssociatedControl = [] | [{
+  checkIds?: boolean;
+  controlComponents?: string[];
+  labelComponents?: {
+    inputs?: string[];
+    selector: string;
+  }[];
+}];
+type AngularTemplateNoCallExpression = [] | [{
+  allowList?: string[];
+  allowPrefix?: string;
+  allowSuffix?: string;
+}];
+type AngularTemplateNoDuplicateAttributes = [] | [{
+  allowTwoWayDataBinding?: boolean;
+  allowStylePrecedenceDuplicates?: boolean;
+  ignore?: string[];
+}];
+type AngularTemplateNoInlineStyles = [] | [{
+  allowNgStyle?: boolean;
+  allowBindToStyle?: boolean;
+}];
+type AngularTemplateNoInterpolationInAttributes = [] | [{
+  allowSubstringInterpolation?: boolean;
+}];
+type AngularTemplatePreferBuiltInPipes = [] | [{
+  disallowList?: string[];
+  allowInOutputHandlers?: boolean;
+}];
+type AngularTemplatePreferContextualForVariables = [] | [{
+  allowedAliases?: {
+    $count?: string[];
+    $index?: string[];
+    $first?: string[];
+    $last?: string[];
+    $even?: string[];
+    $odd?: string[];
+  };
+}];
+type AngularTemplatePreferStaticStringProperties = [] | [{
+  ignore?: string[];
+}];
+type AngularTemplateUseTrackByFunction = [] | [{
+  alias?: string[];
+}];
+type AngularUseInjectableProvidedIn = [] | [{
+  ignoreClassNamePattern?: string;
+}];
+type AntfuConsistentChaining = [] | [{
+  allowLeadingPropertyAccess?: boolean;
+}];
+type AntfuConsistentListNewline = [] | [{
+  ArrayExpression?: boolean;
+  ArrayPattern?: boolean;
+  ArrowFunctionExpression?: boolean;
+  CallExpression?: boolean;
+  ExportNamedDeclaration?: boolean;
+  FunctionDeclaration?: boolean;
+  FunctionExpression?: boolean;
+  IfStatement?: boolean;
+  ImportDeclaration?: boolean;
+  JSONArrayExpression?: boolean;
+  JSONObjectExpression?: boolean;
+  JSXOpeningElement?: boolean;
+  NewExpression?: boolean;
+  ObjectExpression?: boolean;
+  ObjectPattern?: boolean;
+  TSFunctionType?: boolean;
+  TSInterfaceDeclaration?: boolean;
+  TSTupleType?: boolean;
+  TSTypeLiteral?: boolean;
+  TSTypeParameterDeclaration?: boolean;
+  TSTypeParameterInstantiation?: boolean;
+}];
+type AntfuIndentUnindent = [] | [{
+  indent?: number;
+  tags?: string[];
+}];
+type ArrayBracketNewline = [] | [(("always" | "never" | "consistent") | {
+  multiline?: boolean;
+  minItems?: (number | null);
+})];
+type ArrayBracketSpacing = [] | [("always" | "never")] | [("always" | "never"), {
+  singleValue?: boolean;
+  objectsInArrays?: boolean;
+  arraysInArrays?: boolean;
+}];
+type ArrayCallbackReturn = [] | [{
+  allowImplicit?: boolean;
+  checkForEach?: boolean;
+  allowVoid?: boolean;
+}];
+type ArrayElementNewline = [] | [(_ArrayElementNewlineBasicConfig | {
+  ArrayExpression?: _ArrayElementNewlineBasicConfig;
+  ArrayPattern?: _ArrayElementNewlineBasicConfig;
+})];
+type ArrowBodyStyle = ([] | [("always" | "never")] | [] | ["as-needed"] | ["as-needed", {
+  requireReturnForObjectLiteral?: boolean;
+}]);
+type ArrowParens = [] | [("always" | "as-needed")] | [("always" | "as-needed"), {
+  requireForBlockBody?: boolean;
+}];
+type ArrowSpacing = [] | [{
+  before?: boolean;
+  after?: boolean;
+}];
+type AstroJsxA11YAltText = [] | [{
+  elements?: string[];
+  img?: string[];
+  object?: string[];
+  area?: string[];
+  "input[type=\"image\"]"?: string[];
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YAnchorAmbiguousText = [] | [{
+  words?: string[];
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YAnchorHasContent = [] | [{
+  components?: string[];
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YAnchorIsValid = [] | [{
+  components?: string[];
+  specialLink?: string[];
+  aspects?: [("noHref" | "invalidHref" | "preferButton"), ...(("noHref" | "invalidHref" | "preferButton"))[]];
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YAriaActivedescendantHasTabindex = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YAriaProps = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YAriaProptypes = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YAriaRole = [] | [{
+  allowedInvalidRoles?: string[];
+  ignoreNonDOM?: boolean;
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YAriaUnsupportedElements = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YAutocompleteValid = [] | [{
+  inputComponents?: string[];
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YClickEventsHaveKeyEvents = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YControlHasAssociatedLabel = [] | [{
+  labelAttributes?: string[];
+  controlComponents?: string[];
+  ignoreElements?: string[];
+  ignoreRoles?: string[];
+  depth?: number;
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YHeadingHasContent = [] | [{
+  components?: string[];
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YHtmlHasLang = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YIframeHasTitle = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YImgRedundantAlt = [] | [{
+  components?: string[];
+  words?: string[];
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YInteractiveSupportsFocus = [] | [{
+  tabbable?: ("button" | "checkbox" | "columnheader" | "combobox" | "grid" | "gridcell" | "link" | "listbox" | "menu" | "menubar" | "menuitem" | "menuitemcheckbox" | "menuitemradio" | "option" | "progressbar" | "radio" | "radiogroup" | "row" | "rowheader" | "scrollbar" | "searchbox" | "slider" | "spinbutton" | "switch" | "tab" | "tablist" | "textbox" | "tree" | "treegrid" | "treeitem" | "doc-backlink" | "doc-biblioref" | "doc-glossref" | "doc-noteref")[];
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YLabelHasAssociatedControl = [] | [{
+  labelComponents?: string[];
+  labelAttributes?: string[];
+  controlComponents?: string[];
+  assert?: ("htmlFor" | "nesting" | "both" | "either");
+  depth?: number;
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YLang = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YMediaHasCaption = [] | [{
+  audio?: string[];
+  video?: string[];
+  track?: string[];
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YMouseEventsHaveKeyEvents = [] | [{
+  hoverInHandlers?: string[];
+  hoverOutHandlers?: string[];
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YNoAccessKey = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YNoAriaHiddenOnFocusable = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YNoAutofocus = [] | [{
+  ignoreNonDOM?: boolean;
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YNoDistractingElements = [] | [{
+  elements?: ("marquee" | "blink")[];
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YNoInteractiveElementToNoninteractiveRole = [] | [{
+  [k: string]: string[] | undefined;
+}];
+type AstroJsxA11YNoNoninteractiveElementInteractions = [] | [{
+  handlers?: string[];
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YNoNoninteractiveElementToInteractiveRole = [] | [{
+  [k: string]: string[] | undefined;
+}];
+type AstroJsxA11YNoNoninteractiveTabindex = [] | [{
+  roles?: string[];
+  tags?: string[];
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YNoRedundantRoles = [] | [{
+  [k: string]: string[] | undefined;
+}];
+type AstroJsxA11YNoStaticElementInteractions = [] | [{
+  handlers?: string[];
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YPreferTagOverRole = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YRoleHasRequiredAriaProps = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YRoleSupportsAriaProps = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YScope = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type AstroJsxA11YTabindexNoPositive = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type AstroNoUnsafeInlineScripts = [] | [{
+  allowDefineVars?: boolean;
+  allowModuleScripts?: boolean;
+  allowNonExecutingTypes?: string[];
+  allowNonce?: boolean;
+}];
+type AstroPreferSplitClassList = [] | [{
+  splitLiteral?: boolean;
+}];
+type AstroSemi = ([] | ["never"] | ["never", {
+  beforeStatementContinuationChars?: ("always" | "any" | "never");
+}] | [] | ["always"] | ["always", {
+  omitLastInOneLineBlock?: boolean;
+  omitLastInOneLineClassBody?: boolean;
+}]);
+type AstroSortAttributes = [] | [{
+  type?: ("alphabetical" | "line-length");
+  ignoreCase?: boolean;
+  order?: ("asc" | "desc");
+}];
+type BlockSpacing = [] | [("always" | "never")];
+type BraceStyle = [] | [("1tbs" | "stroustrup" | "allman")] | [("1tbs" | "stroustrup" | "allman"), {
+  allowSingleLine?: boolean;
+}];
+type CallbackReturn = [] | [string[]];
+type Camelcase = [] | [{
+  ignoreDestructuring?: boolean;
+  ignoreImports?: boolean;
+  ignoreGlobals?: boolean;
+  properties?: ("always" | "never");
+  allow?: string[];
+}];
+type CapitalizedComments = [] | [("always" | "never")] | [("always" | "never"), ({
+  ignorePattern?: string;
+  ignoreInlineComments?: boolean;
+  ignoreConsecutiveComments?: boolean;
+} | {
+  line?: {
+    ignorePattern?: string;
+    ignoreInlineComments?: boolean;
+    ignoreConsecutiveComments?: boolean;
+  };
+  block?: {
+    ignorePattern?: string;
+    ignoreInlineComments?: boolean;
+    ignoreConsecutiveComments?: boolean;
+  };
+})];
+type ClassMethodsUseThis = [] | [{
+  exceptMethods?: string[];
+  enforceForClassFields?: boolean;
+  ignoreOverrideMethods?: boolean;
+  ignoreClassesWithImplements?: ("all" | "public-fields");
+}];
+type CommaDangle = [] | [(_CommaDangleValue | {
+  arrays?: _CommaDangleValueWithIgnore;
+  objects?: _CommaDangleValueWithIgnore;
+  imports?: _CommaDangleValueWithIgnore;
+  exports?: _CommaDangleValueWithIgnore;
+  functions?: _CommaDangleValueWithIgnore;
+})];
+type CommaSpacing = [] | [{
+  before?: boolean;
+  after?: boolean;
+}];
+type CommaStyle = [] | [("first" | "last")] | [("first" | "last"), {
+  exceptions?: {
+    [k: string]: boolean | undefined;
+  };
+}];
+type Complexity = [] | [(number | {
+  maximum?: number;
+  max?: number;
+  variant?: ("classic" | "modified");
+})];
+type ComputedPropertySpacing = [] | [("always" | "never")] | [("always" | "never"), {
+  enforceForClassMembers?: boolean;
+}];
+type ConsistentReturn = [] | [{
+  treatUndefinedAsUnspecified?: boolean;
+}];
+type ConsistentThis = string[];
+type Curly = ([] | ["all"] | [] | [("multi" | "multi-line" | "multi-or-nest")] | [("multi" | "multi-line" | "multi-or-nest"), "consistent"]);
+type DefaultCase = [] | [{
+  commentPattern?: string;
+}];
+type DotLocation = [] | [("object" | "property")];
+type DotNotation = [] | [{
+  allowKeywords?: boolean;
+  allowPattern?: string;
+}];
+type E18EBanDependencies = [] | [{
+  presets?: string[];
+  modules?: string[];
+  allowed?: string[];
+}];
+type EolLast = [] | [("always" | "never" | "unix" | "windows")];
+type Eqeqeq = ([] | ["always"] | ["always", {
+  null?: ("always" | "never" | "ignore");
+}] | [] | [("smart" | "allow-null")]);
+type EslintCommentsDisableEnablePair = [] | [{
+  allowWholeFile?: boolean;
+}];
+type EslintCommentsNoRestrictedDisable = string[];
+type EslintCommentsNoUse = [] | [{
+  allow?: ("eslint" | "eslint-disable" | "eslint-disable-line" | "eslint-disable-next-line" | "eslint-enable" | "eslint-env" | "exported" | "global" | "globals")[];
+}];
+type EslintCommentsRequireDescription = [] | [{
+  ignore?: ("eslint" | "eslint-disable" | "eslint-disable-line" | "eslint-disable-next-line" | "eslint-enable" | "eslint-env" | "exported" | "global" | "globals")[];
+}];
+type FormatDprint = [] | [{
+  language?: string;
+  languageOptions?: {
+    [k: string]: unknown | undefined;
+  };
+  plugins?: unknown[];
+  [k: string]: unknown | undefined;
+}];
+type FormatOxfmt = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type FormatPrettier = [] | [{
+  parser: string;
+  [k: string]: unknown | undefined;
+}];
+type FuncCallSpacing = ([] | ["never"] | [] | ["always"] | ["always", {
+  allowNewlines?: boolean;
+}]);
+type FuncNameMatching = ([] | [("always" | "never")] | [("always" | "never"), {
+  considerPropertyDescriptor?: boolean;
+  includeCommonJSModuleExports?: boolean;
+}] | [] | [{
+  considerPropertyDescriptor?: boolean;
+  includeCommonJSModuleExports?: boolean;
+}]);
+type FuncNames = [] | [_FuncNamesValue] | [_FuncNamesValue, {
+  generators?: _FuncNamesValue;
+}];
+type FuncStyle = [] | [("declaration" | "expression")] | [("declaration" | "expression"), {
+  allowArrowFunctions?: boolean;
+  allowTypeAnnotation?: boolean;
+  overrides?: {
+    namedExports?: ("declaration" | "expression" | "ignore");
+  };
+}];
+type FunctionCallArgumentNewline = [] | [("always" | "never" | "consistent")];
+type FunctionParenNewline = [] | [(("always" | "never" | "consistent" | "multiline" | "multiline-arguments") | {
+  minItems?: number;
+})];
+type GeneratorStarSpacing = [] | [(("before" | "after" | "both" | "neither") | {
+  before?: boolean;
+  after?: boolean;
+  named?: (("before" | "after" | "both" | "neither") | {
+    before?: boolean;
+    after?: boolean;
+  });
+  anonymous?: (("before" | "after" | "both" | "neither") | {
+    before?: boolean;
+    after?: boolean;
+  });
+  method?: (("before" | "after" | "both" | "neither") | {
+    before?: boolean;
+    after?: boolean;
+  });
+})];
+type GetterReturn = [] | [{
+  allowImplicit?: boolean;
+}];
+type GroupedAccessorPairs = [] | [("anyOrder" | "getBeforeSet" | "setBeforeGet")] | [("anyOrder" | "getBeforeSet" | "setBeforeGet"), {
+  enforceForTSTypes?: boolean;
+}];
+type HandleCallbackErr = [] | [string];
+type IdBlacklist = string[];
+type IdDenylist = string[];
+type IdLength = [] | [{
+  min?: number;
+  max?: number;
+  exceptions?: string[];
+  exceptionPatterns?: string[];
+  properties?: ("always" | "never");
+}];
+type IdMatch = [] | [string] | [string, {
+  properties?: boolean;
+  classFields?: boolean;
+  onlyDeclarations?: boolean;
+  ignoreDestructuring?: boolean;
+}];
+type ImplicitArrowLinebreak = [] | [("beside" | "below")];
+type ImportConsistentTypeSpecifierStyle = [] | [("top-level" | "inline" | "prefer-top-level")];
+type ImportFirst = [] | [("absolute-first" | "disable-absolute-first")];
+type ImportNewlineAfterImport = [] | [{
+  count?: number;
+  exactCount?: boolean;
+  considerComments?: boolean;
+}];
+type ImportNoDuplicates = [] | [{
+  "prefer-inline"?: boolean;
+}];
+type ImportPreferDefaultExport = [] | [{
+  target?: ("single" | "any");
+}];
+type Indent = [] | [("tab" | number)] | [("tab" | number), {
+  SwitchCase?: number;
+  VariableDeclarator?: ((number | ("first" | "off")) | {
+    var?: (number | ("first" | "off"));
+    let?: (number | ("first" | "off"));
+    const?: (number | ("first" | "off"));
+  });
+  outerIIFEBody?: (number | "off");
+  MemberExpression?: (number | "off");
+  FunctionDeclaration?: {
+    parameters?: (number | ("first" | "off"));
+    body?: number;
+  };
+  FunctionExpression?: {
+    parameters?: (number | ("first" | "off"));
+    body?: number;
+  };
+  StaticBlock?: {
+    body?: number;
+  };
+  CallExpression?: {
+    arguments?: (number | ("first" | "off"));
+  };
+  ArrayExpression?: (number | ("first" | "off"));
+  ObjectExpression?: (number | ("first" | "off"));
+  ImportDeclaration?: (number | ("first" | "off"));
+  flatTernaryExpressions?: boolean;
+  offsetTernaryExpressions?: boolean;
+  ignoredNodes?: string[];
+  ignoreComments?: boolean;
+}];
+type IndentLegacy = [] | [("tab" | number)] | [("tab" | number), {
+  SwitchCase?: number;
+  VariableDeclarator?: (number | {
+    var?: number;
+    let?: number;
+    const?: number;
+    [k: string]: unknown | undefined;
+  });
+  outerIIFEBody?: number;
+  MemberExpression?: number;
+  FunctionDeclaration?: {
+    parameters?: (number | "first");
+    body?: number;
+    [k: string]: unknown | undefined;
+  };
+  FunctionExpression?: {
+    parameters?: (number | "first");
+    body?: number;
+    [k: string]: unknown | undefined;
+  };
+  CallExpression?: {
+    parameters?: (number | "first");
+    [k: string]: unknown | undefined;
+  };
+  ArrayExpression?: (number | "first");
+  ObjectExpression?: (number | "first");
+}];
+type InitDeclarations = ([] | ["always"] | [] | ["never"] | ["never", {
+  ignoreForLoopInit?: boolean;
+}]);
+type JsdocCheckAlignment = [] | [{
+  innerIndent?: number;
+}];
+type JsdocCheckExamples = [] | [{
+  allowInlineConfig?: boolean;
+  baseConfig?: {
+    [k: string]: unknown | undefined;
+  };
+  captionRequired?: boolean;
+  checkDefaults?: boolean;
+  checkEslintrc?: boolean;
+  checkParams?: boolean;
+  checkProperties?: boolean;
+  configFile?: string;
+  exampleCodeRegex?: string;
+  matchingFileName?: string;
+  matchingFileNameDefaults?: string;
+  matchingFileNameParams?: string;
+  matchingFileNameProperties?: string;
+  noDefaultExampleRules?: boolean;
+  paddedIndent?: number;
+  rejectExampleCodeRegex?: string;
+  reportUnusedDisableDirectives?: boolean;
+}];
+type JsdocCheckIndentation = [] | [{
+  allowIndentedSections?: boolean;
+  excludeTags?: string[];
+}];
+type JsdocCheckLineAlignment = [] | [("always" | "never" | "any")] | [("always" | "never" | "any"), {
+  customSpacings?: {
+    postDelimiter?: number;
+    postHyphen?: number;
+    postName?: number;
+    postTag?: number;
+    postType?: number;
+  };
+  disableWrapIndent?: boolean;
+  preserveMainDescriptionPostDelimiter?: boolean;
+  tags?: string[];
+  wrapIndent?: string;
+}];
+type JsdocCheckParamNames = [] | [{
+  allowExtraTrailingParamDocs?: boolean;
+  badParamNames?: boolean;
+  badParamOrder?: boolean;
+  checkDestructured?: boolean;
+  checkRestProperty?: boolean;
+  checkTypesPattern?: string;
+  disableExtraPropertyReporting?: boolean;
+  disableMissingParamChecks?: boolean;
+  duplicateParams?: boolean;
+  enableFixer?: boolean;
+  extraParams?: boolean;
+  useDefaultObjectProperties?: boolean;
+}];
+type JsdocCheckPropertyNames = [] | [{
+  enableFixer?: boolean;
+}];
+type JsdocCheckTagNames = [] | [{
+  definedTags?: string[];
+  enableFixer?: boolean;
+  inlineTags?: string[];
+  jsxTags?: boolean;
+  typed?: boolean;
+}];
+type JsdocCheckTypes = [] | [{
+  exemptTagContexts?: {
+    tag?: string;
+    types?: (boolean | string[]);
+  }[];
+  noDefaults?: boolean;
+  unifyParentAndChildTypeChecks?: boolean;
+}];
+type JsdocCheckValues = [] | [{
+  allowedAuthors?: string[];
+  allowedLicenses?: (string[] | boolean);
+  licensePattern?: string;
+  numericOnlyVariation?: boolean;
+}];
+type JsdocConvertToJsdocComments = [] | [{
+  allowedPrefixes?: string[];
+  contexts?: (string | {
+    context?: string;
+    inlineCommentBlock?: boolean;
+  })[];
+  contextsAfter?: (string | {
+    context?: string;
+    inlineCommentBlock?: boolean;
+  })[];
+  contextsBeforeAndAfter?: (string | {
+    context?: string;
+    inlineCommentBlock?: boolean;
+  })[];
+  enableFixer?: boolean;
+  enforceJsdocLineStyle?: ("multi" | "single");
+  lineOrBlockStyle?: ("block" | "line" | "both");
+}];
+type JsdocEmptyTags = [] | [{
+  tags?: string[];
+}];
+type JsdocEscapeInlineTags = [] | [{
+  allowedInlineTags?: string[];
+  enableFixer?: boolean;
+  fixType?: ("backticks" | "backslash");
+}];
+type JsdocImplementsOnClasses = [] | [{
+  contexts?: (string | {
+    comment?: string;
+    context?: string;
+  })[];
+}];
+type JsdocInformativeDocs = [] | [{
+  aliases?: {
+    [k: string]: string[];
+  };
+  excludedTags?: string[];
+  uselessWords?: string[];
+}];
+type JsdocLinesBeforeBlock = [] | [{
+  checkBlockStarts?: boolean;
+  excludedTags?: string[];
+  ignoreSameLine?: boolean;
+  ignoreSingleLines?: boolean;
+  lines?: number;
+}];
+type JsdocMatchDescription = [] | [{
+  contexts?: (string | {
+    comment?: string;
+    context?: string;
+  })[];
+  mainDescription?: (string | boolean | {
+    match?: (string | boolean);
+    message?: string;
+  });
+  matchDescription?: string;
+  message?: string;
+  nonemptyTags?: boolean;
+  tags?: {
+    [k: string]: (string | true | {
+      match?: (string | true);
+      message?: string;
+    });
+  };
+}];
+type JsdocMatchName = [] | [{
+  match: {
+    allowName?: string;
+    comment?: string;
+    context?: string;
+    disallowName?: string;
+    message?: string;
+    replacement?: string;
+    tags?: string[];
+  }[];
+}];
+type JsdocMultilineBlocks = [] | [{
+  allowMultipleTags?: boolean;
+  minimumLengthForMultiline?: number;
+  multilineTags?: ("*" | string[]);
+  noFinalLineText?: boolean;
+  noMultilineBlocks?: boolean;
+  noSingleLineBlocks?: boolean;
+  noZeroLineText?: boolean;
+  requireSingleLineUnderCount?: number;
+  singleLineTags?: string[];
+}];
+type JsdocNoBadBlocks = [] | [{
+  ignore?: string[];
+  preventAllMultiAsteriskBlocks?: boolean;
+}];
+type JsdocNoBlankBlocks = [] | [{
+  enableFixer?: boolean;
+}];
+type JsdocNoDefaults = [] | [{
+  contexts?: (string | {
+    comment?: string;
+    context?: string;
+  })[];
+  noOptionalParamNames?: boolean;
+}];
+type JsdocNoMissingSyntax = [] | [{
+  contexts?: (string | {
+    comment?: string;
+    context?: string;
+    message?: string;
+    minimum?: number;
+  })[];
+}];
+type JsdocNoMultiAsterisks = [] | [{
+  allowWhitespace?: boolean;
+  preventAtEnd?: boolean;
+  preventAtMiddleLines?: boolean;
+}];
+type JsdocNoRestrictedSyntax = [] | [{
+  contexts: (string | {
+    comment?: string;
+    context?: string;
+    message?: string;
+  })[];
+}];
+type JsdocNormalizeSeeLinks = [] | [{
+  canonicalForm?: ("pipe" | "prefix");
+  enableFixer?: boolean;
+  wrapBareUrls?: boolean;
+}];
+type JsdocNoTypes = [] | [{
+  contexts?: (string | {
+    comment?: string;
+    context?: string;
+  })[];
+}];
+type JsdocNoUndefinedTypes = [] | [{
+  checkUsedTypedefs?: boolean;
+  definedTypes?: string[];
+  disableReporting?: boolean;
+  markVariablesAsUsed?: boolean;
+}];
+type JsdocNoUnnecessaryTypeAssertion = [] | [{
+  checkLiteralConstAssertions?: boolean;
+  enableFixer?: boolean;
+  treatAnyAsRedundant?: boolean;
+  typesToIgnore?: string[];
+}];
+type JsdocPreferImportTag = [] | [{
+  enableFixer?: boolean;
+  exemptTypedefs?: boolean;
+  outputType?: ("named-import" | "namespaced-import");
+}];
+type JsdocRequireAsteriskPrefix = [] | [("always" | "never" | "any")] | [("always" | "never" | "any"), {
+  tags?: {
+    always?: string[];
+    any?: string[];
+    never?: string[];
+  };
+}];
+type JsdocRequireDescription = [] | [{
+  checkConstructors?: boolean;
+  checkGetters?: boolean;
+  checkSetters?: boolean;
+  contexts?: (string | {
+    comment?: string;
+    context?: string;
+  })[];
+  descriptionStyle?: ("body" | "tag" | "any");
+  exemptedBy?: string[];
+}];
+type JsdocRequireDescriptionCompleteSentence = [] | [{
+  abbreviations?: string[];
+  newlineBeforeCapsAssumesBadSentenceEnd?: boolean;
+  tags?: string[];
+}];
+type JsdocRequireExample = [] | [{
+  checkConstructors?: boolean;
+  checkGetters?: boolean;
+  checkSetters?: boolean;
+  contexts?: (string | {
+    comment?: string;
+    context?: string;
+  })[];
+  enableFixer?: boolean;
+  exemptedBy?: string[];
+  exemptNoArguments?: boolean;
+}];
+type JsdocRequireFileOverview = [] | [{
+  tags?: {
+    [k: string]: {
+      initialCommentsOnly?: boolean;
+      mustExist?: boolean;
+      preventDuplicates?: boolean;
+    };
+  };
+}];
+type JsdocRequireHyphenBeforeParamDescription = [] | [("always" | "never")] | [("always" | "never"), {
+  tags?: ({
+    [k: string]: ("always" | "never");
+  } | "any");
+}];
+type JsdocRequireJsdoc = [] | [{
+  checkAllFunctionExpressions?: boolean;
+  checkConstructors?: boolean;
+  checkGetters?: (boolean | "no-setter");
+  checkSetters?: (boolean | "no-getter");
+  contexts?: (string | {
+    context?: string;
+    inlineCommentBlock?: boolean;
+    minLineCount?: number;
+  })[];
+  enableFixer?: boolean;
+  exemptEmptyConstructors?: boolean;
+  exemptEmptyFunctions?: boolean;
+  exemptOverloadedImplementations?: boolean;
+  fixerMessage?: string;
+  minLineCount?: number;
+  publicOnly?: (boolean | {
+    ancestorsOnly?: boolean;
+    cjs?: boolean;
+    esm?: boolean;
+    window?: boolean;
+  });
+  require?: {
+    ArrowFunctionExpression?: boolean;
+    ClassDeclaration?: boolean;
+    ClassExpression?: boolean;
+    FunctionDeclaration?: boolean;
+    FunctionExpression?: boolean;
+    MethodDefinition?: boolean;
+  };
+  skipInterveningOverloadedDeclarations?: boolean;
+}];
+type JsdocRequireParam = [] | [{
+  autoIncrementBase?: number;
+  checkConstructors?: boolean;
+  checkDestructured?: boolean;
+  checkDestructuredRoots?: boolean;
+  checkGetters?: boolean;
+  checkRestProperty?: boolean;
+  checkSetters?: boolean;
+  checkTypesPattern?: string;
+  contexts?: (string | {
+    comment?: string;
+    context?: string;
+  })[];
+  enableFixer?: boolean;
+  enableRestElementFixer?: boolean;
+  enableRootFixer?: boolean;
+  exemptedBy?: string[];
+  ignoreWhenAllParamsMissing?: boolean;
+  interfaceExemptsParamsCheck?: boolean;
+  unnamedRootBase?: string[];
+  useDefaultObjectProperties?: boolean;
+}];
+type JsdocRequireParamDescription = [] | [{
+  contexts?: (string | {
+    comment?: string;
+    context?: string;
+  })[];
+  defaultDestructuredRootDescription?: string;
+  setDefaultDestructuredRootDescription?: boolean;
+}];
+type JsdocRequireParamName = [] | [{
+  contexts?: (string | {
+    comment?: string;
+    context?: string;
+  })[];
+}];
+type JsdocRequireParamType = [] | [{
+  contexts?: (string | {
+    comment?: string;
+    context?: string;
+  })[];
+  defaultDestructuredRootType?: string;
+  setDefaultDestructuredRootType?: boolean;
+}];
+type JsdocRequireRejects = [] | [{
+  contexts?: (string | {
+    comment?: string;
+    context?: string;
+  })[];
+  exemptedBy?: string[];
+}];
+type JsdocRequireReturns = [] | [{
+  checkConstructors?: boolean;
+  checkGetters?: boolean;
+  contexts?: (string | {
+    comment?: string;
+    context?: string;
+    forceRequireReturn?: boolean;
+  })[];
+  enableFixer?: boolean;
+  exemptedBy?: string[];
+  forceRequireReturn?: boolean;
+  forceReturnsWithAsync?: boolean;
+  publicOnly?: (boolean | {
+    ancestorsOnly?: boolean;
+    cjs?: boolean;
+    esm?: boolean;
+    window?: boolean;
+  });
+}];
+type JsdocRequireReturnsCheck = [] | [{
+  exemptAsync?: boolean;
+  exemptGenerators?: boolean;
+  noNativeTypes?: boolean;
+  reportMissingReturnForUndefinedTypes?: boolean;
+}];
+type JsdocRequireReturnsDescription = [] | [{
+  contexts?: (string | {
+    comment?: string;
+    context?: string;
+  })[];
+}];
+type JsdocRequireReturnsType = [] | [{
+  contexts?: (string | {
+    comment?: string;
+    context?: string;
+  })[];
+}];
+type JsdocRequireTags = [] | [{
+  tags?: (string | {
+    context?: string;
+    tag?: string;
+    [k: string]: unknown | undefined;
+  })[];
+}];
+type JsdocRequireTemplate = [] | [{
+  exemptedBy?: string[];
+  requireSeparateTemplates?: boolean;
+}];
+type JsdocRequireThrows = [] | [{
+  contexts?: (string | {
+    comment?: string;
+    context?: string;
+  })[];
+  exemptedBy?: string[];
+}];
+type JsdocRequireYields = [] | [{
+  contexts?: (string | {
+    comment?: string;
+    context?: string;
+  })[];
+  exemptedBy?: string[];
+  forceRequireNext?: boolean;
+  forceRequireYields?: boolean;
+  next?: boolean;
+  nextWithGeneratorTag?: boolean;
+  withGeneratorTag?: boolean;
+}];
+type JsdocRequireYieldsCheck = [] | [{
+  checkGeneratorsOnly?: boolean;
+  contexts?: (string | {
+    comment?: string;
+    context?: string;
+  })[];
+  next?: boolean;
+}];
+type JsdocSortTags = [] | [{
+  alphabetizeExtras?: boolean;
+  linesBetween?: number;
+  reportIntraTagGroupSpacing?: boolean;
+  reportTagGroupSpacing?: boolean;
+  tagExceptions?: {
+    [k: string]: number;
+  };
+  tagSequence?: {
+    tags?: string[];
+  }[];
+}];
+type JsdocTagLines = [] | [("always" | "any" | "never")] | [("always" | "any" | "never"), {
+  applyToEndTag?: boolean;
+  count?: number;
+  endLines?: (number | null);
+  maxBlockLines?: (number | null);
+  startLines?: (number | null);
+  startLinesWithNoTags?: number;
+  tags?: {
+    [k: string]: {
+      count?: number;
+      lines?: ("always" | "never" | "any");
+    };
+  };
+}];
+type JsdocTextEscaping = [] | [{
+  escapeHTML?: boolean;
+  escapeMarkdown?: boolean;
+}];
+type JsdocTsMethodSignatureStyle = [] | [("method" | "property")] | [("method" | "property"), {
+  enableFixer?: boolean;
+}];
+type JsdocTsNoUnnecessaryTemplateExpression = [] | [{
+  enableFixer?: boolean;
+}];
+type JsdocTsPreferFunctionType = [] | [{
+  enableFixer?: boolean;
+}];
+type JsdocTypeFormatting = [] | [{
+  arrayBrackets?: ("angle" | "square");
+  arrowFunctionPostReturnMarkerSpacing?: string;
+  arrowFunctionPreReturnMarkerSpacing?: string;
+  enableFixer?: boolean;
+  functionOrClassParameterSpacing?: string;
+  functionOrClassPostGenericSpacing?: string;
+  functionOrClassPostReturnMarkerSpacing?: string;
+  functionOrClassPreReturnMarkerSpacing?: string;
+  functionOrClassTypeParameterSpacing?: string;
+  genericAndTupleElementSpacing?: string;
+  genericDot?: boolean;
+  keyValuePostColonSpacing?: string;
+  keyValuePostKeySpacing?: string;
+  keyValuePostOptionalSpacing?: string;
+  keyValuePostVariadicSpacing?: string;
+  methodQuotes?: ("double" | "single");
+  objectFieldIndent?: string;
+  objectFieldQuote?: ("double" | "single" | null);
+  objectFieldSeparator?: ("comma" | "comma-and-linebreak" | "linebreak" | "semicolon" | "semicolon-and-linebreak");
+  objectFieldSeparatorOptionalLinebreak?: boolean;
+  objectFieldSeparatorTrailingPunctuation?: boolean;
+  objectTypeBracketSpacing?: string;
+  parameterDefaultValueSpacing?: string;
+  postMethodNameSpacing?: string;
+  postNewSpacing?: string;
+  separatorForSingleObjectField?: boolean;
+  stringQuotes?: ("double" | "single");
+  trailingPunctuationMultilineOnly?: boolean;
+  typeBracketSpacing?: string;
+  unionSpacing?: string;
+}];
+type JsdocValidTypes = [] | [{
+  allowEmptyNamepaths?: boolean;
+}];
+type JsoncArrayBracketNewline = [] | [(("always" | "never" | "consistent") | {
+  multiline?: boolean;
+  minItems?: (number | null);
+})];
+type JsoncArrayBracketSpacing = [] | [("always" | "never")] | [("always" | "never"), {
+  singleValue?: boolean;
+  objectsInArrays?: boolean;
+  arraysInArrays?: boolean;
+}];
+type JsoncArrayElementNewline = [] | [(_JsoncArrayElementNewlineBasicConfig | {
+  ArrayExpression?: _JsoncArrayElementNewlineBasicConfig;
+  JSONArrayExpression?: _JsoncArrayElementNewlineBasicConfig;
+  ArrayPattern?: _JsoncArrayElementNewlineBasicConfig;
+})];
+type JsoncCommaDangle = [] | [(_JsoncCommaDangleValue | {
+  arrays?: _JsoncCommaDangleValueWithIgnore;
+  objects?: _JsoncCommaDangleValueWithIgnore;
+  imports?: _JsoncCommaDangleValueWithIgnore;
+  exports?: _JsoncCommaDangleValueWithIgnore;
+  functions?: _JsoncCommaDangleValueWithIgnore;
+})];
+type JsoncCommaStyle = [] | [("first" | "last")] | [("first" | "last"), {
+  exceptions?: {
+    [k: string]: boolean | undefined;
+  };
+}];
+type JsoncIndent = [] | [("tab" | number)] | [("tab" | number), {
+  SwitchCase?: number;
+  VariableDeclarator?: ((number | ("first" | "off")) | {
+    var?: (number | ("first" | "off"));
+    let?: (number | ("first" | "off"));
+    const?: (number | ("first" | "off"));
+  });
+  outerIIFEBody?: (number | "off");
+  MemberExpression?: (number | "off");
+  FunctionDeclaration?: {
+    parameters?: (number | ("first" | "off"));
+    body?: number;
+  };
+  FunctionExpression?: {
+    parameters?: (number | ("first" | "off"));
+    body?: number;
+  };
+  StaticBlock?: {
+    body?: number;
+  };
+  CallExpression?: {
+    arguments?: (number | ("first" | "off"));
+  };
+  ArrayExpression?: (number | ("first" | "off"));
+  ObjectExpression?: (number | ("first" | "off"));
+  ImportDeclaration?: (number | ("first" | "off"));
+  flatTernaryExpressions?: boolean;
+  offsetTernaryExpressions?: boolean;
+  ignoredNodes?: string[];
+  ignoreComments?: boolean;
+}];
+type JsoncKeyNameCasing = [] | [{
+  camelCase?: boolean;
+  PascalCase?: boolean;
+  SCREAMING_SNAKE_CASE?: boolean;
+  "kebab-case"?: boolean;
+  snake_case?: boolean;
+  ignores?: string[];
+}];
+type JsoncKeySpacing = [] | [({
+  align?: (("colon" | "value") | {
+    mode?: ("strict" | "minimum");
+    on?: ("colon" | "value");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  });
+  mode?: ("strict" | "minimum");
+  beforeColon?: boolean;
+  afterColon?: boolean;
+} | {
+  singleLine?: {
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+  multiLine?: {
+    align?: (("colon" | "value") | {
+      mode?: ("strict" | "minimum");
+      on?: ("colon" | "value");
+      beforeColon?: boolean;
+      afterColon?: boolean;
+    });
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+} | {
+  singleLine?: {
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+  multiLine?: {
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+  align?: {
+    mode?: ("strict" | "minimum");
+    on?: ("colon" | "value");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+})];
+type JsoncNoIrregularWhitespace = [] | [{
+  skipComments?: boolean;
+  skipStrings?: boolean;
+  skipTemplates?: boolean;
+  skipRegExps?: boolean;
+  skipJSXText?: boolean;
+}];
+type JsoncNoUselessEscape = [] | [{
+  allowRegexCharacters?: string[];
+}];
+type JsoncObjectCurlyNewline = [] | [((("always" | "never") | {
+  multiline?: boolean;
+  minProperties?: number;
+  consistent?: boolean;
+}) | {
+  ObjectExpression?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+  ObjectPattern?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+  ImportDeclaration?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+  ExportDeclaration?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+})];
+type JsoncObjectCurlySpacing = [] | [("always" | "never")] | [("always" | "never"), {
+  arraysInObjects?: boolean;
+  objectsInObjects?: boolean;
+  emptyObjects?: ("ignore" | "always" | "never");
+}];
+type JsoncObjectPropertyNewline = [] | [{
+  allowAllPropertiesOnSameLine?: boolean;
+  allowMultiplePropertiesPerLine?: boolean;
+}];
+type JsoncQuoteProps = ([] | [("always" | "as-needed" | "consistent" | "consistent-as-needed")] | [] | [("always" | "as-needed" | "consistent" | "consistent-as-needed")] | [("always" | "as-needed" | "consistent" | "consistent-as-needed"), {
+  keywords?: boolean;
+  unnecessary?: boolean;
+  numbers?: boolean;
+}]);
+type JsoncQuotes = [] | [("single" | "double" | "backtick")] | [("single" | "double" | "backtick"), ("avoid-escape" | {
+  avoidEscape?: boolean;
+  allowTemplateLiterals?: boolean;
+})];
+type JsoncSortArrayValues = [{
+  pathPattern: string;
+  order: ((string | {
+    valuePattern?: string;
+    order?: {
+      type?: ("asc" | "desc");
+      caseSensitive?: boolean;
+      natural?: boolean;
+      key?: string;
+    };
+  })[] | {
+    type?: ("asc" | "desc");
+    caseSensitive?: boolean;
+    natural?: boolean;
+    key?: string;
+  });
+  minValues?: number;
+}, ...({
+  pathPattern: string;
+  order: ((string | {
+    valuePattern?: string;
+    order?: {
+      type?: ("asc" | "desc");
+      caseSensitive?: boolean;
+      natural?: boolean;
+      key?: string;
+    };
+  })[] | {
+    type?: ("asc" | "desc");
+    caseSensitive?: boolean;
+    natural?: boolean;
+    key?: string;
+  });
+  minValues?: number;
+})[]];
+type JsoncSortKeys = ([{
+  pathPattern: string;
+  hasProperties?: string[];
+  order: ((string | {
+    keyPattern?: string;
+    order?: ({
+      type?: ("asc" | "desc");
+      caseSensitive?: boolean;
+      natural?: boolean;
+    } | {
+      type: "ignore";
+    });
+  })[] | {
+    type?: ("asc" | "desc");
+    caseSensitive?: boolean;
+    natural?: boolean;
+  } | {
+    type: "ignore";
+  });
+  minKeys?: number;
+  allowLineSeparatedGroups?: boolean;
+}, ...({
+  pathPattern: string;
+  hasProperties?: string[];
+  order: ((string | {
+    keyPattern?: string;
+    order?: ({
+      type?: ("asc" | "desc");
+      caseSensitive?: boolean;
+      natural?: boolean;
+    } | {
+      type: "ignore";
+    });
+  })[] | {
+    type?: ("asc" | "desc");
+    caseSensitive?: boolean;
+    natural?: boolean;
+  } | {
+    type: "ignore";
+  });
+  minKeys?: number;
+  allowLineSeparatedGroups?: boolean;
+})[]] | [] | [("asc" | "desc")] | [("asc" | "desc"), {
+  caseSensitive?: boolean;
+  natural?: boolean;
+  minKeys?: number;
+  allowLineSeparatedGroups?: boolean;
+}]);
+type JsoncSpaceUnaryOps = [] | [{
+  words?: boolean;
+  nonwords?: boolean;
+  overrides?: {
+    [k: string]: boolean | undefined;
+  };
+}];
+type JsxA11YAccessibleEmoji = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YAltText = [] | [{
+  elements?: string[];
+  img?: string[];
+  object?: string[];
+  area?: string[];
+  "input[type=\"image\"]"?: string[];
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YAnchorAmbiguousText = [] | [{
+  words?: string[];
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YAnchorHasContent = [] | [{
+  components?: string[];
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YAnchorIsValid = [] | [{
+  components?: string[];
+  specialLink?: string[];
+  aspects?: [("noHref" | "invalidHref" | "preferButton"), ...(("noHref" | "invalidHref" | "preferButton"))[]];
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YAriaActivedescendantHasTabindex = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YAriaProps = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YAriaProptypes = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YAriaRole = [] | [{
+  allowedInvalidRoles?: string[];
+  ignoreNonDOM?: boolean;
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YAriaUnsupportedElements = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YAutocompleteValid = [] | [{
+  inputComponents?: string[];
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YClickEventsHaveKeyEvents = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YControlHasAssociatedLabel = [] | [{
+  labelAttributes?: string[];
+  controlComponents?: string[];
+  ignoreElements?: string[];
+  ignoreRoles?: string[];
+  depth?: number;
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YHeadingHasContent = [] | [{
+  components?: string[];
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YHtmlHasLang = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YIframeHasTitle = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YImgRedundantAlt = [] | [{
+  components?: string[];
+  words?: string[];
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YInteractiveSupportsFocus = [] | [{
+  tabbable?: ("button" | "checkbox" | "columnheader" | "combobox" | "grid" | "gridcell" | "link" | "listbox" | "menu" | "menubar" | "menuitem" | "menuitemcheckbox" | "menuitemradio" | "option" | "progressbar" | "radio" | "radiogroup" | "row" | "rowheader" | "scrollbar" | "searchbox" | "slider" | "spinbutton" | "switch" | "tab" | "tablist" | "textbox" | "tree" | "treegrid" | "treeitem" | "doc-backlink" | "doc-biblioref" | "doc-glossref" | "doc-noteref")[];
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YLabelHasAssociatedControl = [] | [{
+  labelComponents?: string[];
+  labelAttributes?: string[];
+  controlComponents?: string[];
+  assert?: ("htmlFor" | "nesting" | "both" | "either");
+  depth?: number;
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YLabelHasFor = [] | [{
+  components?: string[];
+  required?: (("nesting" | "id") | {
+    some: ("nesting" | "id")[];
+    [k: string]: unknown | undefined;
+  } | {
+    every: ("nesting" | "id")[];
+    [k: string]: unknown | undefined;
+  });
+  allowChildren?: boolean;
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YLang = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YMediaHasCaption = [] | [{
+  audio?: string[];
+  video?: string[];
+  track?: string[];
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YMouseEventsHaveKeyEvents = [] | [{
+  hoverInHandlers?: string[];
+  hoverOutHandlers?: string[];
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YNoAccessKey = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YNoAriaHiddenOnFocusable = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YNoAutofocus = [] | [{
+  ignoreNonDOM?: boolean;
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YNoDistractingElements = [] | [{
+  elements?: ("marquee" | "blink")[];
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YNoInteractiveElementToNoninteractiveRole = [] | [{
+  [k: string]: string[] | undefined;
+}];
+type JsxA11YNoNoninteractiveElementInteractions = [] | [{
+  handlers?: string[];
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YNoNoninteractiveElementToInteractiveRole = [] | [{
+  [k: string]: string[] | undefined;
+}];
+type JsxA11YNoNoninteractiveTabindex = [] | [{
+  roles?: string[];
+  tags?: string[];
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YNoOnchange = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YNoRedundantRoles = [] | [{
+  [k: string]: string[] | undefined;
+}];
+type JsxA11YNoStaticElementInteractions = [] | [{
+  handlers?: string[];
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YPreferTagOverRole = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YRoleHasRequiredAriaProps = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YRoleSupportsAriaProps = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YScope = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type JsxA11YTabindexNoPositive = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type JsxQuotes = [] | [("prefer-single" | "prefer-double")];
+type KeySpacing = [] | [({
+  align?: (("colon" | "value") | {
+    mode?: ("strict" | "minimum");
+    on?: ("colon" | "value");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  });
+  mode?: ("strict" | "minimum");
+  beforeColon?: boolean;
+  afterColon?: boolean;
+} | {
+  singleLine?: {
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+  multiLine?: {
+    align?: (("colon" | "value") | {
+      mode?: ("strict" | "minimum");
+      on?: ("colon" | "value");
+      beforeColon?: boolean;
+      afterColon?: boolean;
+    });
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+} | {
+  singleLine?: {
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+  multiLine?: {
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+  align?: {
+    mode?: ("strict" | "minimum");
+    on?: ("colon" | "value");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+})];
+type KeywordSpacing = [] | [{
+  before?: boolean;
+  after?: boolean;
+  overrides?: {
+    abstract?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    as?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    async?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    await?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    boolean?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    break?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    byte?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    case?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    catch?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    char?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    class?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    const?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    continue?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    debugger?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    default?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    delete?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    do?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    double?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    else?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    enum?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    export?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    extends?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    false?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    final?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    finally?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    float?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    for?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    from?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    function?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    get?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    goto?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    if?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    implements?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    import?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    in?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    instanceof?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    int?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    interface?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    let?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    long?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    native?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    new?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    null?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    of?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    package?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    private?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    protected?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    public?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    return?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    set?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    short?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    static?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    super?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    switch?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    synchronized?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    this?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    throw?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    throws?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    transient?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    true?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    try?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    typeof?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    var?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    void?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    volatile?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    while?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    with?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    yield?: {
+      before?: boolean;
+      after?: boolean;
+    };
+  };
+}];
+type LinebreakStyle = [] | [("unix" | "windows")];
+type LineCommentPosition = [] | [(("above" | "beside") | {
+  position?: ("above" | "beside");
+  ignorePattern?: string;
+  applyDefaultPatterns?: boolean;
+  applyDefaultIgnorePatterns?: boolean;
+})];
+type LinesAroundComment = [] | [{
+  beforeBlockComment?: boolean;
+  afterBlockComment?: boolean;
+  beforeLineComment?: boolean;
+  afterLineComment?: boolean;
+  allowBlockStart?: boolean;
+  allowBlockEnd?: boolean;
+  allowClassStart?: boolean;
+  allowClassEnd?: boolean;
+  allowObjectStart?: boolean;
+  allowObjectEnd?: boolean;
+  allowArrayStart?: boolean;
+  allowArrayEnd?: boolean;
+  ignorePattern?: string;
+  applyDefaultIgnorePatterns?: boolean;
+  afterHashbangComment?: boolean;
+}];
+type LinesAroundDirective = [] | [(("always" | "never") | {
+  before?: ("always" | "never");
+  after?: ("always" | "never");
+})];
+type LinesBetweenClassMembers = [] | [({
+  enforce: [{
+    blankLine: ("always" | "never");
+    prev: ("method" | "field" | "*");
+    next: ("method" | "field" | "*");
+  }, ...({
+    blankLine: ("always" | "never");
+    prev: ("method" | "field" | "*");
+    next: ("method" | "field" | "*");
+  })[]];
+} | ("always" | "never"))] | [({
+  enforce: [{
+    blankLine: ("always" | "never");
+    prev: ("method" | "field" | "*");
+    next: ("method" | "field" | "*");
+  }, ...({
+    blankLine: ("always" | "never");
+    prev: ("method" | "field" | "*");
+    next: ("method" | "field" | "*");
+  })[]];
+} | ("always" | "never")), {
+  exceptAfterSingleLine?: boolean;
+}];
+type LogicalAssignmentOperators = (([] | ["always"] | ["always", {
+  enforceForIfStatements?: boolean;
+}] | ["never"]) & unknown[]);
+type MarkdownFencedCodeLanguage = [] | [{
+  required?: string[];
+}];
+type MarkdownFencedCodeMeta = [] | [("always" | "never")];
+type MarkdownHeadingIncrement = [] | [{
+  frontmatterTitle?: string;
+}];
+type MarkdownNoDuplicateDefinitions = [] | [{
+  allowDefinitions?: string[];
+  allowFootnoteDefinitions?: string[];
+  checkFootnoteDefinitions?: boolean;
+}];
+type MarkdownNoDuplicateHeadings = [] | [{
+  checkSiblingsOnly?: boolean;
+}];
+type MarkdownNoEmptyDefinitions = [] | [{
+  allowDefinitions?: string[];
+  allowFootnoteDefinitions?: string[];
+  checkFootnoteDefinitions?: boolean;
+}];
+type MarkdownNoHtml = [] | [{
+  allowed?: string[];
+  allowedIgnoreCase?: boolean;
+}];
+type MarkdownNoMissingAtxHeadingSpace = [] | [{
+  checkClosedHeadings?: boolean;
+}];
+type MarkdownNoMissingLabelRefs = [] | [{
+  allowLabels?: string[];
+}];
+type MarkdownNoMissingLinkFragments = [] | [{
+  ignoreCase?: boolean;
+  allowPattern?: string;
+}];
+type MarkdownNoMultipleH1 = [] | [{
+  frontmatterTitle?: string;
+}];
+type MarkdownNoSpaceInEmphasis = [] | [{
+  checkStrikethrough?: boolean;
+}];
+type MarkdownNoUnusedDefinitions = [] | [{
+  allowDefinitions?: string[];
+  allowFootnoteDefinitions?: string[];
+  checkFootnoteDefinitions?: boolean;
+}];
+type MarkdownTableColumnCount = [] | [{
+  checkMissingCells?: boolean;
+}];
+type MaxClassesPerFile = [] | [(number | {
+  ignoreExpressions?: boolean;
+  max?: number;
+})];
+type MaxDepth = [] | [(number | {
+  maximum?: number;
+  max?: number;
+})];
+type MaxLen = [] | [({
+  code?: number;
+  comments?: number;
+  tabWidth?: number;
+  ignorePattern?: string;
+  ignoreComments?: boolean;
+  ignoreStrings?: boolean;
+  ignoreUrls?: boolean;
+  ignoreTemplateLiterals?: boolean;
+  ignoreRegExpLiterals?: boolean;
+  ignoreTrailingComments?: boolean;
+} | number)] | [({
+  code?: number;
+  comments?: number;
+  tabWidth?: number;
+  ignorePattern?: string;
+  ignoreComments?: boolean;
+  ignoreStrings?: boolean;
+  ignoreUrls?: boolean;
+  ignoreTemplateLiterals?: boolean;
+  ignoreRegExpLiterals?: boolean;
+  ignoreTrailingComments?: boolean;
+} | number), ({
+  code?: number;
+  comments?: number;
+  tabWidth?: number;
+  ignorePattern?: string;
+  ignoreComments?: boolean;
+  ignoreStrings?: boolean;
+  ignoreUrls?: boolean;
+  ignoreTemplateLiterals?: boolean;
+  ignoreRegExpLiterals?: boolean;
+  ignoreTrailingComments?: boolean;
+} | number)] | [({
+  code?: number;
+  comments?: number;
+  tabWidth?: number;
+  ignorePattern?: string;
+  ignoreComments?: boolean;
+  ignoreStrings?: boolean;
+  ignoreUrls?: boolean;
+  ignoreTemplateLiterals?: boolean;
+  ignoreRegExpLiterals?: boolean;
+  ignoreTrailingComments?: boolean;
+} | number), ({
+  code?: number;
+  comments?: number;
+  tabWidth?: number;
+  ignorePattern?: string;
+  ignoreComments?: boolean;
+  ignoreStrings?: boolean;
+  ignoreUrls?: boolean;
+  ignoreTemplateLiterals?: boolean;
+  ignoreRegExpLiterals?: boolean;
+  ignoreTrailingComments?: boolean;
+} | number), {
+  code?: number;
+  comments?: number;
+  tabWidth?: number;
+  ignorePattern?: string;
+  ignoreComments?: boolean;
+  ignoreStrings?: boolean;
+  ignoreUrls?: boolean;
+  ignoreTemplateLiterals?: boolean;
+  ignoreRegExpLiterals?: boolean;
+  ignoreTrailingComments?: boolean;
+}];
+type MaxLines = [] | [(number | {
+  max?: number;
+  skipComments?: boolean;
+  skipBlankLines?: boolean;
+})];
+type MaxLinesPerFunction = [] | [({
+  max?: number;
+  skipComments?: boolean;
+  skipBlankLines?: boolean;
+  IIFEs?: boolean;
+} | number)];
+type MaxNestedCallbacks = [] | [(number | {
+  maximum?: number;
+  max?: number;
+  checkConstructorCallCallbacks?: boolean;
+})];
+type MaxParams = [] | [(number | {
+  maximum?: number;
+  max?: number;
+  countVoidThis?: boolean;
+  countThis?: ("never" | "except-void" | "always");
+})];
+type MaxStatements = [] | [(number | {
+  maximum?: number;
+  max?: number;
+})] | [(number | {
+  maximum?: number;
+  max?: number;
+}), {
+  ignoreTopLevelFunctions?: boolean;
+}];
+type MaxStatementsPerLine = [] | [{
+  max?: number;
+}];
+type MultilineCommentStyle = ([] | [("starred-block" | "bare-block")] | [] | ["separate-lines"] | ["separate-lines", {
+  checkJSDoc?: boolean;
+}]);
+type MultilineTernary = [] | [("always" | "always-multiline" | "never")];
+type NewCap = [] | [{
+  newIsCap?: boolean;
+  capIsNew?: boolean;
+  newIsCapExceptions?: string[];
+  newIsCapExceptionPattern?: string;
+  capIsNewExceptions?: string[];
+  capIsNewExceptionPattern?: string;
+  properties?: boolean;
+}];
+type NewlineAfterVar = [] | [("never" | "always")];
+type NewlinePerChainedCall = [] | [{
+  ignoreChainWithDepth?: number;
+}];
+type NewParens = [] | [("always" | "never")];
+type NextNoHtmlLinkForPages = [] | [(string | string[])];
+type NoBitwise = [] | [{
+  allow?: ("^" | "|" | "&" | "<<" | ">>" | ">>>" | "^=" | "|=" | "&=" | "<<=" | ">>=" | ">>>=" | "~")[];
+  int32Hint?: boolean;
+}];
+type NoCondAssign = [] | [("except-parens" | "always")];
+type NoConfusingArrow = [] | [{
+  allowParens?: boolean;
+  onlyOneSimpleParam?: boolean;
+}];
+type NoConsole = [] | [{
+  allow?: [string, ...(string)[]];
+}];
+type NoConstantBinaryExpression = [] | [{
+  checkRelationalComparisons?: boolean;
+}];
+type NoConstantCondition = [] | [{
+  checkLoops?: ("all" | "allExceptWhileTrue" | "none" | true | false);
+}];
+type NodeCallbackReturn = [] | [string[]];
+type NodeExportsStyle = [] | [("module.exports" | "exports")] | [("module.exports" | "exports"), {
+  allowBatchAssign?: boolean;
+}];
+type NodeFileExtensionInImport = [] | [("always" | "never")] | [("always" | "never"), {
+  [k: string]: ("always" | "never") | undefined;
+}];
+type NodeHandleCallbackErr = [] | [string];
+type NodeHashbang = [] | [{
+  convertPath?: ({
+    [k: string]: [string, string];
+  } | [{
+    include: [string, ...(string)[]];
+    exclude?: string[];
+    replace: [string, string];
+  }, ...({
+    include: [string, ...(string)[]];
+    exclude?: string[];
+    replace: [string, string];
+  })[]]);
+  ignoreUnpublished?: boolean;
+  additionalExecutables?: string[];
+  executableMap?: {
+    [k: string]: string;
+  };
+}];
+type NodeNoDeprecatedApi = [] | [{
+  version?: string;
+  ignoreModuleItems?: ("_linklist" | "_stream_wrap" | "async_hooks.currentId" | "async_hooks.triggerId" | "buffer.Buffer()" | "new buffer.Buffer()" | "buffer.SlowBuffer" | "constants" | "crypto._toBuf" | "crypto.Credentials" | "crypto.DEFAULT_ENCODING" | "crypto.createCipher" | "crypto.createCredentials" | "crypto.createDecipher" | "crypto.fips" | "crypto.prng" | "crypto.pseudoRandomBytes" | "crypto.rng" | "domain" | "events.EventEmitter.listenerCount" | "events.listenerCount" | "freelist" | "fs.SyncWriteStream" | "fs.exists" | "fs.lchmod" | "fs.lchmodSync" | "http.createClient" | "module.Module.createRequireFromPath" | "module.Module.requireRepl" | "module.Module._debug" | "module.createRequireFromPath" | "module.requireRepl" | "module._debug" | "net._setSimultaneousAccepts" | "os.getNetworkInterfaces" | "os.tmpDir" | "path._makeLong" | "process.EventEmitter" | "process.assert" | "process.binding" | "process.env.NODE_REPL_HISTORY_FILE" | "process.report.triggerReport" | "punycode" | "readline.codePointAt" | "readline.getStringWidth" | "readline.isFullWidthCodePoint" | "readline.stripVTControlCharacters" | "repl.REPLServer" | "repl.Recoverable" | "repl.REPL_MODE_MAGIC" | "repl.builtinModules" | "safe-buffer.Buffer()" | "new safe-buffer.Buffer()" | "safe-buffer.SlowBuffer" | "sys" | "timers.enroll" | "timers.unenroll" | "tls.CleartextStream" | "tls.CryptoStream" | "tls.SecurePair" | "tls.convertNPNProtocols" | "tls.createSecurePair" | "tls.parseCertString" | "tty.setRawMode" | "url.parse" | "url.resolve" | "util.debug" | "util.error" | "util.isArray" | "util.isBoolean" | "util.isBuffer" | "util.isDate" | "util.isError" | "util.isFunction" | "util.isNull" | "util.isNullOrUndefined" | "util.isNumber" | "util.isObject" | "util.isPrimitive" | "util.isRegExp" | "util.isString" | "util.isSymbol" | "util.isUndefined" | "util.log" | "util.print" | "util.pump" | "util.puts" | "util._extend" | "vm.runInDebugContext" | "zlib.BrotliCompress()" | "zlib.BrotliDecompress()" | "zlib.Deflate()" | "zlib.DeflateRaw()" | "zlib.Gunzip()" | "zlib.Gzip()" | "zlib.Inflate()" | "zlib.InflateRaw()" | "zlib.Unzip()")[];
+  ignoreGlobalItems?: ("Buffer()" | "new Buffer()" | "COUNTER_NET_SERVER_CONNECTION" | "COUNTER_NET_SERVER_CONNECTION_CLOSE" | "COUNTER_HTTP_SERVER_REQUEST" | "COUNTER_HTTP_SERVER_RESPONSE" | "COUNTER_HTTP_CLIENT_REQUEST" | "COUNTER_HTTP_CLIENT_RESPONSE" | "GLOBAL" | "Intl.v8BreakIterator" | "require.extensions" | "root" | "process.EventEmitter" | "process.assert" | "process.binding" | "process.env.NODE_REPL_HISTORY_FILE" | "process.report.triggerReport")[];
+  ignoreIndirectDependencies?: boolean;
+}];
+type NodeNoExtraneousImport = [] | [{
+  allowModules?: string[];
+  convertPath?: ({
+    [k: string]: [string, string];
+  } | [{
+    include: [string, ...(string)[]];
+    exclude?: string[];
+    replace: [string, string];
+  }, ...({
+    include: [string, ...(string)[]];
+    exclude?: string[];
+    replace: [string, string];
+  })[]]);
+  resolvePaths?: string[];
+  resolverConfig?: {
+    [k: string]: unknown | undefined;
+  };
+}];
+type NodeNoExtraneousRequire = [] | [{
+  allowModules?: string[];
+  convertPath?: ({
+    [k: string]: [string, string];
+  } | [{
+    include: [string, ...(string)[]];
+    exclude?: string[];
+    replace: [string, string];
+  }, ...({
+    include: [string, ...(string)[]];
+    exclude?: string[];
+    replace: [string, string];
+  })[]]);
+  resolvePaths?: string[];
+  resolverConfig?: {
+    [k: string]: unknown | undefined;
+  };
+  tryExtensions?: string[];
+}];
+type NodeNoHideCoreModules = [] | [{
+  allow?: ("assert" | "buffer" | "child_process" | "cluster" | "console" | "constants" | "crypto" | "dgram" | "dns" | "events" | "fs" | "http" | "https" | "module" | "net" | "os" | "path" | "querystring" | "readline" | "repl" | "stream" | "string_decoder" | "timers" | "tls" | "tty" | "url" | "util" | "vm" | "zlib")[];
+  ignoreDirectDependencies?: boolean;
+  ignoreIndirectDependencies?: boolean;
+}];
+type NodeNoMissingImport = [] | [{
+  allowModules?: string[];
+  resolvePaths?: string[];
+  resolverConfig?: {
+    [k: string]: unknown | undefined;
+  };
+  tryExtensions?: string[];
+  ignoreTypeImport?: boolean;
+  tsconfigPath?: string;
+  typescriptExtensionMap?: (unknown[][] | ("react" | "react-jsx" | "react-jsxdev" | "react-native" | "preserve"));
+}];
+type NodeNoMissingRequire = [] | [{
+  allowModules?: string[];
+  tryExtensions?: string[];
+  resolvePaths?: string[];
+  resolverConfig?: {
+    [k: string]: unknown | undefined;
+  };
+  typescriptExtensionMap?: (unknown[][] | ("react" | "react-jsx" | "react-jsxdev" | "react-native" | "preserve"));
+  tsconfigPath?: string;
+}];
+type NodeNoMixedRequires = [] | [(boolean | {
+  grouping?: boolean;
+  allowCall?: boolean;
+})];
+type NodeNoProcessEnv = [] | [{
+  allowedVariables?: string[];
+}];
+type NodeNoRestrictedImport = [] | [(string | {
+  name: (string | string[]);
+  message?: string;
+})[]];
+type NodeNoRestrictedRequire = [] | [(string | {
+  name: (string | string[]);
+  message?: string;
+})[]];
+type NodeNoSync = [] | [{
+  allowAtRootLevel?: boolean;
+  ignores?: (string | {
+    from?: "file";
+    path?: string;
+    name?: string[];
+  } | {
+    from?: "lib";
+    name?: string[];
+  } | {
+    from?: "package";
+    package?: string;
+    name?: string[];
+  })[];
+}];
+type NodeNoTopLevelAwait = [] | [{
+  ignoreBin?: boolean;
+  convertPath?: ({
+    [k: string]: [string, string];
+  } | [{
+    include: [string, ...(string)[]];
+    exclude?: string[];
+    replace: [string, string];
+  }, ...({
+    include: [string, ...(string)[]];
+    exclude?: string[];
+    replace: [string, string];
+  })[]]);
+}];
+type NodeNoUnpublishedBin = [] | [{
+  convertPath?: ({
+    [k: string]: [string, string];
+  } | [{
+    include: [string, ...(string)[]];
+    exclude?: string[];
+    replace: [string, string];
+  }, ...({
+    include: [string, ...(string)[]];
+    exclude?: string[];
+    replace: [string, string];
+  })[]]);
+}];
+type NodeNoUnpublishedImport = [] | [{
+  allowModules?: string[];
+  convertPath?: ({
+    [k: string]: [string, string];
+  } | [{
+    include: [string, ...(string)[]];
+    exclude?: string[];
+    replace: [string, string];
+  }, ...({
+    include: [string, ...(string)[]];
+    exclude?: string[];
+    replace: [string, string];
+  })[]]);
+  resolvePaths?: string[];
+  resolverConfig?: {
+    [k: string]: unknown | undefined;
+  };
+  tryExtensions?: string[];
+  ignoreTypeImport?: boolean;
+  ignorePrivate?: boolean;
+}];
+type NodeNoUnpublishedRequire = [] | [{
+  allowModules?: string[];
+  convertPath?: ({
+    [k: string]: [string, string];
+  } | [{
+    include: [string, ...(string)[]];
+    exclude?: string[];
+    replace: [string, string];
+  }, ...({
+    include: [string, ...(string)[]];
+    exclude?: string[];
+    replace: [string, string];
+  })[]]);
+  resolvePaths?: string[];
+  resolverConfig?: {
+    [k: string]: unknown | undefined;
+  };
+  tryExtensions?: string[];
+  ignorePrivate?: boolean;
+}];
+type NodeNoUnsupportedFeaturesEsBuiltins = [] | [{
+  version?: string;
+  ignores?: ("AggregateError" | "Array" | "Array.from" | "Array.isArray" | "Array.length" | "Array.of" | "Array.toLocaleString" | "ArrayBuffer" | "ArrayBuffer.isView" | "Atomics" | "Atomics.add" | "Atomics.and" | "Atomics.compareExchange" | "Atomics.exchange" | "Atomics.isLockFree" | "Atomics.load" | "Atomics.notify" | "Atomics.or" | "Atomics.store" | "Atomics.sub" | "Atomics.wait" | "Atomics.waitAsync" | "Atomics.xor" | "BigInt" | "BigInt.asIntN" | "BigInt.asUintN" | "BigInt64Array" | "BigInt64Array.BYTES_PER_ELEMENT" | "BigInt64Array.from" | "BigInt64Array.name" | "BigInt64Array.of" | "BigUint64Array" | "BigUint64Array.BYTES_PER_ELEMENT" | "BigUint64Array.from" | "BigUint64Array.name" | "BigUint64Array.of" | "Boolean" | "DataView" | "Date" | "Date.UTC" | "Date.now" | "Date.parse" | "Date.toLocaleDateString" | "Date.toLocaleString" | "Date.toLocaleTimeString" | "Error" | "Error.cause" | "EvalError" | "FinalizationRegistry" | "Float32Array" | "Float32Array.BYTES_PER_ELEMENT" | "Float32Array.from" | "Float32Array.name" | "Float32Array.of" | "Float64Array" | "Float64Array.BYTES_PER_ELEMENT" | "Float64Array.from" | "Float64Array.name" | "Float64Array.of" | "Function" | "Function.length" | "Function.name" | "Infinity" | "Int16Array" | "Int16Array.BYTES_PER_ELEMENT" | "Int16Array.from" | "Int16Array.name" | "Int16Array.of" | "Int32Array" | "Int32Array.BYTES_PER_ELEMENT" | "Int32Array.from" | "Int32Array.name" | "Int32Array.of" | "Int8Array" | "Int8Array.BYTES_PER_ELEMENT" | "Int8Array.from" | "Int8Array.name" | "Int8Array.of" | "Intl" | "Intl.Collator" | "Intl.DateTimeFormat" | "Intl.DisplayNames" | "Intl.ListFormat" | "Intl.Locale" | "Intl.NumberFormat" | "Intl.PluralRules" | "Intl.RelativeTimeFormat" | "Intl.Segmenter" | "Intl.Segments" | "Intl.getCanonicalLocales" | "Intl.supportedValuesOf" | "JSON" | "JSON.parse" | "JSON.stringify" | "Map" | "Map.groupBy" | "Math" | "Math.E" | "Math.LN10" | "Math.LN2" | "Math.LOG10E" | "Math.LOG2E" | "Math.PI" | "Math.SQRT1_2" | "Math.SQRT2" | "Math.abs" | "Math.acos" | "Math.acosh" | "Math.asin" | "Math.asinh" | "Math.atan" | "Math.atan2" | "Math.atanh" | "Math.cbrt" | "Math.ceil" | "Math.clz32" | "Math.cos" | "Math.cosh" | "Math.exp" | "Math.expm1" | "Math.floor" | "Math.fround" | "Math.hypot" | "Math.imul" | "Math.log" | "Math.log10" | "Math.log1p" | "Math.log2" | "Math.max" | "Math.min" | "Math.pow" | "Math.random" | "Math.round" | "Math.sign" | "Math.sin" | "Math.sinh" | "Math.sqrt" | "Math.tan" | "Math.tanh" | "Math.trunc" | "NaN" | "Number.EPSILON" | "Number.MAX_SAFE_INTEGER" | "Number.MAX_VALUE" | "Number.MIN_SAFE_INTEGER" | "Number.MIN_VALUE" | "Number.NEGATIVE_INFINITY" | "Number.NaN" | "Number.POSITIVE_INFINITY" | "Number.isFinite" | "Number.isInteger" | "Number.isNaN" | "Number.isSafeInteger" | "Number.parseFloat" | "Number.parseInt" | "Number.toLocaleString" | "Object.assign" | "Object.create" | "Object.defineGetter" | "Object.defineProperties" | "Object.defineProperty" | "Object.defineSetter" | "Object.entries" | "Object.freeze" | "Object.fromEntries" | "Object.getOwnPropertyDescriptor" | "Object.getOwnPropertyDescriptors" | "Object.getOwnPropertyNames" | "Object.getOwnPropertySymbols" | "Object.getPrototypeOf" | "Object.groupBy" | "Object.hasOwn" | "Object.is" | "Object.isExtensible" | "Object.isFrozen" | "Object.isSealed" | "Object.keys" | "Object.lookupGetter" | "Object.lookupSetter" | "Object.preventExtensions" | "Object.proto" | "Object.seal" | "Object.setPrototypeOf" | "Object.values" | "Promise" | "Promise.all" | "Promise.allSettled" | "Promise.any" | "Promise.race" | "Promise.reject" | "Promise.resolve" | "Proxy" | "Proxy.revocable" | "RangeError" | "ReferenceError" | "Reflect" | "Reflect.apply" | "Reflect.construct" | "Reflect.defineProperty" | "Reflect.deleteProperty" | "Reflect.get" | "Reflect.getOwnPropertyDescriptor" | "Reflect.getPrototypeOf" | "Reflect.has" | "Reflect.isExtensible" | "Reflect.ownKeys" | "Reflect.preventExtensions" | "Reflect.set" | "Reflect.setPrototypeOf" | "RegExp" | "RegExp.dotAll" | "RegExp.hasIndices" | "RegExp.input" | "RegExp.lastIndex" | "RegExp.lastMatch" | "RegExp.lastParen" | "RegExp.leftContext" | "RegExp.n" | "RegExp.rightContext" | "Set" | "SharedArrayBuffer" | "String" | "String.fromCharCode" | "String.fromCodePoint" | "String.length" | "String.localeCompare" | "String.raw" | "String.toLocaleLowerCase" | "String.toLocaleUpperCase" | "Symbol" | "Symbol.asyncIterator" | "Symbol.for" | "Symbol.hasInstance" | "Symbol.isConcatSpreadable" | "Symbol.iterator" | "Symbol.keyFor" | "Symbol.match" | "Symbol.matchAll" | "Symbol.replace" | "Symbol.search" | "Symbol.species" | "Symbol.split" | "Symbol.toPrimitive" | "Symbol.toStringTag" | "Symbol.unscopables" | "SyntaxError" | "TypeError" | "URIError" | "Uint16Array" | "Uint16Array.BYTES_PER_ELEMENT" | "Uint16Array.from" | "Uint16Array.name" | "Uint16Array.of" | "Uint32Array" | "Uint32Array.BYTES_PER_ELEMENT" | "Uint32Array.from" | "Uint32Array.name" | "Uint32Array.of" | "Uint8Array" | "Uint8Array.BYTES_PER_ELEMENT" | "Uint8Array.from" | "Uint8Array.name" | "Uint8Array.of" | "Uint8ClampedArray" | "Uint8ClampedArray.BYTES_PER_ELEMENT" | "Uint8ClampedArray.from" | "Uint8ClampedArray.name" | "Uint8ClampedArray.of" | "WeakMap" | "WeakRef" | "WeakSet" | "decodeURI" | "decodeURIComponent" | "encodeURI" | "encodeURIComponent" | "escape" | "eval" | "globalThis" | "isFinite" | "isNaN" | "parseFloat" | "parseInt" | "unescape")[];
+}];
+type NodeNoUnsupportedFeaturesEsSyntax = [] | [{
+  version?: string;
+  ignores?: ("no-accessor-properties" | "accessor-properties" | "accessorProperties" | "no-arbitrary-module-namespace-names" | "arbitrary-module-namespace-names" | "arbitraryModuleNamespaceNames" | "no-array-from" | "array-from" | "arrayFrom" | "no-array-isarray" | "array-isarray" | "arrayIsarray" | "no-array-of" | "array-of" | "arrayOf" | "no-array-prototype-copywithin" | "array-prototype-copywithin" | "arrayPrototypeCopywithin" | "no-array-prototype-entries" | "array-prototype-entries" | "arrayPrototypeEntries" | "no-array-prototype-every" | "array-prototype-every" | "arrayPrototypeEvery" | "no-array-prototype-fill" | "array-prototype-fill" | "arrayPrototypeFill" | "no-array-prototype-filter" | "array-prototype-filter" | "arrayPrototypeFilter" | "no-array-prototype-find" | "array-prototype-find" | "arrayPrototypeFind" | "no-array-prototype-findindex" | "array-prototype-findindex" | "arrayPrototypeFindindex" | "no-array-prototype-findlast-findlastindex" | "array-prototype-findlast-findlastindex" | "arrayPrototypeFindlastFindlastindex" | "no-array-prototype-flat" | "array-prototype-flat" | "arrayPrototypeFlat" | "no-array-prototype-foreach" | "array-prototype-foreach" | "arrayPrototypeForeach" | "no-array-prototype-includes" | "array-prototype-includes" | "arrayPrototypeIncludes" | "no-array-prototype-indexof" | "array-prototype-indexof" | "arrayPrototypeIndexof" | "no-array-prototype-keys" | "array-prototype-keys" | "arrayPrototypeKeys" | "no-array-prototype-lastindexof" | "array-prototype-lastindexof" | "arrayPrototypeLastindexof" | "no-array-prototype-map" | "array-prototype-map" | "arrayPrototypeMap" | "no-array-prototype-reduce" | "array-prototype-reduce" | "arrayPrototypeReduce" | "no-array-prototype-reduceright" | "array-prototype-reduceright" | "arrayPrototypeReduceright" | "no-array-prototype-some" | "array-prototype-some" | "arrayPrototypeSome" | "no-array-prototype-toreversed" | "array-prototype-toreversed" | "arrayPrototypeToreversed" | "no-array-prototype-tosorted" | "array-prototype-tosorted" | "arrayPrototypeTosorted" | "no-array-prototype-tospliced" | "array-prototype-tospliced" | "arrayPrototypeTospliced" | "no-array-prototype-values" | "array-prototype-values" | "arrayPrototypeValues" | "no-array-prototype-with" | "array-prototype-with" | "arrayPrototypeWith" | "no-array-string-prototype-at" | "array-string-prototype-at" | "arrayStringPrototypeAt" | "no-arrow-functions" | "arrow-functions" | "arrowFunctions" | "no-async-functions" | "async-functions" | "asyncFunctions" | "no-async-iteration" | "async-iteration" | "asyncIteration" | "no-atomics-waitasync" | "atomics-waitasync" | "atomicsWaitasync" | "no-atomics" | "atomics" | "no-bigint" | "bigint" | "no-binary-numeric-literals" | "binary-numeric-literals" | "binaryNumericLiterals" | "no-block-scoped-functions" | "block-scoped-functions" | "blockScopedFunctions" | "no-block-scoped-variables" | "block-scoped-variables" | "blockScopedVariables" | "no-class-fields" | "class-fields" | "classFields" | "no-class-static-block" | "class-static-block" | "classStaticBlock" | "no-classes" | "classes" | "no-computed-properties" | "computed-properties" | "computedProperties" | "no-date-now" | "date-now" | "dateNow" | "no-date-prototype-getyear-setyear" | "date-prototype-getyear-setyear" | "datePrototypeGetyearSetyear" | "no-date-prototype-togmtstring" | "date-prototype-togmtstring" | "datePrototypeTogmtstring" | "no-default-parameters" | "default-parameters" | "defaultParameters" | "no-destructuring" | "destructuring" | "no-dynamic-import" | "dynamic-import" | "dynamicImport" | "no-error-cause" | "error-cause" | "errorCause" | "no-escape-unescape" | "escape-unescape" | "escapeUnescape" | "no-exponential-operators" | "exponential-operators" | "exponentialOperators" | "no-export-ns-from" | "export-ns-from" | "exportNsFrom" | "no-for-of-loops" | "for-of-loops" | "forOfLoops" | "no-function-declarations-in-if-statement-clauses-without-block" | "function-declarations-in-if-statement-clauses-without-block" | "functionDeclarationsInIfStatementClausesWithoutBlock" | "no-function-prototype-bind" | "function-prototype-bind" | "functionPrototypeBind" | "no-generators" | "generators" | "no-global-this" | "global-this" | "globalThis" | "no-hashbang" | "hashbang" | "no-import-meta" | "import-meta" | "importMeta" | "no-initializers-in-for-in" | "initializers-in-for-in" | "initializersInForIn" | "no-intl-datetimeformat-prototype-formatrange" | "intl-datetimeformat-prototype-formatrange" | "intlDatetimeformatPrototypeFormatrange" | "no-intl-datetimeformat-prototype-formattoparts" | "intl-datetimeformat-prototype-formattoparts" | "intlDatetimeformatPrototypeFormattoparts" | "no-intl-displaynames" | "intl-displaynames" | "intlDisplaynames" | "no-intl-getcanonicallocales" | "intl-getcanonicallocales" | "intlGetcanonicallocales" | "no-intl-listformat" | "intl-listformat" | "intlListformat" | "no-intl-locale" | "intl-locale" | "intlLocale" | "no-intl-numberformat-prototype-formatrange" | "intl-numberformat-prototype-formatrange" | "intlNumberformatPrototypeFormatrange" | "no-intl-numberformat-prototype-formatrangetoparts" | "intl-numberformat-prototype-formatrangetoparts" | "intlNumberformatPrototypeFormatrangetoparts" | "no-intl-numberformat-prototype-formattoparts" | "intl-numberformat-prototype-formattoparts" | "intlNumberformatPrototypeFormattoparts" | "no-intl-pluralrules-prototype-selectrange" | "intl-pluralrules-prototype-selectrange" | "intlPluralrulesPrototypeSelectrange" | "no-intl-pluralrules" | "intl-pluralrules" | "intlPluralrules" | "no-intl-relativetimeformat" | "intl-relativetimeformat" | "intlRelativetimeformat" | "no-intl-segmenter" | "intl-segmenter" | "intlSegmenter" | "no-intl-supportedvaluesof" | "intl-supportedvaluesof" | "intlSupportedvaluesof" | "no-json-superset" | "json-superset" | "jsonSuperset" | "no-json" | "json" | "no-keyword-properties" | "keyword-properties" | "keywordProperties" | "no-labelled-function-declarations" | "labelled-function-declarations" | "labelledFunctionDeclarations" | "no-legacy-object-prototype-accessor-methods" | "legacy-object-prototype-accessor-methods" | "legacyObjectPrototypeAccessorMethods" | "no-logical-assignment-operators" | "logical-assignment-operators" | "logicalAssignmentOperators" | "no-malformed-template-literals" | "malformed-template-literals" | "malformedTemplateLiterals" | "no-map" | "map" | "no-math-acosh" | "math-acosh" | "mathAcosh" | "no-math-asinh" | "math-asinh" | "mathAsinh" | "no-math-atanh" | "math-atanh" | "mathAtanh" | "no-math-cbrt" | "math-cbrt" | "mathCbrt" | "no-math-clz32" | "math-clz32" | "mathClz32" | "no-math-cosh" | "math-cosh" | "mathCosh" | "no-math-expm1" | "math-expm1" | "mathExpm1" | "no-math-fround" | "math-fround" | "mathFround" | "no-math-hypot" | "math-hypot" | "mathHypot" | "no-math-imul" | "math-imul" | "mathImul" | "no-math-log10" | "math-log10" | "mathLog10" | "no-math-log1p" | "math-log1p" | "mathLog1p" | "no-math-log2" | "math-log2" | "mathLog2" | "no-math-sign" | "math-sign" | "mathSign" | "no-math-sinh" | "math-sinh" | "mathSinh" | "no-math-tanh" | "math-tanh" | "mathTanh" | "no-math-trunc" | "math-trunc" | "mathTrunc" | "no-modules" | "modules" | "no-new-target" | "new-target" | "newTarget" | "new.target" | "no-nullish-coalescing-operators" | "nullish-coalescing-operators" | "nullishCoalescingOperators" | "no-number-epsilon" | "number-epsilon" | "numberEpsilon" | "no-number-isfinite" | "number-isfinite" | "numberIsfinite" | "no-number-isinteger" | "number-isinteger" | "numberIsinteger" | "no-number-isnan" | "number-isnan" | "numberIsnan" | "no-number-issafeinteger" | "number-issafeinteger" | "numberIssafeinteger" | "no-number-maxsafeinteger" | "number-maxsafeinteger" | "numberMaxsafeinteger" | "no-number-minsafeinteger" | "number-minsafeinteger" | "numberMinsafeinteger" | "no-number-parsefloat" | "number-parsefloat" | "numberParsefloat" | "no-number-parseint" | "number-parseint" | "numberParseint" | "no-numeric-separators" | "numeric-separators" | "numericSeparators" | "no-object-assign" | "object-assign" | "objectAssign" | "no-object-create" | "object-create" | "objectCreate" | "no-object-defineproperties" | "object-defineproperties" | "objectDefineproperties" | "no-object-defineproperty" | "object-defineproperty" | "objectDefineproperty" | "no-object-entries" | "object-entries" | "objectEntries" | "no-object-freeze" | "object-freeze" | "objectFreeze" | "no-object-fromentries" | "object-fromentries" | "objectFromentries" | "no-object-getownpropertydescriptor" | "object-getownpropertydescriptor" | "objectGetownpropertydescriptor" | "no-object-getownpropertydescriptors" | "object-getownpropertydescriptors" | "objectGetownpropertydescriptors" | "no-object-getownpropertynames" | "object-getownpropertynames" | "objectGetownpropertynames" | "no-object-getownpropertysymbols" | "object-getownpropertysymbols" | "objectGetownpropertysymbols" | "no-object-getprototypeof" | "object-getprototypeof" | "objectGetprototypeof" | "no-object-hasown" | "object-hasown" | "objectHasown" | "no-object-is" | "object-is" | "objectIs" | "no-object-isextensible" | "object-isextensible" | "objectIsextensible" | "no-object-isfrozen" | "object-isfrozen" | "objectIsfrozen" | "no-object-issealed" | "object-issealed" | "objectIssealed" | "no-object-keys" | "object-keys" | "objectKeys" | "no-object-map-groupby" | "object-map-groupby" | "objectMapGroupby" | "no-object-preventextensions" | "object-preventextensions" | "objectPreventextensions" | "no-object-seal" | "object-seal" | "objectSeal" | "no-object-setprototypeof" | "object-setprototypeof" | "objectSetprototypeof" | "no-object-super-properties" | "object-super-properties" | "objectSuperProperties" | "no-object-values" | "object-values" | "objectValues" | "no-octal-numeric-literals" | "octal-numeric-literals" | "octalNumericLiterals" | "no-optional-catch-binding" | "optional-catch-binding" | "optionalCatchBinding" | "no-optional-chaining" | "optional-chaining" | "optionalChaining" | "no-private-in" | "private-in" | "privateIn" | "no-promise-all-settled" | "promise-all-settled" | "promiseAllSettled" | "no-promise-any" | "promise-any" | "promiseAny" | "no-promise-prototype-finally" | "promise-prototype-finally" | "promisePrototypeFinally" | "no-promise-withresolvers" | "promise-withresolvers" | "promiseWithresolvers" | "no-promise" | "promise" | "no-property-shorthands" | "property-shorthands" | "propertyShorthands" | "no-proxy" | "proxy" | "no-reflect" | "reflect" | "no-regexp-d-flag" | "regexp-d-flag" | "regexpDFlag" | "no-regexp-lookbehind-assertions" | "regexp-lookbehind-assertions" | "regexpLookbehindAssertions" | "regexpLookbehind" | "no-regexp-named-capture-groups" | "regexp-named-capture-groups" | "regexpNamedCaptureGroups" | "no-regexp-prototype-compile" | "regexp-prototype-compile" | "regexpPrototypeCompile" | "no-regexp-prototype-flags" | "regexp-prototype-flags" | "regexpPrototypeFlags" | "no-regexp-s-flag" | "regexp-s-flag" | "regexpSFlag" | "regexpS" | "no-regexp-u-flag" | "regexp-u-flag" | "regexpUFlag" | "regexpU" | "no-regexp-unicode-property-escapes-2019" | "regexp-unicode-property-escapes-2019" | "regexpUnicodePropertyEscapes2019" | "no-regexp-unicode-property-escapes-2020" | "regexp-unicode-property-escapes-2020" | "regexpUnicodePropertyEscapes2020" | "no-regexp-unicode-property-escapes-2021" | "regexp-unicode-property-escapes-2021" | "regexpUnicodePropertyEscapes2021" | "no-regexp-unicode-property-escapes-2022" | "regexp-unicode-property-escapes-2022" | "regexpUnicodePropertyEscapes2022" | "no-regexp-unicode-property-escapes-2023" | "regexp-unicode-property-escapes-2023" | "regexpUnicodePropertyEscapes2023" | "no-regexp-unicode-property-escapes" | "regexp-unicode-property-escapes" | "regexpUnicodePropertyEscapes" | "regexpUnicodeProperties" | "no-regexp-v-flag" | "regexp-v-flag" | "regexpVFlag" | "no-regexp-y-flag" | "regexp-y-flag" | "regexpYFlag" | "regexpY" | "no-resizable-and-growable-arraybuffers" | "resizable-and-growable-arraybuffers" | "resizableAndGrowableArraybuffers" | "no-rest-parameters" | "rest-parameters" | "restParameters" | "no-rest-spread-properties" | "rest-spread-properties" | "restSpreadProperties" | "no-set" | "set" | "no-shadow-catch-param" | "shadow-catch-param" | "shadowCatchParam" | "no-shared-array-buffer" | "shared-array-buffer" | "sharedArrayBuffer" | "no-spread-elements" | "spread-elements" | "spreadElements" | "no-string-create-html-methods" | "string-create-html-methods" | "stringCreateHtmlMethods" | "no-string-fromcodepoint" | "string-fromcodepoint" | "stringFromcodepoint" | "no-string-prototype-codepointat" | "string-prototype-codepointat" | "stringPrototypeCodepointat" | "no-string-prototype-endswith" | "string-prototype-endswith" | "stringPrototypeEndswith" | "no-string-prototype-includes" | "string-prototype-includes" | "stringPrototypeIncludes" | "no-string-prototype-iswellformed-towellformed" | "string-prototype-iswellformed-towellformed" | "stringPrototypeIswellformedTowellformed" | "no-string-prototype-matchall" | "string-prototype-matchall" | "stringPrototypeMatchall" | "no-string-prototype-normalize" | "string-prototype-normalize" | "stringPrototypeNormalize" | "no-string-prototype-padstart-padend" | "string-prototype-padstart-padend" | "stringPrototypePadstartPadend" | "no-string-prototype-repeat" | "string-prototype-repeat" | "stringPrototypeRepeat" | "no-string-prototype-replaceall" | "string-prototype-replaceall" | "stringPrototypeReplaceall" | "no-string-prototype-startswith" | "string-prototype-startswith" | "stringPrototypeStartswith" | "no-string-prototype-substr" | "string-prototype-substr" | "stringPrototypeSubstr" | "no-string-prototype-trim" | "string-prototype-trim" | "stringPrototypeTrim" | "no-string-prototype-trimleft-trimright" | "string-prototype-trimleft-trimright" | "stringPrototypeTrimleftTrimright" | "no-string-prototype-trimstart-trimend" | "string-prototype-trimstart-trimend" | "stringPrototypeTrimstartTrimend" | "no-string-raw" | "string-raw" | "stringRaw" | "no-subclassing-builtins" | "subclassing-builtins" | "subclassingBuiltins" | "no-symbol-prototype-description" | "symbol-prototype-description" | "symbolPrototypeDescription" | "no-symbol" | "symbol" | "no-template-literals" | "template-literals" | "templateLiterals" | "no-top-level-await" | "top-level-await" | "topLevelAwait" | "no-trailing-commas" | "trailing-commas" | "trailingCommas" | "no-trailing-function-commas" | "trailing-function-commas" | "trailingFunctionCommas" | "trailingCommasInFunctions" | "no-typed-arrays" | "typed-arrays" | "typedArrays" | "no-unicode-codepoint-escapes" | "unicode-codepoint-escapes" | "unicodeCodepointEscapes" | "unicodeCodePointEscapes" | "no-weak-map" | "weak-map" | "weakMap" | "no-weak-set" | "weak-set" | "weakSet" | "no-weakrefs" | "weakrefs")[];
+}];
+type NodeNoUnsupportedFeaturesNodeBuiltins = [] | [{
+  version?: string;
+  allowExperimental?: boolean;
+  ignores?: ("__filename" | "__dirname" | "require" | "require.cache" | "require.extensions" | "require.main" | "require.resolve" | "require.resolve.paths" | "module" | "module.children" | "module.exports" | "module.filename" | "module.id" | "module.isPreloading" | "module.loaded" | "module.parent" | "module.path" | "module.paths" | "module.require" | "exports" | "AbortController" | "AbortSignal" | "AbortSignal.abort" | "AbortSignal.timeout" | "AbortSignal.any" | "DOMException" | "FormData" | "Headers" | "MessageEvent" | "Navigator" | "Request" | "Response" | "WebAssembly" | "WebSocket" | "fetch" | "global" | "queueMicrotask" | "navigator" | "navigator.hardwareConcurrency" | "navigator.language" | "navigator.languages" | "navigator.locks" | "navigator.locks.request" | "navigator.locks.query" | "navigator.platform" | "navigator.userAgent" | "structuredClone" | "localStorage" | "sessionStorage" | "Storage" | "Blob" | "new Buffer()" | "Buffer" | "Buffer.alloc" | "Buffer.allocUnsafe" | "Buffer.allocUnsafeSlow" | "Buffer.byteLength" | "Buffer.compare" | "Buffer.concat" | "Buffer.copyBytesFrom" | "Buffer.from" | "Buffer.isBuffer" | "Buffer.isEncoding" | "File" | "atob" | "btoa" | "console" | "console.profile" | "console.profileEnd" | "console.timeStamp" | "console.Console" | "console.assert" | "console.clear" | "console.count" | "console.countReset" | "console.debug" | "console.dir" | "console.dirxml" | "console.error" | "console.group" | "console.groupCollapsed" | "console.groupEnd" | "console.info" | "console.log" | "console.table" | "console.time" | "console.timeEnd" | "console.timeLog" | "console.trace" | "console.warn" | "crypto" | "crypto.subtle" | "crypto.subtle.decapsulateBits" | "crypto.subtle.decapsulateKey" | "crypto.subtle.decrypt" | "crypto.subtle.deriveBits" | "crypto.subtle.deriveKey" | "crypto.subtle.digest" | "crypto.subtle.encapsulateBits" | "crypto.subtle.encapsulateKey" | "crypto.subtle.encrypt" | "crypto.subtle.exportKey" | "crypto.subtle.generateKey" | "crypto.subtle.getPublicKey" | "crypto.subtle.importKey" | "crypto.subtle.sign" | "crypto.subtle.unwrapKey" | "crypto.subtle.verify" | "crypto.subtle.wrapKey" | "crypto.getRandomValues" | "crypto.randomUUID" | "Crypto" | "CryptoKey" | "SubtleCrypto" | "SubtleCrypto.supports" | "CloseEvent" | "CustomEvent" | "Event" | "EventSource" | "EventTarget" | "PerformanceEntry" | "PerformanceMark" | "PerformanceMeasure" | "PerformanceObserver" | "PerformanceObserverEntryList" | "PerformanceResourceTiming" | "performance" | "performance.clearMarks" | "performance.clearMeasures" | "performance.clearResourceTimings" | "performance.eventLoopUtilization" | "performance.getEntries" | "performance.getEntriesByName" | "performance.getEntriesByType" | "performance.mark" | "performance.markResourceTiming" | "performance.measure" | "performance.nodeTiming" | "performance.nodeTiming.bootstrapComplete" | "performance.nodeTiming.environment" | "performance.nodeTiming.idleTime" | "performance.nodeTiming.loopExit" | "performance.nodeTiming.loopStart" | "performance.nodeTiming.nodeStart" | "performance.nodeTiming.uvMetricsInfo" | "performance.nodeTiming.v8Start" | "performance.now" | "performance.onresourcetimingbufferfull" | "performance.setResourceTimingBufferSize" | "performance.timeOrigin" | "performance.timerify" | "performance.toJSON" | "process" | "process.allowedNodeEnvironmentFlags" | "process.availableMemory" | "process.arch" | "process.argv" | "process.argv0" | "process.channel" | "process.config" | "process.connected" | "process.debugPort" | "process.env" | "process.execArgv" | "process.execPath" | "process.execve" | "process.exitCode" | "process.features.cached_builtins" | "process.features.debug" | "process.features.inspector" | "process.features.ipv6" | "process.features.require_module" | "process.features.tls" | "process.features.tls_alpn" | "process.features.tls_ocsp" | "process.features.tls_sni" | "process.features.typescript" | "process.features.uv" | "process.finalization.register" | "process.finalization.registerBeforeExit" | "process.finalization.unregister" | "process.getBuiltinModule" | "process.mainModule" | "process.noDeprecation" | "process.permission" | "process.pid" | "process.platform" | "process.ppid" | "process.ref" | "process.release" | "process.report" | "process.report.excludeEnv" | "process.sourceMapsEnabled" | "process.stdin" | "process.stdin.isRaw" | "process.stdin.isTTY" | "process.stdin.setRawMode" | "process.stdout" | "process.stdout.clearLine" | "process.stdout.clearScreenDown" | "process.stdout.columns" | "process.stdout.cursorTo" | "process.stdout.getColorDepth" | "process.stdout.getWindowSize" | "process.stdout.hasColors" | "process.stdout.isTTY" | "process.stdout.moveCursor" | "process.stdout.rows" | "process.stderr" | "process.stderr.clearLine" | "process.stderr.clearScreenDown" | "process.stderr.columns" | "process.stderr.cursorTo" | "process.stderr.getColorDepth" | "process.stderr.getWindowSize" | "process.stderr.hasColors" | "process.stderr.isTTY" | "process.stderr.moveCursor" | "process.stderr.rows" | "process.threadCpuUsage" | "process.throwDeprecation" | "process.title" | "process.traceDeprecation" | "process.version" | "process.versions" | "process.abort" | "process.chdir" | "process.constrainedMemory" | "process.cpuUsage" | "process.cwd" | "process.disconnect" | "process.dlopen" | "process.emitWarning" | "process.exit" | "process.getActiveResourcesInfo" | "process.getegid" | "process.geteuid" | "process.getgid" | "process.getgroups" | "process.getuid" | "process.hasUncaughtExceptionCaptureCallback" | "process.hrtime" | "process.hrtime.bigint" | "process.initgroups" | "process.kill" | "process.loadEnvFile" | "process.memoryUsage" | "process.rss" | "process.nextTick" | "process.resourceUsage" | "process.send" | "process.setegid" | "process.seteuid" | "process.setgid" | "process.setgroups" | "process.setuid" | "process.setSourceMapsEnabled" | "process.setUncaughtExceptionCaptureCallback" | "process.umask" | "process.unref" | "process.uptime" | "ReadableStream" | "ReadableStream.from" | "ReadableStreamDefaultReader" | "ReadableStreamBYOBReader" | "ReadableStreamDefaultController" | "ReadableByteStreamController" | "ReadableStreamBYOBRequest" | "WritableStream" | "WritableStreamDefaultWriter" | "WritableStreamDefaultController" | "TransformStream" | "TransformStreamDefaultController" | "ByteLengthQueuingStrategy" | "CountQueuingStrategy" | "TextEncoderStream" | "TextDecoderStream" | "CompressionStream" | "DecompressionStream" | "setInterval" | "clearInterval" | "setTimeout" | "clearTimeout" | "setImmediate" | "clearImmediate" | "URL" | "URL.canParse" | "URL.createObjectURL" | "URL.revokeObjectURL" | "URLSearchParams" | "TextDecoder" | "TextEncoder" | "BroadcastChannel" | "MessageChannel" | "MessagePort" | "assert" | "assert.Assert" | "assert.assert" | "assert.deepEqual" | "assert.deepStrictEqual" | "assert.doesNotMatch" | "assert.doesNotReject" | "assert.doesNotThrow" | "assert.equal" | "assert.fail" | "assert.ifError" | "assert.match" | "assert.notDeepEqual" | "assert.notDeepStrictEqual" | "assert.notEqual" | "assert.notStrictEqual" | "assert.ok" | "assert.partialDeepStrictEqual" | "assert.rejects" | "assert.strictEqual" | "assert.throws" | "assert.CallTracker" | "assert.strict" | "assert.strict.Assert" | "assert.strict.assert" | "assert.strict.deepEqual" | "assert.strict.deepStrictEqual" | "assert.strict.doesNotMatch" | "assert.strict.doesNotReject" | "assert.strict.doesNotThrow" | "assert.strict.equal" | "assert.strict.fail" | "assert.strict.ifError" | "assert.strict.match" | "assert.strict.notDeepEqual" | "assert.strict.notDeepStrictEqual" | "assert.strict.notEqual" | "assert.strict.notStrictEqual" | "assert.strict.ok" | "assert.strict.partialDeepStrictEqual" | "assert.strict.rejects" | "assert.strict.strictEqual" | "assert.strict.throws" | "assert.strict.CallTracker" | "assert/strict" | "assert/strict.Assert" | "assert/strict.assert" | "assert/strict.deepEqual" | "assert/strict.deepStrictEqual" | "assert/strict.doesNotMatch" | "assert/strict.doesNotReject" | "assert/strict.doesNotThrow" | "assert/strict.equal" | "assert/strict.fail" | "assert/strict.ifError" | "assert/strict.match" | "assert/strict.notDeepEqual" | "assert/strict.notDeepStrictEqual" | "assert/strict.notEqual" | "assert/strict.notStrictEqual" | "assert/strict.ok" | "assert/strict.partialDeepStrictEqual" | "assert/strict.rejects" | "assert/strict.strictEqual" | "assert/strict.throws" | "assert/strict.CallTracker" | "async_hooks" | "async_hooks.createHook" | "async_hooks.executionAsyncResource" | "async_hooks.executionAsyncId" | "async_hooks.triggerAsyncId" | "async_hooks.AsyncLocalStorage" | "async_hooks.AsyncLocalStorage.bind" | "async_hooks.AsyncLocalStorage.snapshot" | "async_hooks.AsyncResource" | "async_hooks.AsyncResource.bind" | "buffer" | "buffer.constants" | "buffer.INSPECT_MAX_BYTES" | "buffer.kMaxLength" | "buffer.kStringMaxLength" | "buffer.atob" | "buffer.btoa" | "buffer.isAscii" | "buffer.isUtf8" | "buffer.resolveObjectURL" | "buffer.transcode" | "buffer.SlowBuffer" | "buffer.Blob" | "new buffer.Buffer()" | "buffer.Buffer" | "buffer.Buffer.alloc" | "buffer.Buffer.allocUnsafe" | "buffer.Buffer.allocUnsafeSlow" | "buffer.Buffer.byteLength" | "buffer.Buffer.compare" | "buffer.Buffer.concat" | "buffer.Buffer.copyBytesFrom" | "buffer.Buffer.from" | "buffer.Buffer.isBuffer" | "buffer.Buffer.isEncoding" | "buffer.File" | "child_process" | "child_process.exec" | "child_process.execFile" | "child_process.fork" | "child_process.spawn" | "child_process.execFileSync" | "child_process.execSync" | "child_process.spawnSync" | "child_process.ChildProcess" | "cluster" | "cluster.isMaster" | "cluster.isPrimary" | "cluster.isWorker" | "cluster.schedulingPolicy" | "cluster.settings" | "cluster.worker" | "cluster.workers" | "cluster.disconnect" | "cluster.fork" | "cluster.setupMaster" | "cluster.setupPrimary" | "cluster.Worker" | "crypto.constants" | "crypto.fips" | "crypto.webcrypto" | "crypto.webcrypto.subtle" | "crypto.webcrypto.subtle.decapsulateBits" | "crypto.webcrypto.subtle.decapsulateKey" | "crypto.webcrypto.subtle.decrypt" | "crypto.webcrypto.subtle.deriveBits" | "crypto.webcrypto.subtle.deriveKey" | "crypto.webcrypto.subtle.digest" | "crypto.webcrypto.subtle.encapsulateBits" | "crypto.webcrypto.subtle.encapsulateKey" | "crypto.webcrypto.subtle.encrypt" | "crypto.webcrypto.subtle.exportKey" | "crypto.webcrypto.subtle.generateKey" | "crypto.webcrypto.subtle.getPublicKey" | "crypto.webcrypto.subtle.importKey" | "crypto.webcrypto.subtle.sign" | "crypto.webcrypto.subtle.unwrapKey" | "crypto.webcrypto.subtle.verify" | "crypto.webcrypto.subtle.wrapKey" | "crypto.webcrypto.getRandomValues" | "crypto.webcrypto.randomUUID" | "crypto.argon2" | "crypto.argon2Sync" | "crypto.checkPrime" | "crypto.checkPrimeSync" | "crypto.createCipher" | "crypto.createCipheriv" | "crypto.createDecipher" | "crypto.createDecipheriv" | "crypto.createDiffieHellman" | "crypto.createDiffieHellmanGroup" | "crypto.createECDH" | "crypto.createHash" | "crypto.createHmac" | "crypto.createPrivateKey" | "crypto.createPublicKey" | "crypto.createSecretKey" | "crypto.createSign" | "crypto.createVerify" | "crypto.decapsulate" | "crypto.diffieHellman" | "crypto.encapsulate" | "crypto.generateKey" | "crypto.generateKeyPair" | "crypto.generateKeyPairSync" | "crypto.generateKeySync" | "crypto.generatePrime" | "crypto.generatePrimeSync" | "crypto.getCipherInfo" | "crypto.getCiphers" | "crypto.getCurves" | "crypto.getDiffieHellman" | "crypto.getFips" | "crypto.getHashes" | "crypto.hash" | "crypto.hkdf" | "crypto.hkdfSync" | "crypto.pbkdf2" | "crypto.pbkdf2Sync" | "crypto.privateDecrypt" | "crypto.privateEncrypt" | "crypto.publicDecrypt" | "crypto.publicEncrypt" | "crypto.randomBytes" | "crypto.randomFillSync" | "crypto.randomFill" | "crypto.randomInt" | "crypto.scrypt" | "crypto.scryptSync" | "crypto.secureHeapUsed" | "crypto.setEngine" | "crypto.setFips" | "crypto.sign" | "crypto.timingSafeEqual" | "crypto.verify" | "crypto.Certificate" | "crypto.Certificate.exportChallenge" | "crypto.Certificate.exportPublicKey" | "crypto.Certificate.verifySpkac" | "crypto.Cipher" | "crypto.Decipher" | "crypto.DiffieHellman" | "crypto.DiffieHellmanGroup" | "crypto.ECDH" | "crypto.ECDH.convertKey" | "crypto.Hash()" | "new crypto.Hash()" | "crypto.Hash" | "crypto.Hmac()" | "new crypto.Hmac()" | "crypto.Hmac" | "crypto.KeyObject" | "crypto.KeyObject.from" | "crypto.Sign" | "crypto.Verify" | "crypto.X509Certificate" | "dgram" | "dgram.createSocket" | "dgram.Socket" | "diagnostics_channel" | "diagnostics_channel.hasSubscribers" | "diagnostics_channel.channel" | "diagnostics_channel.subscribe" | "diagnostics_channel.unsubscribe" | "diagnostics_channel.tracingChannel" | "diagnostics_channel.Channel" | "diagnostics_channel.TracingChannel" | "dns" | "dns.Resolver" | "dns.getServers" | "dns.lookup" | "dns.lookupService" | "dns.resolve" | "dns.resolve4" | "dns.resolve6" | "dns.resolveAny" | "dns.resolveCname" | "dns.resolveCaa" | "dns.resolveMx" | "dns.resolveNaptr" | "dns.resolveNs" | "dns.resolvePtr" | "dns.resolveSoa" | "dns.resolveSrv" | "dns.resolveTlsa" | "dns.resolveTxt" | "dns.reverse" | "dns.setDefaultResultOrder" | "dns.getDefaultResultOrder" | "dns.setServers" | "dns.promises" | "dns.promises.Resolver" | "dns.promises.cancel" | "dns.promises.getServers" | "dns.promises.lookup" | "dns.promises.lookupService" | "dns.promises.resolve" | "dns.promises.resolve4" | "dns.promises.resolve6" | "dns.promises.resolveAny" | "dns.promises.resolveCaa" | "dns.promises.resolveCname" | "dns.promises.resolveMx" | "dns.promises.resolveNaptr" | "dns.promises.resolveNs" | "dns.promises.resolvePtr" | "dns.promises.resolveSoa" | "dns.promises.resolveSrv" | "dns.promises.resolveTlsa" | "dns.promises.resolveTxt" | "dns.promises.reverse" | "dns.promises.setDefaultResultOrder" | "dns.promises.getDefaultResultOrder" | "dns.promises.setServers" | "dns/promises" | "dns/promises.Resolver" | "dns/promises.cancel" | "dns/promises.getServers" | "dns/promises.lookup" | "dns/promises.lookupService" | "dns/promises.resolve" | "dns/promises.resolve4" | "dns/promises.resolve6" | "dns/promises.resolveAny" | "dns/promises.resolveCaa" | "dns/promises.resolveCname" | "dns/promises.resolveMx" | "dns/promises.resolveNaptr" | "dns/promises.resolveNs" | "dns/promises.resolvePtr" | "dns/promises.resolveSoa" | "dns/promises.resolveSrv" | "dns/promises.resolveTlsa" | "dns/promises.resolveTxt" | "dns/promises.reverse" | "dns/promises.setDefaultResultOrder" | "dns/promises.getDefaultResultOrder" | "dns/promises.setServers" | "domain" | "domain.create" | "domain.Domain" | "events" | "events.Event" | "events.EventTarget" | "events.CustomEvent" | "events.NodeEventTarget" | "events.EventEmitter" | "events.EventEmitter.defaultMaxListeners" | "events.EventEmitter.errorMonitor" | "events.EventEmitter.captureRejections" | "events.EventEmitter.captureRejectionSymbol" | "events.EventEmitter.getEventListeners" | "events.EventEmitter.getMaxListeners" | "events.EventEmitter.once" | "events.EventEmitter.listenerCount" | "events.EventEmitter.on" | "events.EventEmitter.setMaxListeners" | "events.EventEmitter.addAbortListener" | "events.EventEmitterAsyncResource" | "events.EventEmitterAsyncResource.defaultMaxListeners" | "events.EventEmitterAsyncResource.errorMonitor" | "events.EventEmitterAsyncResource.captureRejections" | "events.EventEmitterAsyncResource.captureRejectionSymbol" | "events.EventEmitterAsyncResource.getEventListeners" | "events.EventEmitterAsyncResource.getMaxListeners" | "events.EventEmitterAsyncResource.once" | "events.EventEmitterAsyncResource.listenerCount" | "events.EventEmitterAsyncResource.on" | "events.EventEmitterAsyncResource.setMaxListeners" | "events.EventEmitterAsyncResource.addAbortListener" | "events.defaultMaxListeners" | "events.errorMonitor" | "events.captureRejections" | "events.captureRejectionSymbol" | "events.getEventListeners" | "events.getMaxListeners" | "events.once" | "events.listenerCount" | "events.on" | "events.setMaxListeners" | "events.addAbortListener" | "fs" | "fs.promises" | "fs.promises.FileHandle" | "fs.promises.access" | "fs.promises.appendFile" | "fs.promises.chmod" | "fs.promises.chown" | "fs.promises.constants" | "fs.promises.copyFile" | "fs.promises.cp" | "fs.promises.glob" | "fs.promises.lchmod" | "fs.promises.lchown" | "fs.promises.link" | "fs.promises.lstat" | "fs.promises.lutimes" | "fs.promises.mkdir" | "fs.promises.mkdtemp" | "fs.promises.mkdtempDisposable" | "fs.promises.open" | "fs.promises.opendir" | "fs.promises.readFile" | "fs.promises.readdir" | "fs.promises.readlink" | "fs.promises.realpath" | "fs.promises.rename" | "fs.promises.rm" | "fs.promises.rmdir" | "fs.promises.stat" | "fs.promises.statfs" | "fs.promises.symlink" | "fs.promises.truncate" | "fs.promises.unlink" | "fs.promises.utimes" | "fs.promises.watch" | "fs.promises.writeFile" | "fs.access" | "fs.appendFile" | "fs.chmod" | "fs.chown" | "fs.close" | "fs.copyFile" | "fs.cp" | "fs.createReadStream" | "fs.createWriteStream" | "fs.exists" | "fs.fchmod" | "fs.fchown" | "fs.fdatasync" | "fs.fstat" | "fs.fsync" | "fs.ftruncate" | "fs.futimes" | "fs.glob" | "fs.lchmod" | "fs.lchown" | "fs.link" | "fs.lstat" | "fs.lutimes" | "fs.mkdir" | "fs.mkdtemp" | "fs.native" | "fs.open" | "fs.openAsBlob" | "fs.opendir" | "fs.read" | "fs.readdir" | "fs.readFile" | "fs.readlink" | "fs.readv" | "fs.realpath" | "fs.realpath.native" | "fs.rename" | "fs.rm" | "fs.rmdir" | "fs.stat" | "fs.statfs" | "fs.symlink" | "fs.truncate" | "fs.unlink" | "fs.unwatchFile" | "fs.utimes" | "fs.watch" | "fs.watchFile" | "fs.write" | "fs.writeFile" | "fs.writev" | "fs.accessSync" | "fs.appendFileSync" | "fs.chmodSync" | "fs.chownSync" | "fs.closeSync" | "fs.copyFileSync" | "fs.cpSync" | "fs.existsSync" | "fs.fchmodSync" | "fs.fchownSync" | "fs.fdatasyncSync" | "fs.fstatSync" | "fs.fsyncSync" | "fs.ftruncateSync" | "fs.futimesSync" | "fs.globSync" | "fs.lchmodSync" | "fs.lchownSync" | "fs.linkSync" | "fs.lstatSync" | "fs.lutimesSync" | "fs.mkdirSync" | "fs.mkdtempSync" | "fs.mkdtempDisposableSync" | "fs.opendirSync" | "fs.openSync" | "fs.readdirSync" | "fs.readFileSync" | "fs.readlinkSync" | "fs.readSync" | "fs.readvSync" | "fs.realpathSync" | "fs.realpathSync.native" | "fs.renameSync" | "fs.rmdirSync" | "fs.rmSync" | "fs.statfsSync" | "fs.statSync" | "fs.symlinkSync" | "fs.truncateSync" | "fs.unlinkSync" | "fs.utimesSync" | "fs.writeFileSync" | "fs.writeSync" | "fs.writevSync" | "fs.constants" | "fs.Dir" | "fs.Dirent" | "fs.FSWatcher" | "fs.StatWatcher" | "fs.ReadStream" | "fs.Stats()" | "new fs.Stats()" | "fs.Stats" | "fs.StatFs" | "fs.WriteStream" | "fs.Utf8Stream" | "fs.common_objects" | "fs/promises" | "fs/promises.FileHandle" | "fs/promises.access" | "fs/promises.appendFile" | "fs/promises.chmod" | "fs/promises.chown" | "fs/promises.constants" | "fs/promises.copyFile" | "fs/promises.cp" | "fs/promises.glob" | "fs/promises.lchmod" | "fs/promises.lchown" | "fs/promises.link" | "fs/promises.lstat" | "fs/promises.lutimes" | "fs/promises.mkdir" | "fs/promises.mkdtemp" | "fs/promises.mkdtempDisposable" | "fs/promises.open" | "fs/promises.opendir" | "fs/promises.readFile" | "fs/promises.readdir" | "fs/promises.readlink" | "fs/promises.realpath" | "fs/promises.rename" | "fs/promises.rm" | "fs/promises.rmdir" | "fs/promises.stat" | "fs/promises.statfs" | "fs/promises.symlink" | "fs/promises.truncate" | "fs/promises.unlink" | "fs/promises.utimes" | "fs/promises.watch" | "fs/promises.writeFile" | "http2" | "http2.constants" | "http2.sensitiveHeaders" | "http2.createServer" | "http2.createSecureServer" | "http2.connect" | "http2.getDefaultSettings" | "http2.getPackedSettings" | "http2.getUnpackedSettings" | "http2.performServerHandshake" | "http2.Http2Session" | "http2.ServerHttp2Session" | "http2.ClientHttp2Session" | "http2.Http2Stream" | "http2.ClientHttp2Stream" | "http2.ServerHttp2Stream" | "http2.Http2Server" | "http2.Http2SecureServer" | "http2.Http2ServerRequest" | "http2.Http2ServerResponse" | "http" | "http.METHODS" | "http.STATUS_CODES" | "http.globalAgent" | "http.maxHeaderSize" | "http.createServer" | "http.get" | "http.request" | "http.validateHeaderName" | "http.validateHeaderValue" | "http.setMaxIdleHTTPParsers" | "http.Agent()" | "http.Agent" | "http.ClientRequest()" | "http.ClientRequest" | "http.Server()" | "http.Server" | "http.ServerResponse()" | "http.ServerResponse" | "http.IncomingMessage()" | "http.IncomingMessage" | "http.OutgoingMessage()" | "http.OutgoingMessage" | "http.WebSocket()" | "http.WebSocket" | "_http_agent" | "_http_client" | "_http_common" | "_http_incoming" | "_http_outgoing" | "_http_server" | "https" | "https.globalAgent" | "https.createServer" | "https.get" | "https.request" | "https.Agent" | "https.Server" | "inspector" | "inspector.Session" | "inspector.Network.dataReceived" | "inspector.Network.dataSent" | "inspector.Network.loadingFailed" | "inspector.Network.loadingFinished" | "inspector.Network.requestWillBeSent" | "inspector.Network.responseReceived" | "inspector.Network.webSocketCreated" | "inspector.Network.webSocketHandshakeResponseReceived" | "inspector.Network.webSocketClosed" | "inspector.NetworkResources.put" | "inspector.console" | "inspector.close" | "inspector.open" | "inspector.url" | "inspector.waitForDebugger" | "inspector/promises" | "inspector/promises.Session" | "inspector/promises.Network.dataReceived" | "inspector/promises.Network.dataSent" | "inspector/promises.Network.loadingFailed" | "inspector/promises.Network.loadingFinished" | "inspector/promises.Network.requestWillBeSent" | "inspector/promises.Network.responseReceived" | "inspector/promises.Network.webSocketCreated" | "inspector/promises.Network.webSocketHandshakeResponseReceived" | "inspector/promises.Network.webSocketClosed" | "inspector/promises.NetworkResources.put" | "inspector/promises.console" | "inspector/promises.close" | "inspector/promises.open" | "inspector/promises.url" | "inspector/promises.waitForDebugger" | "module.builtinModules" | "module.constants.compileCacheStatus" | "module.createRequire" | "module.createRequireFromPath" | "module.enableCompileCache" | "module.findPackageJSON" | "module.flushCompileCache" | "module.getCompileCacheDir" | "module.getSourceMapsSupport" | "module.isBuiltin" | "module.registerHooks" | "module.register" | "module.setSourceMapsSupport" | "module.stripTypeScriptTypes" | "module.syncBuiltinESMExports" | "module.findSourceMap" | "module.SourceMap" | "module.Module.builtinModules" | "module.Module.createRequire" | "module.Module.createRequireFromPath" | "module.Module.enableCompileCache" | "module.Module.findPackageJSON" | "module.Module.flushCompileCache" | "module.Module.getCompileCacheDir" | "module.Module.getSourceMapsSupport" | "module.Module.isBuiltin" | "module.Module.registerHooks" | "module.Module.register" | "module.Module.setSourceMapsSupport" | "module.Module.stripTypeScriptTypes" | "module.Module.syncBuiltinESMExports" | "module.Module.findSourceMap" | "module.Module.SourceMap" | "net" | "net.connect" | "net.createConnection" | "net.createServer" | "net.getDefaultAutoSelectFamily" | "net.setDefaultAutoSelectFamily" | "net.getDefaultAutoSelectFamilyAttemptTimeout" | "net.setDefaultAutoSelectFamilyAttemptTimeout" | "net.isIP" | "net.isIPv4" | "net.isIPv6" | "net.BlockList" | "net.BlockList.isBlockList" | "net.SocketAddress" | "net.SocketAddress.parse" | "net.Server" | "net.Socket" | "os" | "os.EOL" | "os.constants" | "os.constants.priority" | "os.devNull" | "os.availableParallelism" | "os.arch" | "os.cpus" | "os.endianness" | "os.freemem" | "os.getPriority" | "os.homedir" | "os.hostname" | "os.loadavg" | "os.machine" | "os.networkInterfaces" | "os.platform" | "os.release" | "os.setPriority" | "os.tmpdir" | "os.totalmem" | "os.type" | "os.uptime" | "os.userInfo" | "os.version" | "path" | "path.posix" | "path.posix.delimiter" | "path.posix.sep" | "path.posix.basename" | "path.posix.dirname" | "path.posix.extname" | "path.posix.format" | "path.posix.matchesGlob" | "path.posix.isAbsolute" | "path.posix.join" | "path.posix.normalize" | "path.posix.parse" | "path.posix.relative" | "path.posix.resolve" | "path.posix.toNamespacedPath" | "path.win32" | "path.win32.delimiter" | "path.win32.sep" | "path.win32.basename" | "path.win32.dirname" | "path.win32.extname" | "path.win32.format" | "path.win32.matchesGlob" | "path.win32.isAbsolute" | "path.win32.join" | "path.win32.normalize" | "path.win32.parse" | "path.win32.relative" | "path.win32.resolve" | "path.win32.toNamespacedPath" | "path.delimiter" | "path.sep" | "path.basename" | "path.dirname" | "path.extname" | "path.format" | "path.matchesGlob" | "path.isAbsolute" | "path.join" | "path.normalize" | "path.parse" | "path.relative" | "path.resolve" | "path.toNamespacedPath" | "path/posix" | "path/posix.delimiter" | "path/posix.sep" | "path/posix.basename" | "path/posix.dirname" | "path/posix.extname" | "path/posix.format" | "path/posix.matchesGlob" | "path/posix.isAbsolute" | "path/posix.join" | "path/posix.normalize" | "path/posix.parse" | "path/posix.relative" | "path/posix.resolve" | "path/posix.toNamespacedPath" | "path/win32" | "path/win32.delimiter" | "path/win32.sep" | "path/win32.basename" | "path/win32.dirname" | "path/win32.extname" | "path/win32.format" | "path/win32.matchesGlob" | "path/win32.isAbsolute" | "path/win32.join" | "path/win32.normalize" | "path/win32.parse" | "path/win32.relative" | "path/win32.resolve" | "path/win32.toNamespacedPath" | "perf_hooks" | "perf_hooks.performance" | "perf_hooks.performance.clearMarks" | "perf_hooks.performance.clearMeasures" | "perf_hooks.performance.clearResourceTimings" | "perf_hooks.performance.eventLoopUtilization" | "perf_hooks.performance.getEntries" | "perf_hooks.performance.getEntriesByName" | "perf_hooks.performance.getEntriesByType" | "perf_hooks.performance.mark" | "perf_hooks.performance.markResourceTiming" | "perf_hooks.performance.measure" | "perf_hooks.performance.nodeTiming" | "perf_hooks.performance.nodeTiming.bootstrapComplete" | "perf_hooks.performance.nodeTiming.environment" | "perf_hooks.performance.nodeTiming.idleTime" | "perf_hooks.performance.nodeTiming.loopExit" | "perf_hooks.performance.nodeTiming.loopStart" | "perf_hooks.performance.nodeTiming.nodeStart" | "perf_hooks.performance.nodeTiming.uvMetricsInfo" | "perf_hooks.performance.nodeTiming.v8Start" | "perf_hooks.performance.now" | "perf_hooks.performance.onresourcetimingbufferfull" | "perf_hooks.performance.setResourceTimingBufferSize" | "perf_hooks.performance.timeOrigin" | "perf_hooks.performance.timerify" | "perf_hooks.performance.toJSON" | "perf_hooks.createHistogram" | "perf_hooks.eventLoopUtilization" | "perf_hooks.timerify" | "perf_hooks.monitorEventLoopDelay" | "perf_hooks.PerformanceEntry" | "perf_hooks.PerformanceMark" | "perf_hooks.PerformanceMeasure" | "perf_hooks.PerformanceNodeEntry" | "perf_hooks.PerformanceNodeTiming" | "perf_hooks.PerformanceResourceTiming" | "perf_hooks.PerformanceObserver" | "perf_hooks.PerformanceObserverEntryList" | "perf_hooks.Histogram" | "perf_hooks.IntervalHistogram" | "perf_hooks.RecordableHistogram" | "punycode" | "punycode.ucs2" | "punycode.version" | "punycode.decode" | "punycode.encode" | "punycode.toASCII" | "punycode.toUnicode" | "querystring" | "querystring.decode" | "querystring.encode" | "querystring.escape" | "querystring.parse" | "querystring.stringify" | "querystring.unescape" | "readline" | "readline.promises" | "readline.promises.createInterface" | "readline.promises.Interface" | "readline.promises.Readline" | "readline.clearLine" | "readline.clearScreenDown" | "readline.createInterface" | "readline.cursorTo" | "readline.moveCursor" | "readline.Interface" | "readline.emitKeypressEvents" | "readline.InterfaceConstructor" | "readline/promises" | "readline/promises.createInterface" | "readline/promises.Interface" | "readline/promises.Readline" | "repl" | "repl.start" | "repl.writer" | "repl.REPLServer()" | "repl.REPLServer" | "repl.REPL_MODE_MAGIC" | "repl.REPL_MODE_SLOPPY" | "repl.REPL_MODE_STRICT" | "repl.Recoverable()" | "repl.Recoverable" | "repl.builtinModules" | "sea" | "sea.isSea" | "sea.getAsset" | "sea.getAssetAsBlob" | "sea.getAssetKeys" | "sea.getRawAsset" | "sea.sea.isSea" | "sea.sea.getAsset" | "sea.sea.getAssetAsBlob" | "sea.sea.getAssetKeys" | "sea.sea.getRawAsset" | "stream" | "stream.promises" | "stream.promises.pipeline" | "stream.promises.finished" | "stream.finished" | "stream.pipeline" | "stream.compose" | "stream.duplexPair" | "stream.Readable" | "stream.Readable.from" | "stream.Readable.isDisturbed" | "stream.Readable.fromWeb" | "stream.Readable.toWeb" | "stream.Writable" | "stream.Writable.fromWeb" | "stream.Writable.toWeb" | "stream.Duplex" | "stream.Duplex.from" | "stream.Duplex.fromWeb" | "stream.Duplex.toWeb" | "stream.Transform" | "stream.isErrored" | "stream.isReadable" | "stream.addAbortSignal" | "stream.getDefaultHighWaterMark" | "stream.setDefaultHighWaterMark" | "stream/promises.pipeline" | "stream/promises.finished" | "stream/web" | "stream/web.ReadableStream" | "stream/web.ReadableStream.from" | "stream/web.ReadableStreamDefaultReader" | "stream/web.ReadableStreamBYOBReader" | "stream/web.ReadableStreamDefaultController" | "stream/web.ReadableByteStreamController" | "stream/web.ReadableStreamBYOBRequest" | "stream/web.WritableStream" | "stream/web.WritableStreamDefaultWriter" | "stream/web.WritableStreamDefaultController" | "stream/web.TransformStream" | "stream/web.TransformStreamDefaultController" | "stream/web.ByteLengthQueuingStrategy" | "stream/web.CountQueuingStrategy" | "stream/web.TextEncoderStream" | "stream/web.TextDecoderStream" | "stream/web.CompressionStream" | "stream/web.DecompressionStream" | "stream/consumers" | "stream/consumers.arrayBuffer" | "stream/consumers.blob" | "stream/consumers.buffer" | "stream/consumers.json" | "stream/consumers.text" | "_stream_duplex" | "_stream_passthrough" | "_stream_readable" | "_stream_transform" | "_stream_wrap" | "_stream_writable" | "string_decoder" | "string_decoder.StringDecoder" | "sqlite" | "sqlite.constants" | "sqlite.constants.SQLITE_CHANGESET_OMIT" | "sqlite.constants.SQLITE_CHANGESET_REPLACE" | "sqlite.constants.SQLITE_CHANGESET_ABORT" | "sqlite.backup" | "sqlite.DatabaseSync" | "sqlite.Session" | "sqlite.StatementSync" | "sqlite.SQLITE_CHANGESET_OMIT" | "sqlite.SQLITE_CHANGESET_REPLACE" | "sqlite.SQLITE_CHANGESET_ABORT" | "test" | "test.after" | "test.afterEach" | "test.assert" | "test.assert.register" | "test.before" | "test.beforeEach" | "test.describe" | "test.describe.only" | "test.describe.skip" | "test.describe.todo" | "test.it" | "test.it.only" | "test.it.skip" | "test.it.todo" | "test.mock" | "test.mock.fn" | "test.mock.getter" | "test.mock.method" | "test.mock.module" | "test.mock.property" | "test.mock.reset" | "test.mock.restoreAll" | "test.mock.setter" | "test.mock.timers" | "test.mock.timers.enable" | "test.mock.timers.reset" | "test.mock.timers.tick" | "test.only" | "test.run" | "test.snapshot" | "test.snapshot.setDefaultSnapshotSerializers" | "test.snapshot.setResolveSnapshotPath" | "test.skip" | "test.suite" | "test.test" | "test.test.only" | "test.test.skip" | "test.test.todo" | "test.todo" | "timers" | "timers.Immediate" | "timers.Timeout" | "timers.setImmediate" | "timers.clearImmediate" | "timers.setInterval" | "timers.clearInterval" | "timers.setTimeout" | "timers.clearTimeout" | "timers.promises" | "timers.promises.setTimeout" | "timers.promises.setImmediate" | "timers.promises.setInterval" | "timers.promises.scheduler.wait" | "timers.promises.scheduler.yield" | "timers/promises" | "timers/promises.setTimeout" | "timers/promises.setImmediate" | "timers/promises.setInterval" | "timers/promises.scheduler.wait" | "timers/promises.scheduler.yield" | "tls" | "tls.checkServerIdentity" | "tls.connect" | "tls.createSecureContext" | "tls.createSecurePair" | "tls.createServer" | "tls.CryptoStream" | "tls.DEFAULT_CIPHERS" | "tls.DEFAULT_ECDH_CURVE" | "tls.DEFAULT_MAX_VERSION" | "tls.DEFAULT_MIN_VERSION" | "tls.getCACertificates" | "tls.getCiphers" | "tls.rootCertificates" | "tls.SecureContext" | "tls.SecurePair" | "tls.Server" | "tls.setDefaultCACertificates" | "tls.TLSSocket" | "_tls_common" | "_tls_wrap" | "trace_events" | "trace_events.createTracing" | "trace_events.getEnabledCategories" | "tty" | "tty.isatty" | "tty.ReadStream" | "tty.WriteStream" | "url" | "url.domainToASCII" | "url.domainToUnicode" | "url.fileURLToPath" | "url.format" | "url.pathToFileURL" | "url.urlToHttpOptions" | "url.URL" | "url.URL.canParse" | "url.URL.createObjectURL" | "url.URL.revokeObjectURL" | "url.URLPattern" | "url.URLSearchParams" | "url.Url" | "util.promisify" | "util.promisify.custom" | "util.callbackify" | "util.debuglog" | "util.debug" | "util.deprecate" | "util.diff" | "util.format" | "util.formatWithOptions" | "util.getCallSite" | "util.getCallSites" | "util.getSystemErrorName" | "util.getSystemErrorMap" | "util.getSystemErrorMessage" | "util.inherits" | "util.inspect" | "util.inspect.custom" | "util.inspect.defaultOptions" | "util.inspect.replDefaults" | "util.isDeepStrictEqual" | "util.parseArgs" | "util.parseEnv" | "util.setTraceSigInt" | "util.stripVTControlCharacters" | "util.styleText" | "util.toUSVString" | "util.transferableAbortController" | "util.transferableAbortSignal" | "util.aborted" | "util.MIMEType" | "util.MIMEParams" | "util.TextDecoder" | "util.TextEncoder" | "util.types" | "util.types.isExternal" | "util.types.isDate" | "util.types.isArgumentsObject" | "util.types.isBigIntObject" | "util.types.isBooleanObject" | "util.types.isNumberObject" | "util.types.isStringObject" | "util.types.isSymbolObject" | "util.types.isNativeError" | "util.types.isRegExp" | "util.types.isAsyncFunction" | "util.types.isGeneratorFunction" | "util.types.isGeneratorObject" | "util.types.isPromise" | "util.types.isMap" | "util.types.isSet" | "util.types.isMapIterator" | "util.types.isSetIterator" | "util.types.isWeakMap" | "util.types.isWeakSet" | "util.types.isArrayBuffer" | "util.types.isDataView" | "util.types.isSharedArrayBuffer" | "util.types.isProxy" | "util.types.isModuleNamespaceObject" | "util.types.isAnyArrayBuffer" | "util.types.isBoxedPrimitive" | "util.types.isArrayBufferView" | "util.types.isTypedArray" | "util.types.isUint8Array" | "util.types.isUint8ClampedArray" | "util.types.isUint16Array" | "util.types.isUint32Array" | "util.types.isInt8Array" | "util.types.isInt16Array" | "util.types.isInt32Array" | "util.types.isFloat16Array" | "util.types.isFloat32Array" | "util.types.isFloat64Array" | "util.types.isBigInt64Array" | "util.types.isBigUint64Array" | "util.types.isKeyObject" | "util.types.isCryptoKey" | "util.types.isWebAssemblyCompiledModule" | "util._extend" | "util.isArray" | "util.isBoolean" | "util.isBuffer" | "util.isDate" | "util.isError" | "util.isFunction" | "util.isNull" | "util.isNullOrUndefined" | "util.isNumber" | "util.isObject" | "util.isPrimitive" | "util.isRegExp" | "util.isString" | "util.isSymbol" | "util.isUndefined" | "util.log" | "util" | "util/types" | "util/types.isExternal" | "util/types.isDate" | "util/types.isArgumentsObject" | "util/types.isBigIntObject" | "util/types.isBooleanObject" | "util/types.isNumberObject" | "util/types.isStringObject" | "util/types.isSymbolObject" | "util/types.isNativeError" | "util/types.isRegExp" | "util/types.isAsyncFunction" | "util/types.isGeneratorFunction" | "util/types.isGeneratorObject" | "util/types.isPromise" | "util/types.isMap" | "util/types.isSet" | "util/types.isMapIterator" | "util/types.isSetIterator" | "util/types.isWeakMap" | "util/types.isWeakSet" | "util/types.isArrayBuffer" | "util/types.isDataView" | "util/types.isSharedArrayBuffer" | "util/types.isProxy" | "util/types.isModuleNamespaceObject" | "util/types.isAnyArrayBuffer" | "util/types.isBoxedPrimitive" | "util/types.isArrayBufferView" | "util/types.isTypedArray" | "util/types.isUint8Array" | "util/types.isUint8ClampedArray" | "util/types.isUint16Array" | "util/types.isUint32Array" | "util/types.isInt8Array" | "util/types.isInt16Array" | "util/types.isInt32Array" | "util/types.isFloat16Array" | "util/types.isFloat32Array" | "util/types.isFloat64Array" | "util/types.isBigInt64Array" | "util/types.isBigUint64Array" | "util/types.isKeyObject" | "util/types.isCryptoKey" | "util/types.isWebAssemblyCompiledModule" | "v8" | "v8.serialize" | "v8.deserialize" | "v8.Serializer" | "v8.Deserializer" | "v8.DefaultSerializer" | "v8.DefaultDeserializer" | "v8.promiseHooks" | "v8.promiseHooks.onInit" | "v8.promiseHooks.onSettled" | "v8.promiseHooks.onBefore" | "v8.promiseHooks.onAfter" | "v8.promiseHooks.createHook" | "v8.startupSnapshot" | "v8.startupSnapshot.addSerializeCallback" | "v8.startupSnapshot.addDeserializeCallback" | "v8.startupSnapshot.setDeserializeMainFunction" | "v8.startupSnapshot.isBuildingSnapshot" | "v8.cachedDataVersionTag" | "v8.getHeapCodeStatistics" | "v8.getHeapSnapshot" | "v8.getHeapSpaceStatistics" | "v8.getHeapStatistics" | "v8.isStringOneByteRepresentation" | "v8.queryObjects" | "v8.setFlagsFromString" | "v8.stopCoverage" | "v8.takeCoverage" | "v8.writeHeapSnapshot" | "v8.setHeapSnapshotNearHeapLimit" | "v8.GCProfiler" | "v8.startCpuProfile" | "vm.constants" | "vm.compileFunction" | "vm.createContext" | "vm.isContext" | "vm.measureMemory" | "vm.runInContext" | "vm.runInNewContext" | "vm.runInThisContext" | "vm.Script" | "vm.Module" | "vm.SourceTextModule" | "vm.SyntheticModule" | "vm" | "wasi.WASI" | "wasi" | "worker_threads" | "worker_threads.parentPort" | "worker_threads.resourceLimits" | "worker_threads.SHARE_ENV" | "worker_threads.threadId" | "worker_threads.threadName" | "worker_threads.workerData" | "worker_threads.getEnvironmentData" | "worker_threads.getHeapStatistics" | "worker_threads.markAsUncloneable" | "worker_threads.markAsUntransferable" | "worker_threads.isInternalThread" | "worker_threads.isMainThread" | "worker_threads.isMarkedAsUntransferable" | "worker_threads.locks" | "worker_threads.locks.request" | "worker_threads.locks.query" | "worker_threads.moveMessagePortToContext" | "worker_threads.postMessageToThread" | "worker_threads.receiveMessageOnPort" | "worker_threads.setEnvironmentData" | "worker_threads.BroadcastChannel" | "worker_threads.MessageChannel" | "worker_threads.MessagePort" | "worker_threads.Worker" | "zlib.brotliCompress" | "zlib.brotliCompressSync" | "zlib.brotliDecompress" | "zlib.brotliDecompressSync" | "zlib.constants" | "zlib.constants.ZSTD_e_continue" | "zlib.constants.ZSTD_e_flush" | "zlib.constants.ZSTD_e_end" | "zlib.constants.ZSTD_fast" | "zlib.constants.ZSTD_dfast" | "zlib.constants.ZSTD_greedy" | "zlib.constants.ZSTD_lazy" | "zlib.constants.ZSTD_lazy2" | "zlib.constants.ZSTD_btlazy2" | "zlib.constants.ZSTD_btopt" | "zlib.constants.ZSTD_btultra" | "zlib.constants.ZSTD_btultra2" | "zlib.constants.ZSTD_c_compressionLevel" | "zlib.constants.ZSTD_c_windowLog" | "zlib.constants.ZSTD_c_hashLog" | "zlib.constants.ZSTD_c_chainLog" | "zlib.constants.ZSTD_c_searchLog" | "zlib.constants.ZSTD_c_minMatch" | "zlib.constants.ZSTD_c_targetLength" | "zlib.constants.ZSTD_c_strategy" | "zlib.constants.ZSTD_c_enableLongDistanceMatching" | "zlib.constants.ZSTD_c_ldmHashLog" | "zlib.constants.ZSTD_c_ldmMinMatch" | "zlib.constants.ZSTD_c_ldmBucketSizeLog" | "zlib.constants.ZSTD_c_ldmHashRateLog" | "zlib.constants.ZSTD_c_contentSizeFlag" | "zlib.constants.ZSTD_c_checksumFlag" | "zlib.constants.ZSTD_c_dictIDFlag" | "zlib.constants.ZSTD_c_nbWorkers" | "zlib.constants.ZSTD_c_jobSize" | "zlib.constants.ZSTD_c_overlapLog" | "zlib.constants.ZSTD_d_windowLogMax" | "zlib.constants.ZSTD_CLEVEL_DEFAULT" | "zlib.constants.ZSTD_error_no_error" | "zlib.constants.ZSTD_error_GENERIC" | "zlib.constants.ZSTD_error_prefix_unknown" | "zlib.constants.ZSTD_error_version_unsupported" | "zlib.constants.ZSTD_error_frameParameter_unsupported" | "zlib.constants.ZSTD_error_frameParameter_windowTooLarge" | "zlib.constants.ZSTD_error_corruption_detected" | "zlib.constants.ZSTD_error_checksum_wrong" | "zlib.constants.ZSTD_error_literals_headerWrong" | "zlib.constants.ZSTD_error_dictionary_corrupted" | "zlib.constants.ZSTD_error_dictionary_wrong" | "zlib.constants.ZSTD_error_dictionaryCreation_failed" | "zlib.constants.ZSTD_error_parameter_unsupported" | "zlib.constants.ZSTD_error_parameter_combination_unsupported" | "zlib.constants.ZSTD_error_parameter_outOfBound" | "zlib.constants.ZSTD_error_tableLog_tooLarge" | "zlib.constants.ZSTD_error_maxSymbolValue_tooLarge" | "zlib.constants.ZSTD_error_maxSymbolValue_tooSmall" | "zlib.constants.ZSTD_error_stabilityCondition_notRespected" | "zlib.constants.ZSTD_error_stage_wrong" | "zlib.constants.ZSTD_error_init_missing" | "zlib.constants.ZSTD_error_memory_allocation" | "zlib.constants.ZSTD_error_workSpace_tooSmall" | "zlib.constants.ZSTD_error_dstSize_tooSmall" | "zlib.constants.ZSTD_error_srcSize_wrong" | "zlib.constants.ZSTD_error_dstBuffer_null" | "zlib.constants.ZSTD_error_noForwardProgress_destFull" | "zlib.constants.ZSTD_error_noForwardProgress_inputEmpty" | "zlib.crc32" | "zlib.createBrotliCompress" | "zlib.createBrotliDecompress" | "zlib.createDeflate" | "zlib.createDeflateRaw" | "zlib.createGunzip" | "zlib.createGzip" | "zlib.createInflate" | "zlib.createInflateRaw" | "zlib.createUnzip" | "zlib.createZstdCompress" | "zlib.createZstdDecompress" | "zlib.deflate" | "zlib.deflateRaw" | "zlib.deflateRawSync" | "zlib.deflateSync" | "zlib.gunzip" | "zlib.gunzipSync" | "zlib.gzip" | "zlib.gzipSync" | "zlib.inflate" | "zlib.inflateRaw" | "zlib.inflateRawSync" | "zlib.inflateSync" | "zlib.unzip" | "zlib.unzipSync" | "zlib.zstdCompress" | "zlib.zstdCompressSync" | "zlib.zstdDecompress" | "zlib.zstdDecompressSync" | "zlib.BrotliCompress()" | "zlib.BrotliCompress" | "zlib.BrotliDecompress()" | "zlib.BrotliDecompress" | "zlib.Deflate()" | "zlib.Deflate" | "zlib.DeflateRaw()" | "zlib.DeflateRaw" | "zlib.Gunzip()" | "zlib.Gunzip" | "zlib.Gzip()" | "zlib.Gzip" | "zlib.Inflate()" | "zlib.Inflate" | "zlib.InflateRaw()" | "zlib.InflateRaw" | "zlib.Unzip()" | "zlib.Unzip" | "zlib.ZstdCompress" | "zlib.ZstdDecompress" | "zlib.ZstdOptions" | "zlib" | "import.meta.resolve" | "import.meta.dirname" | "import.meta.filename" | "import.meta.main")[];
+}];
+type NodePreferGlobalBuffer = [] | [("always" | "never")];
+type NodePreferGlobalConsole = [] | [("always" | "never")];
+type NodePreferGlobalCrypto = [] | [("always" | "never")];
+type NodePreferGlobalProcess = [] | [("always" | "never")];
+type NodePreferGlobalTextDecoder = [] | [("always" | "never")];
+type NodePreferGlobalTextEncoder = [] | [("always" | "never")];
+type NodePreferGlobalTimers = [] | [("always" | "never")];
+type NodePreferGlobalUrl = [] | [("always" | "never")];
+type NodePreferGlobalUrlSearchParams = [] | [("always" | "never")];
+type NodePreferNodeProtocol = [] | [{
+  version?: string;
+}];
+type NodePreferProcessGetBuiltinModule = [] | [{
+  version?: string;
+}];
+type NodeShebang = [] | [{
+  convertPath?: ({
+    [k: string]: [string, string];
+  } | [{
+    include: [string, ...(string)[]];
+    exclude?: string[];
+    replace: [string, string];
+  }, ...({
+    include: [string, ...(string)[]];
+    exclude?: string[];
+    replace: [string, string];
+  })[]]);
+  ignoreUnpublished?: boolean;
+  additionalExecutables?: string[];
+  executableMap?: {
+    [k: string]: string;
+  };
+}];
+type NoDuplicateImports = [] | [{
+  includeExports?: boolean;
+  allowSeparateTypeImports?: boolean;
+}];
+type NoElseReturn = [] | [{
+  allowElseIf?: boolean;
+}];
+type NoEmpty = [] | [{
+  allowEmptyCatch?: boolean;
+}];
+type NoEmptyFunction = [] | [{
+  allow?: ("functions" | "arrowFunctions" | "generatorFunctions" | "methods" | "generatorMethods" | "getters" | "setters" | "constructors" | "asyncFunctions" | "asyncMethods" | "privateConstructors" | "protectedConstructors" | "decoratedFunctions" | "overrideMethods")[];
+}];
+type NoEmptyPattern = [] | [{
+  allowObjectPatternsAsParameters?: boolean;
+}];
+type NoEval = [] | [{
+  allowIndirect?: boolean;
+}];
+type NoExtendNative = [] | [{
+  exceptions?: string[];
+}];
+type NoExtraBooleanCast = [] | [({
+  enforceForInnerExpressions?: boolean;
+} | {
+  enforceForLogicalOperands?: boolean;
+})];
+type NoExtraParens = ([] | ["functions"] | [] | ["all"] | ["all", {
+  conditionalAssign?: boolean;
+  ternaryOperandBinaryExpressions?: boolean;
+  nestedBinaryExpressions?: boolean;
+  returnAssign?: boolean;
+  ignoreJSX?: ("none" | "all" | "single-line" | "multi-line");
+  enforceForArrowConditionals?: boolean;
+  enforceForSequenceExpressions?: boolean;
+  enforceForNewInMemberExpressions?: boolean;
+  enforceForFunctionPrototypeMethods?: boolean;
+  allowParensAfterCommentPattern?: string;
+}]);
+type NoFallthrough = [] | [{
+  commentPattern?: string;
+  allowEmptyCase?: boolean;
+  reportUnusedFallthroughComment?: boolean;
+}];
+type NoGlobalAssign = [] | [{
+  exceptions?: string[];
+}];
+type NoImplicitCoercion = [] | [{
+  boolean?: boolean;
+  number?: boolean;
+  string?: boolean;
+  disallowTemplateShorthand?: boolean;
+  allow?: ("~" | "!!" | "+" | "- -" | "-" | "*")[];
+}];
+type NoImplicitGlobals = [] | [{
+  lexicalBindings?: boolean;
+}];
+type NoInlineComments = [] | [{
+  ignorePattern?: string;
+}];
+type NoInnerDeclarations = [] | [("functions" | "both")] | [("functions" | "both"), {
+  blockScopedFunctions?: ("allow" | "disallow");
+}];
+type NoInvalidRegexp = [] | [{
+  allowConstructorFlags?: string[];
+}];
+type NoInvalidThis = [] | [{
+  capIsConstructor?: boolean;
+}];
+type NoIrregularWhitespace = [] | [{
+  skipComments?: boolean;
+  skipStrings?: boolean;
+  skipTemplates?: boolean;
+  skipRegExps?: boolean;
+  skipJSXText?: boolean;
+}];
+type NoLabels = [] | [{
+  allowLoop?: boolean;
+  allowSwitch?: boolean;
+}];
+type NoMagicNumbers = [] | [{
+  detectObjects?: boolean;
+  enforceConst?: boolean;
+  ignore?: (number | string)[];
+  ignoreArrayIndexes?: boolean;
+  ignoreDefaultValues?: boolean;
+  ignoreClassFieldInitialValues?: boolean;
+  ignoreEnums?: boolean;
+  ignoreNumericLiteralTypes?: boolean;
+  ignoreReadonlyClassProperties?: boolean;
+  ignoreTypeIndexes?: boolean;
+}];
+type NoMisleadingCharacterClass = [] | [{
+  allowEscape?: boolean;
+}];
+type NoMixedOperators = [] | [{
+  groups?: [("+" | "-" | "*" | "/" | "%" | "**" | "&" | "|" | "^" | "~" | "<<" | ">>" | ">>>" | "==" | "!=" | "===" | "!==" | ">" | ">=" | "<" | "<=" | "&&" | "||" | "in" | "instanceof" | "?:" | "??"), ("+" | "-" | "*" | "/" | "%" | "**" | "&" | "|" | "^" | "~" | "<<" | ">>" | ">>>" | "==" | "!=" | "===" | "!==" | ">" | ">=" | "<" | "<=" | "&&" | "||" | "in" | "instanceof" | "?:" | "??"), ...(("+" | "-" | "*" | "/" | "%" | "**" | "&" | "|" | "^" | "~" | "<<" | ">>" | ">>>" | "==" | "!=" | "===" | "!==" | ">" | ">=" | "<" | "<=" | "&&" | "||" | "in" | "instanceof" | "?:" | "??"))[]][];
+  allowSamePrecedence?: boolean;
+}];
+type NoMixedRequires = [] | [(boolean | {
+  grouping?: boolean;
+  allowCall?: boolean;
+})];
+type NoMixedSpacesAndTabs = [] | [("smart-tabs" | true | false)];
+type NoMultiAssign = [] | [{
+  ignoreNonDeclaration?: boolean;
+}];
+type NoMultipleEmptyLines = [] | [{
+  max: number;
+  maxEOF?: number;
+  maxBOF?: number;
+}];
+type NoMultiSpaces = [] | [{
+  exceptions?: {
+    [k: string]: boolean;
+  };
+  ignoreEOLComments?: boolean;
+}];
+type NoNativeReassign = [] | [{
+  exceptions?: string[];
+}];
+type NonblockStatementBodyPosition = [] | [("beside" | "below" | "any")] | [("beside" | "below" | "any"), {
+  overrides?: {
+    if?: ("beside" | "below" | "any");
+    else?: ("beside" | "below" | "any");
+    while?: ("beside" | "below" | "any");
+    do?: ("beside" | "below" | "any");
+    for?: ("beside" | "below" | "any");
+  };
+}];
+type NoParamReassign = [] | [({
+  props?: false;
+} | {
+  props?: true;
+  ignorePropertyModificationsFor?: string[];
+  ignorePropertyModificationsForRegex?: string[];
+})];
+type NoPlusplus = [] | [{
+  allowForLoopAfterthoughts?: boolean;
+}];
+type NoPromiseExecutorReturn = [] | [{
+  allowVoid?: boolean;
+}];
+type NoRedeclare = [] | [{
+  builtinGlobals?: boolean;
+}];
+type NoRestrictedExports = [] | [({
+  restrictedNamedExports?: string[];
+  restrictedNamedExportsPattern?: string;
+} | {
+  restrictedNamedExports?: string[];
+  restrictedNamedExportsPattern?: string;
+  restrictDefaultExports?: {
+    direct?: boolean;
+    named?: boolean;
+    defaultFrom?: boolean;
+    namedFrom?: boolean;
+    namespaceFrom?: boolean;
+  };
+})];
+type NoRestrictedGlobals = ((string | {
+  name: string;
+  message?: string;
+})[] | [] | [{
+  globals: (string | {
+    name: string;
+    message?: string;
+  })[];
+  checkGlobalObject?: boolean;
+  globalObjects?: string[];
+}]);
+type NoRestrictedImports = ((string | {
+  name: string;
+  message?: string;
+  importNames?: string[];
+  allowImportNames?: string[];
+  allowTypeImports?: boolean;
+})[] | [] | [{
+  paths?: (string | {
+    name: string;
+    message?: string;
+    importNames?: string[];
+    allowImportNames?: string[];
+    allowTypeImports?: boolean;
+  })[];
+  patterns?: (string[] | ({
+    [k: string]: unknown | undefined;
+  } | {
+    [k: string]: unknown | undefined;
+  })[]);
+}]);
+type NoRestrictedModules = ((string | {
+  name: string;
+  message?: string;
+})[] | {
+  paths?: (string | {
+    name: string;
+    message?: string;
+  })[];
+  patterns?: string[];
+}[]);
+type NoRestrictedProperties = ({
+  [k: string]: unknown | undefined;
+} | {
+  [k: string]: unknown | undefined;
+})[];
+type NoRestrictedSyntax = (string | {
+  selector: string;
+  message?: string;
+})[];
+type NoReturnAssign = [] | [("except-parens" | "always")];
+type NoSelfAssign = [] | [{
+  props?: boolean;
+}];
+type NoSequences = [] | [{
+  allowInParentheses?: boolean;
+}];
+type NoShadow = [] | [{
+  builtinGlobals?: boolean;
+  hoist?: ("all" | "functions" | "never" | "types" | "functions-and-types");
+  allow?: string[];
+  ignoreOnInitialization?: boolean;
+  ignoreTypeValueShadow?: boolean;
+  ignoreFunctionTypeParameterNameValueShadow?: boolean;
+}];
+type NoShadowRestrictedNames = [] | [{
+  reportGlobalThis?: boolean;
+}];
+type NoSync = [] | [{
+  allowAtRootLevel?: boolean;
+}];
+type NoTabs = [] | [{
+  allowIndentationTabs?: boolean;
+}];
+type NoTrailingSpaces = [] | [{
+  skipBlankLines?: boolean;
+  ignoreComments?: boolean;
+}];
+type NoUndef = [] | [{
+  typeof?: boolean;
+}];
+type NoUnderscoreDangle = [] | [{
+  allow?: string[];
+  allowAfterThis?: boolean;
+  allowAfterSuper?: boolean;
+  allowAfterThisConstructor?: boolean;
+  enforceInMethodNames?: boolean;
+  allowFunctionParams?: boolean;
+  enforceInClassFields?: boolean;
+  allowInArrayDestructuring?: boolean;
+  allowInObjectDestructuring?: boolean;
+}];
+type NoUnmodifiedLoopCondition = [] | [{
+  checkConditionalExpressions?: boolean;
+}];
+type NoUnneededTernary = [] | [{
+  defaultAssignment?: boolean;
+}];
+type NoUnreachableLoop = [] | [{
+  ignore?: ("WhileStatement" | "DoWhileStatement" | "ForStatement" | "ForInStatement" | "ForOfStatement")[];
+}];
+type NoUnsafeNegation = [] | [{
+  enforceForOrderingRelations?: boolean;
+}];
+type NoUnsafeOptionalChaining = [] | [{
+  disallowArithmeticOperators?: boolean;
+}];
+type NoUnusedExpressions = [] | [{
+  allowShortCircuit?: boolean;
+  allowTernary?: boolean;
+  allowTaggedTemplates?: boolean;
+  enforceForJSX?: boolean;
+  ignoreDirectives?: boolean;
+}];
+type NoUnusedVars = [] | [(("all" | "local") | {
+  vars?: ("all" | "local");
+  varsIgnorePattern?: string;
+  args?: ("all" | "after-used" | "none");
+  ignoreRestSiblings?: boolean;
+  argsIgnorePattern?: string;
+  caughtErrors?: ("all" | "none");
+  caughtErrorsIgnorePattern?: string;
+  destructuredArrayIgnorePattern?: string;
+  ignoreClassWithStaticInitBlock?: boolean;
+  ignoreUsingDeclarations?: boolean;
+  reportUsedIgnorePattern?: boolean;
+})];
+type NoUseBeforeDefine = [] | [("nofunc" | {
+  functions?: boolean;
+  classes?: boolean;
+  variables?: boolean;
+  allowNamedExports?: boolean;
+  enums?: boolean;
+  typedefs?: boolean;
+  ignoreTypeReferences?: boolean;
+})];
+type NoUselessComputedKey = [] | [{
+  enforceForClassMembers?: boolean;
+}];
+type NoUselessEscape = [] | [{
+  allowRegexCharacters?: string[];
+}];
+type NoUselessRename = [] | [{
+  ignoreDestructuring?: boolean;
+  ignoreImport?: boolean;
+  ignoreExport?: boolean;
+}];
+type NoVoid = [] | [{
+  allowAsStatement?: boolean;
+}];
+type NoWarningComments = [] | [{
+  terms?: string[];
+  location?: ("start" | "anywhere");
+  decoration?: [string, ...(string)[]];
+}];
+type ObjectCurlyNewline = [] | [((("always" | "never") | {
+  multiline?: boolean;
+  minProperties?: number;
+  consistent?: boolean;
+}) | {
+  ObjectExpression?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+  ObjectPattern?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+  ImportDeclaration?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+  ExportDeclaration?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+})];
+type ObjectCurlySpacing = [] | [("always" | "never")] | [("always" | "never"), {
+  arraysInObjects?: boolean;
+  objectsInObjects?: boolean;
+}];
+type ObjectPropertyNewline = [] | [{
+  allowAllPropertiesOnSameLine?: boolean;
+  allowMultiplePropertiesPerLine?: boolean;
+}];
+type ObjectShorthand = ([] | [("always" | "methods" | "properties" | "never" | "consistent" | "consistent-as-needed")] | [] | [("always" | "methods" | "properties")] | [("always" | "methods" | "properties"), {
+  avoidQuotes?: boolean;
+}] | [] | [("always" | "methods")] | [("always" | "methods"), {
+  ignoreConstructors?: boolean;
+  methodsIgnorePattern?: string;
+  avoidQuotes?: boolean;
+  avoidExplicitReturnArrows?: boolean;
+}]);
+type OneVar = [] | [(("always" | "never" | "consecutive") | {
+  separateRequires?: boolean;
+  var?: ("always" | "never" | "consecutive");
+  let?: ("always" | "never" | "consecutive");
+  const?: ("always" | "never" | "consecutive");
+  using?: ("always" | "never" | "consecutive");
+  awaitUsing?: ("always" | "never" | "consecutive");
+} | {
+  initialized?: ("always" | "never" | "consecutive");
+  uninitialized?: ("always" | "never" | "consecutive");
+})];
+type OneVarDeclarationPerLine = [] | [("always" | "initializations")];
+type OperatorAssignment = [] | [("always" | "never")];
+type OperatorLinebreak = [] | [("after" | "before" | "none" | null)] | [("after" | "before" | "none" | null), {
+  overrides?: {
+    [k: string]: ("after" | "before" | "none" | "ignore") | undefined;
+  };
+}];
+type PaddedBlocks = [] | [(("always" | "never") | {
+  blocks?: ("always" | "never");
+  switches?: ("always" | "never");
+  classes?: ("always" | "never");
+})] | [(("always" | "never") | {
+  blocks?: ("always" | "never");
+  switches?: ("always" | "never");
+  classes?: ("always" | "never");
+}), {
+  allowSingleLineBlocks?: boolean;
+}];
+type PaddingLineBetweenStatements = {
+  blankLine: _PaddingLineBetweenStatementsPaddingType;
+  prev: _PaddingLineBetweenStatementsStatementType;
+  next: _PaddingLineBetweenStatementsStatementType;
+}[];
+type PerfectionistSortArrayIncludes = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      selector?: "literal";
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      selector?: "literal";
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    selector?: "literal";
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useConfigurationIf?: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+  };
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+}[];
+type PerfectionistSortArrays = [{
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      selector?: "literal";
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      selector?: "literal";
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    selector?: "literal";
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useConfigurationIf: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+  };
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+}, ...({
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      selector?: "literal";
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      selector?: "literal";
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    selector?: "literal";
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useConfigurationIf: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+  };
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+})[]];
+type PerfectionistSortClasses = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("async" | "protected" | "private" | "public" | "static" | "abstract" | "override" | "readonly" | "decorated" | "declare" | "optional")[];
+      selector?: ("accessor-property" | "index-signature" | "constructor" | "static-block" | "get-method" | "set-method" | "function-property" | "property" | "method");
+      decoratorNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      elementValuePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("async" | "protected" | "private" | "public" | "static" | "abstract" | "override" | "readonly" | "decorated" | "declare" | "optional")[];
+      selector?: ("accessor-property" | "index-signature" | "constructor" | "static-block" | "get-method" | "set-method" | "function-property" | "property" | "method");
+      decoratorNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      elementValuePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    modifiers?: ("async" | "protected" | "private" | "public" | "static" | "abstract" | "override" | "readonly" | "decorated" | "declare" | "optional")[];
+    selector?: ("accessor-property" | "index-signature" | "constructor" | "static-block" | "get-method" | "set-method" | "function-property" | "property" | "method");
+    decoratorNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    elementValuePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useConfigurationIf?: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+  };
+  useExperimentalDependencyDetection?: boolean;
+  newlinesBetweenOverloadSignatures?: ("ignore" | number);
+  ignoreCallbackDependenciesPatterns?: (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string));
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+}[];
+type PerfectionistSortDecorators = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  sortOnParameters?: boolean;
+  sortOnProperties?: boolean;
+  sortOnAccessors?: boolean;
+  sortOnMethods?: boolean;
+  sortOnClasses?: boolean;
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+}[];
+type PerfectionistSortEnums = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      elementValuePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      elementValuePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    elementValuePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  sortByValue?: ("always" | "ifNumericEnum" | "never");
+  useConfigurationIf?: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+  };
+  useExperimentalDependencyDetection?: boolean;
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+}[];
+type PerfectionistSortExportAttributes = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useConfigurationIf?: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+  };
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+}[];
+type PerfectionistSortExports = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("value" | "type" | "named" | "wildcard" | "multiline" | "singleline")[];
+      selector?: "export";
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("value" | "type" | "named" | "wildcard" | "multiline" | "singleline")[];
+      selector?: "export";
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    modifiers?: ("value" | "type" | "named" | "wildcard" | "multiline" | "singleline")[];
+    selector?: "export";
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+}[];
+type PerfectionistSortHeritageClauses = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useConfigurationIf?: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+  };
+  partitionByNewLine?: boolean;
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+}[];
+type PerfectionistSortImportAttributes = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useConfigurationIf?: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+  };
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+}[];
+type PerfectionistSortImports = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "type-import-first");
+    order?: ("asc" | "desc");
+    sortBy?: ("specifier" | "path");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "type-import-first");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  sortBy?: ("specifier" | "path");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "type-import-first");
+      order?: ("asc" | "desc");
+      sortBy?: ("specifier" | "path");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "type-import-first");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    sortBy?: ("specifier" | "path");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("default" | "multiline" | "named" | "require" | "side-effect" | "singleline" | "ts-equals" | "type" | "value" | "wildcard")[];
+      selector?: ("side-effect-style" | "tsconfig-path" | "side-effect" | "external" | "internal" | "builtin" | "sibling" | "subpath" | "import" | "parent" | "index" | "style" | "type");
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("default" | "multiline" | "named" | "require" | "side-effect" | "singleline" | "ts-equals" | "type" | "value" | "wildcard")[];
+      selector?: ("side-effect-style" | "tsconfig-path" | "side-effect" | "external" | "internal" | "builtin" | "sibling" | "subpath" | "import" | "parent" | "index" | "style" | "type");
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "type-import-first");
+      order?: ("asc" | "desc");
+      sortBy?: ("specifier" | "path");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "type-import-first");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    sortBy?: ("specifier" | "path");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    modifiers?: ("default" | "multiline" | "named" | "require" | "side-effect" | "singleline" | "ts-equals" | "type" | "value" | "wildcard")[];
+    selector?: ("side-effect-style" | "tsconfig-path" | "side-effect" | "external" | "internal" | "builtin" | "sibling" | "subpath" | "import" | "parent" | "index" | "style" | "type");
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "type-import-first");
+      order?: ("asc" | "desc");
+      sortBy?: ("specifier" | "path");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "type-import-first");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    sortBy?: ("specifier" | "path");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  tsconfig?: {
+    rootDir: string;
+    filename?: string;
+  };
+  maxLineLength?: number;
+  sortSideEffects?: boolean;
+  environment?: ("node" | "bun");
+  useExperimentalDependencyDetection?: boolean;
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+  internalPattern?: (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string));
+}[];
+type PerfectionistSortInterfaces = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+    sortBy?: ("name" | "value");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  sortBy?: ("name" | "value");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+      sortBy?: ("name" | "value");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    sortBy?: ("name" | "value");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("optional" | "required" | "multiline")[];
+      selector?: ("index-signature" | "member" | "method" | "property");
+      elementValuePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("optional" | "required" | "multiline")[];
+      selector?: ("index-signature" | "member" | "method" | "property");
+      elementValuePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+      sortBy?: ("name" | "value");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    sortBy?: ("name" | "value");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    modifiers?: ("optional" | "required" | "multiline")[];
+    selector?: ("index-signature" | "member" | "method" | "property");
+    elementValuePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+      sortBy?: ("name" | "value");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    sortBy?: ("name" | "value");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useConfigurationIf?: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    hasNumericKeysOnly?: boolean;
+    declarationCommentMatchesPattern?: (({
+      scope?: ("shallow" | "deep");
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      scope?: ("shallow" | "deep");
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+    declarationMatchesPattern?: (({
+      scope?: ("shallow" | "deep");
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      scope?: ("shallow" | "deep");
+      pattern: string;
+      flags?: string;
+    } | string));
+  };
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+}[];
+type PerfectionistSortIntersectionTypes = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      selector?: ("intersection" | "conditional" | "function" | "operator" | "keyword" | "literal" | "nullish" | "import" | "object" | "named" | "tuple" | "union");
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      selector?: ("intersection" | "conditional" | "function" | "operator" | "keyword" | "literal" | "nullish" | "import" | "object" | "named" | "tuple" | "union");
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    selector?: ("intersection" | "conditional" | "function" | "operator" | "keyword" | "literal" | "nullish" | "import" | "object" | "named" | "tuple" | "union");
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useConfigurationIf?: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+  };
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+  ignoreCallableTypes?: boolean;
+}[];
+type PerfectionistSortJsxProps = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("shorthand" | "multiline")[];
+      selector?: "prop";
+      elementValuePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("shorthand" | "multiline")[];
+      selector?: "prop";
+      elementValuePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    modifiers?: ("shorthand" | "multiline")[];
+    selector?: "prop";
+    elementValuePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useConfigurationIf?: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+    tagMatchesPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+  };
+  partitionByNewLine?: boolean;
+}[];
+type PerfectionistSortMaps = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useConfigurationIf?: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+  };
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+}[];
+type PerfectionistSortModules = [] | [{
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "usage");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "usage");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "usage");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "usage");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("async" | "declare" | "decorated" | "default" | "export")[];
+      selector?: ("enum" | "function" | "interface" | "type" | "class");
+      decoratorNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("async" | "declare" | "decorated" | "default" | "export")[];
+      selector?: ("enum" | "function" | "interface" | "type" | "class");
+      decoratorNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "usage");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "usage");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    modifiers?: ("async" | "declare" | "decorated" | "default" | "export")[];
+    selector?: ("enum" | "function" | "interface" | "type" | "class");
+    decoratorNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "usage");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order" | "usage");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useExperimentalDependencyDetection?: boolean;
+  newlinesBetweenOverloadSignatures?: ("ignore" | number);
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+}];
+type PerfectionistSortNamedExports = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("value" | "type")[];
+      selector?: "export";
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("value" | "type")[];
+      selector?: "export";
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    modifiers?: ("value" | "type")[];
+    selector?: "export";
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useConfigurationIf?: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+  };
+  ignoreAlias?: boolean;
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+}[];
+type PerfectionistSortNamedImports = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("value" | "type")[];
+      selector?: "import";
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("value" | "type")[];
+      selector?: "import";
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    modifiers?: ("value" | "type")[];
+    selector?: "import";
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useConfigurationIf?: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+  };
+  ignoreAlias?: boolean;
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+}[];
+type PerfectionistSortObjects = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+    sortBy?: ("name" | "value");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  sortBy?: ("name" | "value");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+      sortBy?: ("name" | "value");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    sortBy?: ("name" | "value");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("multiline")[];
+      selector?: ("member" | "method" | "property");
+      elementValuePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("multiline")[];
+      selector?: ("member" | "method" | "property");
+      elementValuePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+      sortBy?: ("name" | "value");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    sortBy?: ("name" | "value");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    modifiers?: ("multiline")[];
+    selector?: ("member" | "method" | "property");
+    elementValuePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+      sortBy?: ("name" | "value");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    sortBy?: ("name" | "value");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useConfigurationIf?: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    objectType?: ("destructured" | "non-destructured");
+    hasNumericKeysOnly?: boolean;
+    declarationCommentMatchesPattern?: (({
+      scope?: ("shallow" | "deep");
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      scope?: ("shallow" | "deep");
+      pattern: string;
+      flags?: string;
+    } | string));
+    callingFunctionNamePattern?: (({
+      scope?: ("shallow" | "deep");
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      scope?: ("shallow" | "deep");
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+    declarationMatchesPattern?: (({
+      scope?: ("shallow" | "deep");
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      scope?: ("shallow" | "deep");
+      pattern: string;
+      flags?: string;
+    } | string));
+  };
+  partitionByComputedKey?: boolean;
+  styledComponents?: boolean;
+  useExperimentalDependencyDetection?: boolean;
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+}[];
+type PerfectionistSortObjectTypes = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+    sortBy?: ("name" | "value");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  sortBy?: ("name" | "value");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+      sortBy?: ("name" | "value");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    sortBy?: ("name" | "value");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("optional" | "required" | "multiline")[];
+      selector?: ("index-signature" | "member" | "method" | "property");
+      elementValuePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      modifiers?: ("optional" | "required" | "multiline")[];
+      selector?: ("index-signature" | "member" | "method" | "property");
+      elementValuePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+      sortBy?: ("name" | "value");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    sortBy?: ("name" | "value");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    modifiers?: ("optional" | "required" | "multiline")[];
+    selector?: ("index-signature" | "member" | "method" | "property");
+    elementValuePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+      sortBy?: ("name" | "value");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    sortBy?: ("name" | "value");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useConfigurationIf?: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    hasNumericKeysOnly?: boolean;
+    declarationCommentMatchesPattern?: (({
+      scope?: ("shallow" | "deep");
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      scope?: ("shallow" | "deep");
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+    declarationMatchesPattern?: (({
+      scope?: ("shallow" | "deep");
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      scope?: ("shallow" | "deep");
+      pattern: string;
+      flags?: string;
+    } | string));
+  };
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+}[];
+type PerfectionistSortSets = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      selector?: "literal";
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      selector?: "literal";
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    selector?: "literal";
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useConfigurationIf?: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+  };
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+}[];
+type PerfectionistSortSwitchCase = [] | [{
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+}];
+type PerfectionistSortUnionTypes = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      selector?: ("intersection" | "conditional" | "function" | "operator" | "keyword" | "literal" | "nullish" | "import" | "object" | "named" | "tuple" | "union");
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      selector?: ("intersection" | "conditional" | "function" | "operator" | "keyword" | "literal" | "nullish" | "import" | "object" | "named" | "tuple" | "union");
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    selector?: ("intersection" | "conditional" | "function" | "operator" | "keyword" | "literal" | "nullish" | "import" | "object" | "named" | "tuple" | "union");
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useConfigurationIf?: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+  };
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+}[];
+type PerfectionistSortVariableDeclarations = {
+  fallbackSort?: {
+    type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    order?: ("asc" | "desc");
+  };
+  type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+  specialCharacters?: ("remove" | "trim" | "keep");
+  ignoreCase?: boolean;
+  alphabet?: string;
+  locales?: (string | string[]);
+  order?: ("asc" | "desc");
+  customGroups?: ({
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    anyOf: [{
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      selector?: ("initialized" | "uninitialized");
+    }, ...({
+      elementNamePattern?: (({
+        pattern: string;
+        flags?: string;
+      } | string)[] | ({
+        pattern: string;
+        flags?: string;
+      } | string));
+      selector?: ("initialized" | "uninitialized");
+    })[]];
+  } | {
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    groupName: string;
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+    elementNamePattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    selector?: ("initialized" | "uninitialized");
+  })[];
+  newlinesInside?: (("ignore" | number) | "newlinesBetween");
+  groups?: (string | [string, ...(string)[]] | {
+    newlinesBetween: ("ignore" | number);
+  } | {
+    group: (string | [string, ...(string)[]]);
+    fallbackSort?: {
+      type: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+      order?: ("asc" | "desc");
+    };
+    commentAbove?: string;
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted" | "subgroup-order");
+    newlinesInside?: ("ignore" | number);
+    order?: ("asc" | "desc");
+  })[];
+  newlinesBetween?: ("ignore" | number);
+  useConfigurationIf?: {
+    allNamesMatchPattern?: (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string));
+    matchesAstSelector?: string;
+  };
+  useExperimentalDependencyDetection?: boolean;
+  partitionByComment?: (boolean | (({
+    pattern: string;
+    flags?: string;
+  } | string)[] | ({
+    pattern: string;
+    flags?: string;
+  } | string)) | {
+    block?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+    line?: (boolean | (({
+      pattern: string;
+      flags?: string;
+    } | string)[] | ({
+      pattern: string;
+      flags?: string;
+    } | string)));
+  });
+  partitionByNewLine?: boolean;
+}[];
+type PnpmJsonEnforceCatalog = [] | [{
+  allowedProtocols?: string[];
+  autofix?: boolean;
+  defaultCatalog?: string;
+  reuseExistingCatalog?: boolean;
+  conflicts?: ("new-catalog" | "overrides" | "error");
+  fields?: string[];
+  ignores?: string[];
+}];
+type PnpmJsonPreferWorkspaceSettings = [] | [{
+  autofix?: boolean;
+}];
+type PnpmJsonValidCatalog = [] | [{
+  autoInsert?: boolean;
+  autoInsertDefaultSpecifier?: string;
+  autofix?: boolean;
+  enforceNoConflict?: boolean;
+  fields?: unknown[];
+}];
+type PnpmYamlEnforceSettings = [] | [{
+  autofix?: boolean;
+  settings?: {
+    [k: string]: unknown | undefined;
+  };
+  requiredFields?: string[];
+  forbiddenFields?: string[];
+}];
+type PnpmYamlNoDuplicateCatalogItem = [] | [{
+  allow?: string[];
+  checkDuplicates?: ("name-only" | "exact-version");
+}];
+type PreferArrowCallback = [] | [{
+  allowNamedFunctions?: boolean;
+  allowUnboundThis?: boolean;
+}];
+type PreferConst = [] | [{
+  destructuring?: ("any" | "all");
+  ignoreReadBeforeAssign?: boolean;
+}];
+type PreferDestructuring = [] | [({
+  VariableDeclarator?: {
+    array?: boolean;
+    object?: boolean;
+  };
+  AssignmentExpression?: {
+    array?: boolean;
+    object?: boolean;
+  };
+} | {
+  array?: boolean;
+  object?: boolean;
+})] | [({
+  VariableDeclarator?: {
+    array?: boolean;
+    object?: boolean;
+  };
+  AssignmentExpression?: {
+    array?: boolean;
+    object?: boolean;
+  };
+} | {
+  array?: boolean;
+  object?: boolean;
+}), {
+  enforceForRenamedProperties?: boolean;
+}];
+type PreferPromiseRejectErrors = [] | [{
+  allowEmptyReject?: boolean;
+}];
+type PreferReflect = [] | [{
+  exceptions?: ("apply" | "call" | "delete" | "defineProperty" | "getOwnPropertyDescriptor" | "getPrototypeOf" | "setPrototypeOf" | "isExtensible" | "getOwnPropertyNames" | "preventExtensions")[];
+}];
+type PreferRegexLiterals = [] | [{
+  disallowRedundantWrapping?: boolean;
+}];
+type PreserveCaughtError = [] | [{
+  requireCatchParameter?: boolean;
+  errorClassNames?: (string | {
+    name: string;
+    argumentPosition: number;
+  })[];
+}];
+type QuoteProps = ([] | [("always" | "as-needed" | "consistent" | "consistent-as-needed")] | [] | [("always" | "as-needed" | "consistent" | "consistent-as-needed")] | [("always" | "as-needed" | "consistent" | "consistent-as-needed"), {
+  keywords?: boolean;
+  unnecessary?: boolean;
+  numbers?: boolean;
+}]);
+type Quotes = [] | [("single" | "double" | "backtick")] | [("single" | "double" | "backtick"), ("avoid-escape" | {
+  avoidEscape?: boolean;
+  allowTemplateLiterals?: boolean;
+})];
+type Radix = [] | [("always" | "as-needed")];
+type ReactDomNoUnknownProperty = [] | [{
+  ignore?: string[];
+  requireDataLowercase?: boolean;
+}];
+type ReactExhaustiveDeps = [] | [{
+  additionalHooks?: string;
+  enableDangerousAutofixThisMayCauseInfiniteLoops?: boolean;
+  experimental_autoDependenciesHooks?: string[];
+  requireExplicitEffectDeps?: boolean;
+}];
+type ReactJsxNoUselessFragment = [] | [{
+  allowEmptyFragment?: boolean;
+  allowExpressions?: boolean;
+}];
+type ReactNoUnstableDefaultProps = [] | [{
+  safeDefaultProps?: string[];
+}];
+type ReactRefreshOnlyExportComponents = [] | [{
+  extraHOCs?: string[];
+  allowExportNames?: string[];
+  allowConstantExport?: boolean;
+  checkJS?: boolean;
+}];
+type ReactRulesOfHooks = [] | [{
+  additionalHooks?: string;
+}];
+type ReactUseState = [] | [{
+  enforceAssignment?: boolean;
+  enforceLazyInitialization?: boolean;
+  enforceSetterName?: boolean;
+}];
+type ReactXExhaustiveDeps = [] | [{
+  additionalHooks?: string;
+  enableDangerousAutofixThisMayCauseInfiniteLoops?: boolean;
+  experimental_autoDependenciesHooks?: string[];
+  requireExplicitEffectDeps?: boolean;
+}];
+type ReactXNoUnstableDefaultProps = [] | [{
+  safeDefaultProps?: string[];
+}];
+type ReactXRulesOfHooks = [] | [{
+  additionalHooks?: string;
+}];
+type ReactXUseState = [] | [{
+  enforceAssignment?: boolean;
+  enforceLazyInitialization?: boolean;
+  enforceSetterName?: boolean;
+}];
+type RegexpHexadecimalEscape = [] | [("always" | "never")];
+type RegexpLetterCase = [] | [{
+  caseInsensitive?: ("lowercase" | "uppercase" | "ignore");
+  unicodeEscape?: ("lowercase" | "uppercase" | "ignore");
+  hexadecimalEscape?: ("lowercase" | "uppercase" | "ignore");
+  controlEscape?: ("lowercase" | "uppercase" | "ignore");
+}];
+type RegexpMatchAny = [] | [{
+  allows?: [("[\\s\\S]" | "[\\S\\s]" | "[^]" | "dotAll"), ...(("[\\s\\S]" | "[\\S\\s]" | "[^]" | "dotAll"))[]];
+}];
+type RegexpNoDupeDisjunctions = [] | [{
+  report?: ("all" | "trivial" | "interesting");
+  reportExponentialBacktracking?: ("none" | "certain" | "potential");
+  reportUnreachable?: ("certain" | "potential");
+}];
+type RegexpNoLazyEnds = [] | [{
+  ignorePartial?: boolean;
+}];
+type RegexpNoLegacyFeatures = [] | [{
+  staticProperties?: ("input" | "$_" | "lastMatch" | "$&" | "lastParen" | "$+" | "leftContext" | "$`" | "rightContext" | "$'" | "$1" | "$2" | "$3" | "$4" | "$5" | "$6" | "$7" | "$8" | "$9")[];
+  prototypeMethods?: ("compile")[];
+}];
+type RegexpNoMisleadingCapturingGroup = [] | [{
+  reportBacktrackingEnds?: boolean;
+}];
+type RegexpNoMisleadingUnicodeCharacter = [] | [{
+  fixable?: boolean;
+}];
+type RegexpNoMissingGFlag = [] | [{
+  strictTypes?: boolean;
+}];
+type RegexpNoObscureRange = [] | [{
+  allowed?: (("all" | "alphanumeric") | [("all" | "alphanumeric")] | [("alphanumeric" | string), ...(("alphanumeric" | string))[]]);
+}];
+type RegexpNoSuperLinearBacktracking = [] | [{
+  report?: ("certain" | "potential");
+}];
+type RegexpNoSuperLinearMove = [] | [{
+  report?: ("certain" | "potential");
+  ignoreSticky?: boolean;
+  ignorePartial?: boolean;
+}];
+type RegexpNoUnusedCapturingGroup = [] | [{
+  fixable?: boolean;
+  allowNamed?: boolean;
+}];
+type RegexpNoUselessCharacterClass = [] | [{
+  ignores?: string[];
+}];
+type RegexpNoUselessFlag = [] | [{
+  ignore?: ("i" | "m" | "s" | "g" | "y")[];
+  strictTypes?: boolean;
+}];
+type RegexpNoUselessNonCapturingGroup = [] | [{
+  allowTop?: (boolean | ("always" | "never" | "partial"));
+}];
+type RegexpOptimalQuantifierConcatenation = [] | [{
+  capturingGroups?: ("ignore" | "report");
+}];
+type RegexpPreferCharacterClass = [] | [{
+  minAlternatives?: number;
+}];
+type RegexpPreferD = [] | [{
+  insideCharacterClass?: ("ignore" | "range" | "d");
+}];
+type RegexpPreferLookaround = [] | [{
+  lookbehind?: boolean;
+  strictTypes?: boolean;
+}];
+type RegexpPreferNamedReplacement = [] | [{
+  strictTypes?: boolean;
+}];
+type RegexpPreferQuantifier = [] | [{
+  allows?: string[];
+}];
+type RegexpPreferRange = [] | [{
+  target?: (("all" | "alphanumeric") | [("all" | "alphanumeric")] | [("alphanumeric" | string), ...(("alphanumeric" | string))[]]);
+}];
+type RegexpPreferResultArrayGroups = [] | [{
+  strictTypes?: boolean;
+}];
+type RegexpSortCharacterClassElements = [] | [{
+  order?: ("\\s" | "\\w" | "\\d" | "\\p" | "*" | "\\q" | "[]")[];
+}];
+type RegexpUnicodeEscape = [] | [("unicodeCodePointEscape" | "unicodeEscape")];
+type RegexpUnicodeProperty = [] | [{
+  generalCategory?: ("always" | "never" | "ignore");
+  key?: ("short" | "long" | "ignore");
+  property?: (("short" | "long" | "ignore") | {
+    binary?: ("short" | "long" | "ignore");
+    generalCategory?: ("short" | "long" | "ignore");
+    script?: ("short" | "long" | "ignore");
+  });
+}];
+type RequireAtomicUpdates = [] | [{
+  allowProperties?: boolean;
+}];
+type RequireUnicodeRegexp = [] | [{
+  requireFlag?: ("u" | "v");
+}];
+type RestSpreadSpacing = [] | [("always" | "never")];
+type Semi = ([] | ["never"] | ["never", {
+  beforeStatementContinuationChars?: ("always" | "any" | "never");
+}] | [] | ["always"] | ["always", {
+  omitLastInOneLineBlock?: boolean;
+  omitLastInOneLineClassBody?: boolean;
+}]);
+type SemiSpacing = [] | [{
+  before?: boolean;
+  after?: boolean;
+}];
+type SemiStyle = [] | [("last" | "first")];
+type SolidEventHandlers = [] | [{
+  ignoreCase?: boolean;
+  warnOnSpread?: boolean;
+}];
+type SolidJsxNoDuplicateProps = [] | [{
+  ignoreCase?: boolean;
+}];
+type SolidJsxNoUndef = [] | [{
+  allowGlobals?: boolean;
+  autoImport?: boolean;
+  typescriptEnabled?: boolean;
+}];
+type SolidNoInnerhtml = [] | [{
+  allowStatic?: boolean;
+}];
+type SolidNoUnknownNamespaces = [] | [{
+  allowedNamespaces?: [string, ...(string)[]];
+}];
+type SolidPreferClasslist = [] | [{
+  classnames?: [string, ...(string)[]];
+}];
+type SolidReactivity = [] | [{
+  customReactiveFunctions?: string[];
+}];
+type SolidSelfClosingComp = [] | [{
+  component?: ("all" | "none");
+  html?: ("all" | "void" | "none");
+}];
+type SolidStyleProp = [] | [{
+  styleProps?: [string, ...(string)[]];
+  allowString?: boolean;
+}];
+type SolidValidUseServer = [] | [{
+  clientWrappers?: string[];
+}];
+type SortImports = [] | [{
+  ignoreCase?: boolean;
+  memberSyntaxSortOrder?: [("none" | "all" | "multiple" | "single"), ("none" | "all" | "multiple" | "single"), ("none" | "all" | "multiple" | "single"), ("none" | "all" | "multiple" | "single")];
+  ignoreDeclarationSort?: boolean;
+  ignoreMemberSort?: boolean;
+  allowSeparatedGroups?: boolean;
+}];
+type SortKeys = [] | [("asc" | "desc")] | [("asc" | "desc"), {
+  caseSensitive?: boolean;
+  natural?: boolean;
+  minKeys?: number;
+  allowLineSeparatedGroups?: boolean;
+  ignoreComputedKeys?: boolean;
+}];
+type SortVars = [] | [{
+  ignoreCase?: boolean;
+}];
+type SpaceBeforeBlocks = [] | [(("always" | "never") | {
+  keywords?: ("always" | "never" | "off");
+  functions?: ("always" | "never" | "off");
+  classes?: ("always" | "never" | "off");
+})];
+type SpaceBeforeFunctionParen = [] | [(("always" | "never") | {
+  anonymous?: ("always" | "never" | "ignore");
+  named?: ("always" | "never" | "ignore");
+  asyncArrow?: ("always" | "never" | "ignore");
+})];
+type SpacedComment = [] | [("always" | "never")] | [("always" | "never"), {
+  exceptions?: string[];
+  markers?: string[];
+  line?: {
+    exceptions?: string[];
+    markers?: string[];
+  };
+  block?: {
+    exceptions?: string[];
+    markers?: string[];
+    balanced?: boolean;
+  };
+}];
+type SpaceInfixOps = [] | [{
+  int32Hint?: boolean;
+}];
+type SpaceInParens = [] | [("always" | "never")] | [("always" | "never"), {
+  exceptions?: ("{}" | "[]" | "()" | "empty")[];
+}];
+type SpaceUnaryOps = [] | [{
+  words?: boolean;
+  nonwords?: boolean;
+  overrides?: {
+    [k: string]: boolean | undefined;
+  };
+}];
+type Strict = [] | [("never" | "global" | "function" | "safe")];
+type StyleArrayBracketNewline = [] | [(("always" | "never" | "consistent") | {
+  multiline?: boolean;
+  minItems?: (number | null);
+})];
+type StyleArrayBracketSpacing = [] | [("always" | "never")] | [("always" | "never"), {
+  singleValue?: boolean;
+  objectsInArrays?: boolean;
+  arraysInArrays?: boolean;
+}];
+type StyleArrayElementNewline = [] | [(_StyleArrayElementNewlineBasicConfig | {
+  ArrayExpression?: _StyleArrayElementNewlineBasicConfig;
+  ArrayPattern?: _StyleArrayElementNewlineBasicConfig;
+})];
+type StyleArrowParens = [] | [("always" | "as-needed")] | [("always" | "as-needed"), {
+  requireForBlockBody?: boolean;
+}];
+type StyleArrowSpacing = [] | [{
+  before?: boolean;
+  after?: boolean;
+}];
+type StyleBlockSpacing = [] | [("always" | "never")];
+type StyleBraceStyle = [] | [("1tbs" | "stroustrup" | "allman")] | [("1tbs" | "stroustrup" | "allman"), {
+  allowSingleLine?: boolean;
+}];
+type StyleCommaDangle = [] | [(_StyleCommaDangleValue | {
+  arrays?: _StyleCommaDangleValueWithIgnore;
+  objects?: _StyleCommaDangleValueWithIgnore;
+  imports?: _StyleCommaDangleValueWithIgnore;
+  exports?: _StyleCommaDangleValueWithIgnore;
+  functions?: _StyleCommaDangleValueWithIgnore;
+  importAttributes?: _StyleCommaDangleValueWithIgnore;
+  dynamicImports?: _StyleCommaDangleValueWithIgnore;
+  enums?: _StyleCommaDangleValueWithIgnore;
+  generics?: _StyleCommaDangleValueWithIgnore;
+  tuples?: _StyleCommaDangleValueWithIgnore;
+})];
+type StyleCommaSpacing = [] | [{
+  before?: boolean;
+  after?: boolean;
+}];
+type StyleCommaStyle = [] | [("first" | "last")] | [("first" | "last"), {
+  exceptions?: {
+    [k: string]: boolean | undefined;
+  };
+}];
+type StyleComputedPropertySpacing = [] | [("always" | "never")] | [("always" | "never"), {
+  enforceForClassMembers?: boolean;
+}];
+type StyleCurlyNewline = [] | [(("always" | "never") | {
+  IfStatementConsequent?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  IfStatementAlternative?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  DoWhileStatement?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  ForInStatement?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  ForOfStatement?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  ForStatement?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  WhileStatement?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  SwitchStatement?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  SwitchCase?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  TryStatementBlock?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  TryStatementHandler?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  TryStatementFinalizer?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  BlockStatement?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  ArrowFunctionExpression?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  FunctionDeclaration?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  FunctionExpression?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  Property?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  ClassBody?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  StaticBlock?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  WithStatement?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  TSModuleBlock?: (("always" | "never") | {
+    multiline?: boolean;
+    minElements?: number;
+    consistent?: boolean;
+  });
+  multiline?: boolean;
+  minElements?: number;
+  consistent?: boolean;
+})];
+type StyleDotLocation = [] | [("object" | "property")];
+type StyleEolLast = [] | [("always" | "never" | "unix" | "windows")];
+type StyleExpJsxPropsStyle = [] | [{
+  singleLine?: {
+    maxItems?: number;
+  };
+  multiLine?: {
+    minItems?: number;
+    maxItemsPerLine?: number;
+  };
+}];
+type StyleExpListStyle = [] | [{
+  singleLine?: _StyleExpListStyle_SingleLineConfig;
+  multiLine?: _StyleExpListStyle_MultiLineConfig;
+  overrides?: {
+    "()"?: (_StyleExpListStyle_BaseConfig | "off");
+    "[]"?: (_StyleExpListStyle_BaseConfig | "off");
+    "{}"?: (_StyleExpListStyle_BaseConfig | "off");
+    "<>"?: (_StyleExpListStyle_BaseConfig | "off");
+    ArrayExpression?: (_StyleExpListStyle_BaseConfig | "off");
+    ArrayPattern?: (_StyleExpListStyle_BaseConfig | "off");
+    ArrowFunctionExpression?: (_StyleExpListStyle_BaseConfig | "off");
+    CallExpression?: (_StyleExpListStyle_BaseConfig | "off");
+    ExportNamedDeclaration?: (_StyleExpListStyle_BaseConfig | "off");
+    FunctionDeclaration?: (_StyleExpListStyle_BaseConfig | "off");
+    FunctionExpression?: (_StyleExpListStyle_BaseConfig | "off");
+    IfStatement?: (_StyleExpListStyle_BaseConfig | "off");
+    ImportAttributes?: (_StyleExpListStyle_BaseConfig | "off");
+    ImportDeclaration?: (_StyleExpListStyle_BaseConfig | "off");
+    JSONArrayExpression?: (_StyleExpListStyle_BaseConfig | "off");
+    JSONObjectExpression?: (_StyleExpListStyle_BaseConfig | "off");
+    NewExpression?: (_StyleExpListStyle_BaseConfig | "off");
+    ObjectExpression?: (_StyleExpListStyle_BaseConfig | "off");
+    ObjectPattern?: (_StyleExpListStyle_BaseConfig | "off");
+    TSDeclareFunction?: (_StyleExpListStyle_BaseConfig | "off");
+    TSEnumBody?: (_StyleExpListStyle_BaseConfig | "off");
+    TSFunctionType?: (_StyleExpListStyle_BaseConfig | "off");
+    TSInterfaceBody?: (_StyleExpListStyle_BaseConfig | "off");
+    TSTupleType?: (_StyleExpListStyle_BaseConfig | "off");
+    TSTypeLiteral?: (_StyleExpListStyle_BaseConfig | "off");
+    TSTypeParameterDeclaration?: (_StyleExpListStyle_BaseConfig | "off");
+    TSTypeParameterInstantiation?: (_StyleExpListStyle_BaseConfig | "off");
+  };
+}];
+type StyleFunctionCallArgumentNewline = [] | [("always" | "never" | "consistent")];
+type StyleFunctionCallSpacing = ([] | ["never"] | [] | ["always"] | ["always", {
+  allowNewlines?: boolean;
+  optionalChain?: {
+    before?: boolean;
+    after?: boolean;
+  };
+}]);
+type StyleFunctionParenNewline = [] | [(("always" | "never" | "consistent" | "multiline" | "multiline-arguments") | {
+  minItems?: number;
+})];
+type StyleGeneratorStarSpacing = [] | [(("before" | "after" | "both" | "neither") | {
+  before?: boolean;
+  after?: boolean;
+  named?: (("before" | "after" | "both" | "neither") | {
+    before?: boolean;
+    after?: boolean;
+  });
+  anonymous?: (("before" | "after" | "both" | "neither") | {
+    before?: boolean;
+    after?: boolean;
+  });
+  method?: (("before" | "after" | "both" | "neither") | {
+    before?: boolean;
+    after?: boolean;
+  });
+  shorthand?: (("before" | "after" | "both" | "neither") | {
+    before?: boolean;
+    after?: boolean;
+  });
+})];
+type StyleImplicitArrowLinebreak = [] | [("beside" | "below")];
+type StyleIndent = [] | [("tab" | number)] | [("tab" | number), {
+  SwitchCase?: number;
+  VariableDeclarator?: ((number | ("first" | "off")) | {
+    var?: (number | ("first" | "off"));
+    let?: (number | ("first" | "off"));
+    const?: (number | ("first" | "off"));
+    using?: (number | ("first" | "off"));
+  });
+  assignmentOperator?: (number | "off");
+  outerIIFEBody?: (number | "off");
+  MemberExpression?: (number | "off");
+  FunctionDeclaration?: {
+    parameters?: (number | ("first" | "off"));
+    body?: number;
+    returnType?: number;
+  };
+  FunctionExpression?: {
+    parameters?: (number | ("first" | "off"));
+    body?: number;
+    returnType?: number;
+  };
+  StaticBlock?: {
+    body?: number;
+  };
+  CallExpression?: {
+    arguments?: (number | ("first" | "off"));
+  };
+  ArrayExpression?: (number | ("first" | "off"));
+  ObjectExpression?: (number | ("first" | "off"));
+  ImportDeclaration?: (number | ("first" | "off"));
+  flatTernaryExpressions?: boolean;
+  offsetTernaryExpressions?: (boolean | {
+    CallExpression?: boolean;
+    AwaitExpression?: boolean;
+    NewExpression?: boolean;
+  });
+  offsetTernaryExpressionsOffsetCallExpressions?: boolean;
+  ignoredNodes?: string[];
+  ignoreComments?: boolean;
+  tabLength?: number;
+}];
+type StyleIndentBinaryOps = [] | [(number | "tab")];
+type StyleJsxClosingBracketLocation = [] | [(("after-props" | "props-aligned" | "tag-aligned" | "line-aligned") | {
+  location?: ("after-props" | "props-aligned" | "tag-aligned" | "line-aligned");
+} | {
+  nonEmpty?: (("after-props" | "props-aligned" | "tag-aligned" | "line-aligned") | false);
+  selfClosing?: (("after-props" | "props-aligned" | "tag-aligned" | "line-aligned") | false);
+})];
+type StyleJsxClosingTagLocation = [] | [("tag-aligned" | "line-aligned")];
+type StyleJsxCurlyBracePresence = [] | [({
+  props?: ("always" | "never" | "ignore");
+  children?: ("always" | "never" | "ignore");
+  propElementValues?: ("always" | "never" | "ignore");
+} | ("always" | "never" | "ignore"))];
+type StyleJsxCurlyNewline = [] | [(("consistent" | "never") | {
+  singleline?: ("consistent" | "require" | "forbid");
+  multiline?: ("consistent" | "require" | "forbid");
+})];
+type StyleJsxCurlySpacing = [] | [({
+  when?: ("always" | "never");
+  allowMultiline?: boolean;
+  spacing?: {
+    objectLiterals?: ("always" | "never");
+  };
+  attributes?: ({
+    when?: ("always" | "never");
+    allowMultiline?: boolean;
+    spacing?: {
+      objectLiterals?: ("always" | "never");
+    };
+  } | boolean);
+  children?: ({
+    when?: ("always" | "never");
+    allowMultiline?: boolean;
+    spacing?: {
+      objectLiterals?: ("always" | "never");
+    };
+  } | boolean);
+} | ("always" | "never"))] | [({
+  when?: ("always" | "never");
+  allowMultiline?: boolean;
+  spacing?: {
+    objectLiterals?: ("always" | "never");
+  };
+  attributes?: ({
+    when?: ("always" | "never");
+    allowMultiline?: boolean;
+    spacing?: {
+      objectLiterals?: ("always" | "never");
+    };
+  } | boolean);
+  children?: ({
+    when?: ("always" | "never");
+    allowMultiline?: boolean;
+    spacing?: {
+      objectLiterals?: ("always" | "never");
+    };
+  } | boolean);
+} | ("always" | "never")), {
+  allowMultiline?: boolean;
+  spacing?: {
+    objectLiterals?: ("always" | "never");
+  };
+}];
+type StyleJsxEqualsSpacing = [] | [("always" | "never")];
+type StyleJsxFirstPropNewLine = [] | [("always" | "never" | "multiline" | "multiline-multiprop" | "multiprop")];
+type StyleJsxFunctionCallNewline = [] | [("always" | "multiline")];
+type StyleJsxIndent = [] | [("tab" | number)] | [("tab" | number), {
+  checkAttributes?: boolean;
+  indentLogicalExpressions?: boolean;
+}];
+type StyleJsxIndentProps = [] | [(("tab" | "first") | number | {
+  indentMode?: (("tab" | "first") | number);
+  ignoreTernaryOperator?: boolean;
+})];
+type StyleJsxMaxPropsPerLine = [] | [({
+  maximum?: {
+    single?: number;
+    multi?: number;
+  };
+} | {
+  maximum?: number;
+  when?: ("always" | "multiline");
+})];
+type StyleJsxNewline = [] | [{
+  prevent?: boolean;
+  allowMultilines?: boolean;
+}];
+type StyleJsxOneExpressionPerLine = [] | [{
+  allow?: ("none" | "literal" | "single-child" | "single-line" | "non-jsx");
+}];
+type StyleJsxPascalCase = [] | [{
+  allowAllCaps?: boolean;
+  allowLeadingUnderscore?: boolean;
+  allowNamespace?: boolean;
+  ignore?: string[];
+}];
+type StyleJsxQuotes = [] | [("prefer-single" | "prefer-double")];
+type StyleJsxSelfClosingComp = [] | [{
+  component?: boolean;
+  html?: boolean;
+}];
+type StyleJsxSortProps = [] | [{
+  callbacksLast?: boolean;
+  shorthandFirst?: boolean;
+  shorthandLast?: boolean;
+  multiline?: ("ignore" | "first" | "last");
+  ignoreCase?: boolean;
+  noSortAlphabetically?: boolean;
+  reservedFirst?: (string[] | boolean);
+  reservedLast?: string[];
+  locale?: string;
+}];
+type StyleJsxTagSpacing = [] | [{
+  closingSlash?: ("always" | "never" | "allow");
+  beforeSelfClosing?: ("always" | "proportional-always" | "never" | "allow");
+  afterOpening?: ("always" | "allow-multiline" | "never" | "allow");
+  beforeClosing?: ("always" | "proportional-always" | "never" | "allow");
+}];
+type StyleJsxWrapMultilines = [] | [{
+  declaration?: ((true | false | "ignore" | "parens" | "parens-new-line") | (true | false | "ignore" | "parens" | "parens-new-line"));
+  assignment?: ((true | false | "ignore" | "parens" | "parens-new-line") | (true | false | "ignore" | "parens" | "parens-new-line"));
+  return?: ((true | false | "ignore" | "parens" | "parens-new-line") | (true | false | "ignore" | "parens" | "parens-new-line"));
+  arrow?: ((true | false | "ignore" | "parens" | "parens-new-line") | (true | false | "ignore" | "parens" | "parens-new-line"));
+  condition?: ((true | false | "ignore" | "parens" | "parens-new-line") | (true | false | "ignore" | "parens" | "parens-new-line"));
+  logical?: ((true | false | "ignore" | "parens" | "parens-new-line") | (true | false | "ignore" | "parens" | "parens-new-line"));
+  prop?: ((true | false | "ignore" | "parens" | "parens-new-line") | (true | false | "ignore" | "parens" | "parens-new-line"));
+  propertyValue?: ((true | false | "ignore" | "parens" | "parens-new-line") | (true | false | "ignore" | "parens" | "parens-new-line"));
+}];
+type StyleKeySpacing = [] | [({
+  align?: (("colon" | "value") | {
+    mode?: ("strict" | "minimum");
+    on?: ("colon" | "value");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  });
+  mode?: ("strict" | "minimum");
+  beforeColon?: boolean;
+  afterColon?: boolean;
+  ignoredNodes?: ("ObjectExpression" | "ObjectPattern" | "ImportDeclaration" | "ExportNamedDeclaration" | "ExportAllDeclaration" | "TSTypeLiteral" | "TSInterfaceBody" | "ClassBody")[];
+} | {
+  singleLine?: {
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+  multiLine?: {
+    align?: (("colon" | "value") | {
+      mode?: ("strict" | "minimum");
+      on?: ("colon" | "value");
+      beforeColon?: boolean;
+      afterColon?: boolean;
+    });
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+} | {
+  singleLine?: {
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+  multiLine?: {
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+  align?: {
+    mode?: ("strict" | "minimum");
+    on?: ("colon" | "value");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+})];
+type StyleKeywordSpacing = [] | [{
+  before?: boolean;
+  after?: boolean;
+  overrides?: {
+    abstract?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    boolean?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    break?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    byte?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    case?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    catch?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    char?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    class?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    const?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    continue?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    debugger?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    default?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    delete?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    do?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    double?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    else?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    enum?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    export?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    extends?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    false?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    final?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    finally?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    float?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    for?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    function?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    goto?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    if?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    implements?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    import?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    in?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    instanceof?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    int?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    interface?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    long?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    native?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    new?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    null?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    package?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    private?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    protected?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    public?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    return?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    short?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    static?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    super?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    switch?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    synchronized?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    this?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    throw?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    throws?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    transient?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    true?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    try?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    typeof?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    var?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    void?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    volatile?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    while?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    with?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    arguments?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    as?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    async?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    await?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    eval?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    from?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    get?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    let?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    of?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    set?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    type?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    using?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    yield?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    accessor?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    satisfies?: {
+      before?: boolean;
+      after?: boolean;
+    };
+  };
+}];
+type StyleLinebreakStyle = [] | [("unix" | "windows")];
+type StyleLineCommentPosition = [] | [(("above" | "beside") | {
+  position?: ("above" | "beside");
+  ignorePattern?: string;
+  applyDefaultPatterns?: boolean;
+  applyDefaultIgnorePatterns?: boolean;
+})];
+type StyleLinesAroundComment = [] | [{
+  beforeBlockComment?: boolean;
+  afterBlockComment?: boolean;
+  beforeLineComment?: boolean;
+  afterLineComment?: boolean;
+  allowBlockStart?: boolean;
+  allowBlockEnd?: boolean;
+  allowClassStart?: boolean;
+  allowClassEnd?: boolean;
+  allowObjectStart?: boolean;
+  allowObjectEnd?: boolean;
+  allowArrayStart?: boolean;
+  allowArrayEnd?: boolean;
+  allowInterfaceStart?: boolean;
+  allowInterfaceEnd?: boolean;
+  allowTypeStart?: boolean;
+  allowTypeEnd?: boolean;
+  allowEnumStart?: boolean;
+  allowEnumEnd?: boolean;
+  allowModuleStart?: boolean;
+  allowModuleEnd?: boolean;
+  ignorePattern?: string;
+  applyDefaultIgnorePatterns?: boolean;
+  afterHashbangComment?: boolean;
+}];
+type StyleLinesBetweenClassMembers = [] | [({
+  enforce: [{
+    blankLine: ("always" | "never");
+    prev: ("method" | "field" | "*");
+    next: ("method" | "field" | "*");
+  }, ...({
+    blankLine: ("always" | "never");
+    prev: ("method" | "field" | "*");
+    next: ("method" | "field" | "*");
+  })[]];
+} | ("always" | "never"))] | [({
+  enforce: [{
+    blankLine: ("always" | "never");
+    prev: ("method" | "field" | "*");
+    next: ("method" | "field" | "*");
+  }, ...({
+    blankLine: ("always" | "never");
+    prev: ("method" | "field" | "*");
+    next: ("method" | "field" | "*");
+  })[]];
+} | ("always" | "never")), {
+  exceptAfterSingleLine?: boolean;
+  exceptAfterOverload?: boolean;
+}];
+type StyleMaxLen = [] | [({
+  code?: number;
+  comments?: number;
+  tabWidth?: number;
+  ignorePattern?: string;
+  ignoreComments?: boolean;
+  ignoreStrings?: boolean;
+  ignoreUrls?: boolean;
+  ignoreTemplateLiterals?: boolean;
+  ignoreRegExpLiterals?: boolean;
+  ignoreTrailingComments?: boolean;
+} | number)] | [({
+  code?: number;
+  comments?: number;
+  tabWidth?: number;
+  ignorePattern?: string;
+  ignoreComments?: boolean;
+  ignoreStrings?: boolean;
+  ignoreUrls?: boolean;
+  ignoreTemplateLiterals?: boolean;
+  ignoreRegExpLiterals?: boolean;
+  ignoreTrailingComments?: boolean;
+} | number), ({
+  code?: number;
+  comments?: number;
+  tabWidth?: number;
+  ignorePattern?: string;
+  ignoreComments?: boolean;
+  ignoreStrings?: boolean;
+  ignoreUrls?: boolean;
+  ignoreTemplateLiterals?: boolean;
+  ignoreRegExpLiterals?: boolean;
+  ignoreTrailingComments?: boolean;
+} | number)] | [({
+  code?: number;
+  comments?: number;
+  tabWidth?: number;
+  ignorePattern?: string;
+  ignoreComments?: boolean;
+  ignoreStrings?: boolean;
+  ignoreUrls?: boolean;
+  ignoreTemplateLiterals?: boolean;
+  ignoreRegExpLiterals?: boolean;
+  ignoreTrailingComments?: boolean;
+} | number), ({
+  code?: number;
+  comments?: number;
+  tabWidth?: number;
+  ignorePattern?: string;
+  ignoreComments?: boolean;
+  ignoreStrings?: boolean;
+  ignoreUrls?: boolean;
+  ignoreTemplateLiterals?: boolean;
+  ignoreRegExpLiterals?: boolean;
+  ignoreTrailingComments?: boolean;
+} | number), {
+  code?: number;
+  comments?: number;
+  tabWidth?: number;
+  ignorePattern?: string;
+  ignoreComments?: boolean;
+  ignoreStrings?: boolean;
+  ignoreUrls?: boolean;
+  ignoreTemplateLiterals?: boolean;
+  ignoreRegExpLiterals?: boolean;
+  ignoreTrailingComments?: boolean;
+}];
+type StyleMaxStatementsPerLine = [] | [{
+  max?: number;
+  ignoredNodes?: ("BreakStatement" | "ClassDeclaration" | "ContinueStatement" | "DebuggerStatement" | "DoWhileStatement" | "ExpressionStatement" | "ForInStatement" | "ForOfStatement" | "ForStatement" | "FunctionDeclaration" | "IfStatement" | "ImportDeclaration" | "LabeledStatement" | "ReturnStatement" | "SwitchStatement" | "ThrowStatement" | "TryStatement" | "VariableDeclaration" | "WhileStatement" | "WithStatement" | "ExportNamedDeclaration" | "ExportDefaultDeclaration" | "ExportAllDeclaration")[];
+}];
+type StyleMemberDelimiterStyle = [] | [{
+  multiline?: {
+    delimiter?: ("none" | "semi" | "comma");
+    requireLast?: boolean;
+  };
+  singleline?: {
+    delimiter?: ("semi" | "comma");
+    requireLast?: boolean;
+  };
+  overrides?: {
+    interface?: _StyleMemberDelimiterStyle_DelimiterConfig;
+    typeLiteral?: _StyleMemberDelimiterStyle_DelimiterConfig;
+  };
+  multilineDetection?: ("brackets" | "last-member");
+}];
+type StyleMultilineCommentStyle = ([] | [("starred-block" | "bare-block")] | [] | ["separate-lines"] | ["separate-lines", {
+  checkJSDoc?: boolean;
+  checkExclamation?: boolean;
+}]);
+type StyleMultilineTernary = [] | [("always" | "always-multiline" | "never")] | [("always" | "always-multiline" | "never"), {
+  ignoreJSX?: boolean;
+}];
+type StyleNewlinePerChainedCall = [] | [{
+  ignoreChainWithDepth?: number;
+}];
+type StyleNewParens = [] | [("always" | "never")];
+type StyleNoConfusingArrow = [] | [{
+  allowParens?: boolean;
+  onlyOneSimpleParam?: boolean;
+}];
+type StyleNoExtraParens = ([] | ["functions"] | [] | ["all"] | ["all", {
+  conditionalAssign?: boolean;
+  ternaryOperandBinaryExpressions?: boolean;
+  nestedBinaryExpressions?: boolean;
+  returnAssign?: boolean;
+  ignoreJSX?: ("none" | "all" | "single-line" | "multi-line");
+  enforceForArrowConditionals?: boolean;
+  enforceForSequenceExpressions?: boolean;
+  enforceForNewInMemberExpressions?: boolean;
+  enforceForFunctionPrototypeMethods?: boolean;
+  allowParensAfterCommentPattern?: string;
+  nestedConditionalExpressions?: boolean;
+  allowNodesInSpreadElement?: {
+    ConditionalExpression?: boolean;
+    LogicalExpression?: boolean;
+    AwaitExpression?: boolean;
+  };
+  ignoredNodes?: string[];
+}]);
+type StyleNoMixedOperators = [] | [{
+  groups?: [("+" | "-" | "*" | "/" | "%" | "**" | "&" | "|" | "^" | "~" | "<<" | ">>" | ">>>" | "==" | "!=" | "===" | "!==" | ">" | ">=" | "<" | "<=" | "&&" | "||" | "in" | "instanceof" | "?:" | "??"), ("+" | "-" | "*" | "/" | "%" | "**" | "&" | "|" | "^" | "~" | "<<" | ">>" | ">>>" | "==" | "!=" | "===" | "!==" | ">" | ">=" | "<" | "<=" | "&&" | "||" | "in" | "instanceof" | "?:" | "??"), ...(("+" | "-" | "*" | "/" | "%" | "**" | "&" | "|" | "^" | "~" | "<<" | ">>" | ">>>" | "==" | "!=" | "===" | "!==" | ">" | ">=" | "<" | "<=" | "&&" | "||" | "in" | "instanceof" | "?:" | "??"))[]][];
+  allowSamePrecedence?: boolean;
+}];
+type StyleNoMixedSpacesAndTabs = [] | [("smart-tabs" | boolean)];
+type StyleNoMultipleEmptyLines = [] | [{
+  max: number;
+  maxEOF?: number;
+  maxBOF?: number;
+}];
+type StyleNoMultiSpaces = [] | [{
+  exceptions?: {
+    [k: string]: boolean;
+  };
+  ignoreEOLComments?: boolean;
+  includeTabs?: boolean;
+}];
+type StyleNonblockStatementBodyPosition = [] | [("beside" | "below" | "any")] | [("beside" | "below" | "any"), {
+  overrides?: {
+    if?: ("beside" | "below" | "any");
+    else?: ("beside" | "below" | "any");
+    while?: ("beside" | "below" | "any");
+    do?: ("beside" | "below" | "any");
+    for?: ("beside" | "below" | "any");
+  };
+}];
+type StyleNoTabs = [] | [{
+  allowIndentationTabs?: boolean;
+}];
+type StyleNoTrailingSpaces = [] | [{
+  skipBlankLines?: boolean;
+  ignoreComments?: boolean;
+}];
+type StyleObjectCurlyNewline = [] | [((("always" | "never") | {
+  multiline?: boolean;
+  minProperties?: number;
+  consistent?: boolean;
+}) | {
+  ObjectExpression?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+  ObjectPattern?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+  ImportDeclaration?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+  ExportDeclaration?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+  TSTypeLiteral?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+  TSInterfaceBody?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+  TSEnumBody?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+})];
+type StyleObjectCurlySpacing = [] | [("always" | "never")] | [("always" | "never"), {
+  arraysInObjects?: boolean;
+  objectsInObjects?: boolean;
+  overrides?: {
+    ObjectPattern?: ("always" | "never");
+    ObjectExpression?: ("always" | "never");
+    ImportDeclaration?: ("always" | "never");
+    ImportAttributes?: ("always" | "never");
+    ExportNamedDeclaration?: ("always" | "never");
+    ExportAllDeclaration?: ("always" | "never");
+    TSMappedType?: ("always" | "never");
+    TSTypeLiteral?: ("always" | "never");
+    TSInterfaceBody?: ("always" | "never");
+    TSEnumBody?: ("always" | "never");
+  };
+  emptyObjects?: ("ignore" | "always" | "never");
+}];
+type StyleObjectPropertyNewline = [] | [{
+  allowAllPropertiesOnSameLine?: boolean;
+}];
+type StyleOneVarDeclarationPerLine = [] | [("always" | "initializations")];
+type StyleOperatorLinebreak = [] | [(("after" | "before" | "none") | null)] | [(("after" | "before" | "none") | null), {
+  overrides?: {
+    [k: string]: ("after" | "before" | "none" | "ignore") | undefined;
+  };
+}];
+type StylePaddedBlocks = [] | [(("always" | "never" | "start" | "end") | {
+  blocks?: ("always" | "never" | "start" | "end");
+  switches?: ("always" | "never" | "start" | "end");
+  classes?: ("always" | "never" | "start" | "end");
+})] | [(("always" | "never" | "start" | "end") | {
+  blocks?: ("always" | "never" | "start" | "end");
+  switches?: ("always" | "never" | "start" | "end");
+  classes?: ("always" | "never" | "start" | "end");
+}), {
+  allowSingleLineBlocks?: boolean;
+}];
+type StylePaddingLineBetweenStatements = {
+  blankLine: _StylePaddingLineBetweenStatementsPaddingType;
+  prev: _StylePaddingLineBetweenStatementsStatementOption;
+  next: _StylePaddingLineBetweenStatementsStatementOption;
+}[];
+type StyleQuoteProps = ([] | [("always" | "as-needed" | "consistent" | "consistent-as-needed")] | [] | [("always" | "as-needed" | "consistent" | "consistent-as-needed")] | [("always" | "as-needed" | "consistent" | "consistent-as-needed"), {
+  keywords?: boolean;
+  unnecessary?: boolean;
+  numbers?: boolean;
+}]);
+type StyleQuotes = [] | [("single" | "double" | "backtick")] | [("single" | "double" | "backtick"), ("avoid-escape" | {
+  avoidEscape?: boolean;
+  allowTemplateLiterals?: (boolean | ("never" | "avoidEscape" | "always"));
+  ignoreStringLiterals?: boolean;
+})];
+type StyleRestSpreadSpacing = [] | [("always" | "never")];
+type StyleSemi = ([] | ["never"] | ["never", {
+  beforeStatementContinuationChars?: ("always" | "any" | "never");
+}] | [] | ["always"] | ["always", {
+  omitLastInOneLineBlock?: boolean;
+  omitLastInOneLineClassBody?: boolean;
+}]);
+type StyleSemiSpacing = [] | [{
+  before?: boolean;
+  after?: boolean;
+}];
+type StyleSemiStyle = [] | [("last" | "first")];
+type StyleSpaceBeforeBlocks = [] | [(("always" | "never") | {
+  keywords?: ("always" | "never" | "off");
+  functions?: ("always" | "never" | "off");
+  classes?: ("always" | "never" | "off");
+  modules?: ("always" | "never" | "off");
+})];
+type StyleSpaceBeforeFunctionParen = [] | [(("always" | "never") | {
+  anonymous?: ("always" | "never" | "ignore");
+  named?: ("always" | "never" | "ignore");
+  asyncArrow?: ("always" | "never" | "ignore");
+  catch?: ("always" | "never" | "ignore");
+})];
+type StyleSpacedComment = [] | [("always" | "never")] | [("always" | "never"), {
+  exceptions?: string[];
+  markers?: string[];
+  line?: {
+    exceptions?: string[];
+    markers?: string[];
+  };
+  block?: {
+    exceptions?: string[];
+    markers?: string[];
+    balanced?: boolean;
+  };
+}];
+type StyleSpaceInfixOps = [] | [{
+  int32Hint?: boolean;
+  ignoreTypes?: boolean;
+}];
+type StyleSpaceInParens = [] | [("always" | "never")] | [("always" | "never"), {
+  exceptions?: ("{}" | "[]" | "()" | "empty")[];
+}];
+type StyleSpaceUnaryOps = [] | [{
+  words?: boolean;
+  nonwords?: boolean;
+  overrides?: {
+    [k: string]: boolean | undefined;
+  };
+}];
+type StyleSwitchColonSpacing = [] | [{
+  before?: boolean;
+  after?: boolean;
+}];
+type StyleTemplateCurlySpacing = [] | [("always" | "never")];
+type StyleTemplateTagSpacing = [] | [("always" | "never")];
+type StyleTypeAnnotationSpacing = [] | [{
+  before?: boolean;
+  after?: boolean;
+  overrides?: {
+    colon?: _StyleTypeAnnotationSpacing_SpacingConfig;
+    arrow?: ("ignore" | _StyleTypeAnnotationSpacing_SpacingConfig);
+    variable?: _StyleTypeAnnotationSpacing_SpacingConfig;
+    parameter?: _StyleTypeAnnotationSpacing_SpacingConfig;
+    property?: _StyleTypeAnnotationSpacing_SpacingConfig;
+    returnType?: _StyleTypeAnnotationSpacing_SpacingConfig;
+  };
+}];
+type StyleWrapIife = [] | [("outside" | "inside" | "any")] | [("outside" | "inside" | "any"), {
+  functionPrototypeMethods?: boolean;
+}];
+type StyleYieldStarSpacing = [] | [(("before" | "after" | "both" | "neither") | {
+  before?: boolean;
+  after?: boolean;
+})];
+type SvelteBlockLang = [] | [{
+  enforceScriptPresent?: boolean;
+  enforceStylePresent?: boolean;
+  script?: ((string | null) | [(string | null), ...((string | null))[]]);
+  style?: ((string | null) | [(string | null), ...((string | null))[]]);
+}];
+type SvelteButtonHasType = [] | [{
+  button?: boolean;
+  submit?: boolean;
+  reset?: boolean;
+}];
+type SvelteCommentDirective = [] | [{
+  reportUnusedDisableDirectives?: boolean;
+}];
+type SvelteConsistentSelectorStyle = [] | [{
+  checkGlobal?: boolean;
+  style?: [] | [("class" | "id" | "type")] | [("class" | "id" | "type"), ("class" | "id" | "type")] | [("class" | "id" | "type"), ("class" | "id" | "type"), ("class" | "id" | "type")];
+}];
+type SvelteFirstAttributeLinebreak = [] | [{
+  multiline?: ("below" | "beside");
+  singleline?: ("below" | "beside");
+}];
+type SvelteHtmlClosingBracketNewLine = [] | [{
+  singleline?: ("always" | "never");
+  multiline?: ("always" | "never");
+  selfClosingTag?: {
+    singleline?: ("always" | "never");
+    multiline?: ("always" | "never");
+  };
+}];
+type SvelteHtmlClosingBracketSpacing = [] | [{
+  startTag?: ("always" | "never" | "ignore");
+  endTag?: ("always" | "never" | "ignore");
+  selfClosingTag?: ("always" | "never" | "ignore");
+}];
+type SvelteHtmlQuotes = [] | [{
+  prefer?: ("double" | "single");
+  dynamic?: {
+    quoted?: boolean;
+    avoidInvalidUnquotedInHTML?: boolean;
+  };
+}];
+type SvelteHtmlSelfClosing = [] | [({
+  void?: ("never" | "always" | "ignore");
+  normal?: ("never" | "always" | "ignore");
+  svg?: ("never" | "always" | "ignore");
+  math?: ("never" | "always" | "ignore");
+  component?: ("never" | "always" | "ignore");
+  svelte?: ("never" | "always" | "ignore");
+} | ("all" | "html" | "none"))];
+type SvelteIndent = [] | [{
+  indent?: (number | "tab");
+  indentScript?: boolean;
+  switchCase?: number;
+  alignAttributesVertically?: boolean;
+  ignoredNodes?: (string & {
+    [k: string]: unknown | undefined;
+  } & {
+    [k: string]: unknown | undefined;
+  })[];
+}];
+type SvelteMaxAttributesPerLine = [] | [{
+  multiline?: number;
+  singleline?: number;
+}];
+type SvelteMaxLinesPerBlock = [] | [{
+  script?: number;
+  template?: number;
+  style?: number;
+  skipBlankLines?: boolean;
+  skipComments?: boolean;
+}];
+type SvelteMustacheSpacing = [] | [{
+  textExpressions?: ("never" | "always");
+  attributesAndProps?: ("never" | "always");
+  directiveExpressions?: ("never" | "always");
+  tags?: {
+    openingBrace?: ("never" | "always");
+    closingBrace?: ("never" | "always" | "always-after-expression");
+  };
+}];
+type SvelteNoInlineStyles = [] | [{
+  allowTransitions?: boolean;
+}];
+type SvelteNoInnerDeclarations = [] | [("functions" | "both")] | [("functions" | "both"), {
+  blockScopedFunctions?: ("allow" | "disallow");
+}];
+type SvelteNoNavigationWithoutBase = [] | [{
+  ignoreGoto?: boolean;
+  ignoreLinks?: boolean;
+  ignorePushState?: boolean;
+  ignoreReplaceState?: boolean;
+}];
+type SvelteNoNavigationWithoutResolve = [] | [{
+  ignoreGoto?: boolean;
+  ignoreLinks?: boolean;
+  ignorePushState?: boolean;
+  ignoreReplaceState?: boolean;
+}];
+type SvelteNoReactiveReassign = [] | [{
+  props?: boolean;
+}];
+type SvelteNoRestrictedHtmlElements = [(string | {
+  elements?: [string, ...(string)[]];
+  message?: string;
+}), ...((string | {
+  elements?: [string, ...(string)[]];
+  message?: string;
+}))[]];
+type SvelteNoTargetBlank = [] | [{
+  allowReferrer?: boolean;
+  enforceDynamicLinks?: ("always" | "never");
+}];
+type SvelteNoTrailingSpaces = [] | [{
+  skipBlankLines?: boolean;
+  ignoreComments?: boolean;
+}];
+type SvelteNoUnknownStyleDirectiveProperty = [] | [{
+  ignoreProperties?: [string, ...(string)[]];
+  ignorePrefixed?: boolean;
+}];
+type SvelteNoUnnecessaryStateWrap = [] | [{
+  additionalReactiveClasses?: string[];
+  allowReassign?: boolean;
+}];
+type SvelteNoUnusedClassName = [] | [{
+  allowedClassNames?: string[];
+}];
+type SvelteNoUnusedProps = [] | [{
+  checkImportedTypes?: boolean;
+  ignoreTypePatterns?: string[];
+  ignorePropertyPatterns?: string[];
+  allowUnusedNestedProperties?: boolean;
+}];
+type SvelteNoUselessMustaches = [] | [{
+  ignoreIncludesComment?: boolean;
+  ignoreStringEscape?: boolean;
+}];
+type SveltePreferClassDirective = [] | [{
+  prefer?: ("always" | "empty");
+}];
+type SveltePreferConst = [] | [{
+  destructuring?: ("any" | "all");
+  ignoreReadBeforeAssign?: boolean;
+  excludedRunes?: string[];
+  [k: string]: unknown | undefined;
+}];
+type SvelteRequireEventPrefix = [] | [{
+  checkAsyncFunctions?: boolean;
+}];
+type SvelteShorthandAttribute = [] | [{
+  prefer?: ("always" | "never");
+}];
+type SvelteShorthandDirective = [] | [{
+  prefer?: ("always" | "never");
+}];
+type SvelteSortAttributes = [] | [{
+  order?: (string | [string, ...(string)[]] | {
+    match: (string | [string, ...(string)[]]);
+    sort: ("alphabetical" | "ignore");
+  })[];
+  alphabetical?: boolean;
+}];
+type SvelteSpacedHtmlComment = [] | [("always" | "never")];
+type SvelteTypescriptEslintNoUnnecessaryCondition = [] | [{
+  allowConstantLoopConditions?: boolean;
+  allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing?: boolean;
+}];
+type SvelteValidCompile = [] | [{
+  ignoreWarnings?: boolean;
+}];
+type SwitchColonSpacing = [] | [{
+  before?: boolean;
+  after?: boolean;
+}];
+type TemplateCurlySpacing = [] | [("always" | "never")];
+type TemplateTagSpacing = [] | [("always" | "never")];
+type TestConsistentEachFor = [] | [{
+  test?: ("each" | "for");
+  it?: ("each" | "for");
+  describe?: ("each" | "for");
+  suite?: ("each" | "for");
+}];
+type TestConsistentTestFilename = [] | [{
+  pattern?: string;
+  allTestPattern?: string;
+}];
+type TestConsistentTestIt = [] | [{
+  fn?: ("test" | "it");
+  withinDescribe?: ("test" | "it");
+}];
+type TestConsistentVitestVi = [] | [{
+  fn?: ("vi" | "vitest");
+}];
+type TestExpectExpect = [] | [{
+  assertFunctionNames?: string[];
+  additionalTestBlockFunctions?: string[];
+}];
+type TestMaxExpects = [] | [{
+  max?: number;
+}];
+type TestMaxNestedDescribe = [] | [{
+  max?: number;
+}];
+type TestNoConditionalExpect = [] | [{
+  expectAssertions?: boolean;
+}];
+type TestNoFocusedTests = [] | [{
+  fixable?: boolean;
+}];
+type TestNoHooks = [] | [{
+  allow?: ("beforeAll" | "beforeEach" | "afterAll" | "afterEach" | "aroundAll" | "aroundEach")[];
+}];
+type TestNoLargeSnapshots = [] | [{
+  maxSize?: number;
+  inlineMaxSize?: number;
+  allowedSnapshots?: {
+    [k: string]: unknown[] | undefined;
+  };
+}];
+type TestNoOnlyTests = [] | [{
+  block?: string[];
+  focus?: string[];
+  functions?: string[];
+  fix?: boolean;
+}];
+type TestNoRestrictedMatchers = [] | [{
+  [k: string]: (string | null) | undefined;
+}];
+type TestNoRestrictedViMethods = [] | [{
+  [k: string]: (string | null) | undefined;
+}];
+type TestNoStandaloneExpect = [] | [{
+  additionalTestBlockFunctions?: string[];
+}];
+type TestPreferExpectAssertions = [] | [{
+  onlyFunctionsWithAsyncKeyword?: boolean;
+  onlyFunctionsWithExpectInLoop?: boolean;
+  onlyFunctionsWithExpectInCallback?: boolean;
+  disallowHasAssertions?: boolean;
+}];
+type TestPreferImportInMock = [] | [{
+  fixable?: boolean;
+}];
+type TestPreferLowercaseTitle = [] | [{
+  ignore?: ("describe" | "test" | "it")[];
+  allowedPrefixes?: string[];
+  ignoreTopLevelDescribe?: boolean;
+  lowercaseFirstCharacterOnly?: boolean;
+}];
+type TestPreferSnapshotHint = [] | [("always" | "multi")];
+type TestRequireHook = [] | [{
+  allowedFunctionCalls?: string[];
+}];
+type TestRequireMockTypeParameters = [] | [{
+  checkImportFunctions?: boolean;
+}];
+type TestRequireTopLevelDescribe = [] | [{
+  maxNumberOfTopLevelDescribes?: number;
+}];
+type TestUnboundMethod = [] | [{
+  ignoreStatic?: boolean;
+}];
+type TestValidExpect = [] | [{
+  alwaysAwait?: boolean;
+  asyncMatchers?: string[];
+  minArgs?: number;
+  maxArgs?: number;
+}];
+type TestValidTitle = [] | [{
+  ignoreTypeOfDescribeName?: boolean;
+  allowArguments?: boolean;
+  disallowedWords?: string[];
+  [k: string]: (string | [string] | [string, string] | {
+    [k: string]: (string | [string] | [string, string]) | undefined;
+  });
+}];
+type TomlArrayBracketNewline = [] | [(("always" | "never" | "consistent") | {
+  multiline?: boolean;
+  minItems?: (number | null);
+})];
+type TomlArrayBracketSpacing = [] | [("always" | "never")] | [("always" | "never"), {
+  singleValue?: boolean;
+  objectsInArrays?: boolean;
+  arraysInArrays?: boolean;
+}];
+type TomlArrayElementNewline = [] | [(_TomlArrayElementNewlineBasicConfig | {
+  ArrayExpression?: _TomlArrayElementNewlineBasicConfig;
+  ArrayPattern?: _TomlArrayElementNewlineBasicConfig;
+  TOMLArray?: _TomlArrayElementNewlineBasicConfig;
+})];
+type TomlCommaStyle = [] | [("first" | "last")] | [("first" | "last"), {
+  exceptions?: {
+    [k: string]: boolean | undefined;
+  };
+}];
+type TomlIndent = [] | [("tab" | number)] | [("tab" | number), {
+  subTables?: number;
+  keyValuePairs?: number;
+}];
+type TomlInlineTableCurlyNewline = [] | [(("always" | "never") | {
+  multiline?: boolean;
+  minProperties?: number;
+  consistent?: boolean;
+})];
+type TomlInlineTableCurlySpacing = [] | [("always" | "never")] | [("always" | "never"), {
+  arraysInObjects?: boolean;
+  objectsInObjects?: boolean;
+  emptyObjects?: ("ignore" | "always" | "never");
+}];
+type TomlInlineTableKeyValueNewline = [] | [{
+  allowAllPropertiesOnSameLine?: boolean;
+}];
+type TomlKeySpacing = [] | [({
+  align?: (("equal" | "value") | {
+    on?: ("equal" | "value");
+    mode?: ("strict" | "minimum");
+    beforeEqual?: boolean;
+    afterEqual?: boolean;
+  });
+  mode?: ("strict" | "minimum");
+  beforeEqual?: boolean;
+  afterEqual?: boolean;
+} | {
+  singleLine?: {
+    mode?: ("strict" | "minimum");
+    beforeEqual?: boolean;
+    afterEqual?: boolean;
+  };
+  multiLine?: {
+    align?: (("equal" | "value") | {
+      on?: ("equal" | "value");
+      mode?: ("strict" | "minimum");
+      beforeEqual?: boolean;
+      afterEqual?: boolean;
+    });
+    mode?: ("strict" | "minimum");
+    beforeEqual?: boolean;
+    afterEqual?: boolean;
+  };
+} | {
+  singleLine?: {
+    mode?: ("strict" | "minimum");
+    beforeEqual?: boolean;
+    afterEqual?: boolean;
+  };
+  multiLine?: {
+    mode?: ("strict" | "minimum");
+    beforeEqual?: boolean;
+    afterEqual?: boolean;
+  };
+  align?: {
+    on?: ("equal" | "value");
+    mode?: ("strict" | "minimum");
+    beforeEqual?: boolean;
+    afterEqual?: boolean;
+  };
+})];
+type TomlNoMixedTypeInArray = [] | [{
+  typeMap?: {
+    string?: string;
+    boolean?: string;
+    integer?: string;
+    float?: string;
+    offsetDateTime?: string;
+    localDateTime?: string;
+    localDate?: string;
+    localTime?: string;
+    array?: string;
+    inlineTable?: string;
+  };
+}];
+type TomlNoNonDecimalInteger = [] | [{
+  allowHexadecimal?: boolean;
+  allowOctal?: boolean;
+  allowBinary?: boolean;
+}];
+type TomlPrecisionOfFractionalSeconds = [] | [{
+  max?: number;
+}];
+type TomlPrecisionOfInteger = [] | [{
+  maxBit?: number;
+}];
+type TomlQuotedKeys = [] | [{
+  prefer?: ("as-needed" | "always");
+  numbers?: boolean;
+}];
+type TomlSpacedComment = [] | [("always" | "never")] | [("always" | "never"), {
+  exceptions?: string[];
+  markers?: string[];
+}];
+type TomlTableBracketSpacing = [] | [("always" | "never")];
+type TsArrayType = [] | [{
+  default?: ("array" | "generic" | "array-simple");
+  readonly?: ("array" | "generic" | "array-simple");
+}];
+type TsBanTsComment = [] | [{
+  minimumDescriptionLength?: number;
+  "ts-check"?: (boolean | "allow-with-description" | {
+    descriptionFormat?: string;
+  });
+  "ts-expect-error"?: (boolean | "allow-with-description" | {
+    descriptionFormat?: string;
+  });
+  "ts-ignore"?: (boolean | "allow-with-description" | {
+    descriptionFormat?: string;
+  });
+  "ts-nocheck"?: (boolean | "allow-with-description" | {
+    descriptionFormat?: string;
+  });
+}];
+type TsClassLiteralPropertyStyle = [] | [("fields" | "getters")];
+type TsClassMethodsUseThis = [] | [{
+  enforceForClassFields?: boolean;
+  exceptMethods?: string[];
+  ignoreClassesThatImplementAnInterface?: (boolean | "public-fields");
+  ignoreOverrideMethods?: boolean;
+}];
+type TsConsistentGenericConstructors = [] | [("type-annotation" | "constructor")];
+type TsConsistentIndexedObjectStyle = [] | [("record" | "index-signature")];
+type TsConsistentReturn = [] | [{
+  treatUndefinedAsUnspecified?: boolean;
+}];
+type TsConsistentTypeAssertions = [] | [({
+  assertionStyle: "never";
+} | {
+  arrayLiteralTypeAssertions?: ("allow" | "allow-as-parameter" | "never");
+  assertionStyle?: ("as" | "angle-bracket");
+  objectLiteralTypeAssertions?: ("allow" | "allow-as-parameter" | "never");
+})];
+type TsConsistentTypeDefinitions = [] | [("interface" | "type")];
+type TsConsistentTypeExports = [] | [{
+  fixMixedExportsWithInlineTypeSpecifier?: boolean;
+}];
+type TsConsistentTypeImports = [] | [{
+  disallowTypeAnnotations?: boolean;
+  fixStyle?: ("separate-type-imports" | "inline-type-imports");
+  prefer?: ("type-imports" | "no-type-imports");
+}];
+type TsDotNotation = [] | [{
+  allowIndexSignaturePropertyAccess?: boolean;
+  allowKeywords?: boolean;
+  allowPattern?: string;
+  allowPrivateClassPropertyAccess?: boolean;
+  allowProtectedClassPropertyAccess?: boolean;
+}];
+type TsExplicitFunctionReturnType = [] | [{
+  allowConciseArrowFunctionExpressionsStartingWithVoid?: boolean;
+  allowDirectConstAssertionInArrowFunctions?: boolean;
+  allowedNames?: string[];
+  allowExpressions?: boolean;
+  allowFunctionsWithoutTypeParameters?: boolean;
+  allowHigherOrderFunctions?: boolean;
+  allowIIFEs?: boolean;
+  allowTypedFunctionExpressions?: boolean;
+}];
+type TsExplicitMemberAccessibility = [] | [{
+  accessibility?: ("explicit" | "no-public" | "off");
+  ignoredMethodNames?: string[];
+  overrides?: {
+    accessors?: ("explicit" | "no-public" | "off");
+    constructors?: ("explicit" | "no-public" | "off");
+    methods?: ("explicit" | "no-public" | "off");
+    parameterProperties?: ("explicit" | "no-public" | "off");
+    properties?: ("explicit" | "no-public" | "off");
+  };
+}];
+type TsExplicitModuleBoundaryTypes = [] | [{
+  allowArgumentsExplicitlyTypedAsAny?: boolean;
+  allowDirectConstAssertionInArrowFunctions?: boolean;
+  allowedNames?: string[];
+  allowHigherOrderFunctions?: boolean;
+  allowOverloadFunctions?: boolean;
+  allowTypedFunctionExpressions?: boolean;
+}];
+type TsInitDeclarations = ([] | ["always"] | [] | ["never"] | ["never", {
+  ignoreForLoopInit?: boolean;
+}]);
+type TsMaxParams = [] | [{
+  countVoidThis?: boolean;
+  max?: number;
+  maximum?: number;
+}];
+type TsMemberOrdering = [] | [{
+  classes?: ("never" | (("readonly-signature" | "signature" | "readonly-field" | "public-readonly-field" | "public-decorated-readonly-field" | "decorated-readonly-field" | "static-readonly-field" | "public-static-readonly-field" | "instance-readonly-field" | "public-instance-readonly-field" | "abstract-readonly-field" | "public-abstract-readonly-field" | "protected-readonly-field" | "protected-decorated-readonly-field" | "protected-static-readonly-field" | "protected-instance-readonly-field" | "protected-abstract-readonly-field" | "private-readonly-field" | "private-decorated-readonly-field" | "private-static-readonly-field" | "private-instance-readonly-field" | "#private-readonly-field" | "#private-static-readonly-field" | "#private-instance-readonly-field" | "field" | "public-field" | "public-decorated-field" | "decorated-field" | "static-field" | "public-static-field" | "instance-field" | "public-instance-field" | "abstract-field" | "public-abstract-field" | "protected-field" | "protected-decorated-field" | "protected-static-field" | "protected-instance-field" | "protected-abstract-field" | "private-field" | "private-decorated-field" | "private-static-field" | "private-instance-field" | "#private-field" | "#private-static-field" | "#private-instance-field" | "method" | "public-method" | "public-decorated-method" | "decorated-method" | "static-method" | "public-static-method" | "instance-method" | "public-instance-method" | "abstract-method" | "public-abstract-method" | "protected-method" | "protected-decorated-method" | "protected-static-method" | "protected-instance-method" | "protected-abstract-method" | "private-method" | "private-decorated-method" | "private-static-method" | "private-instance-method" | "#private-method" | "#private-static-method" | "#private-instance-method" | "call-signature" | "constructor" | "public-constructor" | "protected-constructor" | "private-constructor" | "accessor" | "public-accessor" | "public-decorated-accessor" | "decorated-accessor" | "static-accessor" | "public-static-accessor" | "instance-accessor" | "public-instance-accessor" | "abstract-accessor" | "public-abstract-accessor" | "protected-accessor" | "protected-decorated-accessor" | "protected-static-accessor" | "protected-instance-accessor" | "protected-abstract-accessor" | "private-accessor" | "private-decorated-accessor" | "private-static-accessor" | "private-instance-accessor" | "#private-accessor" | "#private-static-accessor" | "#private-instance-accessor" | "get" | "public-get" | "public-decorated-get" | "decorated-get" | "static-get" | "public-static-get" | "instance-get" | "public-instance-get" | "abstract-get" | "public-abstract-get" | "protected-get" | "protected-decorated-get" | "protected-static-get" | "protected-instance-get" | "protected-abstract-get" | "private-get" | "private-decorated-get" | "private-static-get" | "private-instance-get" | "#private-get" | "#private-static-get" | "#private-instance-get" | "set" | "public-set" | "public-decorated-set" | "decorated-set" | "static-set" | "public-static-set" | "instance-set" | "public-instance-set" | "abstract-set" | "public-abstract-set" | "protected-set" | "protected-decorated-set" | "protected-static-set" | "protected-instance-set" | "protected-abstract-set" | "private-set" | "private-decorated-set" | "private-static-set" | "private-instance-set" | "#private-set" | "#private-static-set" | "#private-instance-set" | "static-initialization" | "static-static-initialization" | "public-static-static-initialization" | "instance-static-initialization" | "public-instance-static-initialization" | "abstract-static-initialization" | "public-abstract-static-initialization" | "protected-static-static-initialization" | "protected-instance-static-initialization" | "protected-abstract-static-initialization" | "private-static-static-initialization" | "private-instance-static-initialization" | "#private-static-static-initialization" | "#private-instance-static-initialization") | ("readonly-signature" | "signature" | "readonly-field" | "public-readonly-field" | "public-decorated-readonly-field" | "decorated-readonly-field" | "static-readonly-field" | "public-static-readonly-field" | "instance-readonly-field" | "public-instance-readonly-field" | "abstract-readonly-field" | "public-abstract-readonly-field" | "protected-readonly-field" | "protected-decorated-readonly-field" | "protected-static-readonly-field" | "protected-instance-readonly-field" | "protected-abstract-readonly-field" | "private-readonly-field" | "private-decorated-readonly-field" | "private-static-readonly-field" | "private-instance-readonly-field" | "#private-readonly-field" | "#private-static-readonly-field" | "#private-instance-readonly-field" | "field" | "public-field" | "public-decorated-field" | "decorated-field" | "static-field" | "public-static-field" | "instance-field" | "public-instance-field" | "abstract-field" | "public-abstract-field" | "protected-field" | "protected-decorated-field" | "protected-static-field" | "protected-instance-field" | "protected-abstract-field" | "private-field" | "private-decorated-field" | "private-static-field" | "private-instance-field" | "#private-field" | "#private-static-field" | "#private-instance-field" | "method" | "public-method" | "public-decorated-method" | "decorated-method" | "static-method" | "public-static-method" | "instance-method" | "public-instance-method" | "abstract-method" | "public-abstract-method" | "protected-method" | "protected-decorated-method" | "protected-static-method" | "protected-instance-method" | "protected-abstract-method" | "private-method" | "private-decorated-method" | "private-static-method" | "private-instance-method" | "#private-method" | "#private-static-method" | "#private-instance-method" | "call-signature" | "constructor" | "public-constructor" | "protected-constructor" | "private-constructor" | "accessor" | "public-accessor" | "public-decorated-accessor" | "decorated-accessor" | "static-accessor" | "public-static-accessor" | "instance-accessor" | "public-instance-accessor" | "abstract-accessor" | "public-abstract-accessor" | "protected-accessor" | "protected-decorated-accessor" | "protected-static-accessor" | "protected-instance-accessor" | "protected-abstract-accessor" | "private-accessor" | "private-decorated-accessor" | "private-static-accessor" | "private-instance-accessor" | "#private-accessor" | "#private-static-accessor" | "#private-instance-accessor" | "get" | "public-get" | "public-decorated-get" | "decorated-get" | "static-get" | "public-static-get" | "instance-get" | "public-instance-get" | "abstract-get" | "public-abstract-get" | "protected-get" | "protected-decorated-get" | "protected-static-get" | "protected-instance-get" | "protected-abstract-get" | "private-get" | "private-decorated-get" | "private-static-get" | "private-instance-get" | "#private-get" | "#private-static-get" | "#private-instance-get" | "set" | "public-set" | "public-decorated-set" | "decorated-set" | "static-set" | "public-static-set" | "instance-set" | "public-instance-set" | "abstract-set" | "public-abstract-set" | "protected-set" | "protected-decorated-set" | "protected-static-set" | "protected-instance-set" | "protected-abstract-set" | "private-set" | "private-decorated-set" | "private-static-set" | "private-instance-set" | "#private-set" | "#private-static-set" | "#private-instance-set" | "static-initialization" | "static-static-initialization" | "public-static-static-initialization" | "instance-static-initialization" | "public-instance-static-initialization" | "abstract-static-initialization" | "public-abstract-static-initialization" | "protected-static-static-initialization" | "protected-instance-static-initialization" | "protected-abstract-static-initialization" | "private-static-static-initialization" | "private-instance-static-initialization" | "#private-static-static-initialization" | "#private-instance-static-initialization")[])[] | {
+    memberTypes?: ((("readonly-signature" | "signature" | "readonly-field" | "public-readonly-field" | "public-decorated-readonly-field" | "decorated-readonly-field" | "static-readonly-field" | "public-static-readonly-field" | "instance-readonly-field" | "public-instance-readonly-field" | "abstract-readonly-field" | "public-abstract-readonly-field" | "protected-readonly-field" | "protected-decorated-readonly-field" | "protected-static-readonly-field" | "protected-instance-readonly-field" | "protected-abstract-readonly-field" | "private-readonly-field" | "private-decorated-readonly-field" | "private-static-readonly-field" | "private-instance-readonly-field" | "#private-readonly-field" | "#private-static-readonly-field" | "#private-instance-readonly-field" | "field" | "public-field" | "public-decorated-field" | "decorated-field" | "static-field" | "public-static-field" | "instance-field" | "public-instance-field" | "abstract-field" | "public-abstract-field" | "protected-field" | "protected-decorated-field" | "protected-static-field" | "protected-instance-field" | "protected-abstract-field" | "private-field" | "private-decorated-field" | "private-static-field" | "private-instance-field" | "#private-field" | "#private-static-field" | "#private-instance-field" | "method" | "public-method" | "public-decorated-method" | "decorated-method" | "static-method" | "public-static-method" | "instance-method" | "public-instance-method" | "abstract-method" | "public-abstract-method" | "protected-method" | "protected-decorated-method" | "protected-static-method" | "protected-instance-method" | "protected-abstract-method" | "private-method" | "private-decorated-method" | "private-static-method" | "private-instance-method" | "#private-method" | "#private-static-method" | "#private-instance-method" | "call-signature" | "constructor" | "public-constructor" | "protected-constructor" | "private-constructor" | "accessor" | "public-accessor" | "public-decorated-accessor" | "decorated-accessor" | "static-accessor" | "public-static-accessor" | "instance-accessor" | "public-instance-accessor" | "abstract-accessor" | "public-abstract-accessor" | "protected-accessor" | "protected-decorated-accessor" | "protected-static-accessor" | "protected-instance-accessor" | "protected-abstract-accessor" | "private-accessor" | "private-decorated-accessor" | "private-static-accessor" | "private-instance-accessor" | "#private-accessor" | "#private-static-accessor" | "#private-instance-accessor" | "get" | "public-get" | "public-decorated-get" | "decorated-get" | "static-get" | "public-static-get" | "instance-get" | "public-instance-get" | "abstract-get" | "public-abstract-get" | "protected-get" | "protected-decorated-get" | "protected-static-get" | "protected-instance-get" | "protected-abstract-get" | "private-get" | "private-decorated-get" | "private-static-get" | "private-instance-get" | "#private-get" | "#private-static-get" | "#private-instance-get" | "set" | "public-set" | "public-decorated-set" | "decorated-set" | "static-set" | "public-static-set" | "instance-set" | "public-instance-set" | "abstract-set" | "public-abstract-set" | "protected-set" | "protected-decorated-set" | "protected-static-set" | "protected-instance-set" | "protected-abstract-set" | "private-set" | "private-decorated-set" | "private-static-set" | "private-instance-set" | "#private-set" | "#private-static-set" | "#private-instance-set" | "static-initialization" | "static-static-initialization" | "public-static-static-initialization" | "instance-static-initialization" | "public-instance-static-initialization" | "abstract-static-initialization" | "public-abstract-static-initialization" | "protected-static-static-initialization" | "protected-instance-static-initialization" | "protected-abstract-static-initialization" | "private-static-static-initialization" | "private-instance-static-initialization" | "#private-static-static-initialization" | "#private-instance-static-initialization") | ("readonly-signature" | "signature" | "readonly-field" | "public-readonly-field" | "public-decorated-readonly-field" | "decorated-readonly-field" | "static-readonly-field" | "public-static-readonly-field" | "instance-readonly-field" | "public-instance-readonly-field" | "abstract-readonly-field" | "public-abstract-readonly-field" | "protected-readonly-field" | "protected-decorated-readonly-field" | "protected-static-readonly-field" | "protected-instance-readonly-field" | "protected-abstract-readonly-field" | "private-readonly-field" | "private-decorated-readonly-field" | "private-static-readonly-field" | "private-instance-readonly-field" | "#private-readonly-field" | "#private-static-readonly-field" | "#private-instance-readonly-field" | "field" | "public-field" | "public-decorated-field" | "decorated-field" | "static-field" | "public-static-field" | "instance-field" | "public-instance-field" | "abstract-field" | "public-abstract-field" | "protected-field" | "protected-decorated-field" | "protected-static-field" | "protected-instance-field" | "protected-abstract-field" | "private-field" | "private-decorated-field" | "private-static-field" | "private-instance-field" | "#private-field" | "#private-static-field" | "#private-instance-field" | "method" | "public-method" | "public-decorated-method" | "decorated-method" | "static-method" | "public-static-method" | "instance-method" | "public-instance-method" | "abstract-method" | "public-abstract-method" | "protected-method" | "protected-decorated-method" | "protected-static-method" | "protected-instance-method" | "protected-abstract-method" | "private-method" | "private-decorated-method" | "private-static-method" | "private-instance-method" | "#private-method" | "#private-static-method" | "#private-instance-method" | "call-signature" | "constructor" | "public-constructor" | "protected-constructor" | "private-constructor" | "accessor" | "public-accessor" | "public-decorated-accessor" | "decorated-accessor" | "static-accessor" | "public-static-accessor" | "instance-accessor" | "public-instance-accessor" | "abstract-accessor" | "public-abstract-accessor" | "protected-accessor" | "protected-decorated-accessor" | "protected-static-accessor" | "protected-instance-accessor" | "protected-abstract-accessor" | "private-accessor" | "private-decorated-accessor" | "private-static-accessor" | "private-instance-accessor" | "#private-accessor" | "#private-static-accessor" | "#private-instance-accessor" | "get" | "public-get" | "public-decorated-get" | "decorated-get" | "static-get" | "public-static-get" | "instance-get" | "public-instance-get" | "abstract-get" | "public-abstract-get" | "protected-get" | "protected-decorated-get" | "protected-static-get" | "protected-instance-get" | "protected-abstract-get" | "private-get" | "private-decorated-get" | "private-static-get" | "private-instance-get" | "#private-get" | "#private-static-get" | "#private-instance-get" | "set" | "public-set" | "public-decorated-set" | "decorated-set" | "static-set" | "public-static-set" | "instance-set" | "public-instance-set" | "abstract-set" | "public-abstract-set" | "protected-set" | "protected-decorated-set" | "protected-static-set" | "protected-instance-set" | "protected-abstract-set" | "private-set" | "private-decorated-set" | "private-static-set" | "private-instance-set" | "#private-set" | "#private-static-set" | "#private-instance-set" | "static-initialization" | "static-static-initialization" | "public-static-static-initialization" | "instance-static-initialization" | "public-instance-static-initialization" | "abstract-static-initialization" | "public-abstract-static-initialization" | "protected-static-static-initialization" | "protected-instance-static-initialization" | "protected-abstract-static-initialization" | "private-static-static-initialization" | "private-instance-static-initialization" | "#private-static-static-initialization" | "#private-instance-static-initialization")[])[] | "never");
+    optionalityOrder?: ("optional-first" | "required-first");
+    order?: ("alphabetically" | "alphabetically-case-insensitive" | "as-written" | "natural" | "natural-case-insensitive");
+  });
+  classExpressions?: ("never" | (("readonly-signature" | "signature" | "readonly-field" | "public-readonly-field" | "public-decorated-readonly-field" | "decorated-readonly-field" | "static-readonly-field" | "public-static-readonly-field" | "instance-readonly-field" | "public-instance-readonly-field" | "abstract-readonly-field" | "public-abstract-readonly-field" | "protected-readonly-field" | "protected-decorated-readonly-field" | "protected-static-readonly-field" | "protected-instance-readonly-field" | "protected-abstract-readonly-field" | "private-readonly-field" | "private-decorated-readonly-field" | "private-static-readonly-field" | "private-instance-readonly-field" | "#private-readonly-field" | "#private-static-readonly-field" | "#private-instance-readonly-field" | "field" | "public-field" | "public-decorated-field" | "decorated-field" | "static-field" | "public-static-field" | "instance-field" | "public-instance-field" | "abstract-field" | "public-abstract-field" | "protected-field" | "protected-decorated-field" | "protected-static-field" | "protected-instance-field" | "protected-abstract-field" | "private-field" | "private-decorated-field" | "private-static-field" | "private-instance-field" | "#private-field" | "#private-static-field" | "#private-instance-field" | "method" | "public-method" | "public-decorated-method" | "decorated-method" | "static-method" | "public-static-method" | "instance-method" | "public-instance-method" | "abstract-method" | "public-abstract-method" | "protected-method" | "protected-decorated-method" | "protected-static-method" | "protected-instance-method" | "protected-abstract-method" | "private-method" | "private-decorated-method" | "private-static-method" | "private-instance-method" | "#private-method" | "#private-static-method" | "#private-instance-method" | "call-signature" | "constructor" | "public-constructor" | "protected-constructor" | "private-constructor" | "accessor" | "public-accessor" | "public-decorated-accessor" | "decorated-accessor" | "static-accessor" | "public-static-accessor" | "instance-accessor" | "public-instance-accessor" | "abstract-accessor" | "public-abstract-accessor" | "protected-accessor" | "protected-decorated-accessor" | "protected-static-accessor" | "protected-instance-accessor" | "protected-abstract-accessor" | "private-accessor" | "private-decorated-accessor" | "private-static-accessor" | "private-instance-accessor" | "#private-accessor" | "#private-static-accessor" | "#private-instance-accessor" | "get" | "public-get" | "public-decorated-get" | "decorated-get" | "static-get" | "public-static-get" | "instance-get" | "public-instance-get" | "abstract-get" | "public-abstract-get" | "protected-get" | "protected-decorated-get" | "protected-static-get" | "protected-instance-get" | "protected-abstract-get" | "private-get" | "private-decorated-get" | "private-static-get" | "private-instance-get" | "#private-get" | "#private-static-get" | "#private-instance-get" | "set" | "public-set" | "public-decorated-set" | "decorated-set" | "static-set" | "public-static-set" | "instance-set" | "public-instance-set" | "abstract-set" | "public-abstract-set" | "protected-set" | "protected-decorated-set" | "protected-static-set" | "protected-instance-set" | "protected-abstract-set" | "private-set" | "private-decorated-set" | "private-static-set" | "private-instance-set" | "#private-set" | "#private-static-set" | "#private-instance-set" | "static-initialization" | "static-static-initialization" | "public-static-static-initialization" | "instance-static-initialization" | "public-instance-static-initialization" | "abstract-static-initialization" | "public-abstract-static-initialization" | "protected-static-static-initialization" | "protected-instance-static-initialization" | "protected-abstract-static-initialization" | "private-static-static-initialization" | "private-instance-static-initialization" | "#private-static-static-initialization" | "#private-instance-static-initialization") | ("readonly-signature" | "signature" | "readonly-field" | "public-readonly-field" | "public-decorated-readonly-field" | "decorated-readonly-field" | "static-readonly-field" | "public-static-readonly-field" | "instance-readonly-field" | "public-instance-readonly-field" | "abstract-readonly-field" | "public-abstract-readonly-field" | "protected-readonly-field" | "protected-decorated-readonly-field" | "protected-static-readonly-field" | "protected-instance-readonly-field" | "protected-abstract-readonly-field" | "private-readonly-field" | "private-decorated-readonly-field" | "private-static-readonly-field" | "private-instance-readonly-field" | "#private-readonly-field" | "#private-static-readonly-field" | "#private-instance-readonly-field" | "field" | "public-field" | "public-decorated-field" | "decorated-field" | "static-field" | "public-static-field" | "instance-field" | "public-instance-field" | "abstract-field" | "public-abstract-field" | "protected-field" | "protected-decorated-field" | "protected-static-field" | "protected-instance-field" | "protected-abstract-field" | "private-field" | "private-decorated-field" | "private-static-field" | "private-instance-field" | "#private-field" | "#private-static-field" | "#private-instance-field" | "method" | "public-method" | "public-decorated-method" | "decorated-method" | "static-method" | "public-static-method" | "instance-method" | "public-instance-method" | "abstract-method" | "public-abstract-method" | "protected-method" | "protected-decorated-method" | "protected-static-method" | "protected-instance-method" | "protected-abstract-method" | "private-method" | "private-decorated-method" | "private-static-method" | "private-instance-method" | "#private-method" | "#private-static-method" | "#private-instance-method" | "call-signature" | "constructor" | "public-constructor" | "protected-constructor" | "private-constructor" | "accessor" | "public-accessor" | "public-decorated-accessor" | "decorated-accessor" | "static-accessor" | "public-static-accessor" | "instance-accessor" | "public-instance-accessor" | "abstract-accessor" | "public-abstract-accessor" | "protected-accessor" | "protected-decorated-accessor" | "protected-static-accessor" | "protected-instance-accessor" | "protected-abstract-accessor" | "private-accessor" | "private-decorated-accessor" | "private-static-accessor" | "private-instance-accessor" | "#private-accessor" | "#private-static-accessor" | "#private-instance-accessor" | "get" | "public-get" | "public-decorated-get" | "decorated-get" | "static-get" | "public-static-get" | "instance-get" | "public-instance-get" | "abstract-get" | "public-abstract-get" | "protected-get" | "protected-decorated-get" | "protected-static-get" | "protected-instance-get" | "protected-abstract-get" | "private-get" | "private-decorated-get" | "private-static-get" | "private-instance-get" | "#private-get" | "#private-static-get" | "#private-instance-get" | "set" | "public-set" | "public-decorated-set" | "decorated-set" | "static-set" | "public-static-set" | "instance-set" | "public-instance-set" | "abstract-set" | "public-abstract-set" | "protected-set" | "protected-decorated-set" | "protected-static-set" | "protected-instance-set" | "protected-abstract-set" | "private-set" | "private-decorated-set" | "private-static-set" | "private-instance-set" | "#private-set" | "#private-static-set" | "#private-instance-set" | "static-initialization" | "static-static-initialization" | "public-static-static-initialization" | "instance-static-initialization" | "public-instance-static-initialization" | "abstract-static-initialization" | "public-abstract-static-initialization" | "protected-static-static-initialization" | "protected-instance-static-initialization" | "protected-abstract-static-initialization" | "private-static-static-initialization" | "private-instance-static-initialization" | "#private-static-static-initialization" | "#private-instance-static-initialization")[])[] | {
+    memberTypes?: ((("readonly-signature" | "signature" | "readonly-field" | "public-readonly-field" | "public-decorated-readonly-field" | "decorated-readonly-field" | "static-readonly-field" | "public-static-readonly-field" | "instance-readonly-field" | "public-instance-readonly-field" | "abstract-readonly-field" | "public-abstract-readonly-field" | "protected-readonly-field" | "protected-decorated-readonly-field" | "protected-static-readonly-field" | "protected-instance-readonly-field" | "protected-abstract-readonly-field" | "private-readonly-field" | "private-decorated-readonly-field" | "private-static-readonly-field" | "private-instance-readonly-field" | "#private-readonly-field" | "#private-static-readonly-field" | "#private-instance-readonly-field" | "field" | "public-field" | "public-decorated-field" | "decorated-field" | "static-field" | "public-static-field" | "instance-field" | "public-instance-field" | "abstract-field" | "public-abstract-field" | "protected-field" | "protected-decorated-field" | "protected-static-field" | "protected-instance-field" | "protected-abstract-field" | "private-field" | "private-decorated-field" | "private-static-field" | "private-instance-field" | "#private-field" | "#private-static-field" | "#private-instance-field" | "method" | "public-method" | "public-decorated-method" | "decorated-method" | "static-method" | "public-static-method" | "instance-method" | "public-instance-method" | "abstract-method" | "public-abstract-method" | "protected-method" | "protected-decorated-method" | "protected-static-method" | "protected-instance-method" | "protected-abstract-method" | "private-method" | "private-decorated-method" | "private-static-method" | "private-instance-method" | "#private-method" | "#private-static-method" | "#private-instance-method" | "call-signature" | "constructor" | "public-constructor" | "protected-constructor" | "private-constructor" | "accessor" | "public-accessor" | "public-decorated-accessor" | "decorated-accessor" | "static-accessor" | "public-static-accessor" | "instance-accessor" | "public-instance-accessor" | "abstract-accessor" | "public-abstract-accessor" | "protected-accessor" | "protected-decorated-accessor" | "protected-static-accessor" | "protected-instance-accessor" | "protected-abstract-accessor" | "private-accessor" | "private-decorated-accessor" | "private-static-accessor" | "private-instance-accessor" | "#private-accessor" | "#private-static-accessor" | "#private-instance-accessor" | "get" | "public-get" | "public-decorated-get" | "decorated-get" | "static-get" | "public-static-get" | "instance-get" | "public-instance-get" | "abstract-get" | "public-abstract-get" | "protected-get" | "protected-decorated-get" | "protected-static-get" | "protected-instance-get" | "protected-abstract-get" | "private-get" | "private-decorated-get" | "private-static-get" | "private-instance-get" | "#private-get" | "#private-static-get" | "#private-instance-get" | "set" | "public-set" | "public-decorated-set" | "decorated-set" | "static-set" | "public-static-set" | "instance-set" | "public-instance-set" | "abstract-set" | "public-abstract-set" | "protected-set" | "protected-decorated-set" | "protected-static-set" | "protected-instance-set" | "protected-abstract-set" | "private-set" | "private-decorated-set" | "private-static-set" | "private-instance-set" | "#private-set" | "#private-static-set" | "#private-instance-set" | "static-initialization" | "static-static-initialization" | "public-static-static-initialization" | "instance-static-initialization" | "public-instance-static-initialization" | "abstract-static-initialization" | "public-abstract-static-initialization" | "protected-static-static-initialization" | "protected-instance-static-initialization" | "protected-abstract-static-initialization" | "private-static-static-initialization" | "private-instance-static-initialization" | "#private-static-static-initialization" | "#private-instance-static-initialization") | ("readonly-signature" | "signature" | "readonly-field" | "public-readonly-field" | "public-decorated-readonly-field" | "decorated-readonly-field" | "static-readonly-field" | "public-static-readonly-field" | "instance-readonly-field" | "public-instance-readonly-field" | "abstract-readonly-field" | "public-abstract-readonly-field" | "protected-readonly-field" | "protected-decorated-readonly-field" | "protected-static-readonly-field" | "protected-instance-readonly-field" | "protected-abstract-readonly-field" | "private-readonly-field" | "private-decorated-readonly-field" | "private-static-readonly-field" | "private-instance-readonly-field" | "#private-readonly-field" | "#private-static-readonly-field" | "#private-instance-readonly-field" | "field" | "public-field" | "public-decorated-field" | "decorated-field" | "static-field" | "public-static-field" | "instance-field" | "public-instance-field" | "abstract-field" | "public-abstract-field" | "protected-field" | "protected-decorated-field" | "protected-static-field" | "protected-instance-field" | "protected-abstract-field" | "private-field" | "private-decorated-field" | "private-static-field" | "private-instance-field" | "#private-field" | "#private-static-field" | "#private-instance-field" | "method" | "public-method" | "public-decorated-method" | "decorated-method" | "static-method" | "public-static-method" | "instance-method" | "public-instance-method" | "abstract-method" | "public-abstract-method" | "protected-method" | "protected-decorated-method" | "protected-static-method" | "protected-instance-method" | "protected-abstract-method" | "private-method" | "private-decorated-method" | "private-static-method" | "private-instance-method" | "#private-method" | "#private-static-method" | "#private-instance-method" | "call-signature" | "constructor" | "public-constructor" | "protected-constructor" | "private-constructor" | "accessor" | "public-accessor" | "public-decorated-accessor" | "decorated-accessor" | "static-accessor" | "public-static-accessor" | "instance-accessor" | "public-instance-accessor" | "abstract-accessor" | "public-abstract-accessor" | "protected-accessor" | "protected-decorated-accessor" | "protected-static-accessor" | "protected-instance-accessor" | "protected-abstract-accessor" | "private-accessor" | "private-decorated-accessor" | "private-static-accessor" | "private-instance-accessor" | "#private-accessor" | "#private-static-accessor" | "#private-instance-accessor" | "get" | "public-get" | "public-decorated-get" | "decorated-get" | "static-get" | "public-static-get" | "instance-get" | "public-instance-get" | "abstract-get" | "public-abstract-get" | "protected-get" | "protected-decorated-get" | "protected-static-get" | "protected-instance-get" | "protected-abstract-get" | "private-get" | "private-decorated-get" | "private-static-get" | "private-instance-get" | "#private-get" | "#private-static-get" | "#private-instance-get" | "set" | "public-set" | "public-decorated-set" | "decorated-set" | "static-set" | "public-static-set" | "instance-set" | "public-instance-set" | "abstract-set" | "public-abstract-set" | "protected-set" | "protected-decorated-set" | "protected-static-set" | "protected-instance-set" | "protected-abstract-set" | "private-set" | "private-decorated-set" | "private-static-set" | "private-instance-set" | "#private-set" | "#private-static-set" | "#private-instance-set" | "static-initialization" | "static-static-initialization" | "public-static-static-initialization" | "instance-static-initialization" | "public-instance-static-initialization" | "abstract-static-initialization" | "public-abstract-static-initialization" | "protected-static-static-initialization" | "protected-instance-static-initialization" | "protected-abstract-static-initialization" | "private-static-static-initialization" | "private-instance-static-initialization" | "#private-static-static-initialization" | "#private-instance-static-initialization")[])[] | "never");
+    optionalityOrder?: ("optional-first" | "required-first");
+    order?: ("alphabetically" | "alphabetically-case-insensitive" | "as-written" | "natural" | "natural-case-insensitive");
+  });
+  default?: ("never" | (("readonly-signature" | "signature" | "readonly-field" | "public-readonly-field" | "public-decorated-readonly-field" | "decorated-readonly-field" | "static-readonly-field" | "public-static-readonly-field" | "instance-readonly-field" | "public-instance-readonly-field" | "abstract-readonly-field" | "public-abstract-readonly-field" | "protected-readonly-field" | "protected-decorated-readonly-field" | "protected-static-readonly-field" | "protected-instance-readonly-field" | "protected-abstract-readonly-field" | "private-readonly-field" | "private-decorated-readonly-field" | "private-static-readonly-field" | "private-instance-readonly-field" | "#private-readonly-field" | "#private-static-readonly-field" | "#private-instance-readonly-field" | "field" | "public-field" | "public-decorated-field" | "decorated-field" | "static-field" | "public-static-field" | "instance-field" | "public-instance-field" | "abstract-field" | "public-abstract-field" | "protected-field" | "protected-decorated-field" | "protected-static-field" | "protected-instance-field" | "protected-abstract-field" | "private-field" | "private-decorated-field" | "private-static-field" | "private-instance-field" | "#private-field" | "#private-static-field" | "#private-instance-field" | "method" | "public-method" | "public-decorated-method" | "decorated-method" | "static-method" | "public-static-method" | "instance-method" | "public-instance-method" | "abstract-method" | "public-abstract-method" | "protected-method" | "protected-decorated-method" | "protected-static-method" | "protected-instance-method" | "protected-abstract-method" | "private-method" | "private-decorated-method" | "private-static-method" | "private-instance-method" | "#private-method" | "#private-static-method" | "#private-instance-method" | "call-signature" | "constructor" | "public-constructor" | "protected-constructor" | "private-constructor" | "accessor" | "public-accessor" | "public-decorated-accessor" | "decorated-accessor" | "static-accessor" | "public-static-accessor" | "instance-accessor" | "public-instance-accessor" | "abstract-accessor" | "public-abstract-accessor" | "protected-accessor" | "protected-decorated-accessor" | "protected-static-accessor" | "protected-instance-accessor" | "protected-abstract-accessor" | "private-accessor" | "private-decorated-accessor" | "private-static-accessor" | "private-instance-accessor" | "#private-accessor" | "#private-static-accessor" | "#private-instance-accessor" | "get" | "public-get" | "public-decorated-get" | "decorated-get" | "static-get" | "public-static-get" | "instance-get" | "public-instance-get" | "abstract-get" | "public-abstract-get" | "protected-get" | "protected-decorated-get" | "protected-static-get" | "protected-instance-get" | "protected-abstract-get" | "private-get" | "private-decorated-get" | "private-static-get" | "private-instance-get" | "#private-get" | "#private-static-get" | "#private-instance-get" | "set" | "public-set" | "public-decorated-set" | "decorated-set" | "static-set" | "public-static-set" | "instance-set" | "public-instance-set" | "abstract-set" | "public-abstract-set" | "protected-set" | "protected-decorated-set" | "protected-static-set" | "protected-instance-set" | "protected-abstract-set" | "private-set" | "private-decorated-set" | "private-static-set" | "private-instance-set" | "#private-set" | "#private-static-set" | "#private-instance-set" | "static-initialization" | "static-static-initialization" | "public-static-static-initialization" | "instance-static-initialization" | "public-instance-static-initialization" | "abstract-static-initialization" | "public-abstract-static-initialization" | "protected-static-static-initialization" | "protected-instance-static-initialization" | "protected-abstract-static-initialization" | "private-static-static-initialization" | "private-instance-static-initialization" | "#private-static-static-initialization" | "#private-instance-static-initialization") | ("readonly-signature" | "signature" | "readonly-field" | "public-readonly-field" | "public-decorated-readonly-field" | "decorated-readonly-field" | "static-readonly-field" | "public-static-readonly-field" | "instance-readonly-field" | "public-instance-readonly-field" | "abstract-readonly-field" | "public-abstract-readonly-field" | "protected-readonly-field" | "protected-decorated-readonly-field" | "protected-static-readonly-field" | "protected-instance-readonly-field" | "protected-abstract-readonly-field" | "private-readonly-field" | "private-decorated-readonly-field" | "private-static-readonly-field" | "private-instance-readonly-field" | "#private-readonly-field" | "#private-static-readonly-field" | "#private-instance-readonly-field" | "field" | "public-field" | "public-decorated-field" | "decorated-field" | "static-field" | "public-static-field" | "instance-field" | "public-instance-field" | "abstract-field" | "public-abstract-field" | "protected-field" | "protected-decorated-field" | "protected-static-field" | "protected-instance-field" | "protected-abstract-field" | "private-field" | "private-decorated-field" | "private-static-field" | "private-instance-field" | "#private-field" | "#private-static-field" | "#private-instance-field" | "method" | "public-method" | "public-decorated-method" | "decorated-method" | "static-method" | "public-static-method" | "instance-method" | "public-instance-method" | "abstract-method" | "public-abstract-method" | "protected-method" | "protected-decorated-method" | "protected-static-method" | "protected-instance-method" | "protected-abstract-method" | "private-method" | "private-decorated-method" | "private-static-method" | "private-instance-method" | "#private-method" | "#private-static-method" | "#private-instance-method" | "call-signature" | "constructor" | "public-constructor" | "protected-constructor" | "private-constructor" | "accessor" | "public-accessor" | "public-decorated-accessor" | "decorated-accessor" | "static-accessor" | "public-static-accessor" | "instance-accessor" | "public-instance-accessor" | "abstract-accessor" | "public-abstract-accessor" | "protected-accessor" | "protected-decorated-accessor" | "protected-static-accessor" | "protected-instance-accessor" | "protected-abstract-accessor" | "private-accessor" | "private-decorated-accessor" | "private-static-accessor" | "private-instance-accessor" | "#private-accessor" | "#private-static-accessor" | "#private-instance-accessor" | "get" | "public-get" | "public-decorated-get" | "decorated-get" | "static-get" | "public-static-get" | "instance-get" | "public-instance-get" | "abstract-get" | "public-abstract-get" | "protected-get" | "protected-decorated-get" | "protected-static-get" | "protected-instance-get" | "protected-abstract-get" | "private-get" | "private-decorated-get" | "private-static-get" | "private-instance-get" | "#private-get" | "#private-static-get" | "#private-instance-get" | "set" | "public-set" | "public-decorated-set" | "decorated-set" | "static-set" | "public-static-set" | "instance-set" | "public-instance-set" | "abstract-set" | "public-abstract-set" | "protected-set" | "protected-decorated-set" | "protected-static-set" | "protected-instance-set" | "protected-abstract-set" | "private-set" | "private-decorated-set" | "private-static-set" | "private-instance-set" | "#private-set" | "#private-static-set" | "#private-instance-set" | "static-initialization" | "static-static-initialization" | "public-static-static-initialization" | "instance-static-initialization" | "public-instance-static-initialization" | "abstract-static-initialization" | "public-abstract-static-initialization" | "protected-static-static-initialization" | "protected-instance-static-initialization" | "protected-abstract-static-initialization" | "private-static-static-initialization" | "private-instance-static-initialization" | "#private-static-static-initialization" | "#private-instance-static-initialization")[])[] | {
+    memberTypes?: ((("readonly-signature" | "signature" | "readonly-field" | "public-readonly-field" | "public-decorated-readonly-field" | "decorated-readonly-field" | "static-readonly-field" | "public-static-readonly-field" | "instance-readonly-field" | "public-instance-readonly-field" | "abstract-readonly-field" | "public-abstract-readonly-field" | "protected-readonly-field" | "protected-decorated-readonly-field" | "protected-static-readonly-field" | "protected-instance-readonly-field" | "protected-abstract-readonly-field" | "private-readonly-field" | "private-decorated-readonly-field" | "private-static-readonly-field" | "private-instance-readonly-field" | "#private-readonly-field" | "#private-static-readonly-field" | "#private-instance-readonly-field" | "field" | "public-field" | "public-decorated-field" | "decorated-field" | "static-field" | "public-static-field" | "instance-field" | "public-instance-field" | "abstract-field" | "public-abstract-field" | "protected-field" | "protected-decorated-field" | "protected-static-field" | "protected-instance-field" | "protected-abstract-field" | "private-field" | "private-decorated-field" | "private-static-field" | "private-instance-field" | "#private-field" | "#private-static-field" | "#private-instance-field" | "method" | "public-method" | "public-decorated-method" | "decorated-method" | "static-method" | "public-static-method" | "instance-method" | "public-instance-method" | "abstract-method" | "public-abstract-method" | "protected-method" | "protected-decorated-method" | "protected-static-method" | "protected-instance-method" | "protected-abstract-method" | "private-method" | "private-decorated-method" | "private-static-method" | "private-instance-method" | "#private-method" | "#private-static-method" | "#private-instance-method" | "call-signature" | "constructor" | "public-constructor" | "protected-constructor" | "private-constructor" | "accessor" | "public-accessor" | "public-decorated-accessor" | "decorated-accessor" | "static-accessor" | "public-static-accessor" | "instance-accessor" | "public-instance-accessor" | "abstract-accessor" | "public-abstract-accessor" | "protected-accessor" | "protected-decorated-accessor" | "protected-static-accessor" | "protected-instance-accessor" | "protected-abstract-accessor" | "private-accessor" | "private-decorated-accessor" | "private-static-accessor" | "private-instance-accessor" | "#private-accessor" | "#private-static-accessor" | "#private-instance-accessor" | "get" | "public-get" | "public-decorated-get" | "decorated-get" | "static-get" | "public-static-get" | "instance-get" | "public-instance-get" | "abstract-get" | "public-abstract-get" | "protected-get" | "protected-decorated-get" | "protected-static-get" | "protected-instance-get" | "protected-abstract-get" | "private-get" | "private-decorated-get" | "private-static-get" | "private-instance-get" | "#private-get" | "#private-static-get" | "#private-instance-get" | "set" | "public-set" | "public-decorated-set" | "decorated-set" | "static-set" | "public-static-set" | "instance-set" | "public-instance-set" | "abstract-set" | "public-abstract-set" | "protected-set" | "protected-decorated-set" | "protected-static-set" | "protected-instance-set" | "protected-abstract-set" | "private-set" | "private-decorated-set" | "private-static-set" | "private-instance-set" | "#private-set" | "#private-static-set" | "#private-instance-set" | "static-initialization" | "static-static-initialization" | "public-static-static-initialization" | "instance-static-initialization" | "public-instance-static-initialization" | "abstract-static-initialization" | "public-abstract-static-initialization" | "protected-static-static-initialization" | "protected-instance-static-initialization" | "protected-abstract-static-initialization" | "private-static-static-initialization" | "private-instance-static-initialization" | "#private-static-static-initialization" | "#private-instance-static-initialization") | ("readonly-signature" | "signature" | "readonly-field" | "public-readonly-field" | "public-decorated-readonly-field" | "decorated-readonly-field" | "static-readonly-field" | "public-static-readonly-field" | "instance-readonly-field" | "public-instance-readonly-field" | "abstract-readonly-field" | "public-abstract-readonly-field" | "protected-readonly-field" | "protected-decorated-readonly-field" | "protected-static-readonly-field" | "protected-instance-readonly-field" | "protected-abstract-readonly-field" | "private-readonly-field" | "private-decorated-readonly-field" | "private-static-readonly-field" | "private-instance-readonly-field" | "#private-readonly-field" | "#private-static-readonly-field" | "#private-instance-readonly-field" | "field" | "public-field" | "public-decorated-field" | "decorated-field" | "static-field" | "public-static-field" | "instance-field" | "public-instance-field" | "abstract-field" | "public-abstract-field" | "protected-field" | "protected-decorated-field" | "protected-static-field" | "protected-instance-field" | "protected-abstract-field" | "private-field" | "private-decorated-field" | "private-static-field" | "private-instance-field" | "#private-field" | "#private-static-field" | "#private-instance-field" | "method" | "public-method" | "public-decorated-method" | "decorated-method" | "static-method" | "public-static-method" | "instance-method" | "public-instance-method" | "abstract-method" | "public-abstract-method" | "protected-method" | "protected-decorated-method" | "protected-static-method" | "protected-instance-method" | "protected-abstract-method" | "private-method" | "private-decorated-method" | "private-static-method" | "private-instance-method" | "#private-method" | "#private-static-method" | "#private-instance-method" | "call-signature" | "constructor" | "public-constructor" | "protected-constructor" | "private-constructor" | "accessor" | "public-accessor" | "public-decorated-accessor" | "decorated-accessor" | "static-accessor" | "public-static-accessor" | "instance-accessor" | "public-instance-accessor" | "abstract-accessor" | "public-abstract-accessor" | "protected-accessor" | "protected-decorated-accessor" | "protected-static-accessor" | "protected-instance-accessor" | "protected-abstract-accessor" | "private-accessor" | "private-decorated-accessor" | "private-static-accessor" | "private-instance-accessor" | "#private-accessor" | "#private-static-accessor" | "#private-instance-accessor" | "get" | "public-get" | "public-decorated-get" | "decorated-get" | "static-get" | "public-static-get" | "instance-get" | "public-instance-get" | "abstract-get" | "public-abstract-get" | "protected-get" | "protected-decorated-get" | "protected-static-get" | "protected-instance-get" | "protected-abstract-get" | "private-get" | "private-decorated-get" | "private-static-get" | "private-instance-get" | "#private-get" | "#private-static-get" | "#private-instance-get" | "set" | "public-set" | "public-decorated-set" | "decorated-set" | "static-set" | "public-static-set" | "instance-set" | "public-instance-set" | "abstract-set" | "public-abstract-set" | "protected-set" | "protected-decorated-set" | "protected-static-set" | "protected-instance-set" | "protected-abstract-set" | "private-set" | "private-decorated-set" | "private-static-set" | "private-instance-set" | "#private-set" | "#private-static-set" | "#private-instance-set" | "static-initialization" | "static-static-initialization" | "public-static-static-initialization" | "instance-static-initialization" | "public-instance-static-initialization" | "abstract-static-initialization" | "public-abstract-static-initialization" | "protected-static-static-initialization" | "protected-instance-static-initialization" | "protected-abstract-static-initialization" | "private-static-static-initialization" | "private-instance-static-initialization" | "#private-static-static-initialization" | "#private-instance-static-initialization")[])[] | "never");
+    optionalityOrder?: ("optional-first" | "required-first");
+    order?: ("alphabetically" | "alphabetically-case-insensitive" | "as-written" | "natural" | "natural-case-insensitive");
+  });
+  interfaces?: ("never" | (("readonly-signature" | "signature" | "readonly-field" | "field" | "method" | "constructor") | ("readonly-signature" | "signature" | "readonly-field" | "field" | "method" | "constructor")[])[] | {
+    memberTypes?: ((("readonly-signature" | "signature" | "readonly-field" | "field" | "method" | "constructor") | ("readonly-signature" | "signature" | "readonly-field" | "field" | "method" | "constructor")[])[] | "never");
+    optionalityOrder?: ("optional-first" | "required-first");
+    order?: ("alphabetically" | "alphabetically-case-insensitive" | "as-written" | "natural" | "natural-case-insensitive");
+  });
+  typeLiterals?: ("never" | (("readonly-signature" | "signature" | "readonly-field" | "field" | "method" | "constructor") | ("readonly-signature" | "signature" | "readonly-field" | "field" | "method" | "constructor")[])[] | {
+    memberTypes?: ((("readonly-signature" | "signature" | "readonly-field" | "field" | "method" | "constructor") | ("readonly-signature" | "signature" | "readonly-field" | "field" | "method" | "constructor")[])[] | "never");
+    optionalityOrder?: ("optional-first" | "required-first");
+    order?: ("alphabetically" | "alphabetically-case-insensitive" | "as-written" | "natural" | "natural-case-insensitive");
+  });
+}];
+type TsMethodSignatureStyle = [] | [("property" | "method")];
+type TsNamingConvention = ({
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  modifiers?: ("const" | "readonly" | "static" | "public" | "protected" | "private" | "#private" | "abstract" | "destructured" | "global" | "exported" | "unused" | "requiresQuotes" | "override" | "async" | "default" | "namespace")[];
+  selector: ("default" | "variableLike" | "memberLike" | "typeLike" | "method" | "property" | "accessor" | "variable" | "function" | "parameter" | "parameterProperty" | "classicAccessor" | "enumMember" | "classMethod" | "objectLiteralMethod" | "typeMethod" | "classProperty" | "objectLiteralProperty" | "typeProperty" | "autoAccessor" | "class" | "interface" | "typeAlias" | "enum" | "typeParameter" | "import")[];
+  types?: _TsNamingConventionTypeModifiers[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "default";
+  modifiers?: ("const" | "readonly" | "static" | "public" | "protected" | "private" | "#private" | "abstract" | "destructured" | "global" | "exported" | "unused" | "requiresQuotes" | "override" | "async" | "default" | "namespace")[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "variableLike";
+  modifiers?: ("unused" | "async")[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "variable";
+  modifiers?: ("const" | "destructured" | "exported" | "global" | "unused" | "async")[];
+  types?: _TsNamingConventionTypeModifiers[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "function";
+  modifiers?: ("exported" | "global" | "unused" | "async")[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "parameter";
+  modifiers?: ("destructured" | "unused")[];
+  types?: _TsNamingConventionTypeModifiers[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "memberLike";
+  modifiers?: ("abstract" | "private" | "#private" | "protected" | "public" | "readonly" | "requiresQuotes" | "static" | "override" | "async")[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "classProperty";
+  modifiers?: ("abstract" | "private" | "#private" | "protected" | "public" | "readonly" | "requiresQuotes" | "static" | "override")[];
+  types?: _TsNamingConventionTypeModifiers[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "objectLiteralProperty";
+  modifiers?: ("public" | "requiresQuotes")[];
+  types?: _TsNamingConventionTypeModifiers[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "typeProperty";
+  modifiers?: ("public" | "readonly" | "requiresQuotes")[];
+  types?: _TsNamingConventionTypeModifiers[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "parameterProperty";
+  modifiers?: ("private" | "protected" | "public" | "readonly")[];
+  types?: _TsNamingConventionTypeModifiers[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "property";
+  modifiers?: ("abstract" | "private" | "#private" | "protected" | "public" | "readonly" | "requiresQuotes" | "static" | "override" | "async")[];
+  types?: _TsNamingConventionTypeModifiers[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "classMethod";
+  modifiers?: ("abstract" | "private" | "#private" | "protected" | "public" | "requiresQuotes" | "static" | "override" | "async")[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "objectLiteralMethod";
+  modifiers?: ("public" | "requiresQuotes" | "async")[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "typeMethod";
+  modifiers?: ("public" | "requiresQuotes")[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "method";
+  modifiers?: ("abstract" | "private" | "#private" | "protected" | "public" | "requiresQuotes" | "static" | "override" | "async")[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "classicAccessor";
+  modifiers?: ("abstract" | "private" | "protected" | "public" | "requiresQuotes" | "static" | "override")[];
+  types?: _TsNamingConventionTypeModifiers[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "autoAccessor";
+  modifiers?: ("abstract" | "private" | "protected" | "public" | "requiresQuotes" | "static" | "override")[];
+  types?: _TsNamingConventionTypeModifiers[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "accessor";
+  modifiers?: ("abstract" | "private" | "protected" | "public" | "requiresQuotes" | "static" | "override")[];
+  types?: _TsNamingConventionTypeModifiers[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "enumMember";
+  modifiers?: ("requiresQuotes")[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "typeLike";
+  modifiers?: ("abstract" | "exported" | "unused")[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "class";
+  modifiers?: ("abstract" | "exported" | "unused")[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "interface";
+  modifiers?: ("exported" | "unused")[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "typeAlias";
+  modifiers?: ("exported" | "unused")[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "enum";
+  modifiers?: ("exported" | "unused")[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "typeParameter";
+  modifiers?: ("unused")[];
+} | {
+  custom?: _TsNamingConvention_MatchRegexConfig;
+  failureMessage?: string;
+  format: _TsNamingConventionFormatOptionsConfig;
+  leadingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  prefix?: _TsNamingConvention_PrefixSuffixConfig;
+  suffix?: _TsNamingConvention_PrefixSuffixConfig;
+  trailingUnderscore?: _TsNamingConventionUnderscoreOptions;
+  filter?: (string | _TsNamingConvention_MatchRegexConfig);
+  selector: "import";
+  modifiers?: ("default" | "namespace")[];
+})[];
+type TsNoBaseToString = [] | [{
+  checkUnknown?: boolean;
+  ignoredTypeNames?: string[];
+}];
+type TsNoConfusingVoidExpression = [] | [{
+  ignoreArrowShorthand?: boolean;
+  ignoreVoidOperator?: boolean;
+  ignoreVoidReturningFunctions?: boolean;
+}];
+type TsNoDeprecated = [] | [{
+  allow?: (string | {
+    from: "file";
+    name: (string | [string, ...(string)[]]);
+    path?: string;
+  } | {
+    from: "lib";
+    name: (string | [string, ...(string)[]]);
+  } | {
+    from: "package";
+    name: (string | [string, ...(string)[]]);
+    package: string;
+  })[];
+}];
+type TsNoDuplicateTypeConstituents = [] | [{
+  ignoreIntersections?: boolean;
+  ignoreUnions?: boolean;
+}];
+type TsNoEmptyFunction = [] | [{
+  allow?: ("functions" | "arrowFunctions" | "generatorFunctions" | "methods" | "generatorMethods" | "getters" | "setters" | "constructors" | "private-constructors" | "protected-constructors" | "asyncFunctions" | "asyncMethods" | "decoratedFunctions" | "overrideMethods")[];
+}];
+type TsNoEmptyInterface = [] | [{
+  allowSingleExtends?: boolean;
+}];
+type TsNoEmptyObjectType = [] | [{
+  allowInterfaces?: ("always" | "never" | "with-single-extends");
+  allowObjectTypes?: ("always" | "never");
+  allowWithName?: string;
+}];
+type TsNoExplicitAny = [] | [{
+  fixToUnknown?: boolean;
+  ignoreRestArgs?: boolean;
+}];
+type TsNoExtraneousClass = [] | [{
+  allowConstructorOnly?: boolean;
+  allowEmpty?: boolean;
+  allowStaticOnly?: boolean;
+  allowWithDecorator?: boolean;
+}];
+type TsNoFloatingPromises = [] | [{
+  allowForKnownSafeCalls?: (string | {
+    from: "file";
+    name: (string | [string, ...(string)[]]);
+    path?: string;
+  } | {
+    from: "lib";
+    name: (string | [string, ...(string)[]]);
+  } | {
+    from: "package";
+    name: (string | [string, ...(string)[]]);
+    package: string;
+  })[];
+  allowForKnownSafePromises?: (string | {
+    from: "file";
+    name: (string | [string, ...(string)[]]);
+    path?: string;
+  } | {
+    from: "lib";
+    name: (string | [string, ...(string)[]]);
+  } | {
+    from: "package";
+    name: (string | [string, ...(string)[]]);
+    package: string;
+  })[];
+  checkThenables?: boolean;
+  ignoreIIFE?: boolean;
+  ignoreVoid?: boolean;
+}];
+type TsNoInferrableTypes = [] | [{
+  ignoreParameters?: boolean;
+  ignoreProperties?: boolean;
+}];
+type TsNoInvalidThis = [] | [{
+  capIsConstructor?: boolean;
+}];
+type TsNoInvalidVoidType = [] | [{
+  allowAsThisParameter?: boolean;
+  allowInGenericTypeArguments?: (boolean | [string, ...(string)[]]);
+}];
+type TsNoMagicNumbers = [] | [{
+  detectObjects?: boolean;
+  enforceConst?: boolean;
+  ignore?: (number | string)[];
+  ignoreArrayIndexes?: boolean;
+  ignoreDefaultValues?: boolean;
+  ignoreClassFieldInitialValues?: boolean;
+  ignoreEnums?: boolean;
+  ignoreNumericLiteralTypes?: boolean;
+  ignoreReadonlyClassProperties?: boolean;
+  ignoreTypeIndexes?: boolean;
+}];
+type TsNoMeaninglessVoidOperator = [] | [{
+  checkNever?: boolean;
+}];
+type TsNoMisusedPromises = [] | [{
+  checksConditionals?: boolean;
+  checksSpreads?: boolean;
+  checksVoidReturn?: (boolean | {
+    arguments?: boolean;
+    attributes?: boolean;
+    inheritedMethods?: boolean;
+    properties?: boolean;
+    returns?: boolean;
+    variables?: boolean;
+  });
+}];
+type TsNoMisusedSpread = [] | [{
+  allow?: (string | {
+    from: "file";
+    name: (string | [string, ...(string)[]]);
+    path?: string;
+  } | {
+    from: "lib";
+    name: (string | [string, ...(string)[]]);
+  } | {
+    from: "package";
+    name: (string | [string, ...(string)[]]);
+    package: string;
+  })[];
+}];
+type TsNoNamespace = [] | [{
+  allowDeclarations?: boolean;
+  allowDefinitionFiles?: boolean;
+}];
+type TsNoRedeclare = [] | [{
+  builtinGlobals?: boolean;
+  ignoreDeclarationMerge?: boolean;
+}];
+type TsNoRequireImports = [] | [{
+  allow?: string[];
+  allowAsImport?: boolean;
+}];
+type TsNoRestrictedImports = ((string | {
+  name: string;
+  message?: string;
+  importNames?: string[];
+  allowImportNames?: string[];
+  allowTypeImports?: boolean;
+})[] | [] | [{
+  paths?: (string | {
+    name: string;
+    message?: string;
+    importNames?: string[];
+    allowImportNames?: string[];
+    allowTypeImports?: boolean;
+  })[];
+  patterns?: (string[] | {
+    importNames?: [string, ...(string)[]];
+    allowImportNames?: [string, ...(string)[]];
+    group?: [string, ...(string)[]];
+    regex?: string;
+    importNamePattern?: string;
+    allowImportNamePattern?: string;
+    message?: string;
+    caseSensitive?: boolean;
+    allowTypeImports?: boolean;
+  }[]);
+}]);
+type TsNoRestrictedTypes = [] | [{
+  types?: {
+    [k: string]: (true | string | {
+      fixWith?: string;
+      message?: string;
+      suggest?: string[];
+    }) | undefined;
+  };
+}];
+type TsNoShadow = [] | [{
+  allow?: string[];
+  builtinGlobals?: boolean;
+  hoist?: ("all" | "functions" | "functions-and-types" | "never" | "types");
+  ignoreFunctionTypeParameterNameValueShadow?: boolean;
+  ignoreOnInitialization?: boolean;
+  ignoreTypeValueShadow?: boolean;
+}];
+type TsNoThisAlias = [] | [{
+  allowDestructuring?: boolean;
+  allowedNames?: string[];
+}];
+type TsNoTypeAlias = [] | [{
+  allowAliases?: ("always" | "never" | "in-unions" | "in-intersections" | "in-unions-and-intersections");
+  allowCallbacks?: ("always" | "never");
+  allowConditionalTypes?: ("always" | "never");
+  allowConstructors?: ("always" | "never");
+  allowGenerics?: ("always" | "never");
+  allowLiterals?: ("always" | "never" | "in-unions" | "in-intersections" | "in-unions-and-intersections");
+  allowMappedTypes?: ("always" | "never" | "in-unions" | "in-intersections" | "in-unions-and-intersections");
+  allowTupleTypes?: ("always" | "never" | "in-unions" | "in-intersections" | "in-unions-and-intersections");
+}];
+type TsNoUnnecessaryBooleanLiteralCompare = [] | [{
+  allowComparingNullableBooleansToFalse?: boolean;
+  allowComparingNullableBooleansToTrue?: boolean;
+  allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing?: boolean;
+}];
+type TsNoUnnecessaryCondition = [] | [{
+  allowConstantLoopConditions?: (boolean | ("always" | "never" | "only-allowed-literals"));
+  allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing?: boolean;
+  checkTypePredicates?: boolean;
+}];
+type TsNoUnnecessaryTypeAssertion = [] | [{
+  checkLiteralConstAssertions?: boolean;
+  typesToIgnore?: string[];
+}];
+type TsNoUnsafeMemberAccess = [] | [{
+  allowOptionalChaining?: boolean;
+}];
+type TsNoUnusedExpressions = [] | [{
+  allowShortCircuit?: boolean;
+  allowTernary?: boolean;
+  allowTaggedTemplates?: boolean;
+  enforceForJSX?: boolean;
+  ignoreDirectives?: boolean;
+}];
+type TsNoUnusedVars = [] | [(("all" | "local") | {
+  args?: ("all" | "after-used" | "none");
+  argsIgnorePattern?: string;
+  caughtErrors?: ("all" | "none");
+  caughtErrorsIgnorePattern?: string;
+  destructuredArrayIgnorePattern?: string;
+  enableAutofixRemoval?: {
+    imports?: boolean;
+  };
+  ignoreClassWithStaticInitBlock?: boolean;
+  ignoreRestSiblings?: boolean;
+  ignoreUsingDeclarations?: boolean;
+  reportUsedIgnorePattern?: boolean;
+  vars?: ("all" | "local");
+  varsIgnorePattern?: string;
+})];
+type TsNoUseBeforeDefine = [] | [("nofunc" | {
+  allowNamedExports?: boolean;
+  classes?: boolean;
+  enums?: boolean;
+  functions?: boolean;
+  ignoreTypeReferences?: boolean;
+  typedefs?: boolean;
+  variables?: boolean;
+})];
+type TsNoUselessDefaultAssignment = [] | [{
+  allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing?: boolean;
+}];
+type TsNoVarRequires = [] | [{
+  allow?: string[];
+}];
+type TsOnlyThrowError = [] | [{
+  allow?: (string | {
+    from: "file";
+    name: (string | [string, ...(string)[]]);
+    path?: string;
+  } | {
+    from: "lib";
+    name: (string | [string, ...(string)[]]);
+  } | {
+    from: "package";
+    name: (string | [string, ...(string)[]]);
+    package: string;
+  })[];
+  allowRethrowing?: boolean;
+  allowThrowingAny?: boolean;
+  allowThrowingUnknown?: boolean;
+}];
+type TsParameterProperties = [] | [{
+  allow?: ("readonly" | "private" | "protected" | "public" | "private readonly" | "protected readonly" | "public readonly")[];
+  prefer?: ("class-property" | "parameter-property");
+}];
+type TsPreferDestructuring = [] | [({
+  AssignmentExpression?: {
+    array?: boolean;
+    object?: boolean;
+  };
+  VariableDeclarator?: {
+    array?: boolean;
+    object?: boolean;
+  };
+} | {
+  array?: boolean;
+  object?: boolean;
+})] | [({
+  AssignmentExpression?: {
+    array?: boolean;
+    object?: boolean;
+  };
+  VariableDeclarator?: {
+    array?: boolean;
+    object?: boolean;
+  };
+} | {
+  array?: boolean;
+  object?: boolean;
+}), {
+  enforceForDeclarationWithTypeAnnotation?: boolean;
+  enforceForRenamedProperties?: boolean;
+}];
+type TsPreferLiteralEnumMember = [] | [{
+  allowBitwiseExpressions?: boolean;
+}];
+type TsPreferNullishCoalescing = [] | [{
+  allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing?: boolean;
+  ignoreBooleanCoercion?: boolean;
+  ignoreConditionalTests?: boolean;
+  ignoreIfStatements?: boolean;
+  ignoreMixedLogicalExpressions?: boolean;
+  ignorePrimitives?: ({
+    bigint?: boolean;
+    boolean?: boolean;
+    number?: boolean;
+    string?: boolean;
+  } | true);
+  ignoreTernaryTests?: boolean;
+}];
+type TsPreferOptionalChain = [] | [{
+  allowPotentiallyUnsafeFixesThatModifyTheReturnTypeIKnowWhatImDoing?: boolean;
+  checkAny?: boolean;
+  checkBigInt?: boolean;
+  checkBoolean?: boolean;
+  checkNumber?: boolean;
+  checkString?: boolean;
+  checkUnknown?: boolean;
+  requireNullish?: boolean;
+}];
+type TsPreferPromiseRejectErrors = [] | [{
+  allow?: (string | {
+    from: "file";
+    name: (string | [string, ...(string)[]]);
+    path?: string;
+  } | {
+    from: "lib";
+    name: (string | [string, ...(string)[]]);
+  } | {
+    from: "package";
+    name: (string | [string, ...(string)[]]);
+    package: string;
+  })[];
+  allowEmptyReject?: boolean;
+  allowThrowingAny?: boolean;
+  allowThrowingUnknown?: boolean;
+}];
+type TsPreferReadonly = [] | [{
+  onlyInlineLambdas?: boolean;
+}];
+type TsPreferReadonlyParameterTypes = [] | [{
+  allow?: (string | {
+    from: "file";
+    name: (string | [string, ...(string)[]]);
+    path?: string;
+  } | {
+    from: "lib";
+    name: (string | [string, ...(string)[]]);
+  } | {
+    from: "package";
+    name: (string | [string, ...(string)[]]);
+    package: string;
+  })[];
+  checkParameterProperties?: boolean;
+  ignoreInferredTypes?: boolean;
+  treatMethodsAsReadonly?: boolean;
+}];
+type TsPreferStringStartsEndsWith = [] | [{
+  allowSingleElementEquality?: ("always" | "never");
+}];
+type TsPromiseFunctionAsync = [] | [{
+  allowAny?: boolean;
+  allowedPromiseNames?: string[];
+  checkArrowFunctions?: boolean;
+  checkFunctionDeclarations?: boolean;
+  checkFunctionExpressions?: boolean;
+  checkMethodDeclarations?: boolean;
+}];
+type TsRequireArraySortCompare = [] | [{
+  ignoreStringArrays?: boolean;
+}];
+type TsRestrictPlusOperands = [] | [{
+  allowAny?: boolean;
+  allowBoolean?: boolean;
+  allowNullish?: boolean;
+  allowNumberAndString?: boolean;
+  allowRegExp?: boolean;
+  skipCompoundAssignments?: boolean;
+}];
+type TsRestrictTemplateExpressions = [] | [{
+  allowAny?: boolean;
+  allowArray?: boolean;
+  allowBoolean?: boolean;
+  allowNullish?: boolean;
+  allowNumber?: boolean;
+  allowRegExp?: boolean;
+  allowNever?: boolean;
+  allow?: (string | {
+    from: "file";
+    name: (string | [string, ...(string)[]]);
+    path?: string;
+  } | {
+    from: "lib";
+    name: (string | [string, ...(string)[]]);
+  } | {
+    from: "package";
+    name: (string | [string, ...(string)[]]);
+    package: string;
+  })[];
+}];
+type TsReturnAwait = [] | [(("always" | "error-handling-correctness-only" | "in-try-catch" | "never") & string)];
+type TsSortTypeConstituents = [] | [{
+  caseSensitive?: boolean;
+  checkIntersections?: boolean;
+  checkUnions?: boolean;
+  groupOrder?: ("conditional" | "function" | "import" | "intersection" | "keyword" | "nullish" | "literal" | "named" | "object" | "operator" | "tuple" | "union")[];
+}];
+type TsStrictBooleanExpressions = [] | [{
+  allowAny?: boolean;
+  allowNullableBoolean?: boolean;
+  allowNullableEnum?: boolean;
+  allowNullableNumber?: boolean;
+  allowNullableObject?: boolean;
+  allowNullableString?: boolean;
+  allowNumber?: boolean;
+  allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing?: boolean;
+  allowString?: boolean;
+}];
+type TsStrictVoidReturn = [] | [{
+  allowReturnAny?: boolean;
+}];
+type TsSwitchExhaustivenessCheck = [] | [{
+  allowDefaultCaseForExhaustiveSwitch?: boolean;
+  considerDefaultExhaustiveForUnions?: boolean;
+  defaultCaseCommentPattern?: string;
+  requireDefaultForNonUnion?: boolean;
+}];
+type TsTripleSlashReference = [] | [{
+  lib?: ("always" | "never");
+  path?: ("always" | "never");
+  types?: ("always" | "never" | "prefer-import");
+}];
+type TsTypedef = [] | [{
+  arrayDestructuring?: boolean;
+  arrowParameter?: boolean;
+  memberVariableDeclaration?: boolean;
+  objectDestructuring?: boolean;
+  parameter?: boolean;
+  propertyDeclaration?: boolean;
+  variableDeclaration?: boolean;
+  variableDeclarationIgnoreFunction?: boolean;
+}];
+type TsUnboundMethod = [] | [{
+  ignoreStatic?: boolean;
+}];
+type TsUnifiedSignatures = [] | [{
+  ignoreDifferentlyNamedParameters?: boolean;
+  ignoreOverloadsWithDifferentJSDoc?: boolean;
+}];
+type UnicodeBom = [] | [("always" | "never")];
+type UnicornCatchErrorName = [] | [{
+  name?: string;
+  ignore?: (string | {
+    [k: string]: unknown | undefined;
+  })[];
+}];
+type UnicornClassReferenceInStaticMethods = [] | [{
+  preferThis?: boolean;
+  preferSuper?: boolean;
+}];
+type UnicornCommentContent = [] | [{
+  checkUniformCase?: boolean;
+  extendDefaultReplacements?: boolean;
+  replacements?: {
+    [k: string]: (false | string | {
+      replacement: string;
+      caseSensitive?: boolean;
+    }) | undefined;
+  };
+}];
+type UnicornConsistentBooleanName = [] | [{
+  checkVariables?: ("always" | "prohibit" | "never");
+  checkArguments?: ("always" | "prohibit" | "never");
+  checkFunctions?: ("always" | "prohibit" | "never");
+  checkMethods?: ("always" | "prohibit" | "never");
+  checkFields?: ("always" | "prohibit" | "never");
+  prefixes?: {
+    [k: string]: boolean | undefined;
+  };
+  wrappers?: {
+    [k: string]: string | undefined;
+  };
+  ignore?: unknown[];
+  [k: string]: unknown;
+}];
+type UnicornConsistentClassMemberOrder = [] | [{
+  order?: [("static-field" | "static-block" | "static-method" | "private-field" | "public-field" | "constructor" | "private-method" | "public-method"), ("static-field" | "static-block" | "static-method" | "private-field" | "public-field" | "constructor" | "private-method" | "public-method"), ("static-field" | "static-block" | "static-method" | "private-field" | "public-field" | "constructor" | "private-method" | "public-method"), ("static-field" | "static-block" | "static-method" | "private-field" | "public-field" | "constructor" | "private-method" | "public-method"), ("static-field" | "static-block" | "static-method" | "private-field" | "public-field" | "constructor" | "private-method" | "public-method"), ("static-field" | "static-block" | "static-method" | "private-field" | "public-field" | "constructor" | "private-method" | "public-method"), ("static-field" | "static-block" | "static-method" | "private-field" | "public-field" | "constructor" | "private-method" | "public-method"), ("static-field" | "static-block" | "static-method" | "private-field" | "public-field" | "constructor" | "private-method" | "public-method")];
+}];
+type UnicornConsistentCompoundWords = [] | [{
+  checkProperties?: boolean;
+  checkVariables?: boolean;
+  checkDefaultAndNamespaceImports?: (boolean | "internal");
+  checkShorthandImports?: (boolean | "internal");
+  checkShorthandProperties?: boolean;
+  extendDefaultReplacements?: boolean;
+  replacements?: _UnicornConsistentCompoundWords_Replacements;
+  allowList?: _UnicornConsistentCompoundWords_TrueObject;
+}];
+type UnicornConsistentConditionalObjectSpread = [] | [("logical" | "ternary")];
+type UnicornConsistentExportDecoratorPosition = [] | [("above" | "before" | "after")];
+type UnicornConsistentFunctionScoping = [] | [{
+  checkArrowFunctions?: boolean;
+}];
+type UnicornConsistentFunctionStyle = [] | [{
+  default?: ("declaration" | "function-expression" | "arrow-function" | "ignore");
+  defaultExport?: ("declaration" | "function-expression" | "arrow-function" | "ignore");
+  namedFunctions?: ("declaration" | "function-expression" | "arrow-function" | "ignore");
+  namedExports?: ("declaration" | "function-expression" | "arrow-function" | "ignore");
+  callbacks?: ("function-expression" | "arrow-function" | "ignore");
+  objectProperties?: ("method" | "function-expression" | "arrow-function" | "ignore");
+  reassignedVariables?: ("function-expression" | "arrow-function" | "ignore");
+  typedVariables?: ("function-expression" | "arrow-function" | "ignore");
+}];
+type UnicornConsistentJsonFileRead = [] | [("string" | "buffer")];
+type UnicornDefaultExportStyle = [] | [{
+  functions?: ("inline" | "separate" | "ignore");
+  classes?: ("inline" | "separate" | "ignore");
+}];
+type UnicornDomNodeDataset = [] | [{
+  preferAttributes?: boolean;
+}];
+type UnicornEscapeCase = [] | [("uppercase" | "lowercase")];
+type UnicornExpiringTodoComments = [] | [{
+  terms?: string[];
+  ignore?: (string | {
+    [k: string]: unknown | undefined;
+  })[];
+  checkDates?: boolean;
+  checkDatesOnPullRequests?: boolean;
+  allowWarningComments?: boolean;
+  date?: string;
+}];
+type UnicornExplicitLengthCheck = [] | [{
+  "non-zero"?: ("greater-than" | "not-equal");
+}];
+type UnicornExplicitTimerDelay = [] | [("always" | "never")];
+type UnicornFilenameCase = [] | [({
+  case?: ("camelCase" | "camelCaseWithAcronyms" | "snakeCase" | "kebabCase" | "pascalCase");
+  ignore?: (string | {
+    [k: string]: unknown | undefined;
+  })[];
+  multipleFileExtensions?: boolean;
+  checkDirectories?: boolean;
+} | {
+  cases?: {
+    camelCase?: boolean;
+    camelCaseWithAcronyms?: boolean;
+    snakeCase?: boolean;
+    kebabCase?: boolean;
+    pascalCase?: boolean;
+  };
+  ignore?: (string | {
+    [k: string]: unknown | undefined;
+  })[];
+  multipleFileExtensions?: boolean;
+  checkDirectories?: boolean;
+})];
+type UnicornIdMatch = [] | [string] | [string, {
+  properties?: boolean;
+  classFields?: boolean;
+  onlyDeclarations?: boolean;
+  ignoreDestructuring?: boolean;
+  checkNamedSpecifiers?: boolean;
+}];
+type UnicornImportStyle = [] | [{
+  checkImport?: boolean;
+  checkDynamicImport?: boolean;
+  checkExportFrom?: boolean;
+  checkRequire?: boolean;
+  extendDefaultStyles?: boolean;
+  styles?: _UnicornImportStyle_ModuleStyles;
+}];
+type UnicornIsolatedFunctions = [] | [{
+  overrideGlobals?: {
+    [k: string]: (boolean | ("readonly" | "writable" | "writeable" | "off")) | undefined;
+  };
+  functions?: string[];
+  selectors?: string[];
+  comments?: string[];
+}];
+type UnicornIterationFallbackStyle = [] | [("guard" | "fallback")];
+type UnicornLogicalAssignmentOperators = (([] | ["always"] | ["always", {
+  enforceForIfStatements?: boolean;
+}] | ["never"]) & unknown[]);
+type UnicornMaxNestedCalls = [] | [{
+  max?: number;
+}];
+type UnicornNameReplacements = [] | [{
+  checkProperties?: boolean;
+  checkVariables?: boolean;
+  checkDefaultAndNamespaceImports?: (boolean | string);
+  checkShorthandImports?: (boolean | string);
+  checkShorthandProperties?: boolean;
+  checkFilenames?: boolean;
+  extendDefaultReplacements?: boolean;
+  replacements?: _UnicornNameReplacements_NameReplacements;
+  extendDefaultAllowList?: boolean;
+  allowList?: _UnicornNameReplacements_BooleanObject;
+  ignore?: (string | {
+    [k: string]: unknown | undefined;
+  })[];
+}];
+type UnicornNoArrayCallbackReference = [] | [{
+  ignore?: string[];
+}];
+type UnicornNoArrayReduce = [] | [{
+  allowSimpleOperations?: boolean;
+}];
+type UnicornNoArrayReverse = [] | [{
+  allowExpressionStatement?: boolean;
+}];
+type UnicornNoArraySort = [] | [{
+  allowExpressionStatement?: boolean;
+}];
+type UnicornNoEmptyFile = [] | [{
+  allowComments?: boolean;
+}];
+type UnicornNoInstanceofBuiltins = [] | [{
+  useErrorIsError?: boolean;
+  strategy?: ("loose" | "strict");
+  include?: string[];
+  exclude?: string[];
+}];
+type UnicornNoInvalidArgumentCount = [] | [{
+  [k: string]: (number | [number, ...(number)[]] | {
+    min?: number;
+    max?: number;
+  }) | undefined;
+}];
+type UnicornNoKeywordPrefix = [] | [{
+  disallowedPrefixes?: string[];
+  checkProperties?: boolean;
+  onlyCamelCase?: boolean;
+}];
+type UnicornNoNegatedComparison = [] | [{
+  checkLogicalExpressions?: boolean;
+}];
+type UnicornNoNonFunctionVerbPrefix = [] | [{
+  verbs?: string[];
+  ignore?: (string | {
+    [k: string]: unknown | undefined;
+  })[];
+}];
+type UnicornNoNull = [] | [{
+  checkArguments?: boolean;
+  checkStrictEquality?: boolean;
+}];
+type UnicornNoTypeofUndefined = [] | [{
+  checkGlobalVariables?: boolean;
+}];
+type UnicornNoUnnecessaryPolyfills = [] | [{
+  targets?: (string | string[] | {
+    [k: string]: unknown | undefined;
+  });
+}];
+type UnicornNoUnreadableArrayDestructuring = [] | [{
+  maximumIgnoredElements?: number;
+}];
+type UnicornNoUselessUndefined = [] | [{
+  checkArguments?: boolean;
+  checkArrowFunctionBody?: boolean;
+}];
+type UnicornNumberLiteralCase = [] | [{
+  hexadecimalValue?: ("uppercase" | "lowercase");
+}];
+type UnicornNumericSeparatorsStyle = [] | [{
+  binary?: {
+    onlyIfContainsSeparator?: boolean;
+    minimumDigits?: number;
+    groupLength?: number;
+  };
+  octal?: {
+    onlyIfContainsSeparator?: boolean;
+    minimumDigits?: number;
+    groupLength?: number;
+  };
+  hexadecimal?: {
+    onlyIfContainsSeparator?: boolean;
+    minimumDigits?: number;
+    groupLength?: number;
+  };
+  number?: {
+    onlyIfContainsSeparator?: boolean;
+    minimumDigits?: number;
+    groupLength?: number;
+    fractionGroupLength?: number;
+  };
+  onlyIfContainsSeparator?: boolean;
+}];
+type UnicornOperatorAssignment = [] | [("always" | "never")];
+type UnicornPreferAddEventListener = [] | [{
+  excludedPackages?: string[];
+}];
+type UnicornPreferArrayFind = [] | [{
+  checkFromLast?: boolean;
+}];
+type UnicornPreferArrayFlat = [] | [{
+  functions?: string[];
+}];
+type UnicornPreferAt = [] | [{
+  getLastElementFunctions?: string[];
+  checkAllIndexAccess?: boolean;
+}];
+type UnicornPreferContinue = [] | [{
+  maximumStatements?: number;
+}];
+type UnicornPreferDomNodeHtmlMethods = [] | [{
+  checkGetHTML?: boolean;
+  checkSetHTML?: boolean;
+}];
+type UnicornPreferEarlyReturn = [] | [{
+  maximumStatements?: number;
+}];
+type UnicornPreferExplicitViewportUnits = [] | [{
+  unit?: ("dvh" | "svh" | "lvh");
+}];
+type UnicornPreferExportFrom = [] | [{
+  checkUsedVariables?: boolean;
+}];
+type UnicornPreferHttps = [] | [{
+  ignore?: (string | {
+    [k: string]: unknown | undefined;
+  })[];
+}];
+type UnicornPreferIncludesOverRepeatedComparisons = [] | [{
+  minimumComparisons?: number;
+}];
+type UnicornPreferMinimalTernary = [] | [{
+  checkVaryingBase?: boolean;
+  checkComputedMemberAccess?: boolean;
+}];
+type UnicornPreferNumberProperties = [] | [{
+  checkInfinity?: boolean;
+  checkNaN?: boolean;
+}];
+type UnicornPreferObjectFromEntries = [] | [{
+  functions?: string[];
+}];
+type UnicornPreferQuerySelector = [] | [{
+  allowWithVariables?: boolean;
+}];
+type UnicornPreferQueueMicrotask = [] | [{
+  checkSetImmediate?: boolean;
+  checkSetTimeout?: boolean;
+}];
+type UnicornPreferSetHas = [] | [{
+  minimumItems?: number;
+}];
+type UnicornPreferShortArrowMethod = [] | [("always" | "consistent-as-needed")];
+type UnicornPreferSingleCall = [] | [{
+  ignore?: string[];
+}];
+type UnicornPreferStringRepeat = [] | [{
+  minimumRepetitions?: number;
+}];
+type UnicornPreferStructuredClone = [] | [{
+  functions?: string[];
+}];
+type UnicornPreferSwitch = [] | [{
+  minimumCases?: number;
+  emptyDefaultCase?: ("no-default-comment" | "do-nothing-comment" | "no-default-case");
+}];
+type UnicornPreferTemporal = [] | [{
+  checkDateNow?: boolean;
+  checkReferences?: boolean;
+  checkMethods?: boolean;
+}];
+type UnicornPreferTernary = [] | [("always" | "only-single-line")];
+type UnicornRelativeUrlStyle = [] | [("never" | "always")];
+type UnicornRequireCssEscape = [] | [{
+  checkAllSelectors?: boolean;
+}];
+type UnicornRequireFrontmatterFields = [] | [{
+  fields?: string[];
+}];
+type UnicornSingleLineBlockCommentStyle = [] | [("multiline" | "single-line")] | [("multiline" | "single-line"), {
+  ignore?: (string | {
+    [k: string]: unknown | undefined;
+  })[];
+}];
+type UnicornStringContent = [] | [{
+  patterns?: {
+    [k: string]: (string | {
+      suggest: string;
+      fix?: boolean;
+      caseSensitive?: boolean;
+      message?: string;
+    }) | undefined;
+  };
+  selectors?: string[];
+}];
+type UnicornSwitchCaseBraces = [] | [("always" | "avoid" | "single-statement")];
+type UnicornTemplateIndent = [] | [{
+  indent?: (string | number);
+  tags?: string[];
+  functions?: string[];
+  selectors?: string[];
+  comments?: string[];
+}];
+type UnicornTextEncodingIdentifierCase = [] | [{
+  withDash?: boolean;
+}];
+type UnicornTryComplexity = [] | [{
+  max?: number;
+}];
+type UnocssEnforceClassCompile = [] | [{
+  prefix?: string;
+  enableFix?: boolean;
+}];
+type UnocssOrder = [] | [{
+  unoFunctions?: string[];
+  unoVariables?: string[];
+}];
+type UnusedImportsNoUnusedImports = [] | [(("all" | "local") | {
+  args?: ("all" | "after-used" | "none");
+  argsIgnorePattern?: string;
+  caughtErrors?: ("all" | "none");
+  caughtErrorsIgnorePattern?: string;
+  destructuredArrayIgnorePattern?: string;
+  enableAutofixRemoval?: {
+    imports?: boolean;
+  };
+  ignoreClassWithStaticInitBlock?: boolean;
+  ignoreRestSiblings?: boolean;
+  ignoreUsingDeclarations?: boolean;
+  reportUsedIgnorePattern?: boolean;
+  vars?: ("all" | "local");
+  varsIgnorePattern?: string;
+})];
+type UnusedImportsNoUnusedVars = [] | [(("all" | "local") | {
+  args?: ("all" | "after-used" | "none");
+  argsIgnorePattern?: string;
+  caughtErrors?: ("all" | "none");
+  caughtErrorsIgnorePattern?: string;
+  destructuredArrayIgnorePattern?: string;
+  enableAutofixRemoval?: {
+    imports?: boolean;
+  };
+  ignoreClassWithStaticInitBlock?: boolean;
+  ignoreRestSiblings?: boolean;
+  ignoreUsingDeclarations?: boolean;
+  reportUsedIgnorePattern?: boolean;
+  vars?: ("all" | "local");
+  varsIgnorePattern?: string;
+})];
+type UseIsnan = [] | [{
+  enforceForSwitchCase?: boolean;
+  enforceForIndexOf?: boolean;
+}];
+type ValidTypeof = [] | [{
+  requireStringLiterals?: boolean;
+}];
+type VendoredPrettierOptions = Partial<VendoredPrettierOptionsRequired>;
+type VueA11YAltText = [] | [{
+  elements?: string[];
+  img?: string[];
+  object?: string[];
+  area?: string[];
+  "input[type=\"image\"]"?: string[];
+  [k: string]: unknown | undefined;
+}];
+type VueA11YAnchorHasContent = [] | [{
+  components?: string[];
+  accessibleChildren?: string[];
+  accessibleDirectives?: string[];
+  [k: string]: unknown | undefined;
+}];
+type VueA11YAriaRole = [] | [{
+  ignoreNonDOM?: boolean;
+}];
+type VueA11YFormControlHasLabel = [] | [{
+  labelComponents?: string[];
+  controlComponents?: string[];
+  [k: string]: unknown | undefined;
+}];
+type VueA11YHeadingHasContent = [] | [{
+  components?: string[];
+  accessibleChildren?: string[];
+  accessibleDirectives?: string[];
+  [k: string]: unknown | undefined;
+}];
+type VueA11YInteractiveSupportsFocus = [] | [{
+  tabbable?: ("button" | "checkbox" | "columnheader" | "combobox" | "grid" | "gridcell" | "link" | "listbox" | "menu" | "menubar" | "menuitem" | "menuitemcheckbox" | "menuitemradio" | "option" | "progressbar" | "radio" | "radiogroup" | "row" | "rowheader" | "scrollbar" | "searchbox" | "slider" | "spinbutton" | "switch" | "tab" | "tablist" | "textbox" | "tree" | "treegrid" | "treeitem" | "doc-backlink" | "doc-biblioref" | "doc-glossref" | "doc-noteref")[];
+  [k: string]: unknown | undefined;
+}];
+type VueA11YLabelHasFor = [] | [{
+  components?: string[];
+  controlComponents?: string[];
+  required?: (("nesting" | "id") | {
+    some: ("nesting" | "id")[];
+    [k: string]: unknown | undefined;
+  } | {
+    every: ("nesting" | "id")[];
+    [k: string]: unknown | undefined;
+  });
+  allowChildren?: boolean;
+  [k: string]: unknown | undefined;
+}];
+type VueA11YMediaHasCaption = [] | [{
+  audio?: string[];
+  track?: string[];
+  video?: string[];
+  [k: string]: unknown | undefined;
+}];
+type VueA11YNoAutofocus = [] | [{
+  ignoreNonDOM?: boolean;
+}];
+type VueA11YNoDistractingElements = [] | [{
+  [k: string]: unknown | undefined;
+}];
+type VueA11YNoRedundantRoles = [] | [{
+  [k: string]: string[] | undefined;
+}];
+type VueArrayBracketNewline = [] | [(("always" | "never" | "consistent") | {
+  multiline?: boolean;
+  minItems?: (number | null);
+})];
+type VueArrayBracketSpacing = [] | [("always" | "never")] | [("always" | "never"), {
+  singleValue?: boolean;
+  objectsInArrays?: boolean;
+  arraysInArrays?: boolean;
+}];
+type VueArrayElementNewline = [] | [(_VueArrayElementNewlineBasicConfig | {
+  ArrayExpression?: _VueArrayElementNewlineBasicConfig;
+  ArrayPattern?: _VueArrayElementNewlineBasicConfig;
+})];
+type VueArrowSpacing = [] | [{
+  before?: boolean;
+  after?: boolean;
+}];
+type VueAttributeHyphenation = [] | [("always" | "never")] | [("always" | "never"), {
+  ignore?: (string & {
+    [k: string]: unknown | undefined;
+  } & {
+    [k: string]: unknown | undefined;
+  })[];
+  ignoreTags?: string[];
+}];
+type VueAttributesOrder = [] | [{
+  order?: (("DEFINITION" | "LIST_RENDERING" | "CONDITIONALS" | "RENDER_MODIFIERS" | "GLOBAL" | "UNIQUE" | "SLOT" | "TWO_WAY_BINDING" | "OTHER_DIRECTIVES" | "OTHER_ATTR" | "ATTR_STATIC" | "ATTR_DYNAMIC" | "ATTR_SHORTHAND_BOOL" | "EVENTS" | "CONTENT") | ("DEFINITION" | "LIST_RENDERING" | "CONDITIONALS" | "RENDER_MODIFIERS" | "GLOBAL" | "UNIQUE" | "SLOT" | "TWO_WAY_BINDING" | "OTHER_DIRECTIVES" | "OTHER_ATTR" | "ATTR_STATIC" | "ATTR_DYNAMIC" | "ATTR_SHORTHAND_BOOL" | "EVENTS" | "CONTENT")[])[];
+  alphabetical?: boolean;
+  sortLineLength?: boolean;
+  ignoreVBindObject?: boolean;
+}];
+type VueBlockLang = [] | [{
+  [k: string]: {
+    lang?: (string | string[]);
+    allowNoLang?: boolean;
+  };
+}];
+type VueBlockOrder = [] | [{
+  order?: (string | string[])[];
+}];
+type VueBlockSpacing = [] | [("always" | "never")];
+type VueBlockTagNewline = [] | [{
+  singleline?: ("always" | "never" | "consistent" | "ignore");
+  multiline?: ("always" | "never" | "consistent" | "ignore");
+  maxEmptyLines?: number;
+  blocks?: {
+    [k: string]: {
+      singleline?: ("always" | "never" | "consistent" | "ignore");
+      multiline?: ("always" | "never" | "consistent" | "ignore");
+      maxEmptyLines?: number;
+    };
+  };
+}];
+type VueBraceStyle = [] | [("1tbs" | "stroustrup" | "allman")] | [("1tbs" | "stroustrup" | "allman"), {
+  allowSingleLine?: boolean;
+}];
+type VueCamelcase = [] | [{
+  ignoreDestructuring?: boolean;
+  ignoreImports?: boolean;
+  ignoreGlobals?: boolean;
+  properties?: ("always" | "never");
+  allow?: string[];
+}];
+type VueCommaDangle = [] | [(_VueCommaDangleValue | {
+  arrays?: _VueCommaDangleValueWithIgnore;
+  objects?: _VueCommaDangleValueWithIgnore;
+  imports?: _VueCommaDangleValueWithIgnore;
+  exports?: _VueCommaDangleValueWithIgnore;
+  functions?: _VueCommaDangleValueWithIgnore;
+  importAttributes?: _VueCommaDangleValueWithIgnore;
+  dynamicImports?: _VueCommaDangleValueWithIgnore;
+  enums?: _VueCommaDangleValueWithIgnore;
+  generics?: _VueCommaDangleValueWithIgnore;
+  tuples?: _VueCommaDangleValueWithIgnore;
+})];
+type VueCommaSpacing = [] | [{
+  before?: boolean;
+  after?: boolean;
+}];
+type VueCommaStyle = [] | [("first" | "last")] | [("first" | "last"), {
+  exceptions?: {
+    [k: string]: boolean | undefined;
+  };
+}];
+type VueCommentDirective = [] | [{
+  reportUnusedDisableDirectives?: boolean;
+}];
+type VueComponentApiStyle = [] | [[("script-setup" | "composition" | "composition-vue2" | "options"), ...(("script-setup" | "composition" | "composition-vue2" | "options"))[]]];
+type VueComponentDefinitionNameCasing = [] | [("PascalCase" | "kebab-case")];
+type VueComponentNameInTemplateCasing = [] | [("PascalCase" | "kebab-case")] | [("PascalCase" | "kebab-case"), {
+  globals?: string[];
+  ignores?: string[];
+  registeredComponentsOnly?: boolean;
+}];
+type VueComponentOptionsNameCasing = [] | [("camelCase" | "kebab-case" | "PascalCase")];
+type VueCustomEventNameCasing = [] | [("kebab-case" | "camelCase")] | [("kebab-case" | "camelCase"), {
+  ignores?: string[];
+}];
+type VueDefineEmitsDeclaration = [] | [("type-based" | "type-literal" | "runtime")];
+type VueDefineMacrosOrder = [] | [{
+  order?: string[];
+  defineExposeLast?: boolean;
+}];
+type VueDefinePropsDeclaration = [] | [("type-based" | "runtime")];
+type VueDefinePropsDestructuring = [] | [{
+  destructure?: ("only-when-assigned" | "always" | "never");
+}];
+type VueDotLocation = [] | [("object" | "property")];
+type VueDotNotation = [] | [{
+  allowKeywords?: boolean;
+  allowPattern?: string;
+}];
+type VueEnforceStyleAttribute = [] | [{
+  allow?: [("plain" | "scoped" | "module"), ...(("plain" | "scoped" | "module"))[]];
+}];
+type VueEqeqeq = ([] | ["always"] | ["always", {
+  null?: ("always" | "never" | "ignore");
+}] | [] | [("smart" | "allow-null")]);
+type VueFirstAttributeLinebreak = [] | [{
+  multiline?: ("below" | "beside" | "ignore");
+  singleline?: ("below" | "beside" | "ignore");
+}];
+type VueFuncCallSpacing = ([] | ["never"] | [] | ["always"] | ["always", {
+  allowNewlines?: boolean;
+  optionalChain?: {
+    before?: boolean;
+    after?: boolean;
+  };
+}]);
+type VueHtmlButtonHasType = [] | [{
+  button?: boolean;
+  submit?: boolean;
+  reset?: boolean;
+}];
+type VueHtmlClosingBracketNewline = [] | [{
+  singleline?: ("always" | "never");
+  multiline?: ("always" | "never");
+  selfClosingTag?: {
+    singleline?: ("always" | "never");
+    multiline?: ("always" | "never");
+  };
+}];
+type VueHtmlClosingBracketSpacing = [] | [{
+  startTag?: ("always" | "never");
+  endTag?: ("always" | "never");
+  selfClosingTag?: ("always" | "never");
+}];
+type VueHtmlCommentContentNewline = [] | [(("always" | "never") | {
+  singleline?: ("always" | "never" | "ignore");
+  multiline?: ("always" | "never" | "ignore");
+})] | [(("always" | "never") | {
+  singleline?: ("always" | "never" | "ignore");
+  multiline?: ("always" | "never" | "ignore");
+}), {
+  exceptions?: string[];
+}];
+type VueHtmlCommentContentSpacing = [] | [("always" | "never")] | [("always" | "never"), {
+  exceptions?: string[];
+}];
+type VueHtmlCommentIndent = [] | [(number | "tab")];
+type VueHtmlIndent = [] | [(number | "tab")] | [(number | "tab"), {
+  attribute?: number;
+  baseIndent?: number;
+  closeBracket?: (number | {
+    startTag?: number;
+    endTag?: number;
+    selfClosingTag?: number;
+  });
+  switchCase?: number;
+  alignAttributesVertically?: boolean;
+  ignores?: (string & {
+    [k: string]: unknown | undefined;
+  } & {
+    [k: string]: unknown | undefined;
+  })[];
+}];
+type VueHtmlQuotes = [] | [("double" | "single")] | [("double" | "single"), {
+  avoidEscape?: boolean;
+}];
+type VueHtmlSelfClosing = [] | [{
+  html?: {
+    normal?: _VueHtmlSelfClosingOptionValue;
+    void?: _VueHtmlSelfClosingOptionValue;
+    component?: _VueHtmlSelfClosingOptionValue;
+  };
+  svg?: _VueHtmlSelfClosingOptionValue;
+  math?: _VueHtmlSelfClosingOptionValue;
+}];
+type VueKeySpacing = [] | [({
+  align?: (("colon" | "value") | {
+    mode?: ("strict" | "minimum");
+    on?: ("colon" | "value");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  });
+  mode?: ("strict" | "minimum");
+  beforeColon?: boolean;
+  afterColon?: boolean;
+  ignoredNodes?: ("ObjectExpression" | "ObjectPattern" | "ImportDeclaration" | "ExportNamedDeclaration" | "ExportAllDeclaration" | "TSTypeLiteral" | "TSInterfaceBody" | "ClassBody")[];
+} | {
+  singleLine?: {
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+  multiLine?: {
+    align?: (("colon" | "value") | {
+      mode?: ("strict" | "minimum");
+      on?: ("colon" | "value");
+      beforeColon?: boolean;
+      afterColon?: boolean;
+    });
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+} | {
+  singleLine?: {
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+  multiLine?: {
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+  align?: {
+    mode?: ("strict" | "minimum");
+    on?: ("colon" | "value");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+})];
+type VueKeywordSpacing = [] | [{
+  before?: boolean;
+  after?: boolean;
+  overrides?: {
+    abstract?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    boolean?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    break?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    byte?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    case?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    catch?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    char?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    class?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    const?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    continue?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    debugger?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    default?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    delete?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    do?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    double?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    else?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    enum?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    export?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    extends?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    false?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    final?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    finally?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    float?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    for?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    function?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    goto?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    if?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    implements?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    import?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    in?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    instanceof?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    int?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    interface?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    long?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    native?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    new?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    null?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    package?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    private?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    protected?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    public?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    return?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    short?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    static?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    super?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    switch?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    synchronized?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    this?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    throw?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    throws?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    transient?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    true?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    try?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    typeof?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    var?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    void?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    volatile?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    while?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    with?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    arguments?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    as?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    async?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    await?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    eval?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    from?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    get?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    let?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    of?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    set?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    type?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    using?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    yield?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    accessor?: {
+      before?: boolean;
+      after?: boolean;
+    };
+    satisfies?: {
+      before?: boolean;
+      after?: boolean;
+    };
+  };
+}];
+type VueMatchComponentFileName = [] | [{
+  extensions?: string[];
+  shouldMatchCase?: boolean;
+}];
+type VueMaxAttributesPerLine = [] | [{
+  singleline?: (number | {
+    max?: number;
+  });
+  multiline?: (number | {
+    max?: number;
+  });
+}];
+type VueMaxLen = [] | [({
+  code?: number;
+  template?: number;
+  comments?: number;
+  tabWidth?: number;
+  ignorePattern?: string;
+  ignoreComments?: boolean;
+  ignoreTrailingComments?: boolean;
+  ignoreUrls?: boolean;
+  ignoreStrings?: boolean;
+  ignoreTemplateLiterals?: boolean;
+  ignoreRegExpLiterals?: boolean;
+  ignoreHTMLAttributeValues?: boolean;
+  ignoreHTMLTextContents?: boolean;
+} | number)] | [({
+  code?: number;
+  template?: number;
+  comments?: number;
+  tabWidth?: number;
+  ignorePattern?: string;
+  ignoreComments?: boolean;
+  ignoreTrailingComments?: boolean;
+  ignoreUrls?: boolean;
+  ignoreStrings?: boolean;
+  ignoreTemplateLiterals?: boolean;
+  ignoreRegExpLiterals?: boolean;
+  ignoreHTMLAttributeValues?: boolean;
+  ignoreHTMLTextContents?: boolean;
+} | number), ({
+  code?: number;
+  template?: number;
+  comments?: number;
+  tabWidth?: number;
+  ignorePattern?: string;
+  ignoreComments?: boolean;
+  ignoreTrailingComments?: boolean;
+  ignoreUrls?: boolean;
+  ignoreStrings?: boolean;
+  ignoreTemplateLiterals?: boolean;
+  ignoreRegExpLiterals?: boolean;
+  ignoreHTMLAttributeValues?: boolean;
+  ignoreHTMLTextContents?: boolean;
+} | number)] | [({
+  code?: number;
+  template?: number;
+  comments?: number;
+  tabWidth?: number;
+  ignorePattern?: string;
+  ignoreComments?: boolean;
+  ignoreTrailingComments?: boolean;
+  ignoreUrls?: boolean;
+  ignoreStrings?: boolean;
+  ignoreTemplateLiterals?: boolean;
+  ignoreRegExpLiterals?: boolean;
+  ignoreHTMLAttributeValues?: boolean;
+  ignoreHTMLTextContents?: boolean;
+} | number), ({
+  code?: number;
+  template?: number;
+  comments?: number;
+  tabWidth?: number;
+  ignorePattern?: string;
+  ignoreComments?: boolean;
+  ignoreTrailingComments?: boolean;
+  ignoreUrls?: boolean;
+  ignoreStrings?: boolean;
+  ignoreTemplateLiterals?: boolean;
+  ignoreRegExpLiterals?: boolean;
+  ignoreHTMLAttributeValues?: boolean;
+  ignoreHTMLTextContents?: boolean;
+} | number), {
+  code?: number;
+  template?: number;
+  comments?: number;
+  tabWidth?: number;
+  ignorePattern?: string;
+  ignoreComments?: boolean;
+  ignoreTrailingComments?: boolean;
+  ignoreUrls?: boolean;
+  ignoreStrings?: boolean;
+  ignoreTemplateLiterals?: boolean;
+  ignoreRegExpLiterals?: boolean;
+  ignoreHTMLAttributeValues?: boolean;
+  ignoreHTMLTextContents?: boolean;
+}];
+type VueMaxLinesPerBlock = [] | [{
+  style?: number;
+  template?: number;
+  script?: number;
+  skipBlankLines?: boolean;
+}];
+type VueMaxProps = [] | [{
+  maxProps?: number;
+}];
+type VueMaxTemplateDepth = [] | [{
+  maxDepth?: number;
+}];
+type VueMultilineHtmlElementContentNewline = [] | [{
+  ignoreWhenEmpty?: boolean;
+  ignores?: string[];
+  allowEmptyLines?: boolean;
+}];
+type VueMultilineTernary = [] | [("always" | "always-multiline" | "never")] | [("always" | "always-multiline" | "never"), {
+  ignoreJSX?: boolean;
+}];
+type VueMultiWordComponentNames = [] | [{
+  ignores?: string[];
+}];
+type VueMustacheInterpolationSpacing = [] | [("always" | "never")];
+type VueNewLineBetweenMultiLineProperty = [] | [{
+  minLineOfMultilineProperty?: number;
+}];
+type VueNextTickStyle = [] | [("promise" | "callback")];
+type VueNoAsyncInComputedProperties = [] | [{
+  ignoredObjectNames?: string[];
+}];
+type VueNoBareStringsInTemplate = [] | [{
+  allowlist?: string[];
+  attributes?: {
+    [k: string]: string[];
+  };
+  directives?: string[];
+}];
+type VueNoBooleanDefault = [] | [("default-false" | "no-default")];
+type VueNoChildContent = [] | [{
+  additionalDirectives: [string, ...(string)[]];
+}];
+type VueNoConsole = [] | [{
+  allow?: [string, ...(string)[]];
+}];
+type VueNoConstantCondition = [] | [{
+  checkLoops?: ("all" | "allExceptWhileTrue" | "none" | true | false);
+}];
+type VueNoDeprecatedModelDefinition = [] | [{
+  allowVue3Compat?: boolean;
+}];
+type VueNoDeprecatedRouterLinkTagProp = [] | [{
+  components?: [string, ...(string)[]];
+}];
+type VueNoDeprecatedSlotAttribute = [] | [{
+  ignore?: string[];
+  ignoreParents?: string[];
+}];
+type VueNoDupeKeys = [] | [{
+  groups?: unknown[];
+}];
+type VueNoDuplicateAttributes = [] | [{
+  allowCoexistClass?: boolean;
+  allowCoexistStyle?: boolean;
+}];
+type VueNoDuplicateAttrInheritance = [] | [{
+  checkMultiRootNodes?: boolean;
+}];
+type VueNoEmptyPattern = [] | [{
+  allowObjectPatternsAsParameters?: boolean;
+}];
+type VueNoExtraParens = ([] | ["functions"] | [] | ["all"] | ["all", {
+  conditionalAssign?: boolean;
+  ternaryOperandBinaryExpressions?: boolean;
+  nestedBinaryExpressions?: boolean;
+  returnAssign?: boolean;
+  ignoreJSX?: ("none" | "all" | "single-line" | "multi-line");
+  enforceForArrowConditionals?: boolean;
+  enforceForSequenceExpressions?: boolean;
+  enforceForNewInMemberExpressions?: boolean;
+  enforceForFunctionPrototypeMethods?: boolean;
+  allowParensAfterCommentPattern?: string;
+  nestedConditionalExpressions?: boolean;
+  allowNodesInSpreadElement?: {
+    ConditionalExpression?: boolean;
+    LogicalExpression?: boolean;
+    AwaitExpression?: boolean;
+  };
+  ignoredNodes?: string[];
+}]);
+type VueNoImplicitCoercion = [] | [{
+  boolean?: boolean;
+  number?: boolean;
+  string?: boolean;
+  disallowTemplateShorthand?: boolean;
+  allow?: ("~" | "!!" | "+" | "- -" | "-" | "*")[];
+}];
+type VueNoIrregularWhitespace = [] | [{
+  skipComments?: boolean;
+  skipStrings?: boolean;
+  skipTemplates?: boolean;
+  skipRegExps?: boolean;
+  skipHTMLAttributeValues?: boolean;
+  skipHTMLTextContents?: boolean;
+}];
+type VueNoLiteralsInTemplate = [] | [{
+  ignores?: string[];
+}];
+type VueNoLoneTemplate = [] | [{
+  ignoreAccessible?: boolean;
+}];
+type VueNoMultipleTemplateRoot = [] | [{
+  disallowComments?: boolean;
+}];
+type VueNoMultiSpaces = [] | [{
+  ignoreProperties?: boolean;
+  ignoreEOLComments?: boolean;
+}];
+type VueNoMutatingProps = [] | [{
+  shallowOnly?: boolean;
+}];
+type VueNoParsingError = [] | [{
+  "abrupt-closing-of-empty-comment"?: boolean;
+  "absence-of-digits-in-numeric-character-reference"?: boolean;
+  "cdata-in-html-content"?: boolean;
+  "character-reference-outside-unicode-range"?: boolean;
+  "control-character-in-input-stream"?: boolean;
+  "control-character-reference"?: boolean;
+  "eof-before-tag-name"?: boolean;
+  "eof-in-cdata"?: boolean;
+  "eof-in-comment"?: boolean;
+  "eof-in-tag"?: boolean;
+  "incorrectly-closed-comment"?: boolean;
+  "incorrectly-opened-comment"?: boolean;
+  "invalid-first-character-of-tag-name"?: boolean;
+  "missing-attribute-value"?: boolean;
+  "missing-end-tag-name"?: boolean;
+  "missing-semicolon-after-character-reference"?: boolean;
+  "missing-whitespace-between-attributes"?: boolean;
+  "nested-comment"?: boolean;
+  "noncharacter-character-reference"?: boolean;
+  "noncharacter-in-input-stream"?: boolean;
+  "null-character-reference"?: boolean;
+  "surrogate-character-reference"?: boolean;
+  "surrogate-in-input-stream"?: boolean;
+  "unexpected-character-in-attribute-name"?: boolean;
+  "unexpected-character-in-unquoted-attribute-value"?: boolean;
+  "unexpected-equals-sign-before-attribute-name"?: boolean;
+  "unexpected-null-character"?: boolean;
+  "unexpected-question-mark-instead-of-tag-name"?: boolean;
+  "unexpected-solidus-in-tag"?: boolean;
+  "unknown-named-character-reference"?: boolean;
+  "end-tag-with-attributes"?: boolean;
+  "duplicate-attribute"?: boolean;
+  "end-tag-with-trailing-solidus"?: boolean;
+  "non-void-html-element-start-tag-with-trailing-solidus"?: boolean;
+  "x-invalid-end-tag"?: boolean;
+  "x-invalid-namespace"?: boolean;
+}];
+type VueNoPotentialComponentOptionTypo = [] | [{
+  presets?: ("all" | "vue" | "vue-router" | "nuxt")[];
+  custom?: string[];
+  threshold?: number;
+}];
+type VueNoRequiredPropWithDefault = [] | [{
+  autofix?: boolean;
+}];
+type VueNoReservedComponentNames = [] | [{
+  disallowVueBuiltInComponents?: boolean;
+  disallowVue3BuiltInComponents?: boolean;
+  htmlElementCaseSensitive?: boolean;
+}];
+type VueNoReservedKeys = [] | [{
+  reserved?: unknown[];
+  groups?: unknown[];
+}];
+type VueNoReservedProps = [] | [{
+  vueVersion?: (2 | 3);
+}];
+type VueNoRestrictedBlock = (string | {
+  element: string;
+  message?: string;
+})[];
+type VueNoRestrictedCallAfterAwait = {
+  module: string;
+  path?: (string | string[]);
+  message?: string;
+}[];
+type VueNoRestrictedClass = string[];
+type VueNoRestrictedComponentNames = (string | {
+  name: string;
+  message?: string;
+  suggest?: string;
+})[];
+type VueNoRestrictedComponentOptions = (string | string[] | {
+  name: (string | string[]);
+  message?: string;
+})[];
+type VueNoRestrictedCustomEvent = (string | {
+  event: string;
+  message?: string;
+  suggest?: string;
+})[];
+type VueNoRestrictedHtmlElements = (string | {
+  element: (string | string[]);
+  message?: string;
+})[];
+type VueNoRestrictedProps = (string | {
+  name: string;
+  message?: string;
+  suggest?: string;
+})[];
+type VueNoRestrictedStaticAttribute = (string | {
+  key: string;
+  value?: (string | true);
+  element?: string;
+  message?: string;
+})[];
+type VueNoRestrictedSyntax = (string | {
+  selector: string;
+  message?: string;
+})[];
+type VueNoRestrictedVBind = ((string | null) | {
+  argument: (string | null);
+  modifiers?: ("prop" | "camel" | "sync" | "attr")[];
+  element?: string;
+  message?: string;
+})[];
+type VueNoRestrictedVOn = ((string | null) | {
+  argument: (string | null);
+  element?: string;
+  message?: string;
+  modifiers?: [("prevent" | "stop" | "capture" | "self" | "once" | "passive"), ...(("prevent" | "stop" | "capture" | "self" | "once" | "passive"))[]];
+})[];
+type VueNoStaticInlineStyles = [] | [{
+  allowBinding?: boolean;
+}];
+type VueNoTemplateShadow = [] | [{
+  allow?: string[];
+}];
+type VueNoTemplateTargetBlank = [] | [{
+  allowReferrer?: boolean;
+  enforceDynamicLinks?: ("always" | "never");
+}];
+type VueNoUndefComponents = [] | [{
+  ignorePatterns?: unknown[];
+}];
+type VueNoUndefDirectives = [] | [{
+  ignore?: string[];
+}];
+type VueNoUndefProperties = [] | [{
+  ignores?: string[];
+}];
+type VueNoUnsupportedFeatures = [] | [{
+  version?: string;
+  ignores?: ("slot-scope-attribute" | "dynamic-directive-arguments" | "v-slot" | "script-setup" | "style-css-vars-injection" | "v-model-argument" | "v-model-custom-modifiers" | "v-is" | "is-attribute-with-vue-prefix" | "v-memo" | "v-bind-prop-modifier-shorthand" | "v-bind-attr-modifier" | "define-options" | "define-slots" | "define-model" | "v-bind-same-name-shorthand")[];
+}];
+type VueNoUnusedComponents = [] | [{
+  ignoreWhenBindingPresent?: boolean;
+}];
+type VueNoUnusedProperties = [] | [{
+  groups?: ("props" | "data" | "asyncData" | "computed" | "methods" | "setup" | "inject")[];
+  deepData?: boolean;
+  ignorePublicMembers?: boolean;
+  unreferencedOptions?: ("unknownMemberAsUnreferenced" | "returnAsUnreferenced")[];
+}];
+type VueNoUnusedVars = [] | [{
+  ignorePattern?: string;
+}];
+type VueNoUselessMustaches = [] | [{
+  ignoreIncludesComment?: boolean;
+  ignoreStringEscape?: boolean;
+}];
+type VueNoUselessVBind = [] | [{
+  ignoreIncludesComment?: boolean;
+  ignoreStringEscape?: boolean;
+}];
+type VueNoUseVIfWithVFor = [] | [{
+  allowUsingIterationVar?: boolean;
+}];
+type VueNoVHtml = [] | [{
+  ignorePattern?: string;
+}];
+type VueNoVTextVHtmlOnComponent = [] | [{
+  allow?: string[];
+  ignoreElementNamespaces?: boolean;
+}];
+type VueObjectCurlyNewline = [] | [((("always" | "never") | {
+  multiline?: boolean;
+  minProperties?: number;
+  consistent?: boolean;
+}) | {
+  ObjectExpression?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+  ObjectPattern?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+  ImportDeclaration?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+  ExportDeclaration?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+  TSTypeLiteral?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+  TSInterfaceBody?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+  TSEnumBody?: (("always" | "never") | {
+    multiline?: boolean;
+    minProperties?: number;
+    consistent?: boolean;
+  });
+})];
+type VueObjectCurlySpacing = [] | [("always" | "never")] | [("always" | "never"), {
+  arraysInObjects?: boolean;
+  objectsInObjects?: boolean;
+  overrides?: {
+    ObjectPattern?: ("always" | "never");
+    ObjectExpression?: ("always" | "never");
+    ImportDeclaration?: ("always" | "never");
+    ImportAttributes?: ("always" | "never");
+    ExportNamedDeclaration?: ("always" | "never");
+    ExportAllDeclaration?: ("always" | "never");
+    TSMappedType?: ("always" | "never");
+    TSTypeLiteral?: ("always" | "never");
+    TSInterfaceBody?: ("always" | "never");
+    TSEnumBody?: ("always" | "never");
+  };
+  emptyObjects?: ("ignore" | "always" | "never");
+}];
+type VueObjectPropertyNewline = [] | [{
+  allowAllPropertiesOnSameLine?: boolean;
+}];
+type VueObjectShorthand = ([] | [("always" | "methods" | "properties" | "never" | "consistent" | "consistent-as-needed")] | [] | [("always" | "methods" | "properties")] | [("always" | "methods" | "properties"), {
+  avoidQuotes?: boolean;
+}] | [] | [("always" | "methods")] | [("always" | "methods"), {
+  ignoreConstructors?: boolean;
+  methodsIgnorePattern?: string;
+  avoidQuotes?: boolean;
+  avoidExplicitReturnArrows?: boolean;
+}]);
+type VueOperatorLinebreak = [] | [(("after" | "before" | "none") | null)] | [(("after" | "before" | "none") | null), {
+  overrides?: {
+    [k: string]: ("after" | "before" | "none" | "ignore") | undefined;
+  };
+}];
+type VueOrderInComponents = [] | [{
+  order?: unknown[];
+}];
+type VuePaddingLineBetweenBlocks = [] | [("never" | "always")];
+type VuePaddingLineBetweenTags = [] | [{
+  blankLine: ("always" | "never" | "consistent");
+  prev: string;
+  next: string;
+}[]];
+type VuePaddingLinesInComponentDefinition = [] | [(("always" | "never") | {
+  betweenOptions?: ("never" | "always" | "ignore");
+  withinOption?: (("never" | "always" | "ignore") | {
+    [k: string]: (("never" | "always" | "ignore") | {
+      betweenItems?: ("never" | "always" | "ignore");
+      withinEach?: ("never" | "always" | "ignore");
+    });
+  });
+  groupSingleLineProperties?: boolean;
+})];
+type VuePreferTrueAttributeShorthand = [] | [("always" | "never")] | [("always" | "never"), {
+  except?: string[];
+}];
+type VuePropNameCasing = [] | [("camelCase" | "snake_case")] | [("camelCase" | "snake_case"), {
+  ignoreProps?: string[];
+}];
+type VueQuoteProps = ([] | [("always" | "as-needed" | "consistent" | "consistent-as-needed")] | [] | [("always" | "as-needed" | "consistent" | "consistent-as-needed")] | [("always" | "as-needed" | "consistent" | "consistent-as-needed"), {
+  keywords?: boolean;
+  unnecessary?: boolean;
+  numbers?: boolean;
+}]);
+type VueRequireDirectExport = [] | [{
+  disallowFunctionalComponentFunction?: boolean;
+}];
+type VueRequireExplicitEmits = [] | [{
+  allowProps?: boolean;
+}];
+type VueRequireMacroVariableName = [] | [{
+  defineProps?: string;
+  defineEmits?: string;
+  defineSlots?: string;
+  useSlots?: string;
+  useAttrs?: string;
+}];
+type VueRequirePropComment = [] | [{
+  type?: ("JSDoc" | "line" | "block" | "any");
+}];
+type VueRequireToggleInsideTransition = [] | [{
+  additionalDirectives?: string[];
+}];
+type VueRestrictedComponentNames = [] | [{
+  allow?: string[];
+}];
+type VueReturnInComputedProperty = [] | [{
+  treatUndefinedAsUnspecified?: boolean;
+}];
+type VueScriptIndent = [] | [(number | "tab")] | [(number | "tab"), {
+  baseIndent?: number;
+  switchCase?: number;
+  ignores?: (string & {
+    [k: string]: unknown | undefined;
+  } & {
+    [k: string]: unknown | undefined;
+  })[];
+}];
+type VueSinglelineHtmlElementContentNewline = [] | [{
+  ignoreWhenNoAttributes?: boolean;
+  ignoreWhenEmpty?: boolean;
+  ignores?: string[];
+  externalIgnores?: string[];
+}];
+type VueSlotNameCasing = [] | [("camelCase" | "kebab-case" | "singleword")];
+type VueSortKeys = [] | [("asc" | "desc")] | [("asc" | "desc"), {
+  caseSensitive?: boolean;
+  ignoreChildrenOf?: unknown[];
+  ignoreGrandchildrenOf?: unknown[];
+  minKeys?: number;
+  natural?: boolean;
+  allowLineSeparatedGroups?: boolean;
+}];
+type VueSpaceInfixOps = [] | [{
+  int32Hint?: boolean;
+  ignoreTypes?: boolean;
+}];
+type VueSpaceInParens = [] | [("always" | "never")] | [("always" | "never"), {
+  exceptions?: ("{}" | "[]" | "()" | "empty")[];
+}];
+type VueSpaceUnaryOps = [] | [{
+  words?: boolean;
+  nonwords?: boolean;
+  overrides?: {
+    [k: string]: boolean | undefined;
+  };
+}];
+type VueTemplateCurlySpacing = [] | [("always" | "never")];
+type VueThisInTemplate = [] | [("always" | "never")];
+type VueValidVFor = [] | [{
+  allowEmptyAlias?: boolean;
+}];
+type VueValidVOn = [] | [{
+  modifiers?: unknown[];
+}];
+type VueValidVSlot = [] | [{
+  allowModifiers?: boolean;
+}];
+type VueVBindStyle = [] | [("shorthand" | "longform")] | [("shorthand" | "longform"), {
+  sameNameShorthand?: ("always" | "never" | "ignore");
+}];
+type VueVForDelimiterStyle = [] | [("in" | "of")];
+type VueVOnEventHyphenation = [] | [("always" | "never")] | [("always" | "never"), {
+  autofix?: boolean;
+  ignore?: (string & {
+    [k: string]: unknown | undefined;
+  } & {
+    [k: string]: unknown | undefined;
+  })[];
+  ignoreTags?: string[];
+}];
+type VueVOnHandlerStyle = [] | [(("inline" | "inline-function") | ["method", ("inline" | "inline-function")])] | [(("inline" | "inline-function") | ["method", ("inline" | "inline-function")]), {
+  ignoreIncludesComment?: boolean;
+}];
+type VueVOnStyle = [] | [("shorthand" | "longform")];
+type VueVSlotStyle = [] | [(("shorthand" | "longform") | {
+  atComponent?: ("shorthand" | "longform" | "v-slot");
+  default?: ("shorthand" | "longform" | "v-slot");
+  named?: ("shorthand" | "longform");
+})];
+type WrapIife = [] | [("outside" | "inside" | "any")] | [("outside" | "inside" | "any"), {
+  functionPrototypeMethods?: boolean;
+}];
+type YamlBlockMapping = [] | [(("always" | "never") | {
+  singleline?: ("always" | "never" | "ignore");
+  multiline?: ("always" | "never" | "ignore");
+})];
+type YamlBlockMappingColonIndicatorNewline = [] | [("always" | "never")];
+type YamlBlockMappingQuestionIndicatorNewline = [] | [("always" | "never")];
+type YamlBlockSequence = [] | [(("always" | "never") | {
+  singleline?: ("always" | "never" | "ignore");
+  multiline?: ("always" | "never" | "ignore");
+})];
+type YamlBlockSequenceHyphenIndicatorNewline = [] | [("always" | "never")] | [("always" | "never"), {
+  nestedHyphen?: ("always" | "never");
+  blockMapping?: ("always" | "never");
+}];
+type YamlFileExtension = [] | [{
+  extension?: ("yaml" | "yml");
+  caseSensitive?: boolean;
+}];
+type YamlFlowMappingCurlyNewline = [] | [(("always" | "never") | {
+  multiline?: boolean;
+  minProperties?: number;
+  consistent?: boolean;
+})];
+type YamlFlowMappingCurlySpacing = [] | [("always" | "never")] | [("always" | "never"), {
+  arraysInObjects?: boolean;
+  objectsInObjects?: boolean;
+  emptyObjects?: ("ignore" | "always" | "never");
+}];
+type YamlFlowSequenceBracketNewline = [] | [(("always" | "never" | "consistent") | {
+  multiline?: boolean;
+  minItems?: (number | null);
+})];
+type YamlFlowSequenceBracketSpacing = [] | [("always" | "never")] | [("always" | "never"), {
+  singleValue?: boolean;
+  objectsInArrays?: boolean;
+  arraysInArrays?: boolean;
+}];
+type YamlIndent = [] | [number] | [number, {
+  indentBlockSequences?: boolean;
+  indicatorValueIndent?: number;
+  alignMultilineFlowScalars?: boolean;
+}];
+type YamlKeyNameCasing = [] | [{
+  camelCase?: boolean;
+  PascalCase?: boolean;
+  SCREAMING_SNAKE_CASE?: boolean;
+  "kebab-case"?: boolean;
+  snake_case?: boolean;
+  ignores?: string[];
+}];
+type YamlKeySpacing = [] | [({
+  align?: (("colon" | "value") | {
+    on?: ("colon" | "value");
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  });
+  mode?: ("strict" | "minimum");
+  beforeColon?: boolean;
+  afterColon?: boolean;
+} | {
+  singleLine?: {
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+  multiLine?: {
+    align?: (("colon" | "value") | {
+      on?: ("colon" | "value");
+      mode?: ("strict" | "minimum");
+      beforeColon?: boolean;
+      afterColon?: boolean;
+    });
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+} | {
+  singleLine?: {
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+  multiLine?: {
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+  align?: {
+    on?: ("colon" | "value");
+    mode?: ("strict" | "minimum");
+    beforeColon?: boolean;
+    afterColon?: boolean;
+  };
+})];
+type YamlNoIrregularWhitespace = [] | [{
+  skipComments?: boolean;
+  skipQuotedScalars?: boolean;
+}];
+type YamlNoMultipleEmptyLines = [] | [{
+  max: number;
+  maxEOF?: number;
+  maxBOF?: number;
+}];
+type YamlNoTrailingSpaces = [] | [{
+  skipBlankLines?: boolean;
+  ignoreComments?: boolean;
+}];
+type YamlPlainScalar = [] | [("always" | "never")] | [("always" | "never"), {
+  ignorePatterns?: string[];
+  overrides?: {
+    mappingKey?: ("always" | "never" | null);
+  };
+}];
+type YamlQuotes = [] | [{
+  prefer?: ("double" | "single");
+  avoidEscape?: boolean;
+}];
+type YamlSortKeys = ([{
+  pathPattern: string;
+  hasProperties?: string[];
+  order: ((string | {
+    keyPattern?: string;
+    order?: ({
+      type?: ("asc" | "desc");
+      caseSensitive?: boolean;
+      natural?: boolean;
+    } | {
+      type: "ignore";
+    });
+  })[] | {
+    type?: ("asc" | "desc");
+    caseSensitive?: boolean;
+    natural?: boolean;
+  } | {
+    type: "ignore";
+  });
+  minKeys?: number;
+  allowLineSeparatedGroups?: boolean;
+}, ...({
+  pathPattern: string;
+  hasProperties?: string[];
+  order: ((string | {
+    keyPattern?: string;
+    order?: ({
+      type?: ("asc" | "desc");
+      caseSensitive?: boolean;
+      natural?: boolean;
+    } | {
+      type: "ignore";
+    });
+  })[] | {
+    type?: ("asc" | "desc");
+    caseSensitive?: boolean;
+    natural?: boolean;
+  } | {
+    type: "ignore";
+  });
+  minKeys?: number;
+  allowLineSeparatedGroups?: boolean;
+})[]] | [] | [("asc" | "desc")] | [("asc" | "desc"), {
+  caseSensitive?: boolean;
+  natural?: boolean;
+  minKeys?: number;
+  allowLineSeparatedGroups?: boolean;
+}]);
+type YamlSortSequenceValues = [{
+  pathPattern: string;
+  order: ((string | {
+    valuePattern?: string;
+    order?: {
+      type?: ("asc" | "desc");
+      caseSensitive?: boolean;
+      natural?: boolean;
+      key?: string;
+    };
+  })[] | {
+    type?: ("asc" | "desc");
+    caseSensitive?: boolean;
+    natural?: boolean;
+    key?: string;
+  });
+  minValues?: number;
+}, ...({
+  pathPattern: string;
+  order: ((string | {
+    valuePattern?: string;
+    order?: {
+      type?: ("asc" | "desc");
+      caseSensitive?: boolean;
+      natural?: boolean;
+      key?: string;
+    };
+  })[] | {
+    type?: ("asc" | "desc");
+    caseSensitive?: boolean;
+    natural?: boolean;
+    key?: string;
+  });
+  minValues?: number;
+})[]];
+type YamlSpacedComment = [] | [("always" | "never")] | [("always" | "never"), {
+  exceptions?: string[];
+  markers?: string[];
+}];
+type YieldStarSpacing = [] | [(("before" | "after" | "both" | "neither") | {
+  before?: boolean;
+  after?: boolean;
+})];
+type Yoda = [] | [("always" | "never")] | [("always" | "never"), {
+  exceptRange?: boolean;
+  onlyEquality?: boolean;
+}];
 // #endregion
