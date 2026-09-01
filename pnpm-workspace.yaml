@@ -3,15 +3,25 @@ minimumReleaseAgeExclude:
   - eslint-plugin-yml@3.5.0
   - svelte@5.56.4
 
-shamefullyHoist: true
-shellEmulator: true
-strictPeerDependencies: false
+minimumReleaseAgeExcludePrune: true
+
 trustPolicy: no-downgrade
 trustPolicyExclude:
   - cached-factory@0.1.0
 
+strictPeerDependencies: false
+shamefullyHoist: true
+shellEmulator: true
 packages:
   - fixtures/*
+
+allowBuilds:
+  esbuild: true
+  simple-git-hooks: true
+onlyBuiltDependencies:
+  - esbuild
+  - simple-git-hooks
+  - unrs-resolver
 
 catalogs:
   dev:
@@ -104,12 +114,3 @@ catalogs:
     toml-eslint-parser: ^1.0.3
     vue-eslint-parser: ^10.4.1
     yaml-eslint-parser: ^2.1.0
-
-onlyBuiltDependencies:
-  - esbuild
-  - simple-git-hooks
-  - unrs-resolver
-
-allowBuilds:
-  esbuild: true
-  simple-git-hooks: true
