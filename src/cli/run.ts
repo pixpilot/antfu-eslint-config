@@ -50,7 +50,7 @@ export async function run(options: CliRunOptions = {}): Promise<void> {
   if (!argSkipPrompt) {
     result = await p.group({
       uncommittedConfirmed: () => {
-        if (argSkipPrompt || isGitClean())
+        if (isGitClean())
           return Promise.resolve(true)
 
         return p.confirm({

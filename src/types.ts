@@ -25,6 +25,7 @@ export type TypedFlatConfigItem = Omit<ConfigWithExtends, 'plugins' | 'rules'> &
    *
    * @see [Using plugins in your configuration](https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new#using-plugins-in-your-configuration)
    */
+
   plugins?: Record<string, any>
 
   /**
@@ -224,6 +225,15 @@ export interface OptionsAntislop extends OptionsOverrides {
    * @default true
    */
   sonarjs?: boolean
+
+  /**
+   * Maximum allowed cognitive complexity for `sonarjs/cognitive-complexity`.
+   *
+   * Pass `false` to disable the rule entirely.
+   *
+   * @default 15
+   */
+  cognitiveComplexity?: number | false
 }
 
 export interface OptionsUnicorn extends OptionsOverrides {

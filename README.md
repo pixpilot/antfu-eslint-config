@@ -336,36 +336,38 @@ And that's it! Or you can configure each integration individually, for example:
 import antfu from '@antfu/eslint-config'
 
 export default antfu({
-  // Type of the project. 'lib' for libraries, the default is 'app'
+  /** Type of the project. 'lib' for libraries, the default is 'app' */
   type: 'lib',
 
-  // `.eslintignore` is no longer supported in Flat config, use `ignores` instead
-  // The `ignores` option in the option (first argument) is specifically treated to always be global ignores
-  // And will **extend** the config's default ignores, not override them
-  // You can also pass a function to modify the default ignores
+  /**
+   * `.eslintignore` is no longer supported in Flat config, use `ignores` instead
+   * The `ignores` option in the option (first argument) is specifically treated to always be global ignores
+   * And will **extend** the config's default ignores, not override them
+   * You can also pass a function to modify the default ignores
+   */
   ignores: [
     '**/fixtures',
     // ...globs
   ],
 
-  // Parse the `.gitignore` file to get the ignores, on by default
+  /** Parse the `.gitignore` file to get the ignores, on by default */
   gitignore: true,
 
   // Enable stylistic formatting rules
   // stylistic: true,
 
-  // Or customize the stylistic rules
+  /** Or customize the stylistic rules */
   stylistic: {
     indent: 2, // 4, or 'tab'
     quotes: 'single', // or 'double'
     braceStyle: 'stroustrup', // '1tbs', or 'allman'
   },
 
-  // TypeScript and Vue are autodetected, you can also explicitly enable them:
+  /** TypeScript and Vue are autodetected, you can also explicitly enable them: */
   typescript: true,
   vue: true,
 
-  // Disable jsonc and yaml support
+  /** Disable jsonc and yaml support */
   jsonc: false,
   yaml: false,
 })
@@ -514,14 +516,14 @@ export default antfu(
     typescript: true
   },
   {
-    // Remember to specify the file glob here, otherwise it might cause the vue plugin to handle non-vue files
+    /** Remember to specify the file glob here, otherwise it might cause the vue plugin to handle non-vue files */
     files: ['**/*.vue'],
     rules: {
       'vue/operator-linebreak': ['error', 'before'],
     },
   },
   {
-    // Without `files`, they are general rules for all files (Markdown excluded — see note below)
+    /** Without `files`, they are general rules for all files (Markdown excluded, see note below) */
     rules: {
       'style/semi': ['error', 'never'],
     },
@@ -548,7 +550,7 @@ export default antfu({
     overrides: {
       'ts/consistent-type-definitions': ['error', 'interface'],
     },
-    // type aware rules overrides should write here
+    /** type aware rules overrides should write here */
     overridesTypeAware: {
       'ts/no-unsafe-assignment': ['warn'],
     }
@@ -841,8 +843,10 @@ import antfu from '@antfu/eslint-config'
 export default antfu({
   antislop: {
     sonarjs: false,
-    // an object enables `eslint-plugin-slop` and is forwarded to it
-    // via `settings.slop`, for example to only inspect recently changed code
+    /**
+     * an object enables `eslint-plugin-slop` and is forwarded to it
+     * via `settings.slop`, for example to only inspect recently changed code
+     */
     slop: {
       inspection: { mode: 'recent-changes', tracebackCommits: 5 },
     },

@@ -83,6 +83,7 @@ export const defaultPluginRenaming = {
  * @returns {Promise<TypedFlatConfigItem[]>}
  *  The merged ESLint configurations.
  */
+// eslint-disable-next-line sonarjs/cognitive-complexity
 export function antfu(
   options: OptionsConfig & Omit<TypedFlatConfigItem, 'files' | 'ignores'> = {},
   ...userConfigs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any, any> | Linter.Config[]>[]
@@ -415,6 +416,7 @@ export function antfu(
   // We pick the known keys as ESLint would do schema validation
   const fusedConfig = flatConfigProps.reduce((acc, key) => {
     if (key in options)
+
       acc[key] = options[key] as any
     return acc
   }, {} as TypedFlatConfigItem)
@@ -426,6 +428,7 @@ export function antfu(
   composer = composer
     .append(
       ...configs,
+
       ...userConfigs as any,
     )
 
@@ -475,7 +478,7 @@ export function getOverrides<K extends keyof OptionsConfig>(
 ): Partial<Linter.RulesRecord & RuleOptions> {
   const sub = resolveSubOptions(options, key)
   return {
-    ...(options.overrides as any)?.[key],
+    ...(options.overrides as Record<string, TypedFlatConfigItem['rules']> | undefined)?.[key],
     ...'overrides' in sub
       ? sub.overrides
       : {},

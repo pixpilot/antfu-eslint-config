@@ -20,7 +20,7 @@ export async function unicorn(options: OptionsUnicorn = {}): Promise<TypedFlatCo
       name: 'antfu/unicorn/rules',
       rules: {
         ...(allRecommended
-          ? pluginUnicorn.configs.recommended.rules as any
+          ? pluginUnicorn.configs.recommended.rules
           : {
               'unicorn/consistent-empty-array-spread': 'error',
               'unicorn/error-message': 'error',

@@ -33,7 +33,7 @@
     "build": "nr gen && tsdown --clean --dts",
     "stub": "tsdown",
     "dev": "npx @eslint/config-inspector --config eslint.config.ts",
-    "build:inspector": "pnpm build && npx @eslint/config-inspector build --config eslint.config.ts --out-dir ./.eslint-config-inspector",
+    "build:inspector": "pnpm build && npx @eslint/config-inspector build --stats --config eslint.config.ts --out-dir ./.eslint-config-inspector",
     "watch": "tsdown --watch",
     "lint": "eslint",
     "gen": "tsx scripts/typegen.ts && tsx scripts/versiongen.ts",

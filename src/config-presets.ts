@@ -1,6 +1,6 @@
 import type { OptionsConfig } from './types'
 
-// @keep-sorted
+/** @keep-sorted */
 export const CONFIG_PRESET_FULL_ON: OptionsConfig = {
   angular: true,
   antislop: true,

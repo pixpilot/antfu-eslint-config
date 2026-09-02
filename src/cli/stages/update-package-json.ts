@@ -19,11 +19,12 @@ export async function updatePackageJson(result: PromptResult): Promise<void> {
   p.log.step(c.cyan`Bumping @antfu/eslint-config to v${version}`)
 
   const pkgContent = await fsp.readFile(pathPackageJSON, 'utf-8')
-  const pkg: Record<string, any> = JSON.parse(pkgContent)
+  const pkg: { devDependencies?: Record<string, string> } = JSON.parse(pkgContent)
 
   pkg.devDependencies ??= {}
-  pkg.devDependencies['@antfu/eslint-config'] = `^${version}`
-  pkg.devDependencies.eslint ??= versionsMap.eslint
+  const devDependencies = pkg.devDependencies
+  devDependencies['@antfu/eslint-config'] = `^${version}`
+  devDependencies.eslint ??= versionsMap.eslint
 
   const addedPackages: string[] = []
 
@@ -37,13 +38,13 @@ export async function updatePackageJson(result: PromptResult): Promise<void> {
           ]).forEach((f) => {
             if (!f)
               return
-            pkg.devDependencies[f] = versionsMap[f as keyof typeof versionsMap]
+            devDependencies[f] = versionsMap[f as keyof typeof versionsMap]
             addedPackages.push(f)
           })
           break
         case 'unocss':
           dependenciesMap.unocss.forEach((f) => {
-            pkg.devDependencies[f] = versionsMap[f as keyof typeof versionsMap]
+            devDependencies[f] = versionsMap[f as keyof typeof versionsMap]
             addedPackages.push(f)
           })
           break
@@ -55,7 +56,7 @@ export async function updatePackageJson(result: PromptResult): Promise<void> {
     const deps = dependenciesMap[framework]
     if (deps) {
       deps.forEach((f) => {
-        pkg.devDependencies[f] = versionsMap[f as keyof typeof versionsMap]
+        devDependencies[f] = versionsMap[f as keyof typeof versionsMap]
         addedPackages.push(f)
       })
     }

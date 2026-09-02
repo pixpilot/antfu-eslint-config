@@ -97,7 +97,7 @@ export async function pnpm(
       },
     })
 
-    if (yaml && stylistic) {
+    if (stylistic) {
       configs.push({
         files: ['pnpm-workspace.yaml'],
         languageOptions: {
@@ -113,7 +113,7 @@ export async function pnpm(
       })
     }
 
-    if (yaml && sort) {
+    if (sort) {
       configs.push({
         files: ['pnpm-workspace.yaml'],
         languageOptions: {

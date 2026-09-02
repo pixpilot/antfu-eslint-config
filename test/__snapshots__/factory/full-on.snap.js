@@ -516,18 +516,44 @@
     ],
   },
   {
-    "ignores": [
-      "**/*.md",
-    ],
-    "name": "antfu/antislop/rules",
+    "name": "antfu/antislop/setup",
     "plugins": [
       "slop",
       "sonarjs",
     ],
+  },
+  {
+    "files": [
+      "**/*.?([cm])[jt]s?(x)",
+      "**/*.{c,le,sc}ss",
+      "**/*.json",
+      "**/*.json5",
+      "**/*.md",
+      "**/*.svelte?(.{js,ts})",
+      "**/*.vue",
+      "**/*.y?(a)ml",
+      "**/*.xml",
+      "**/*.htm?(l)",
+      "**/*.jsonc",
+      "**/*.toml",
+      "**/*.{g,graph}ql",
+    ],
+    "ignores": [
+      "**/*.md/**/*.?([cm])[jt]s?(x)",
+    ],
+    "name": "antfu/antislop/rules/universal",
+    "rules": [
+      "slop/no-em-dash",
+    ],
+  },
+  {
+    "files": [
+      "**/*.?([cm])[jt]s?(x)",
+    ],
+    "name": "antfu/antislop/rules/javascript",
     "rules": [
       "slop/max-comment-length",
       "slop/no-chained-type-assertions",
-      "slop/no-em-dash",
       "slop/no-jargon",
       "slop/no-trivial-functions",
       "slop/no-trivial-type-aliases",
@@ -551,7 +577,6 @@
       "sonarjs/no-unused-collection",
       "sonarjs/no-use-of-empty-return-value",
       "sonarjs/prefer-single-boolean-return",
-      "ts/no-explicit-any",
     ],
   },
   {

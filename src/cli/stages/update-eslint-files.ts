@@ -20,7 +20,7 @@ export async function updateEslintFiles(result: PromptResult): Promise<void> {
   const pathPackageJSON = path.join(cwd, 'package.json')
 
   const pkgContent = await fsp.readFile(pathPackageJSON, 'utf-8')
-  const pkg: Record<string, any> = JSON.parse(pkgContent)
+  const pkg: { type?: string } = JSON.parse(pkgContent)
 
   const configFileName = pkg.type === 'module' ? 'eslint.config.js' : 'eslint.config.mjs'
   const pathFlatConfig = path.join(cwd, configFileName)

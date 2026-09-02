@@ -13,6 +13,7 @@ export default antfu(
     typescript: {
       erasableOnly: true,
     },
+    antislop: true,
     markdown: {
       overrides: {
         'no-dupe-keys': 'off',

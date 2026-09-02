@@ -78,10 +78,8 @@ function serializeConfigs(configs: TypedFlatConfigItem[]) {
       clone.plugins = Object.keys(c.plugins)
     }
     if (c.languageOptions) {
-      if (c.languageOptions.parser) {
-        if (typeof c.languageOptions.parser !== 'string') {
-          clone.languageOptions.parser = (c.languageOptions.parser as any).meta?.name ?? (c.languageOptions.parser as any).name ?? 'unknown'
-        }
+      if (c.languageOptions.parser && typeof c.languageOptions.parser !== 'string') {
+        clone.languageOptions.parser = (c.languageOptions.parser as any).meta?.name ?? (c.languageOptions.parser as any).name ?? 'unknown'
       }
       delete clone.languageOptions.globals
       if (c.languageOptions.parserOptions) {
@@ -90,10 +88,8 @@ function serializeConfigs(configs: TypedFlatConfigItem[]) {
         delete clone.languageOptions.parserOptions.tsconfigRootDir
       }
     }
-    if (c.processor) {
-      if (typeof c.processor !== 'string') {
-        clone.processor = (c.processor as any).meta?.name ?? 'unknown'
-      }
+    if (c.processor && typeof c.processor !== 'string') {
+      clone.processor = (c.processor as any).meta?.name ?? 'unknown'
     }
     if (c.rules) {
       clone.rules = Object.entries(c.rules)

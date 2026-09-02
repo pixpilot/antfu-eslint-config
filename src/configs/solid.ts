@@ -50,23 +50,23 @@ export async function solid(
       },
       name: 'antfu/solid/rules',
       rules: {
-        // reactivity
+        /** reactivity */
         'solid/components-return-once': 'warn',
         'solid/event-handlers': ['error', {
-          // if true, don't warn on ambiguously named event handlers like `onclick` or `onchange`
+          /** if true, don't warn on ambiguously named event handlers like `onclick` or `onchange` */
           ignoreCase: false,
-          // if true, warn when spreading event handlers onto JSX. Enable for Solid < v1.6.
+          /** if true, warn when spreading event handlers onto JSX. Enable for Solid < v1.6. */
           warnOnSpread: false,
         }],
-        // these rules are mostly style suggestions
+        /** these rules are mostly style suggestions */
         'solid/imports': 'error',
-        // identifier usage is important
+        /** identifier usage is important */
         'solid/jsx-no-duplicate-props': 'error',
         'solid/jsx-no-script-url': 'error',
         'solid/jsx-no-undef': 'error',
         'solid/jsx-uses-vars': 'error',
         'solid/no-destructure': 'error',
-        // security problems
+        /** security problems */
         'solid/no-innerhtml': ['error', { allowStatic: true }],
         'solid/no-react-deps': 'error',
         'solid/no-react-specific-props': 'error',

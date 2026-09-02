@@ -29,9 +29,11 @@ export async function markdown(
       files,
       ignores: [GLOB_MARKDOWN_IN_MARKDOWN],
       name: 'antfu/markdown/processor',
-      // `eslint-plugin-markdown` only creates virtual files for code blocks,
-      // but not the markdown file itself. We use `eslint-merge-processors` to
-      // add a pass-through processor for the markdown file itself.
+      /**
+       * `eslint-plugin-markdown` only creates virtual files for code blocks,
+       * but not the markdown file itself. We use `eslint-merge-processors` to
+       * add a pass-through processor for the markdown file itself.
+       */
       processor: mergeProcessors([
         markdown.processors!.markdown,
         processorPassThrough,
@@ -48,7 +50,7 @@ export async function markdown(
       rules: {
         ...markdown.configs.recommended.at(0)?.rules,
         'markdown/fenced-code-language': 'off',
-        // https://github.com/eslint/markdown/issues/294
+        /** https://github.com/eslint/markdown/issues/294 */
         'markdown/no-missing-label-refs': 'off',
         ...overridesMarkdown,
       },

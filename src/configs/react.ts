@@ -87,7 +87,7 @@ export async function react(
       rules: {
         ...pluginReact.configs.recommended.rules,
 
-        // preconfigured rules from eslint-plugin-react-refresh https://github.com/ArnaudBarre/eslint-plugin-react-refresh/tree/main/src
+        /** preconfigured rules from eslint-plugin-react-refresh https://github.com/ArnaudBarre/eslint-plugin-react-refresh/tree/main/src */
         'react-refresh/only-export-components': [
           'error',
           {
@@ -142,7 +142,7 @@ export async function react(
       files: filesTypeAware,
       name: 'antfu/react/typescript',
       rules: {
-        // Disables rules that are already handled by TypeScript
+        /** Disables rules that are already handled by TypeScript */
         'react/dom-no-string-style-prop': 'off',
         'react/dom-no-unknown-property': 'off',
       },
