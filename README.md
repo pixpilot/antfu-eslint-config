@@ -814,6 +814,50 @@ Running `npx eslint` should prompt you to install the required dependencies, oth
 npm i -D @angular-eslint/eslint-plugin @angular-eslint/eslint-plugin-template @angular-eslint/template-parser
 ```
 
+#### Anti-Slop
+
+> [!WARNING]
+> Experimental: the enabled rule set is maintained in-house and may change in any release without following semver.
+
+To guard against low-value code patterns commonly introduced by AI agents, you can explicitly turn on the anti-slop rules:
+
+```js
+// eslint.config.js
+import antfu from '@antfu/eslint-config'
+
+export default antfu({
+  antislop: true,
+})
+```
+
+This enables [`eslint-plugin-slop`](https://github.com/antfu/eslint-plugin-slop) and a curated, in-house maintained subset of [`eslint-plugin-sonarjs`](https://github.com/SonarSource/SonarJS) rules focusing on redundant and duplicated code. It also disallows explicit `any` when TypeScript is enabled (inspired by [this writeup on keeping AI-authored code clean](https://zenn.dev/singularity/articles/clean-code-ci-for-ai-era)).
+
+You can toggle each plugin and pass options to `eslint-plugin-slop`:
+
+```js
+// eslint.config.js
+import antfu from '@antfu/eslint-config'
+
+export default antfu({
+  antislop: {
+    sonarjs: false,
+    // an object enables `eslint-plugin-slop` and is forwarded to it
+    // via `settings.slop`, for example to only inspect recently changed code
+    slop: {
+      inspection: { mode: 'recent-changes', tracebackCommits: 5 },
+    },
+  },
+})
+```
+
+Running `npx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually:
+
+```bash
+npm i -D eslint-plugin-slop eslint-plugin-sonarjs
+```
+
+Since linters only see one file at a time, we recommend pairing this option with [`jscpd`](https://github.com/kucherenko/jscpd) to detect copy-paste duplication across files, and [`knip`](https://knip.dev) to find unused files, dependencies, and exports.
+
 ### Optional Rules
 
 This config also provides some optional plugins/rules for extended usage.

@@ -1,4 +1,5 @@
 export * from './angular'
+export * from './antislop'
 export * from './astro'
 export * from './command'
 export * from './comments'
