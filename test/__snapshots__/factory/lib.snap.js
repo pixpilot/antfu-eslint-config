@@ -940,6 +940,7 @@
       "yaml/flow-sequence-bracket-spacing",
       "yaml/indent",
       "yaml/key-spacing",
+      "yaml/no-multiple-empty-lines",
       "yaml/no-tab-indent",
       "yaml/quotes",
       "yaml/spaced-comment",

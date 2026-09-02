@@ -347,6 +347,7 @@ export function antfu(
       pnpm({
         isInEditor,
         json: options.jsonc !== false,
+        stylistic: stylisticOptions,
         yaml: options.yaml !== false,
         ...optionsPnpm,
       }),

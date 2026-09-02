@@ -31,6 +31,7 @@ export async function pnpm(
     isInEditor = false,
     json = true,
     sort = true,
+    stylistic = true,
     yaml = true,
   } = options
 
@@ -96,7 +97,23 @@ export async function pnpm(
       },
     })
 
-    if (sort) {
+    if (yaml && stylistic) {
+      configs.push({
+        files: ['pnpm-workspace.yaml'],
+        languageOptions: {
+          parser: yamlParser,
+        },
+        name: 'antfu/pnpm/pnpm-workspace-yaml-stylistic',
+        plugins: {
+          pnpm: pluginPnpm,
+        },
+        rules: {
+          'pnpm/yaml-blank-lines': 'error',
+        },
+      })
+    }
+
+    if (yaml && sort) {
       configs.push({
         files: ['pnpm-workspace.yaml'],
         languageOptions: {
@@ -138,23 +155,22 @@ export async function pnpm(
                 ],
 
                 // Dependency resolution
-                // @keep-sorted
                 ...[
                   'allowedDeprecatedVersions',
                   'blockExoticSubdeps',
                   'ignoredOptionalDependencies',
                   'minimumReleaseAge',
-                  'minimumReleaseAgeExclude',
-                  'minimumReleaseAgeExcludePrune',
                   'minimumReleaseAgeIgnoreMissingTime',
                   'minimumReleaseAgeStrict',
+                  'minimumReleaseAgeExcludePrune',
+                  'minimumReleaseAgeExclude',
                   'registrySupportsTimeField',
                   'resolutionMode',
                   'supportedArchitectures',
                   'trustLockfile',
                   'trustPolicy',
-                  'trustPolicyExclude',
                   'trustPolicyIgnoreAfter',
+                  'trustPolicyExclude',
                   'update',
                 ],
 

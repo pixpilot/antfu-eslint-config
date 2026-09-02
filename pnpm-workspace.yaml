@@ -1,21 +1,29 @@
 ignoreWorkspaceRootCheck: true
 
 minimumReleaseAgeExcludePrune: true
+minimumReleaseAgeExclude:
+  - eslint-plugin-pnpm@1.9.1
+  - pnpm-workspace-yaml@1.9.1
 
 trustPolicy: no-downgrade
 trustPolicyExclude:
   - cached-factory@0.1.0
+
 update:
   ignoreDeps:
     - typescript@7
+
 strictPeerDependencies: false
 shamefullyHoist: true
 shellEmulator: true
+
 packages:
   - fixtures/*
+
 allowBuilds:
   esbuild: true
   simple-git-hooks: true
+
 onlyBuiltDependencies:
   - esbuild
   - simple-git-hooks
@@ -98,7 +106,7 @@ catalogs:
     eslint-plugin-n: ^18.3.0
     eslint-plugin-no-only-tests: ^3.4.0
     eslint-plugin-perfectionist: ^5.10.1
-    eslint-plugin-pnpm: ^1.8.0
+    eslint-plugin-pnpm: ^1.9.1
     eslint-plugin-regexp: ^3.2.0
     eslint-plugin-toml: ^1.5.0
     eslint-plugin-unicorn: ^74.0.0
