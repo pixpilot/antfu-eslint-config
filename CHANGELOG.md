@@ -1,5 +1,11 @@
 ## [4.0.1](https://github.com/pixpilot/antfu-eslint-config/compare/v4.0.0...v4.0.1) (2025-08-19)
 
+## 4.0.6
+
+### Patch Changes
+
+- c5a0504: new release
+
 ## 4.0.5
 
 ### Patch Changes
