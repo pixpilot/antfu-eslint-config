@@ -11,6 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/pixpilot/antfu-eslint-config.git"
   },
+  "bugs": {
+    "url": "https://github.com/pixpilot/antfu-eslint-config/issues"
+  },
   "keywords": [
     "eslint-config"
   ],
