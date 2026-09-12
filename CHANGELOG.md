@@ -1,5 +1,13 @@
 ## [4.0.1](https://github.com/pixpilot/antfu-eslint-config/compare/v4.0.0...v4.0.1) (2025-08-19)
 
+## 5.0.0
+
+### Major Changes
+
+- 3ce98b9: Remove the built-in Drizzle ORM config. The `drizzle` option, the `OptionsDrizzle` type, the exported `drizzle()` config and the `drizzle/*` rules are gone.
+
+  They now live in `@pixpilot/drizzle-config`, which `@pixpilot/eslint-config` loads lazily behind its own `drizzle` option. To keep the rules when using this config directly, install `@pixpilot/drizzle-config` and spread `drizzleConfigs()` into your config.
+
 ## 4.1.0
 
 ### Minor Changes
