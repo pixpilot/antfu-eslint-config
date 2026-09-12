@@ -11,13 +11,16 @@ import parse from 'parse-gitignore'
 
 import { getEslintConfigContent } from '../utils'
 
+const ESLINT_OR_PRETTIER = /eslint|prettier/
+const ESLINT_CONFIG = /eslint\.config\./
+
 export async function updateEslintFiles(result: PromptResult): Promise<void> {
   const cwd = process.cwd()
   const pathESLintIgnore = path.join(cwd, '.eslintignore')
   const pathPackageJSON = path.join(cwd, 'package.json')
 
   const pkgContent = await fsp.readFile(pathPackageJSON, 'utf-8')
-  const pkg: Record<string, any> = JSON.parse(pkgContent)
+  const pkg: { type?: string } = JSON.parse(pkgContent)
 
   const configFileName = pkg.type === 'module' ? 'eslint.config.js' : 'eslint.config.mjs'
   const pathFlatConfig = path.join(cwd, configFileName)
@@ -62,7 +65,7 @@ export async function updateEslintFiles(result: PromptResult): Promise<void> {
   const files = fs.readdirSync(cwd)
   const legacyConfig: string[] = []
   files.forEach((file) => {
-    if (/eslint|prettier/.test(file) && !/eslint\.config\./.test(file))
+    if (ESLINT_OR_PRETTIER.test(file) && !ESLINT_CONFIG.test(file))
       legacyConfig.push(file)
   })
 

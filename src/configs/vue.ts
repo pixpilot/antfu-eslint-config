@@ -27,6 +27,7 @@ export async function vue(
     : options.sfcBlocks ?? {}
 
   const {
+    braceStyle = 'stroustrup',
     indent = 2,
   } = typeof stylistic === 'boolean' ? {} : stylistic
 
@@ -50,8 +51,10 @@ export async function vue(
 
   return [
     {
-      // This allows Vue plugin to work with auto imports
-      // https://github.com/vuejs/eslint-plugin-vue/pull/2422
+      /**
+       * This allows Vue plugin to work with auto imports
+       * https://github.com/vuejs/eslint-plugin-vue/pull/2422
+       */
       languageOptions: {
         globals: {
           computed: 'readonly',
@@ -86,7 +89,7 @@ export async function vue(
           },
           extraFileExtensions: ['.vue'],
           parser: options.typescript
-            ? await interopDefault(import('@typescript-eslint/parser')) as any
+            ? await interopDefault(import('@typescript-eslint/parser'))
             : null,
           sourceType: 'module',
         },
@@ -105,6 +108,7 @@ export async function vue(
             }),
           ]),
       rules: {
+
         ...pluginVue.configs.base.rules as any,
 
         ...vueVersion === 2
@@ -128,7 +132,7 @@ export async function vue(
         }],
         'vue/component-name-in-template-casing': ['error', 'PascalCase'],
         'vue/component-options-name-casing': ['error', 'PascalCase'],
-        // this is deprecated
+        /** this is deprecated */
         'vue/component-tags-order': 'off',
         'vue/custom-event-name-casing': ['error', 'camelCase'],
         'vue/define-macros-order': ['error', {
@@ -182,7 +186,7 @@ export async function vue(
                 multiline: 'always',
                 singleline: 'always',
               }],
-              'vue/brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
+              'vue/brace-style': ['error', braceStyle, { allowSingleLine: true }],
               'vue/comma-dangle': ['error', 'always-multiline'],
               'vue/comma-spacing': ['error', { after: true, before: false }],
               'vue/comma-style': ['error', 'last'],

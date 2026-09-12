@@ -2,11 +2,13 @@ import fs from 'node:fs/promises'
 import { join } from 'node:path'
 import process from 'node:process'
 
-import { execa } from 'execa'
+import { fileURLToPath } from 'node:url'
+import { x } from 'tinyexec'
+
 import { afterAll, beforeEach, expect, it } from 'vitest'
 
-const CLI_PATH = join(__dirname, '../bin/index.js')
-const genPath = join(__dirname, '..', '.temp', randomStr())
+const CLI_PATH = fileURLToPath(new URL('../bin/index.mjs', import.meta.url))
+const genPath = fileURLToPath(new URL(`../.temp/${randomStr()}`, import.meta.url))
 
 function randomStr() {
   return Math.random().toString(36).slice(2)
@@ -16,11 +18,14 @@ async function run(params: string[] = [], env = {
   SKIP_PROMPT: '1',
   NO_COLOR: '1',
 }) {
-  return execa('node', [CLI_PATH, ...params], {
-    cwd: genPath,
-    env: {
-      ...process.env,
-      ...env,
+  return x('node', [CLI_PATH, ...params], {
+    throwOnError: true,
+    nodeOptions: {
+      cwd: genPath,
+      env: {
+        ...process.env,
+        ...env,
+      },
     },
   })
 };

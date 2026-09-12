@@ -50,7 +50,7 @@ export async function run(options: CliRunOptions = {}): Promise<void> {
   if (!argSkipPrompt) {
     result = await p.group({
       uncommittedConfirmed: () => {
-        if (argSkipPrompt || isGitClean())
+        if (isGitClean())
           return Promise.resolve(true)
 
         return p.confirm({
@@ -75,7 +75,7 @@ export async function run(options: CliRunOptions = {}): Promise<void> {
         })
       },
       extra: ({ results }) => {
-        const isArgExtraValid = argExtra?.length && !argExtra.filter(element => !extra.includes(<ExtraLibrariesOption>element)).length
+        const isArgExtraValid = argExtra?.length && argExtra.every(element => extra.includes(<ExtraLibrariesOption>element))
 
         if (!results.uncommittedConfirmed || isArgExtraValid)
           return

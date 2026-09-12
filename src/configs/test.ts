@@ -4,7 +4,7 @@ import { GLOB_TESTS } from '../globs'
 import { interopDefault } from '../utils'
 
 // Hold the reference so we don't redeclare the plugin on each call
-let _pluginTest: any
+let _pluginTest: unknown
 
 export async function test(
   options: OptionsFiles & OptionsIsInEditor & OptionsOverrides = {},
@@ -55,6 +55,7 @@ export async function test(
         // Disables
         ...{
           'antfu/no-top-level-await': 'off',
+          'e18e/prefer-static-regex': 'off',
           'no-unused-expressions': 'off',
           'node/prefer-global/process': 'off',
           'ts/explicit-function-return-type': 'off',
