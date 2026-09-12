@@ -29,7 +29,7 @@ runs:
       with:
         version: ${{ inputs.pnpm-version }}
 
-    - name: Install pnpm (without version)
+    - name: Install pnpm (from packageManager field)
       uses: pnpm/action-setup@v4
       if: ${{ inputs.pnpm-version == '' }}
 
@@ -49,16 +49,15 @@ runs:
         cache: pnpm
         registry-url: ${{ inputs.registry-url }}
 
+    - name: Install @antfu/ni
+      run: npm i -g @antfu/ni
+      shell: bash
+
     - name: Install dependencies
       run: pnpm install
       shell: bash
 
-    - name: Install Turbo CLI
-      if: ${{ inputs.build == 'true' }}
-      run: pnpm add -g turbo
-      shell: bash
-
     - name: Build package
       if: ${{ inputs.build == 'true' }}
-      run: pnpm run build
+      run: nr build
       shell: bash
