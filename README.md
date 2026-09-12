@@ -13,7 +13,7 @@
 - Designed to work with TypeScript, JSX, Vue, JSON, YAML, Toml, Markdown, etc. Out-of-box.
 - Opinionated, but [very customizable](#customization)
 - [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
-- Optional [React](#react), [Next.js](#nextjs), [Svelte](#svelte), [UnoCSS](#unocss), [Astro](#astro), [Solid](#solid), [Drizzle](#drizzle) support
+- Optional [React](#react), [Next.js](#nextjs), [Svelte](#svelte), [UnoCSS](#unocss), [Astro](#astro), [Solid](#solid) support
 - Optional [formatters](#formatters) support for formatting CSS, HTML, XML, etc.
 - **Style principle**: Minimal for reading, stable for diff, consistent
   - Sorted imports, dangling commas
@@ -369,10 +369,9 @@ export default antfu({
     braceStyle: 'stroustrup', // '1tbs', or 'allman'
   },
 
-  /** TypeScript, Vue, and Drizzle are autodetected, you can also explicitly enable them: */
+  /** TypeScript and Vue are autodetected, you can also explicitly enable them: */
   typescript: true,
   vue: true,
-  drizzle: true,
 
   /** Disable jsonc and yaml support */
   jsonc: false,
@@ -868,19 +867,6 @@ npm i -D eslint-plugin-slop eslint-plugin-sonarjs
 ```
 
 Since linters only see one file at a time, we recommend pairing this option with [`jscpd`](https://github.com/kucherenko/jscpd) to detect copy-paste duplication across files, and [`knip`](https://knip.dev) to find unused files, dependencies, and exports.
-
-#### Drizzle
-
-Drizzle support is automatically enabled when `drizzle-orm` is installed. You can also explicitly enable/disable it:
-
-```js
-// eslint.config.js
-import antfu from '@pixpilot/antfu-eslint-config'
-
-export default antfu({
-  drizzle: true,
-})
-```
 
 ### Optional Rules
 

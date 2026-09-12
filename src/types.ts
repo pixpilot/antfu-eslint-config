@@ -333,9 +333,6 @@ export interface OptionsRegExp {
   level?: 'error' | 'warn'
 }
 
-export interface OptionsDrizzle extends OptionsOverrides {
-}
-
 export interface OptionsIsInEditor {
   isInEditor?: boolean
 }
@@ -445,13 +442,6 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
    * @default auto-detect based on the dependencies
    */
   typescript?: boolean | OptionsTypescript
-
-  /**
-   * Enable Drizzle ORM safety rules.
-   *
-   * @default auto-detect based on the dependencies
-   */
-  drizzle?: boolean | OptionsDrizzle
 
   /**
    * Enable JSX related rules.
@@ -699,7 +689,6 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
     markdown?: TypedFlatConfigItem['rules']
     yaml?: TypedFlatConfigItem['rules']
     toml?: TypedFlatConfigItem['rules']
-    drizzle?: TypedFlatConfigItem['rules']
     react?: TypedFlatConfigItem['rules']
     svelte?: TypedFlatConfigItem['rules']
   }

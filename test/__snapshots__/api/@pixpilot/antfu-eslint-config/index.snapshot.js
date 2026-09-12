@@ -10,7 +10,6 @@ export async function combine(..._) {}
 export async function command() {}
 export async function comments() {}
 export async function disables() {}
-export async function drizzle(_) {}
 export async function ensurePackages(_) {}
 export async function formatters(_, _) {}
 export function getOverrides(_, _) {}

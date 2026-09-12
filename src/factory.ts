@@ -12,7 +12,6 @@ import {
   command,
   comments,
   disables,
-  drizzle,
   ignores,
   imports,
   javascript,
@@ -95,7 +94,6 @@ export function antfu(
     astro: enableAstro = false,
     autoRenamePlugins = true,
     componentExts = [],
-    drizzle: enableDrizzle = isPackageExists('drizzle-orm'),
     e18e: enableE18e = true,
     gitignore: enableGitignore = true,
     ignores: userIgnores = [],
@@ -245,10 +243,6 @@ export function antfu(
         typescript: !!enableTypeScript,
       }),
     )
-  }
-
-  if (enableDrizzle) {
-    configs.push(drizzle(enableDrizzle === true ? {} : enableDrizzle))
   }
 
   if (stylisticOptions) {

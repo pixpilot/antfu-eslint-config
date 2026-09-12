@@ -5,7 +5,7 @@ import { builtinRules } from 'eslint/use-at-your-own-risk'
 import { CONFIG_PRESET_FULL_ON } from '../src/config-presets'
 import { antfu } from '../src/factory'
 
-const configs = await antfu({ ...CONFIG_PRESET_FULL_ON, drizzle: true })
+const configs = await antfu({ ...CONFIG_PRESET_FULL_ON })
   .prepend(
     {
       plugins: {
